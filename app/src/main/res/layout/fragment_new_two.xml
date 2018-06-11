@@ -1,0 +1,25 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <!--tools:context="com.rxjy.des.fragment.NewTwoFragment">-->
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="80px">
+    <com.rxjy.rxcompound.widget.CustomGridView
+        android:id="@+id/gv_des_dai_measure_photo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnWidth="290px"
+        android:horizontalSpacing="60px"
+        android:numColumns="2"
+        android:paddingBottom="30px"
+        android:paddingLeft="10px"
+        android:paddingRight="10px"
+        android:paddingTop="30px"
+        android:verticalSpacing="60px">
+
+    </com.rxjy.rxcompound.widget.CustomGridView>
+</ScrollView>
+</LinearLayout>

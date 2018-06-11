@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="100px"
+        android:background="#4990f9">
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="80px"
+            android:layout_height="80px"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            android:src="@drawable/ic_backwrite"
+            android:padding="20px"/>
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="消息"
+            android:textColor="@color/colorwhite"
+            android:textSize="@dimen/text_size_l6" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorBG">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="284px"
+            android:background="@mipmap/msg_bg_icon">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="180px"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:id="@+id/rl_msg_incident"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/iv_msg_incident"
+                        android:layout_width="58px"
+                        android:layout_height="58px"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="40px"
+                        android:src="@mipmap/msg_incident_normal_icon" />
+
+                    <TextView
+                        android:id="@+id/tv_msg_incident"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/iv_msg_incident"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="6px"
+                        android:text="事件"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/text_size_s" />
+
+                    <TextView
+                        android:id="@+id/tv_msg_incident_state"
+                        android:layout_width="16px"
+                        android:layout_height="16px"
+                        android:layout_marginLeft="88px"
+                        android:layout_marginTop="100px"
+                        android:background="@drawable/shape_tip"
+                        android:visibility="invisible" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_msg_train"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/iv_msg_train"
+                        android:layout_width="58px"
+                        android:layout_height="58px"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="40px"
+                        android:src="@mipmap/msg_train_normal_icon" />
+
+                    <TextView
+                        android:id="@+id/tv_msg_train"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/iv_msg_train"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="6px"
+                        android:text="培训"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/text_size_s" />
+
+                    <TextView
+                        android:id="@+id/tv_msg_train_state"
+                        android:layout_width="16px"
+                        android:layout_height="16px"
+                        android:layout_marginLeft="88px"
+                        android:layout_marginTop="100px"
+                        android:background="@drawable/shape_tip"
+                        android:visibility="invisible" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_msg_festival"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/iv_msg_festival"
+                        android:layout_width="58px"
+                        android:layout_height="58px"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="40px"
+                        android:src="@mipmap/msg_festival_normal_icon" />
+
+                    <TextView
+                        android:id="@+id/tv_msg_festival"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/iv_msg_festival"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="6px"
+                        android:text="节日"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/text_size_s" />
+
+                    <TextView
+                        android:id="@+id/tv_msg_festival_state"
+                        android:layout_width="16px"
+                        android:layout_height="16px"
+                        android:layout_marginLeft="88px"
+                        android:layout_marginTop="100px"
+                        android:background="@drawable/shape_tip"
+                        android:visibility="invisible" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_msg_activity"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/iv_msg_activity"
+                        android:layout_width="58px"
+                        android:layout_height="58px"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="40px"
+                        android:src="@mipmap/msg_activity_normal_icon" />
+
+                    <TextView
+                        android:id="@+id/tv_msg_activity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/iv_msg_activity"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="6px"
+                        android:text="活动"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/text_size_s" />
+
+                    <TextView
+                        android:id="@+id/tv_msg_activity_state"
+                        android:layout_width="16px"
+                        android:layout_height="16px"
+                        android:layout_marginLeft="88px"
+                        android:layout_marginTop="100px"
+                        android:background="@drawable/shape_tip"
+                        android:visibility="invisible" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_msg_other"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/iv_msg_other"
+                        android:layout_width="58px"
+                        android:layout_height="58px"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="40px"
+                        android:src="@mipmap/msg_other_normal_icon" />
+
+                    <TextView
+                        android:id="@+id/tv_msg_other"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/iv_msg_other"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="6px"
+                        android:text="活动"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/text_size_s" />
+
+                    <TextView
+                        android:id="@+id/tv_msg_other_state"
+                        android:layout_width="16px"
+                        android:layout_height="16px"
+                        android:layout_marginLeft="88px"
+                        android:layout_marginTop="100px"
+                        android:background="@drawable/shape_tip"
+                        android:visibility="invisible" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="674px"
+            android:layout_height="926px"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="180px"
+            android:alpha="0.9"
+            app:cardBackgroundColor="@color/colorWhite"
+            app:cardCornerRadius="20px">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="20px">
+
+                <ListView
+                    android:id="@+id/lv_msg"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:divider="@null"
+                    android:scrollbars="none"></ListView>
+
+                <ImageView
+                    android:id="@+id/iv_msg_without_data"
+                    android:layout_width="410px"
+                    android:layout_height="366px"
+                    android:layout_centerInParent="true"
+                    android:src="@mipmap/without_msg_icon"
+                    android:visibility="gone" />
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
+
+    </RelativeLayout>
+
+
+</LinearLayout>

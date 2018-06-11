@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorBG">
+    <!--tools:context=".activity.DesAlbum2Activity"-->
+
+
+
+    <include layout="@layout/include_header_layout"/>
+
+    <GridView
+        android:id="@+id/gv_des_album2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:horizontalSpacing="30px"
+        android:numColumns="3"
+        android:padding="30px"
+        android:verticalSpacing="30px"></GridView>
+
+</LinearLayout>

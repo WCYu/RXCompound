@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+    <include layout="@layout/include_header_tv_layout"></include>
+    <LinearLayout
+        android:id="@+id/hiddenDisplay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24px"
+        android:layout_marginTop="30px"
+        android:layout_marginBottom="10px"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="6px"
+            android:layout_height="28px"
+            android:background="@color/colorred" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8px"
+            android:text="转正注意事项"
+            android:textColor="#333"
+
+            android:textSize="30px" />
+    </LinearLayout>
+      <TextView
+          android:id="@+id/condition"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:textColor="#595757"
+          android:layout_marginLeft="38px"
+          android:layout_marginTop="10px"
+          android:textSize="26px"/>
+
+    <View
+        android:layout_marginTop="80px"
+        android:layout_width="match_parent"
+        android:layout_height="20px"
+        android:background="@color/cor9fa0a0"></View>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24px"
+        android:layout_marginTop="30px"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="6px"
+            android:layout_height="28px"
+            android:background="@color/colorred" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8px"
+            android:text="述职"
+            android:textColor="#333"
+
+            android:textSize="30px" />
+    </LinearLayout>
+    <EditText
+        android:id="@+id/duty"
+        android:layout_width="match_parent"
+        android:layout_height="250px"
+        android:layout_marginLeft="38px"
+        android:layout_marginRight="38px"
+        android:layout_marginTop="20px"
+        android:gravity="top"
+        android:background="@drawable/miaobian"
+        android:textSize="28px"/>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24px"
+        android:layout_marginTop="30px"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="6px"
+            android:layout_height="28px"
+            android:background="@color/colorred" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8px"
+            android:text="使用期业绩"
+            android:textColor="#333"
+
+            android:textSize="30px" />
+    </LinearLayout>
+    <EditText
+        android:id="@+id/achievement"
+        android:layout_width="match_parent"
+        android:layout_height="250px"
+        android:layout_marginLeft="38px"
+        android:layout_marginRight="38px"
+        android:layout_marginTop="20px"
+        android:gravity="top"
+        android:textSize="28px"
+        android:background="@drawable/miaobian"/>
+  <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:layout_weight="1">
+      <Button
+          android:id="@+id/submit"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:textSize="30px"
+          android:layout_alignParentBottom="true"
+          android:background="@color/colorred"
+          android:text="提交"/>
+  </RelativeLayout>
+</LinearLayout>

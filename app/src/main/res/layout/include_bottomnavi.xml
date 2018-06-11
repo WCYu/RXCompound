@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="100px"
+    android:background="@color/colorWhite">
+
+
+    <LinearLayout
+        android:id="@+id/ll_busicustomer"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center">
+        <ImageView
+            android:id="@+id/iv_busicustomer"
+            android:layout_width="40px"
+            android:layout_height="40px"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/ic_tab_hostpage"
+            android:layout_marginTop="20px"/>
+        <TextView
+            android:id="@+id/tv_busicustomer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="6px"
+            android:textSize="@dimen/text_size_4"
+            android:text="首页"
+            android:layout_marginBottom="10px"
+            android:textColor="@color/textgreytwo"/>
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/ll_busiwallet"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+        <ImageView
+            android:id="@+id/iv_busiwallet"
+            android:layout_width="40px"
+            android:layout_height="40px"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/ic_tab_more"
+            android:layout_gravity="center"
+            android:layout_marginTop="20px"/>
+            <TextView
+                android:id="@+id/red_display"
+                android:layout_width="16px"
+                android:layout_height="16px"
+                android:background="@drawable/dotred"
+                android:layout_toRightOf="@+id/iv_busiwallet"
+                android:visibility="gone"
+                android:layout_marginTop="20px"
+                />
+        </RelativeLayout>
+        <TextView
+            android:id="@+id/tv_busiwallet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="6px"
+            android:textSize="@dimen/text_size_4"
+            android:text="更多"
+            android:layout_marginBottom="10px"
+            android:textColor="@color/textgreytwo"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/ll_busiadd"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_busifind"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/iv_busifind"
+            android:layout_width="40px"
+            android:layout_height="40px"
+            android:layout_marginTop="20px"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/ic_tab_find" />
+
+
+        <TextView
+            android:id="@+id/tv_busifind"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6px"
+            android:layout_weight="1"
+            android:text="发现"
+            android:textSize="@dimen/text_size_4"
+            android:layout_marginBottom="10px"
+            android:textColor="@color/textgreytwo" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_busimine"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/ll_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+                <ImageView
+                    android:id="@+id/iv_busimine"
+                    android:layout_width="40px"
+                    android:layout_height="40px"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/ic_tab_main"
+                    android:layout_marginTop="20px"/>
+                <TextView
+                    android:id="@+id/tv_busimine"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginTop="6px"
+                    android:textSize="@dimen/text_size_4"
+                    android:text="我"
+                    android:layout_marginBottom="10px"
+                    android:textColor="@color/textgreytwo"/>
+            </LinearLayout>
+            <TextView
+                android:id="@+id/tv_msgnum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@+id/ll_view"
+                android:layout_alignTop="@+id/ll_view"
+                android:background="@drawable/dotred"
+                android:gravity="center"
+                android:text="1"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/text_size_m"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="280px">
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="280px"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_wallettitlebg" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="100px">
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="100px"
+                android:layout_marginRight="100px"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text=""
+                android:textColor="@color/colorwhite"
+                android:textSize="@dimen/text_size_l6" />
+
+            <ImageView
+                android:id="@+id/iv_back"
+                android:layout_width="80px"
+                android:layout_height="80px"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="8dp"
+                android:padding="20px"
+                android:src="@drawable/ic_backwrite" />
+
+            <TextView
+                android:id="@+id/tv_right"
+                android:layout_width="100px"
+                android:layout_height="fill_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10px"
+                android:gravity="center"
+                android:text="修改"
+                android:textColor="@color/colorwhite"
+                android:textSize="@dimen/text_size_l"
+                android:visibility="gone" />
+        </RelativeLayout>
+        <LinearLayout
+            android:id="@+id/ll_money"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center|bottom"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="合计"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/text_size_4"
+                android:layout_marginBottom="40px"/>
+            <TextView
+                android:id="@+id/tv_money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20px"
+                android:text="0.00"
+                android:textColor="@color/colorBG"
+                android:textSize="@dimen/text_size_sobig"
+                android:layout_marginLeft="20px"
+                android:layout_marginRight="25px"
+                android:layout_marginBottom="40px"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="(元)"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/text_size_4"
+                android:layout_marginBottom="40px"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+</RelativeLayout>

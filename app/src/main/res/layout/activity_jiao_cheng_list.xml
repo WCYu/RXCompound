@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <!--tools:context="com.rxjy.des.activity.JiaoChengListActivity">-->
+
+    <include layout="@layout/include_header_layout"/>
+    <LinearLayout
+        android:id="@+id/ll_biaoshu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="12px"
+        android:background="@color/colorWhite">
+
+        <ImageView
+            android:layout_width="204px"
+            android:layout_height="122px"
+            android:layout_marginBottom="24px"
+            android:layout_marginTop="12px"
+            android:src="@mipmap/jiaocheng1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24px"
+            android:layout_marginEnd="10px"
+            android:layout_marginTop="24px"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="标书提案新手入秘籍"
+                android:textColor="#595757"
+                android:textSize="@dimen/text_size_8" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24px"
+                android:text="标书提案可以提高客户对我们的认知度，加速民对我们的了解，便于双方达成合作。"
+                android:textColor="#898989"
+                android:textSize="@dimen/text_size_4" />
+
+        </LinearLayout>
+    </LinearLayout>
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="0.1px"
+        android:background="@color/colorline"/>
+
+    <LinearLayout
+        android:id="@+id/ll_yusuan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="12px"
+        android:background="@color/colorWhite">
+
+        <ImageView
+            android:layout_width="204px"
+            android:layout_height="122px"
+            android:layout_marginBottom="24px"
+            android:layout_marginTop="12px"
+            android:src="@mipmap/jiaocheng2" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24px"
+            android:layout_marginEnd="10px"
+            android:layout_marginTop="24px"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="如何利用工作室做好预算"
+                android:textColor="#595757"
+                android:textSize="@dimen/text_size_8" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24px"
+                android:text="通过工作室，客户可以共同参与打造预算和货比三家，做到真正的表里如一。"
+                android:textColor="#898989"
+                android:textSize="@dimen/text_size_4" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="0.1px"
+        android:background="@color/colorline"/>
+</LinearLayout>

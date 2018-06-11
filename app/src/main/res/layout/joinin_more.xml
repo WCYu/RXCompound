@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <include layout="@layout/layout_title" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="402px">
+        <ImageView
+            android:id="@+id/iv_morebanner"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:src="@drawable/ic_moretopbanner"
+            android:scaleType="fitXY"/>
+    </RelativeLayout>
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="88px"
+            android:gravity="center_vertical"
+            android:paddingLeft="30px"
+            android:text="瑞祥服务"
+            android:textSize="32px" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3px"
+            android:background="#f7f5f5" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/qingjia_line"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="15px"
+                    android:layout_marginTop="40px"
+                    android:layout_weight="1"
+                    android:src="@mipmap/more_redenvelopes" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="40px"
+                    android:gravity="center"
+                    android:text="红包"
+                    android:textSize="25px" />
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="3px"
+                android:layout_height="match_parent"
+                android:background="#f7f5f5" />
+
+            <LinearLayout
+                android:id="@+id/zhuanzheng_line"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imageView27"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="15px"
+                    android:layout_marginTop="40px"
+                    android:layout_weight="1"
+                    android:src="@mipmap/more_returnguest" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="40px"
+                    android:gravity="center"
+
+                    android:textSize="25px"
+                    android:text="回头客"/>
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="3px"
+                android:layout_height="match_parent"
+                android:background="#f7f5f5" />
+
+            <LinearLayout
+
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="15px"
+                    android:layout_marginTop="40px"
+
+                    android:src="@mipmap/more_joinin" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="40px"
+                    android:gravity="center"
+                    android:text="加盟推荐"
+                    android:textSize="25px" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="20px"
+            android:background="#f7f5f5" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="88px"
+            android:gravity="center_vertical"
+            android:paddingLeft="30px"
+            android:text="投资人服务"
+            android:textSize="32px" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3px"
+            android:background="#f7f5f5" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/matters"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="15px"
+                    android:layout_marginTop="40px"
+                    android:layout_weight="1"
+                    android:src="@mipmap/personnel_image" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="40px"
+                    android:gravity="center"
+                    android:text="人事"
+                    android:textSize="25px" />
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="3px"
+                android:layout_height="match_parent"
+                android:background="#f7f5f5" />
+
+            <LinearLayout
+                 android:id="@+id/finance"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="15px"
+                    android:layout_marginTop="40px"
+                    android:layout_weight="1"
+                    android:src="@mipmap/finance_image" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="40px"
+                    android:gravity="center"
+                    android:text="财务"
+                    android:textSize="25px" />
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="3px"
+                android:layout_height="match_parent"
+                android:background="#f7f5f5" />
+
+            <LinearLayout
+                    android:id="@+id/capital"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="15px"
+                    android:layout_marginTop="40px"
+                    android:layout_weight="1"
+                    android:src="@mipmap/capital_iamge" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="40px"
+                    android:gravity="center"
+                    android:text="资金"
+                    android:textSize="25px" />
+            </LinearLayout>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3px"
+            android:background="#f7f5f5" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                    android:id="@+id/affairs"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="15px"
+                    android:layout_marginTop="40px"
+                    android:layout_weight="1"
+                    android:src="@mipmap/bus_image" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="40px"
+                    android:gravity="center"
+                    android:text="商务"
+                    android:textSize="25px" />
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="3px"
+                android:layout_height="match_parent"
+                android:background="#f7f5f5" />
+
+            <LinearLayout
+                android:id="@+id/main_case"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="15px"
+                    android:layout_marginTop="40px"
+                    android:layout_weight="1"
+                    android:src="@mipmap/main_case" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="40px"
+                    android:gravity="center"
+                    android:text="主案"
+                    android:textSize="25px" />
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="3px"
+                android:layout_height="match_parent"
+                android:background="#f7f5f5" />
+
+            <LinearLayout
+                 android:id="@+id/engineering"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="15px"
+                    android:layout_marginTop="40px"
+                    android:layout_weight="1"
+                    android:src="@mipmap/engineering" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="40px"
+                    android:gravity="center"
+                    android:text="工程"
+                    android:textSize="25px" />
+            </LinearLayout>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3px"
+            android:background="#f7f5f5" />
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/company"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="15px"
+                    android:layout_marginTop="40px"
+                    android:layout_weight="1"
+                    android:src="@mipmap/company_image" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="40px"
+                    android:gravity="center"
+                    android:text="公司"
+                    android:textSize="25px" />
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="3px"
+                android:layout_height="match_parent"
+                android:background="#f7f5f5" />
+
+            <LinearLayout
+                    android:id="@+id/Material_dealer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="15px"
+                    android:layout_marginTop="40px"
+                    android:layout_weight="1"
+                    android:src="@mipmap/science" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="40px"
+                    android:gravity="center"
+                    android:text="材料商"
+                    android:textSize="25px" />
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="3px"
+                android:layout_height="match_parent"
+                android:background="#f7f5f5" />
+
+            <LinearLayout
+                android:id="@+id/project_Manager"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="15px"
+                    android:layout_marginTop="40px"
+                    android:layout_weight="1"
+                    android:src="@mipmap/project_image" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="40px"
+                    android:gravity="center"
+                    android:text="项目经理"
+                    android:textSize="25px" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>

@@ -1,0 +1,1593 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBG"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_above="@+id/ll_bottom"
+            android:background="@color/colorBG">
+
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <!--<LinearLayout-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="78px"-->
+                        <!--android:background="@drawable/shape_vessel_bg"-->
+                        <!--android:gravity="center_vertical"-->
+                        <!--android:orientation="horizontal"-->
+                        <!--android:padding="20px">-->
+
+                        <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:text="@string/proHead"-->
+                        <!--android:textColor="@color/cor9fa0a0"-->
+                        <!--android:textSize="@dimen/text_size_m" />-->
+
+                        <!--<EditText-->
+                        <!--android:id="@+id/et_measure_ci_pro_head"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:background="@null"-->
+                        <!--android:gravity="right"-->
+                        <!--android:textColor="@color/cor666"-->
+                        <!--android:textSize="@dimen/text_size_m" />-->
+
+                        <!--</LinearLayout>-->
+
+                        <!--<LinearLayout-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="78px"-->
+                        <!--android:layout_marginTop="10px"-->
+                        <!--android:background="@drawable/shape_vessel_bg"-->
+                        <!--android:gravity="center_vertical"-->
+                        <!--android:orientation="horizontal"-->
+                        <!--android:padding="20px">-->
+
+                        <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:text="@string/DecorationAddress"-->
+                        <!--android:textColor="@color/cor9fa0a0"-->
+                        <!--android:textSize="@dimen/text_size_m" />-->
+
+                        <!--<EditText-->
+                        <!--android:id="@+id/et_measure_ci_decoration_address"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:background="@null"-->
+                        <!--android:gravity="right"-->
+                        <!--android:textColor="@color/cor666"-->
+                        <!--android:textSize="@dimen/text_size_m" />-->
+
+                        <!--</LinearLayout>-->
+
+                        <!--<LinearLayout-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="78px"-->
+                        <!--android:layout_marginTop="10px"-->
+                        <!--android:background="@drawable/shape_vessel_bg"-->
+                        <!--android:gravity="center_vertical"-->
+                        <!--android:orientation="horizontal"-->
+                        <!--android:padding="20px">-->
+
+                        <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:text="@string/DecBudgetPriceUnit"-->
+                        <!--android:textColor="@color/cor9fa0a0"-->
+                        <!--android:textSize="@dimen/text_size_m" />-->
+
+                        <!--<EditText-->
+                        <!--android:id="@+id/et_measure_ca_dec_budget_price_unit"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:background="@null"-->
+                        <!--android:gravity="right"-->
+                        <!--android:inputType="numberDecimal"-->
+                        <!--android:textColor="@color/cor666"-->
+                        <!--android:textSize="@dimen/text_size_m" />-->
+
+                        <!--</LinearLayout>-->
+
+                        <!--<LinearLayout-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="78px"-->
+                        <!--android:layout_marginTop="10px"-->
+                        <!--android:background="@drawable/shape_vessel_bg"-->
+                        <!--android:gravity="center_vertical"-->
+                        <!--android:orientation="horizontal"-->
+                        <!--android:padding="20px">-->
+
+                        <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:text="@string/RentalUnit"-->
+                        <!--android:textColor="@color/cor9fa0a0"-->
+                        <!--android:textSize="@dimen/text_size_m" />-->
+
+                        <!--<EditText-->
+                        <!--android:id="@+id/et_measure_ca_renta_unit"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:background="@null"-->
+                        <!--android:gravity="right"-->
+                        <!--android:inputType="numberDecimal"-->
+                        <!--android:textColor="@color/cor666"-->
+                        <!--android:textSize="@dimen/text_size_m" />-->
+
+                        <!--</LinearLayout>-->
+
+                        <!--<LinearLayout-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginTop="20px"-->
+                        <!--android:gravity="center_vertical"-->
+                        <!--android:orientation="horizontal">-->
+
+                        <!--<View-->
+                        <!--android:layout_width="10px"-->
+                        <!--android:layout_height="38px"-->
+                        <!--android:background="@color/cor2196f3" />-->
+
+                        <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginLeft="8px"-->
+                        <!--android:text="@string/RentFreeDate"-->
+                        <!--android:textColor="@color/cor595757"-->
+                        <!--android:textSize="@dimen/text_size_l" />-->
+
+                        <!--</LinearLayout>-->
+
+                        <!--<RadioGroup-->
+                        <!--android:id="@+id/rg_measure_ca_rent_free_date"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginTop="20px"-->
+                        <!--android:orientation="horizontal">-->
+
+                        <!--<RadioButton-->
+                        <!--android:id="@+id/rb_measure_ca_rent_free_date_without"-->
+                        <!--android:layout_width="0dp"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:background="@drawable/selector_radio_button_spec"-->
+                        <!--android:button="@null"-->
+                        <!--android:gravity="center"-->
+                        <!--android:paddingBottom="20px"-->
+                        <!--android:paddingTop="20px"-->
+                        <!--android:text="@string/without"-->
+                        <!--android:textColor="@color/shape_radio_button_spec"-->
+                        <!--android:textSize="@dimen/text_size_m" />-->
+
+                        <!--<RadioButton-->
+                        <!--android:id="@+id/rb_measure_ca_rent_free_date_one_month"-->
+                        <!--android:layout_width="0dp"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginLeft="10px"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:background="@drawable/selector_radio_button_spec"-->
+                        <!--android:button="@null"-->
+                        <!--android:gravity="center"-->
+                        <!--android:paddingBottom="20px"-->
+                        <!--android:paddingTop="20px"-->
+                        <!--android:text="@string/one_month"-->
+                        <!--android:textColor="@color/shape_radio_button_spec"-->
+                        <!--android:textSize="@dimen/text_size_m" />-->
+
+                        <!--<RadioButton-->
+                        <!--android:id="@+id/rb_measure_ca_rent_free_date_between_one_two_month"-->
+                        <!--android:layout_width="0dp"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginLeft="10px"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:background="@drawable/selector_radio_button_spec"-->
+                        <!--android:button="@null"-->
+                        <!--android:gravity="center"-->
+                        <!--android:paddingBottom="20px"-->
+                        <!--android:paddingTop="20px"-->
+                        <!--android:text="@string/between_one_two_month"-->
+                        <!--android:textColor="@color/shape_radio_button_spec"-->
+                        <!--android:textSize="@dimen/text_size_m" />-->
+
+                        <!--<RadioButton-->
+                        <!--android:id="@+id/rb_measure_ca_rent_free_date_two_month_more"-->
+                        <!--android:layout_width="0dp"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginLeft="10px"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:background="@drawable/selector_radio_button_spec"-->
+                        <!--android:button="@null"-->
+                        <!--android:gravity="center"-->
+                        <!--android:paddingBottom="20px"-->
+                        <!--android:paddingTop="20px"-->
+                        <!--android:text="@string/two_month_more"-->
+                        <!--android:textColor="@color/shape_radio_button_spec"-->
+                        <!--android:textSize="@dimen/text_size_m" />-->
+
+                        <!--</RadioGroup>-->
+
+                        <!--<RelativeLayout-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="78px"-->
+                        <!--android:layout_marginTop="20px"-->
+                        <!--android:background="@drawable/shape_vessel_bg"-->
+                        <!--android:padding="20px">-->
+
+                        <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_centerVertical="true"-->
+                        <!--android:text="@string/tenancy_term"-->
+                        <!--android:textColor="@color/cor666"-->
+                        <!--android:textSize="@dimen/text_size_m" />-->
+
+                        <!--<TextView-->
+                        <!--android:id="@+id/tv_measure_tenancy_term_end_time"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_alignParentRight="true"-->
+                        <!--android:layout_centerVertical="true"-->
+                        <!--android:text="请选择"-->
+                        <!--android:textColor="@color/cor666"-->
+                        <!--android:textSize="@dimen/text_size_m" />-->
+
+                        <!--<TextView-->
+                        <!--android:id="@+id/tv_measure_tenancy_term_time_line"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_centerVertical="true"-->
+                        <!--android:layout_toLeftOf="@+id/tv_measure_tenancy_term_end_time"-->
+                        <!--android:text="—"-->
+                        <!--android:textColor="@color/cor666"-->
+                        <!--android:textSize="@dimen/text_size_m" />-->
+
+                        <!--<TextView-->
+                        <!--android:id="@+id/tv_measure_tenancy_term_start_time"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_centerVertical="true"-->
+                        <!--android:layout_toLeftOf="@+id/tv_measure_tenancy_term_time_line"-->
+                        <!--android:text="请选择"-->
+                        <!--android:textColor="@color/cor666"-->
+                        <!--android:textSize="@dimen/text_size_m" />-->
+
+                        <!--</RelativeLayout>-->
+
+                        <!--<LinearLayout-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginTop="20px"-->
+                        <!--android:gravity="center_vertical"-->
+                        <!--android:orientation="horizontal">-->
+
+                        <!--<View-->
+                        <!--android:layout_width="10px"-->
+                        <!--android:layout_height="38px"-->
+                        <!--android:background="@color/cor2196f3" />-->
+
+                        <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginLeft="8px"-->
+                        <!--android:text="@string/HousingSituation"-->
+                        <!--android:textColor="@color/cor595757"-->
+                        <!--android:textSize="@dimen/text_size_l" />-->
+
+                        <!--</LinearLayout>-->
+
+                        <!--<com.rxjy.des.widget.RadioGroup-->
+                        <!--android:id="@+id/rg_measure_ca_ca_housing_situation"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginTop="20px"-->
+                        <!--android:orientation="vertical">-->
+
+                        <!--<LinearLayout-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:orientation="horizontal">-->
+
+                        <!--<RadioButton-->
+                        <!--android:id="@+id/rb_measure_ca_ca_housing_situation_roughcast_house"-->
+                        <!--android:layout_width="0dp"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:background="@drawable/selector_radio_button_spec"-->
+                        <!--android:button="@null"-->
+                        <!--android:gravity="center"-->
+                        <!--android:paddingBottom="20px"-->
+                        <!--android:paddingTop="20px"-->
+                        <!--android:text="@string/roughcast_house"-->
+                        <!--android:textColor="@color/shape_radio_button_spec"-->
+                        <!--android:textSize="@dimen/text_size_m" />-->
+
+                        <!--<RadioButton-->
+                        <!--android:id="@+id/rb_measure_ca_ca_housing_situation_rinsing_house"-->
+                        <!--android:layout_width="0dp"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginLeft="10px"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:background="@drawable/selector_radio_button_spec"-->
+                        <!--android:button="@null"-->
+                        <!--android:gravity="center"-->
+                        <!--android:paddingBottom="20px"-->
+                        <!--android:paddingTop="20px"-->
+                        <!--android:text="@string/rinsing_house"-->
+                        <!--android:textColor="@color/shape_radio_button_spec"-->
+                        <!--android:textSize="@dimen/text_size_m" />-->
+
+                        <!--<RadioButton-->
+                        <!--android:id="@+id/rb_measure_ca_ca_housing_situation_remould_old_house"-->
+                        <!--android:layout_width="0dp"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginLeft="10px"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:background="@drawable/selector_radio_button_spec"-->
+                        <!--android:button="@null"-->
+                        <!--android:gravity="center"-->
+                        <!--android:paddingBottom="20px"-->
+                        <!--android:paddingTop="20px"-->
+                        <!--android:text="@string/remould_old_house"-->
+                        <!--android:textColor="@color/shape_radio_button_spec"-->
+                        <!--android:textSize="@dimen/text_size_m" />-->
+
+                        <!--<RadioButton-->
+                        <!--android:id="@+id/rb_measure_ca_ca_housing_situation_renovate"-->
+                        <!--android:layout_width="0dp"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginLeft="10px"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:background="@drawable/selector_radio_button_spec"-->
+                        <!--android:button="@null"-->
+                        <!--android:gravity="center"-->
+                        <!--android:paddingBottom="20px"-->
+                        <!--android:paddingTop="20px"-->
+                        <!--android:text="@string/renovate"-->
+                        <!--android:textColor="@color/shape_radio_button_spec"-->
+                        <!--android:textSize="@dimen/text_size_m" />-->
+
+                        <!--</LinearLayout>-->
+
+                        <!--<LinearLayout-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginTop="10px"-->
+                        <!--android:orientation="horizontal">-->
+
+                        <!--<RadioButton-->
+                        <!--android:id="@+id/rb_measure_ca_ca_housing_situation_deluxe_room"-->
+                        <!--android:layout_width="0dp"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:background="@drawable/selector_radio_button_spec"-->
+                        <!--android:button="@null"-->
+                        <!--android:gravity="center"-->
+                        <!--android:paddingBottom="20px"-->
+                        <!--android:paddingTop="20px"-->
+                        <!--android:text="@string/deluxe_room"-->
+                        <!--android:textColor="@color/shape_radio_button_spec"-->
+                        <!--android:textSize="@dimen/text_size_m" />-->
+
+                        <!--<View-->
+                        <!--android:layout_width="0dp"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginLeft="10px"-->
+                        <!--android:layout_weight="1" />-->
+
+                        <!--<View-->
+                        <!--android:layout_width="0dp"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginLeft="10px"-->
+                        <!--android:layout_weight="1" />-->
+
+                        <!--<View-->
+                        <!--android:layout_width="0dp"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginLeft="10px"-->
+                        <!--android:layout_weight="1" />-->
+
+                        <!--</LinearLayout>-->
+
+                        <!--</com.rxjy.des.widget.RadioGroup>-->
+                        <com.rxjy.rxcompound.widget.TextGridview
+                            android:id="@+id/tgv_houseface"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content">
+
+                        </com.rxjy.rxcompound.widget.TextGridview>
+
+                        <com.rxjy.rxcompound.widget.TextGridview
+                            android:id="@+id/tgv_wallmaterial"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content">
+
+                        </com.rxjy.rxcompound.widget.TextGridview>
+
+                        <com.rxjy.rxcompound.widget.TextGridview
+                            android:id="@+id/tgv_topmaterial"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content">
+
+                        </com.rxjy.rxcompound.widget.TextGridview>
+
+                        <com.rxjy.rxcompound.widget.TextGridview
+                            android:id="@+id/tgv_groundmaterial"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content">
+
+                        </com.rxjy.rxcompound.widget.TextGridview>
+
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20px"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@color/colorWhite"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:padding="20px">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="空调设备"
+                                    android:textColor="@color/cor595757"
+                                    android:textSize="@dimen/text_size_m" />
+
+                                <EditText
+                                    android:id="@+id/et_new_kongtiaoshebei"
+                                    android:layout_width="0px"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:background="@null"
+                                    android:gravity="right"
+                                    android:inputType="numberDecimal"
+                                    android:maxEms="11"
+                                    android:hint="请输入"
+                                    android:textColor="@color/cor595757"
+                                    android:textColorHint="@color/line"
+                                    android:textSize="@dimen/text_size_m" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center_vertical"
+                                    android:text="个"
+                                    android:textColor="@color/cor595757"
+                                    android:textSize="26px" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="1px"
+                                android:background="@color/colorWhite"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:padding="20px">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="强电箱"
+                                    android:textColor="@color/cor595757"
+                                    android:textSize="@dimen/text_size_m" />
+
+                                <EditText
+                                    android:id="@+id/et_new_qiangdianxiang"
+                                    android:layout_width="0px"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:background="@null"
+                                    android:gravity="right"
+                                    android:hint="请输入"
+                                    android:inputType="numberDecimal"
+                                    android:maxEms="11"
+                                    android:textColor="@color/cor595757"
+                                    android:textColorHint="@color/line"
+                                    android:textSize="@dimen/text_size_m" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center_vertical"
+                                    android:text="个"
+                                    android:textColor="@color/cor595757"
+                                    android:textSize="26px" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="1px"
+                                android:background="@color/colorWhite"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:padding="20px">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="弱电箱"
+                                    android:textColor="@color/cor595757"
+                                    android:textSize="@dimen/text_size_m" />
+
+                                <EditText
+                                    android:id="@+id/et_new_ruodianxiang"
+                                    android:layout_width="0px"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:background="@null"
+                                    android:gravity="right"
+                                    android:hint="请输入"
+                                    android:inputType="numberDecimal"
+                                    android:maxEms="11"
+                                    android:textColor="@color/cor595757"
+                                    android:textColorHint="@color/line"
+                                    android:textSize="@dimen/text_size_m" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center_vertical"
+                                    android:text="个"
+                                    android:textColor="@color/cor595757"
+                                    android:textSize="26px" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="1px"
+                                android:background="@color/colorWhite"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:padding="20px">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="上水点"
+                                    android:textColor="@color/cor595757"
+                                    android:textSize="@dimen/text_size_m" />
+
+                                <EditText
+                                    android:id="@+id/et_new_shangshuidian"
+                                    android:layout_width="0px"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:background="@null"
+                                    android:gravity="right"
+                                    android:hint="请输入"
+                                    android:inputType="numberDecimal"
+                                    android:maxEms="11"
+                                    android:textColor="@color/cor595757"
+                                    android:textColorHint="@color/line"
+                                    android:textSize="@dimen/text_size_m" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center_vertical"
+                                    android:text="个"
+                                    android:textColor="@color/cor595757"
+                                    android:textSize="26px" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="1px"
+                                android:background="@color/colorWhite"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:padding="20px">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="下水点"
+                                    android:textColor="@color/cor595757"
+                                    android:textSize="@dimen/text_size_m" />
+
+                                <EditText
+                                    android:id="@+id/et_xiashuidian"
+                                    android:layout_width="0px"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:background="@null"
+                                    android:gravity="right"
+                                    android:hint="请输入"
+                                    android:inputType="numberDecimal"
+                                    android:maxEms="11"
+                                    android:textColor="@color/cor595757"
+                                    android:textColorHint="@color/line"
+                                    android:textSize="@dimen/text_size_m" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center_vertical"
+                                    android:text="个"
+                                    android:textColor="@color/cor595757"
+                                    android:textSize="26px" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="1px"
+                                android:background="@color/colorWhite"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:padding="20px">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="下水点尺寸"
+                                    android:textColor="@color/cor595757"
+                                    android:textSize="@dimen/text_size_m" />
+
+                                <EditText
+                                    android:id="@+id/et_new_xiashuidianchicun"
+                                    android:layout_width="0px"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:background="@null"
+                                    android:gravity="right"
+                                    android:hint="请输入"
+                                    android:inputType="numberDecimal"
+                                    android:maxEms="11"
+                                    android:textColor="@color/cor595757"
+                                    android:textColorHint="@color/line"
+                                    android:textSize="@dimen/text_size_m" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center_vertical"
+                                    android:text="mm"
+                                    android:textColor="@color/cor595757"
+                                    android:textSize="26px" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="1px"
+                                android:background="@color/colorWhite"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:padding="20px">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="主梁下高"
+                                    android:textColor="@color/cor595757"
+                                    android:textSize="@dimen/text_size_m" />
+
+                                <EditText
+                                    android:id="@+id/et_new_zhuliangxiagao"
+                                    android:layout_width="0px"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:background="@null"
+                                    android:gravity="right"
+                                    android:hint="请输入"
+                                    android:inputType="numberDecimal"
+                                    android:maxEms="11"
+                                    android:textColor="@color/cor595757"
+                                    android:textColorHint="@color/line"
+                                    android:textSize="@dimen/text_size_m" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center_vertical"
+                                    android:text="mm"
+                                    android:textColor="@color/cor595757"
+                                    android:textSize="26px" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="1px"
+                                android:background="@color/colorWhite"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:padding="20px">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="次梁下高"
+                                    android:textColor="@color/cor595757"
+                                    android:textSize="@dimen/text_size_m" />
+
+                                <EditText
+                                    android:id="@+id/et_new_ciliangxiagao"
+                                    android:layout_width="0px"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:background="@null"
+                                    android:gravity="right"
+                                    android:hint="请输入"
+                                    android:inputType="numberDecimal"
+                                    android:maxEms="11"
+                                    android:textColor="@color/cor595757"
+                                    android:textColorHint="@color/line"
+                                    android:textSize="@dimen/text_size_m" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center_vertical"
+                                    android:text="mm"
+                                    android:textColor="@color/cor595757"
+                                    android:textSize="26px" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="1px"
+                                android:background="@color/colorWhite"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:padding="20px">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="原顶面高"
+                                    android:textColor="@color/cor595757"
+                                    android:textSize="@dimen/text_size_m" />
+
+                                <EditText
+                                    android:id="@+id/et_new_yuandingmiangao"
+                                    android:layout_width="0px"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:background="@null"
+                                    android:gravity="right"
+                                    android:hint="请输入"
+                                    android:inputType="numberDecimal"
+                                    android:maxEms="11"
+                                    android:textColor="@color/cor595757"
+                                    android:textColorHint="@color/line"
+                                    android:textSize="@dimen/text_size_m" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center_vertical"
+                                    android:text="mm"
+                                    android:textColor="@color/cor595757"
+                                    android:textSize="26px" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="1px"
+                                android:background="@color/colorWhite"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:padding="20px">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="喷淋最低点"
+                                    android:textColor="@color/cor595757"
+                                    android:textSize="@dimen/text_size_m" />
+
+                                <EditText
+                                    android:id="@+id/et_new_penlinzuididian"
+                                    android:layout_width="0px"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:background="@null"
+                                    android:gravity="right"
+                                    android:hint="请输入"
+                                    android:inputType="numberDecimal"
+                                    android:maxEms="11"
+                                    android:textColor="@color/cor595757"
+                                    android:textColorHint="@color/line"
+                                    android:textSize="@dimen/text_size_m" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center_vertical"
+                                    android:text="mm"
+                                    android:textColor="@color/cor595757"
+                                    android:textSize="26px" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="1px"
+                                android:background="@color/colorWhite"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:padding="20px">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="风口最低点"
+                                    android:textColor="@color/cor595757"
+                                    android:textSize="@dimen/text_size_m" />
+
+                                <EditText
+                                    android:id="@+id/et_new_fengkouzuididian"
+                                    android:layout_width="0px"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:background="@null"
+                                    android:gravity="right"
+                                    android:hint="请输入"
+                                    android:inputType="numberDecimal"
+                                    android:maxEms="11"
+                                    android:textColor="@color/cor595757"
+                                    android:textColorHint="@color/line"
+                                    android:textSize="@dimen/text_size_m" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center_vertical"
+                                    android:text="mm"
+                                    android:textColor="@color/cor595757"
+                                    android:textSize="26px" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="1px"
+                                android:background="@color/colorWhite"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:padding="20px">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="幕墙框架间距"
+                                    android:textColor="@color/cor595757"
+                                    android:textSize="@dimen/text_size_m" />
+
+                                <EditText
+                                    android:id="@+id/et_new_muqiangkuangjiajianju"
+                                    android:layout_width="0px"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:background="@null"
+                                    android:gravity="right"
+                                    android:hint="请输入"
+                                    android:inputType="numberDecimal"
+                                    android:maxEms="11"
+                                    android:textColor="@color/cor595757"
+                                    android:textColorHint="@color/line"
+                                    android:textSize="@dimen/text_size_m" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center_vertical"
+                                    android:text="mm"
+                                    android:textColor="@color/cor595757"
+                                    android:textSize="26px" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+
+                        <com.rxjy.rxcompound.widget.TextGridview
+                            android:id="@+id/tgv_windowtype"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content">
+
+                        </com.rxjy.rxcompound.widget.TextGridview>
+
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20px"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@color/colorWhite"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:padding="20px">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="窗台高"
+                                    android:textColor="@color/cor595757"
+                                    android:textSize="@dimen/text_size_m" />
+
+                                <EditText
+                                    android:id="@+id/et_measure_windowsill_height"
+                                    android:layout_width="0px"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:background="@null"
+                                    android:gravity="right"
+                                    android:hint="请输入"
+                                    android:inputType="numberDecimal"
+                                    android:maxEms="11"
+                                    android:textColor="@color/cor595757"
+                                    android:textColorHint="@color/line"
+                                    android:textSize="@dimen/text_size_m" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center_vertical"
+                                    android:text="mm"
+                                    android:textColor="@color/cor595757"
+                                    android:textSize="26px" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="1px"
+                                android:background="@color/colorWhite"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:padding="20px">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="窗户高"
+                                    android:textColor="@color/cor595757"
+                                    android:textSize="@dimen/text_size_m" />
+
+                                <EditText
+                                    android:id="@+id/et_measure_windows_height"
+                                    android:layout_width="0px"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:background="@null"
+                                    android:gravity="right"
+                                    android:hint="请输入"
+                                    android:inputType="numberDecimal"
+                                    android:maxEms="11"
+                                    android:textColor="@color/cor595757"
+                                    android:textColorHint="@color/line"
+                                    android:textSize="@dimen/text_size_m" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center_vertical"
+                                    android:text="mm"
+                                    android:textColor="@color/cor595757"
+                                    android:textSize="26px" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="1px"
+                                android:background="@color/colorWhite"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:padding="20px">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="窗户宽"
+                                    android:textColor="@color/cor595757"
+                                    android:textSize="@dimen/text_size_m" />
+
+                                <EditText
+                                    android:id="@+id/et_measure_windowsill_width"
+                                    android:layout_width="0px"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:background="@null"
+                                    android:gravity="right"
+                                    android:hint="请输入"
+                                    android:inputType="numberDecimal"
+                                    android:maxEms="11"
+                                    android:textColor="@color/cor595757"
+                                    android:textColorHint="@color/line"
+                                    android:textSize="@dimen/text_size_m" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center_vertical"
+                                    android:text="mm"
+                                    android:textColor="@color/cor595757"
+                                    android:textSize="26px" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+
+                        <com.rxjy.rxcompound.widget.TextGridview
+                            android:id="@+id/tgv_occupypublic"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content">
+
+                        </com.rxjy.rxcompound.widget.TextGridview>
+
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20px"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@color/colorWhite"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:padding="20px">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/CargoDoorHight"
+                                    android:textColor="@color/cor595757"
+                                    android:textSize="@dimen/text_size_m" />
+
+                                <EditText
+                                    android:id="@+id/et_measure_ca_cargo_door_hight"
+                                    android:layout_width="0px"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:background="@null"
+                                    android:gravity="right"
+                                    android:hint="请输入"
+                                    android:inputType="numberDecimal"
+                                    android:maxEms="11"
+                                    android:textColor="@color/cor595757"
+                                    android:textColorHint="@color/line"
+                                    android:textSize="@dimen/text_size_m" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center_vertical"
+                                    android:text="mm"
+                                    android:textColor="@color/cor595757"
+                                    android:textSize="26px" />
+
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="1px"
+                                android:background="@color/colorWhite"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:padding="20px">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/CargoDoorWide"
+                                    android:textColor="@color/cor595757"
+                                    android:textSize="@dimen/text_size_m" />
+
+                                <EditText
+                                    android:id="@+id/et_measure_ca_cargo_door_wide"
+                                    android:layout_width="0px"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:background="@null"
+                                    android:gravity="right"
+
+                                    android:hint="请输入"
+                                    android:inputType="numberDecimal"
+                                    android:maxEms="11"
+                                    android:textColor="@color/cor595757"
+                                    android:textColorHint="@color/line"
+                                    android:textSize="@dimen/text_size_m" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center_vertical"
+                                    android:text="mm"
+                                    android:textColor="@color/cor595757"
+                                    android:textSize="26px" />
+
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <com.rxjy.rxcompound.widget.TextGridview
+                            android:id="@+id/tgv_groundsmooth"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content">
+
+                        </com.rxjy.rxcompound.widget.TextGridview>
+
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20px"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@color/colorWhite"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:padding="20px">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="地面高差"
+                                    android:textColor="@color/cor595757"
+                                    android:textSize="@dimen/text_size_m" />
+
+                                <EditText
+                                    android:id="@+id/et_measure_ca_grond_elevation"
+                                    android:layout_width="0px"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:background="@null"
+                                    android:gravity="right"
+
+                                    android:hint="请输入"
+                                    android:inputType="numberDecimal"
+                                    android:maxEms="11"
+                                    android:textColor="@color/cor595757"
+                                    android:textColorHint="@color/line"
+                                    android:textSize="@dimen/text_size_m" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center_vertical"
+                                    android:text="mm"
+                                    android:textColor="@color/cor595757"
+                                    android:textSize="26px" />
+
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <com.rxjy.rxcompound.widget.TextGridview
+                            android:id="@+id/tgv_waterpath"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content">
+
+                        </com.rxjy.rxcompound.widget.TextGridview>
+
+                        <com.rxjy.rxcompound.widget.TextGridview
+                            android:id="@+id/tgv_originalground"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content">
+
+                        </com.rxjy.rxcompound.widget.TextGridview>
+
+
+                        <!--<LinearLayout-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginTop="20px"-->
+                        <!--android:orientation="horizontal">-->
+
+                        <!--<LinearLayout-->
+                        <!--android:layout_width="0dp"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:background="@drawable/shape_vessel_bg"-->
+                        <!--android:gravity="center_vertical"-->
+                        <!--android:orientation="horizontal"-->
+                        <!--android:padding="20px">-->
+
+                        <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:text="@string/UpWaterSpot"-->
+                        <!--android:textColor="@color/cor666"-->
+                        <!--android:textSize="@dimen/text_size_m" />-->
+
+                        <!--<EditText-->
+                        <!--android:id="@+id/et_measure_up_water_spot"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:background="@null"-->
+                        <!--android:gravity="right"-->
+                        <!--android:hint="@string/input_please"-->
+                        <!--android:inputType="numberDecimal"-->
+                        <!--android:maxEms="11"-->
+                        <!--android:textColor="@color/cor666"-->
+                        <!--android:textColorHint="@color/cor666"-->
+                        <!--android:textSize="@dimen/text_size_m" />-->
+
+                        <!--</LinearLayout>-->
+
+                        <!--<LinearLayout-->
+                        <!--android:layout_width="0dp"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginLeft="10px"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:background="@drawable/shape_vessel_bg"-->
+                        <!--android:gravity="center_vertical"-->
+                        <!--android:orientation="horizontal"-->
+                        <!--android:padding="20px">-->
+
+                        <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:text="@string/DownWaterSpot"-->
+                        <!--android:textColor="@color/cor666"-->
+                        <!--android:textSize="@dimen/text_size_m" />-->
+
+                        <!--<EditText-->
+                        <!--android:id="@+id/et_measure_down_water_spot"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:background="@null"-->
+                        <!--android:gravity="right"-->
+                        <!--android:hint="@string/input_please"-->
+                        <!--android:inputType="numberDecimal"-->
+                        <!--android:maxEms="11"-->
+                        <!--android:textColor="@color/cor666"-->
+                        <!--android:textColorHint="@color/cor666"-->
+                        <!--android:textSize="@dimen/text_size_m" />-->
+
+                        <!--</LinearLayout>-->
+
+                        <!--</LinearLayout>-->
+
+                        <!--<LinearLayout-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginTop="20px"-->
+                        <!--android:orientation="horizontal">-->
+
+                        <!--<LinearLayout-->
+                        <!--android:layout_width="0dp"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:background="@drawable/shape_vessel_bg"-->
+                        <!--android:gravity="center_vertical"-->
+                        <!--android:orientation="horizontal"-->
+                        <!--android:padding="20px">-->
+
+                        <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:text="@string/DownWaterSpotSize"-->
+                        <!--android:textColor="@color/cor666"-->
+                        <!--android:textSize="@dimen/text_size_m" />-->
+
+                        <!--<EditText-->
+                        <!--android:id="@+id/et_measure_down_water_spot_size"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:background="@null"-->
+                        <!--android:gravity="right"-->
+                        <!--android:hint="@string/input_please"-->
+                        <!--android:inputType="numberDecimal"-->
+                        <!--android:maxEms="11"-->
+                        <!--android:textColor="@color/cor666"-->
+                        <!--android:textColorHint="@color/cor666"-->
+                        <!--android:textSize="@dimen/text_size_m" />-->
+
+                        <!--</LinearLayout>-->
+
+                        <!--<LinearLayout-->
+                        <!--android:layout_width="0dp"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginLeft="10px"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:background="@drawable/shape_vessel_bg"-->
+                        <!--android:gravity="center_vertical"-->
+                        <!--android:orientation="horizontal"-->
+                        <!--android:padding="20px">-->
+
+                        <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:text="@string/MinimumSprayHeight"-->
+                        <!--android:textColor="@color/cor666"-->
+                        <!--android:textSize="@dimen/text_size_m" />-->
+
+                        <!--<EditText-->
+                        <!--android:id="@+id/et_measure_minimum_spray_height"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:background="@null"-->
+                        <!--android:gravity="right"-->
+                        <!--android:hint="@string/input_please"-->
+                        <!--android:inputType="numberDecimal"-->
+                        <!--android:maxEms="11"-->
+                        <!--android:textColor="@color/cor666"-->
+                        <!--android:textColorHint="@color/cor666"-->
+                        <!--android:textSize="@dimen/text_size_m" />-->
+
+                        <!--</LinearLayout>-->
+
+                        <!--</LinearLayout>-->
+
+
+                        <!--<LinearLayout-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginTop="20px"-->
+                        <!--android:orientation="horizontal">-->
+
+                        <!--<LinearLayout-->
+                        <!--android:layout_width="0dp"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:background="@drawable/shape_vessel_bg"-->
+                        <!--android:gravity="center_vertical"-->
+                        <!--android:orientation="horizontal"-->
+                        <!--android:padding="20px">-->
+
+                        <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:text="@string/windowsillHight"-->
+                        <!--android:textColor="@color/cor666"-->
+                        <!--android:textSize="@dimen/text_size_m" />-->
+
+                        <!--<EditText-->
+                        <!--android:id="@+id/et_measure_windowsill_height"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:background="@null"-->
+                        <!--android:gravity="right"-->
+                        <!--android:hint="@string/input_please"-->
+                        <!--android:inputType="numberDecimal"-->
+                        <!--android:maxEms="11"-->
+                        <!--android:textColor="@color/cor666"-->
+                        <!--android:textColorHint="@color/cor666"-->
+                        <!--android:textSize="@dimen/text_size_m" />-->
+
+                        <!--</LinearLayout>-->
+
+                        <!--<LinearLayout-->
+                        <!--android:layout_width="0dp"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginLeft="10px"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:background="@drawable/shape_vessel_bg"-->
+                        <!--android:gravity="center_vertical"-->
+                        <!--android:orientation="horizontal"-->
+                        <!--android:padding="20px">-->
+
+                        <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:text="@string/WindowWidth"-->
+                        <!--android:textColor="@color/cor666"-->
+                        <!--android:textSize="@dimen/text_size_m" />-->
+
+                        <!--<EditText-->
+                        <!--android:id="@+id/et_measure_windowsill_width"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:background="@null"-->
+                        <!--android:gravity="right"-->
+                        <!--android:hint="@string/input_please"-->
+                        <!--android:inputType="numberDecimal"-->
+                        <!--android:maxEms="11"-->
+                        <!--android:textColor="@color/cor666"-->
+                        <!--android:textColorHint="@color/cor666"-->
+                        <!--android:textSize="@dimen/text_size_m" />-->
+
+                        <!--</LinearLayout>-->
+
+                        <!--</LinearLayout>-->
+
+                        <!--<LinearLayout-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginTop="20px"-->
+                        <!--android:orientation="horizontal">-->
+
+                        <!--<LinearLayout-->
+                        <!--android:layout_width="0dp"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:background="@drawable/shape_vessel_bg"-->
+                        <!--android:gravity="center_vertical"-->
+                        <!--android:orientation="horizontal"-->
+                        <!--android:padding="20px">-->
+
+                        <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:text="@string/WindowHight"-->
+                        <!--android:textColor="@color/cor666"-->
+                        <!--android:textSize="@dimen/text_size_m" />-->
+
+                        <!--<EditText-->
+                        <!--android:id="@+id/et_measure_windows_height"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:background="@null"-->
+                        <!--android:gravity="right"-->
+                        <!--android:hint="@string/input_please"-->
+                        <!--android:inputType="numberDecimal"-->
+                        <!--android:maxEms="11"-->
+                        <!--android:textColor="@color/cor666"-->
+                        <!--android:textColorHint="@color/cor666"-->
+                        <!--android:textSize="@dimen/text_size_m" />-->
+
+                        <!--</LinearLayout>-->
+
+                        <!--<LinearLayout-->
+                        <!--android:layout_width="0dp"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginLeft="10px"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:background="@drawable/shape_vessel_bg"-->
+                        <!--android:gravity="center_vertical"-->
+                        <!--android:orientation="horizontal"-->
+                        <!--android:padding="20px">-->
+
+                        <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:text="@string/CurtainWallSpacing"-->
+                        <!--android:textColor="@color/cor666"-->
+                        <!--android:textSize="@dimen/text_size_m" />-->
+
+                        <!--<EditText-->
+                        <!--android:id="@+id/et_measure_curtain_wall_spacing"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:background="@null"-->
+                        <!--android:gravity="right"-->
+                        <!--android:hint="@string/input_please"-->
+                        <!--android:inputType="numberDecimal"-->
+                        <!--android:maxEms="11"-->
+                        <!--android:textColor="@color/cor666"-->
+                        <!--android:textColorHint="@color/cor666"-->
+                        <!--android:textSize="@dimen/text_size_m" />-->
+
+                        <!--</LinearLayout>-->
+
+                        <!--</LinearLayout>-->
+
+                        <!--<LinearLayout-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:orientation="vertical">-->
+
+                        <!--<com.rxjy.des.widget.CustomGridView-->
+                        <!--android:id="@+id/gv_des_dai_measure_photo"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:columnWidth="290px"-->
+                        <!--android:horizontalSpacing="60px"-->
+                        <!--android:numColumns="2"-->
+                        <!--android:paddingBottom="30px"-->
+                        <!--android:paddingLeft="10px"-->
+                        <!--android:paddingRight="10px"-->
+                        <!--android:paddingTop="30px"-->
+                        <!--android:verticalSpacing="60px">-->
+
+                        <!--</com.rxjy.des.widget.CustomGridView>-->
+
+                        <!--</LinearLayout>-->
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+            </ScrollView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_bottom"
+            android:layout_width="fill_parent"
+            android:layout_height="80px"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:orientation="horizontal"
+            android:visibility="invisible">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:background="@color/corf39800"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="当前您已赚了"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/text_size_m" />
+
+                <TextView
+                    android:id="@+id/tv_moneyget"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5px"
+                    android:text="￥"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/text_size_l" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/btn_des_dai_measure_sub"
+                android:layout_width="match_parent"
+                android:layout_height="80px"
+                android:layout_weight="2"
+                android:background="#2196f3"
+                android:gravity="center"
+                android:text="保存"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_l" />
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

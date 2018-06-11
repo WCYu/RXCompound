@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    android:orientation="vertical">
+
+
+    <include layout="@layout/layout_title" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="70px"
+                android:layout_marginTop="20px">
+
+                <ImageView
+                    android:id="@+id/imageView21"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20px"
+                    android:src="@drawable/ic_task"/>
+
+                <TextView
+                    android:id="@+id/tv_titles"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10px"
+                    android:layout_toEndOf="@+id/imageView21"
+                    android:layout_toRightOf="@+id/imageView21"
+                    android:text="管理绩效"
+                    android:textColor="@color/text_txtblack"
+                    android:textSize="@dimen/text_size_l" />
+
+                <TextView
+                    android:id="@+id/tv_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20px"
+                    android:text=""
+                    android:textColor="@color/text_txtgrey"
+                    android:textSize="@dimen/text_size_4" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tv_job"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20px"
+                    android:text=""
+                    android:textColor="@color/text_txtgrey"
+                    android:textSize="@dimen/text_size_4" />
+
+                <TextView
+                    android:id="@+id/tv_money"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20px"
+                    android:text="￥100"
+                    android:textColor="@color/text_txtblack"
+                    android:textSize="@dimen/text_size_l" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_task"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20px"
+                android:text=""
+                android:textColor="@color/text_txtgrey"
+                android:textSize="@dimen/text_size_m" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/imageView22"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20px"
+                    app:srcCompat="@drawable/ic_reason" />
+
+                <TextView
+                    android:id="@+id/tv_reason"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10px"
+                    android:layout_toEndOf="@+id/imageView22"
+                    android:layout_toRightOf="@+id/imageView22"
+                    android:text=""
+                    android:textColor="@color/text_txtgrey"
+                    android:textSize="@dimen/text_size_4" />
+            </RelativeLayout>
+
+            <EditText
+                android:id="@+id/ed_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20px"
+                android:background="@drawable/edtxt_bggrey"
+                android:ems="10"
+                android:gravity="left"
+                android:hint="输入任务描述"
+                android:inputType="textPersonName"
+                android:minHeight="400px"
+                android:padding="20px"
+                android:textColorHint="@color/text_txtgreytwo"
+                android:textSize="@dimen/text_size_4"
+                android:visibility="gone"/>
+        </LinearLayout>
+        <TextView
+            android:id="@+id/tv_submit"
+            android:layout_width="fill_parent"
+            android:layout_height="100px"
+            android:text="提交任务"
+            android:textColor="@color/colorWhite"
+            android:gravity="center"
+            android:textSize="@dimen/text_size_l"
+            android:visibility="gone"
+            android:background="@color/colorredbg"/>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,703 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <include layout="@layout/include_bus_title" />
+
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_above="@+id/ll_bottom"
+            android:layout_marginTop="20px"
+            android:orientation="vertical">
+
+            <ScrollView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:background="@color/colorwhite"
+                    android:orientation="vertical">
+
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="1px"
+                        android:background="@color/appbg" />
+
+                    <LinearLayout
+                        android:id="@+id/ll_customer"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20px"
+                        android:orientation="vertical"
+                        android:weightSum="1">
+                        <LinearLayout
+                            android:id="@+id/ll_address"
+                            android:layout_width="fill_parent"
+                            android:layout_height="70px"
+                            android:layout_marginLeft="20px"
+                            android:layout_marginRight="20px"
+                            android:focusable="true"
+                            android:focusableInTouchMode="true"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:visibility="gone">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20px"
+                                android:text="异       地"
+                                android:textColor="@color/textblack"
+                                android:textSize="@dimen/text_size_m" />
+
+                            <TextView
+                                android:id="@+id/tv_address"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="30px"
+                                android:text="请选择地点"
+                                android:textColor="@color/textgreyone"
+                                android:textSize="@dimen/text_size_m" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/v_address"
+                            android:layout_width="fill_parent"
+                            android:layout_height="1px"
+                            android:layout_weight="0.03"
+                            android:background="@drawable/line_orange"
+                            android:enabled="false" />
+
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="70px"
+                            android:layout_marginLeft="20px"
+                            android:layout_marginRight="20px"
+                            android:layout_marginTop="15px"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20px"
+                                android:text="姓       名ˇ"
+                                android:textColor="@color/textblack"
+                                android:textSize="@dimen/text_size_m" />
+
+                            <EditText
+                                android:id="@+id/ed_name"
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:layout_marginLeft="30px"
+                                android:background="@null"
+                                android:ems="10"
+                                android:hint="请输入姓名"
+                                android:inputType="textPersonName"
+                                android:textColor="@color/textblack"
+                                android:textColorHint="@color/textgreyone"
+                                android:textSize="@dimen/text_size_m" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/v_name"
+                            android:layout_width="fill_parent"
+                            android:layout_height="1px"
+                            android:background="@drawable/line_orange"
+                            android:enabled="false" />
+
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="70px"
+                            android:layout_marginLeft="20px"
+                            android:layout_marginRight="20px"
+                            android:layout_marginTop="15px"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20px"
+                                android:text="电       话ˇ"
+                                android:textColor="@color/textblack"
+                                android:textSize="@dimen/text_size_m" />
+
+                            <EditText
+                                android:id="@+id/ed_phone"
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:layout_marginLeft="30px"
+                                android:background="@null"
+                                android:ems="10"
+                                android:hint="请输入电话"
+                                android:inputType="number"
+                                android:maxLength="11"
+                                android:numeric="integer"
+                                android:textColor="@color/textblack"
+                                android:textColorHint="@color/textgreyone"
+                                android:textSize="@dimen/text_size_m" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/v_phone"
+                            android:layout_width="fill_parent"
+                            android:layout_height="1px"
+                            android:background="@drawable/line_orange"
+                            android:enabled="false" />
+
+                        <RelativeLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="70px"
+                            android:layout_marginLeft="20px"
+                            android:layout_marginRight="20px"
+                            android:layout_marginTop="15px"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/mianji_tv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignBaseline="@+id/ed_area"
+                                android:layout_alignBottom="@+id/ed_area"
+                                android:layout_alignParentLeft="true"
+                                android:layout_alignParentStart="true"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginStart="10dp"
+                                android:text="面       积ˇ"
+                                android:textColor="@color/textblack"
+                                android:textSize="@dimen/text_size_m" />
+
+                            <EditText
+                                android:id="@+id/ed_area"
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:layout_marginLeft="30px"
+                                android:layout_toLeftOf="@+id/mi_tv"
+                                android:layout_toRightOf="@+id/mianji_tv"
+                                android:background="@null"
+                                android:ems="10"
+                                android:hint="请输入面积"
+                                android:inputType="number"
+                                android:maxLength="18"
+                                android:numeric="integer"
+                                android:text=""
+                                android:textColor="@color/textblack"
+                                android:textColorHint="@color/textgreyone"
+                                android:textSize="@dimen/text_size_m" />
+
+                            <TextView
+                                android:id="@+id/mi_tv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignBaseline="@+id/ed_area"
+                                android:layout_alignBottom="@+id/ed_area"
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginRight="10px"
+                                android:text="M²"
+                                android:textColor="@color/textblack"
+                                android:textSize="@dimen/text_size_m" />
+
+                        </RelativeLayout>
+
+                        <TextView
+                            android:id="@+id/v_area"
+                            android:layout_width="fill_parent"
+                            android:layout_height="1px"
+                            android:background="@drawable/line_orange"
+                            android:enabled="false" />
+
+                        <LinearLayout
+                            android:id="@+id/ll_jobtype"
+                            android:layout_width="fill_parent"
+                            android:layout_height="70px"
+                            android:layout_marginLeft="20px"
+                            android:layout_marginRight="20px"
+                            android:layout_marginTop="15px"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20px"
+                                android:text="行业类型ˇ"
+                                android:textColor="@color/textblack"
+                                android:textSize="@dimen/text_size_m" />
+
+                            <TextView
+                                android:id="@+id/tv_jobtype"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="25px"
+                                android:text="请选择行业类型"
+                                android:textColor="@color/textgreyone"
+                                android:textSize="@dimen/text_size_m" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/v_jobtype"
+                            android:layout_width="fill_parent"
+                            android:layout_height="1px"
+                            android:background="@drawable/line_orange"
+                            android:enabled="false" />
+
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="70px"
+                            android:layout_marginLeft="20px"
+                            android:layout_marginRight="20px"
+                            android:layout_marginTop="15px"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:visibility="gone">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20px"
+                                android:text="信       电"
+                                android:textColor="@color/textblack"
+                                android:textSize="@dimen/text_size_m" />
+
+                            <EditText
+                                android:id="@+id/ed_personphone"
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:layout_marginLeft="30px"
+                                android:background="@null"
+                                android:ems="10"
+                                android:hint="请输入信息员电话"
+                                android:inputType="number"
+                                android:maxLength="11"
+                                android:numeric="integer"
+                                android:textColor="@color/textblack"
+                                android:textColorHint="@color/textgreyone"
+                                android:textSize="@dimen/text_size_m" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/v_personphone"
+                            android:layout_width="fill_parent"
+                            android:layout_height="1px"
+                            android:background="@drawable/line_orange"
+                            android:enabled="false" />
+
+                        <LinearLayout
+                            android:id="@+id/ll_housefrom"
+                            android:layout_width="fill_parent"
+                            android:layout_height="70px"
+                            android:layout_marginLeft="20px"
+                            android:layout_marginRight="20px"
+                            android:layout_marginTop="15px"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20px"
+                                android:text="房       源ˇ"
+                                android:textColor="@color/textblack"
+                                android:textSize="@dimen/text_size_m" />
+
+                            <TextView
+                                android:id="@+id/tv_housefrom"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="30px"
+                                android:text="请选择房源"
+                                android:textColor="@color/textgreyone"
+                                android:textSize="@dimen/text_size_m" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/v_housefrom"
+                            android:layout_width="fill_parent"
+                            android:layout_height="1px"
+                            android:background="@drawable/line_orange"
+                            android:enabled="false" />
+
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="70px"
+                            android:layout_marginLeft="20px"
+                            android:layout_marginRight="20px"
+                            android:layout_marginTop="15px"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20px"
+                                android:text="公       司ˇ"
+                                android:textColor="@color/textblack"
+                                android:textSize="@dimen/text_size_m" />
+
+                            <EditText
+                                android:id="@+id/ed_company"
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:layout_marginLeft="30px"
+                                android:background="@null"
+                                android:ems="10"
+                                android:hint="请输入公司名称"
+                                android:inputType="textPersonName"
+                                android:textColor="@color/textblack"
+                                android:textColorHint="@color/textgreyone"
+                                android:textSize="@dimen/text_size_m" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/v_company"
+                            android:layout_width="fill_parent"
+                            android:layout_height="1px"
+                            android:background="@drawable/line_orange"
+                            android:enabled="false" />
+
+                        <LinearLayout
+                            android:id="@+id/ll_city"
+                            android:layout_width="fill_parent"
+                            android:layout_height="70px"
+                            android:layout_marginLeft="20px"
+                            android:layout_marginRight="20px"
+                            android:layout_marginTop="15px"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20px"
+                                android:text="城       市ˇ"
+                                android:textColor="@color/textblack"
+                                android:textSize="@dimen/text_size_m" />
+
+                            <TextView
+                                android:id="@+id/tv_city"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="30px"
+                                android:text="请选择城市"
+                                android:textColor="@color/textgreyone"
+                                android:textSize="@dimen/text_size_m" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/v_city"
+                            android:layout_width="fill_parent"
+                            android:layout_height="1px"
+                            android:background="@drawable/line_orange"
+                            android:enabled="false" />
+
+                        <LinearLayout
+                            android:id="@+id/ll_from"
+                            android:layout_width="fill_parent"
+                            android:layout_height="70px"
+                            android:layout_marginLeft="20px"
+                            android:layout_marginRight="20px"
+                            android:layout_marginTop="15px"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20px"
+                                android:text="来       源ˇ"
+                                android:textColor="@color/textblack"
+                                android:textSize="@dimen/text_size_m" />
+
+                            <TextView
+                                android:id="@+id/tv_from"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="30px"
+                                android:text="请选择来源"
+                                android:textColor="@color/textgreyone"
+                                android:textSize="@dimen/text_size_m" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/v_from"
+                            android:layout_width="fill_parent"
+                            android:layout_height="1px"
+                            android:background="@drawable/line_orange"
+                            android:enabled="false" />
+
+                        <LinearLayout
+                            android:id="@+id/ll_channel"
+                            android:layout_width="fill_parent"
+                            android:layout_height="70px"
+                            android:layout_marginLeft="20px"
+                            android:layout_marginRight="20px"
+                            android:layout_marginTop="15px"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20px"
+                                android:text="渠       道ˇ"
+                                android:textColor="@color/textblack"
+                                android:textSize="@dimen/text_size_m" />
+
+                            <TextView
+                                android:id="@+id/tv_channel"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="30px"
+                                android:text="请选择渠道"
+                                android:textColor="@color/textgreyone"
+                                android:textSize="@dimen/text_size_m" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/v_channel"
+                            android:layout_width="fill_parent"
+                            android:layout_height="1px"
+                            android:background="@drawable/line_orange"
+                            android:enabled="false" />
+
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="70px"
+                            android:layout_marginLeft="20px"
+                            android:layout_marginRight="20px"
+                            android:layout_marginTop="15px"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20px"
+                                android:text="关       键"
+                                android:textColor="@color/textblack"
+                                android:textSize="@dimen/text_size_m" />
+
+                            <EditText
+                                android:id="@+id/ed_key"
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:layout_marginLeft="30px"
+                                android:background="@null"
+                                android:ems="10"
+                                android:hint="请输入关键"
+                                android:inputType="textPersonName"
+                                android:textColor="@color/textblack"
+                                android:textColorHint="@color/textgreyone"
+                                android:textSize="@dimen/text_size_m" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/v_key"
+                            android:layout_width="fill_parent"
+                            android:layout_height="1px"
+                            android:background="@drawable/line_orange"
+                            android:enabled="false" />
+
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="70px"
+                            android:layout_marginLeft="20px"
+                            android:layout_marginRight="20px"
+                            android:layout_marginTop="15px"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20px"
+                                android:text="咨       询"
+                                android:textColor="@color/textblack"
+                                android:textSize="@dimen/text_size_m" />
+
+                            <EditText
+                                android:id="@+id/ed_consult"
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:layout_marginLeft="30px"
+                                android:background="@null"
+                                android:ems="10"
+                                android:hint="请输入咨询"
+                                android:inputType="textPersonName"
+                                android:textColor="@color/textblack"
+                                android:textColorHint="@color/textgreyone"
+                                android:textSize="@dimen/text_size_m" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/v_consult"
+                            android:layout_width="fill_parent"
+                            android:layout_height="1px"
+                            android:background="@drawable/line_orange"
+                            android:enabled="false" />
+
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="70px"
+                            android:layout_marginLeft="20px"
+                            android:layout_marginRight="20px"
+                            android:layout_marginTop="15px"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20px"
+                                android:text="落       地"
+                                android:textColor="@color/textblack"
+                                android:textSize="@dimen/text_size_m" />
+
+                            <EditText
+                                android:id="@+id/ed_fall"
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:layout_marginLeft="30px"
+                                android:background="@null"
+                                android:ems="10"
+                                android:hint="请输入落地"
+                                android:inputType="textPersonName"
+                                android:textColor="@color/textblack"
+                                android:textColorHint="@color/textgreyone"
+                                android:textSize="@dimen/text_size_m" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/v_fall"
+                            android:layout_width="fill_parent"
+                            android:layout_height="1px"
+                            android:background="@drawable/line_orange"
+                            android:enabled="false" />
+
+                        <LinearLayout
+                            android:id="@+id/ll_port"
+                            android:layout_width="fill_parent"
+                            android:layout_height="70px"
+                            android:layout_marginLeft="20px"
+                            android:layout_marginRight="20px"
+                            android:layout_marginTop="15px"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20px"
+                                android:text="端       口ˇ"
+                                android:textColor="@color/textblack"
+                                android:textSize="@dimen/text_size_m" />
+
+                            <TextView
+                                android:id="@+id/tv_port"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="30px"
+                                android:text="请选择端口"
+                                android:textColor="@color/textgreyone"
+                                android:textSize="@dimen/text_size_m" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/v_port"
+                            android:layout_width="fill_parent"
+                            android:layout_height="1px"
+                            android:background="@drawable/line_orange"
+                            android:enabled="false" />
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/ll_platform"
+                        android:layout_width="fill_parent"
+                        android:layout_height="70px"
+                        android:layout_marginLeft="20px"
+                        android:layout_marginRight="20px"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20px"
+                            android:text="平       台ˇ"
+                            android:textColor="@color/textblack"
+                            android:textSize="@dimen/text_size_m" />
+
+                        <TextView
+                            android:id="@+id/tv_platform"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="30px"
+                            android:text="电商"
+                            android:textColor="@color/textblack"
+                            android:textSize="@dimen/text_size_m" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/v_platform"
+                        android:layout_width="fill_parent"
+                        android:layout_height="1px"
+                        android:background="@drawable/line_orange"
+                        android:enabled="false" />
+                </LinearLayout>
+
+
+            </ScrollView>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_bottom"
+            android:layout_width="fill_parent"
+            android:layout_height="80px"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_save"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:background="@color/textorange"
+                android:gravity="center"
+                android:text="保存"
+                android:textColor="@color/colorwhite"
+                android:textSize="@dimen/text_size_l" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+
+</LinearLayout>

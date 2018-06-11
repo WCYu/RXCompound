@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/layout_title" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="200px"
+        android:background="@drawable/ic_walletbgn"
+        android:gravity="center|bottom"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="实发金额"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_4"
+            android:layout_marginBottom="40px"/>
+
+        <com.rxjy.rxcompound.widget.moneytext.RiseNumberTextView
+            android:id="@+id/tv_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20px"
+            android:text="0.00"
+            android:textColor="@color/colorBG"
+            android:textSize="@dimen/text_size_sobig"
+            android:layout_marginLeft="20px"
+            android:layout_marginRight="25px"
+            android:layout_marginBottom="40px"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="(元)"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_4"
+            android:layout_marginBottom="40px"/>
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
+            <com.rxjy.rxcompound.widget.MoneyTzView
+                android:id="@+id/mv_one"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"/>
+
+            <com.rxjy.rxcompound.widget.MoneyTzView
+                android:id="@+id/mv_two"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+
+            <com.rxjy.rxcompound.widget.MoneyTzView
+                android:id="@+id/mv_three"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"/>
+
+            <com.rxjy.rxcompound.widget.MoneyTzView
+                android:id="@+id/mv_four"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+
+            <com.rxjy.rxcompound.widget.MoneyTzView
+                android:id="@+id/mv_five"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"/>
+            <com.rxjy.rxcompound.widget.MoneyTzView
+                android:id="@+id/mv_six"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"/>
+            <com.rxjy.rxcompound.widget.MoneyTzView
+                android:id="@+id/mv_seven"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    android:descendantFocusability="blocksDescendants"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24px">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_marginTop="2px"
+                android:id="@+id/iv_gongsimingcheng"
+                android:layout_width="29px"
+                android:layout_height="28px"
+                android:src="@mipmap/gongsimingcheng"/>
+            <TextView
+                android:layout_marginStart="12px"
+                android:layout_toRightOf="@+id/iv_gongsimingcheng"
+                android:id="@+id/tv_list_item_xunjian_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="新月茶楼"
+                android:textColor="@color/colorBlackLight"
+                android:textSize="28px" />
+
+            <ImageView
+                android:id="@+id/iv_phone_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/tv_list_item_home_name"
+                android:src="@drawable/selector_call"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tv_list_item_xunjian_state"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:text="待办"
+                android:textColor="#e60012"
+                android:textSize="@dimen/text_size_4" />
+
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_marginTop="15px"
+            android:layout_marginStart="40px"
+            android:id="@+id/tv_list_item_xunjian_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="规定 : 2017-06-07"
+            android:textSize="@dimen/text_size_s" />
+
+    </LinearLayout>
+
+</LinearLayout>

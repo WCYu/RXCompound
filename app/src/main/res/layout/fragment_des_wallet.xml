@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBG"
+    android:orientation="vertical">
+
+    <include layout="@layout/include_header_layout" />
+
+    <LinearLayout
+        android:id="@+id/ll_jiaocheng"
+        android:layout_width="match_parent"
+        android:layout_height="72px"
+        android:layout_marginTop="15px"
+        android:orientation="horizontal"
+        android:background="@color/colorWhite">
+
+        <ImageView
+            android:layout_width="48px"
+            android:layout_height="48px"
+            android:layout_gravity="center_vertical"
+            android:src="@mipmap/peixun_img"
+            android:layout_marginLeft="20px"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="10px"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+
+            android:text="教程"
+            android:textSize="@dimen/text_size_l" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="20px"
+            android:src="@mipmap/arrow_left" />
+    </LinearLayout>
+
+    <TextView
+       android:background="@color/cor888"
+       android:layout_width="match_parent"
+       android:layout_height="1px" />
+
+    <LinearLayout
+        android:id="@+id/ll_qianbao"
+        android:layout_width="match_parent"
+        android:layout_height="72px"
+        android:layout_marginTop="15px"
+        android:orientation="horizontal"
+        android:background="@color/colorWhite">
+
+        <ImageView
+            android:layout_width="48px"
+            android:layout_height="48px"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20px"
+            android:src="@mipmap/qianbao_img" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="10px"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+
+            android:text="钱包"
+            android:textSize="@dimen/text_size_l" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="20px"
+            android:src="@mipmap/arrow_left" />
+
+    </LinearLayout>
+    <TextView
+        android:background="@color/cor888"
+        android:layout_width="match_parent"
+        android:layout_height="1px" />
+</LinearLayout>

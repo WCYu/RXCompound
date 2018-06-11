@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/layout_title"/>
+    <TextView
+        android:id="@+id/head_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20px"
+        android:gravity="center"
+        android:text="初审/经验"
+        android:textSize="36px"
+        android:visibility="gone" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+         >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/head_image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingBottom="20px"
+                android:scaleType="fitXY"
+                android:src="@mipmap/jinyang" />
+
+            <TextView
+                android:id="@+id/titile_one"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20px"
+                android:layout_marginTop="20px"
+                android:text="1、行业经验"
+                android:textColor="@color/text_blackthree"
+                android:textSize="32px"
+                android:textStyle="bold" />
+
+            <com.rxjy.rxcompound.widget.MyGridView
+                android:id="@+id/Answer_grid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15px"
+                android:numColumns="2"></com.rxjy.rxcompound.widget.MyGridView>
+
+            <TextView
+                android:id="@+id/titile_two"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20px"
+                android:layout_marginTop="30px"
+                android:text="2、当前从业"
+                android:textColor="@color/text_blackthree"
+                android:textSize="30px"
+                android:textStyle="bold" />
+
+            <com.rxjy.rxcompound.widget.MyGridView
+                android:id="@+id/Answer_grid_two"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15px"
+                android:numColumns="2"></com.rxjy.rxcompound.widget.MyGridView>
+
+            <TextView
+                android:id="@+id/titile_there"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20px"
+                android:layout_marginTop="30px"
+                android:text="3、有无公司"
+                android:textColor="@color/text_blackthree"
+                android:textSize="32px"
+                android:textStyle="bold" />
+
+            <com.rxjy.rxcompound.widget.MyGridView
+                android:id="@+id/Answer_grid_there"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15px"
+                android:numColumns="2"></com.rxjy.rxcompound.widget.MyGridView>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+        <Button
+            android:id="@+id/sunmit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorred"
+            android:text="下一步" />
+</LinearLayout>

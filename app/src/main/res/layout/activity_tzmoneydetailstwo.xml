@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/include_walletdtitle" />
+
+
+    <GridView
+        android:id="@+id/gv_one"
+        android:layout_width="fill_parent"
+        android:layout_height="80px"
+        android:layout_marginTop="20px"
+        android:background="@color/colorWhite">
+
+    </GridView>
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="0.3dip"
+        android:layout_marginLeft="20px"
+        android:background="@color/line_color" />
+
+    <ListView
+        android:id="@+id/lv_one"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/colorWhite"
+        android:divider="@null">
+
+    </ListView>
+
+
+</LinearLayout>

@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="100px">
+        <include layout="@layout/layout_title"/>
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="250px">
+                <RelativeLayout
+                    android:id="@+id/rl_bankone"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="20px"
+                    android:layout_marginTop="20px"
+                    android:layout_marginBottom="20px"
+                    android:layout_marginRight="10px">
+                    <ImageView
+                        android:id="@+id/iv_bankone"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:src="@drawable/ic_bank1"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true" />
+
+                    <ImageView
+                        android:id="@+id/iv_addone"
+                        android:layout_width="70px"
+                        android:layout_height="70px"
+                        android:src="@drawable/ic_add"
+                        android:layout_centerVertical="true"
+                        android:layout_centerHorizontal="true" />
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:text="银行卡正面"
+                        android:gravity="center"
+                        android:textSize="@dimen/text_size_s"
+                        android:textColor="@color/colorwhite"
+                        android:background="@drawable/corner_greytranstwo"
+                        android:paddingTop="8px"
+                        android:paddingBottom="8px"/>
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/rl_designerhelp"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="10px"
+                    android:layout_marginTop="20px"
+                    android:layout_marginBottom="20px"
+                    android:layout_marginRight="20px">
+
+                    <ImageView
+                        android:id="@+id/iv_designerhelp"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:src="@drawable/ic_degree"/>
+                    <ImageView
+                        android:id="@+id/iv_addtwo"
+                        android:layout_width="70px"
+                        android:layout_height="70px"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_add" />
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:text="助理设计师-选填"
+                        android:gravity="center"
+                        android:textSize="@dimen/text_size_s"
+                        android:textColor="@color/colorwhite"
+                        android:background="@drawable/corner_greytranstwo"
+                        android:paddingTop="8px"
+                        android:paddingBottom="8px"/>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="250px">
+                <RelativeLayout
+                    android:id="@+id/rl_designermiddle"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="20px"
+                    android:layout_marginBottom="20px"
+                    android:layout_marginRight="10px">
+                    <ImageView
+                        android:id="@+id/iv_designermiddle"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:src="@drawable/ic_leaveoffice"/>
+
+                    <ImageView
+                        android:id="@+id/iv_addthree"
+                        android:layout_width="70px"
+                        android:layout_height="70px"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_add" />
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:text="中级设计师-选填"
+                        android:gravity="center"
+                        android:textSize="@dimen/text_size_s"
+                        android:textColor="@color/colorwhite"
+                        android:background="@drawable/corner_greytranstwo"
+                        android:paddingTop="8px"
+                        android:paddingBottom="8px"/>
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/rl_designerhight"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="10px"
+                    android:layout_marginBottom="20px"
+                    android:layout_marginRight="20px">
+
+                    <ImageView
+                        android:id="@+id/iv_designerhight"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:src="@drawable/ic_personphoto"/>
+                    <ImageView
+                        android:id="@+id/iv_addfour"
+                        android:layout_width="70px"
+                        android:layout_height="70px"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_add" />
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:text="高级设计师-选填"
+                        android:gravity="center"
+                        android:textSize="@dimen/text_size_s"
+                        android:textColor="@color/colorwhite"
+                        android:background="@drawable/corner_greytranstwo"
+                        android:paddingTop="8px"
+                        android:paddingBottom="8px"/>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:background="@color/colorwhite"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="30px">
+                <RelativeLayout
+                    android:id="@+id/rl_banktype"
+                    android:layout_width="fill_parent"
+                    android:layout_height="72px">
+
+                    <TextView
+                        android:id="@+id/textView16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="20px"
+                        android:textSize="@dimen/text_size_8"
+                        android:text="开户行         "/>
+
+                    <TextView
+                        android:id="@+id/tv_bank"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@+id/textView16"
+                        android:layout_toRightOf="@+id/textView16"
+                        android:layout_marginLeft="10px"
+                        android:textSize="@dimen/page_margin_8"
+                        android:textColor="@color/textgreyone"
+                        android:text="请选择" />
+
+                </RelativeLayout>
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.3px"
+                    android:background="@color/colorline"
+                    android:layout_marginLeft="20px"/>
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="72px">
+
+                    <TextView
+                        android:id="@+id/textView19"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="20px"
+                        android:textSize="@dimen/text_size_8"
+                        android:text="开户人姓名"/>
+
+                    <EditText
+                        android:id="@+id/et_bankname"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/textView19"
+                        android:ems="10"
+                        android:layout_marginLeft="20px"
+                        android:text=""
+                        android:hint="请输入"
+                        android:textColor="@color/textgreyone"
+                        android:textSize="@dimen/page_margin_8"
+                        android:singleLine="true"
+                        android:background="@null"/>
+
+                </RelativeLayout>
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.3px"
+                    android:background="@color/colorline"
+                    android:layout_marginLeft="20px"/>
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="72px">
+
+                    <TextView
+                        android:id="@+id/textView17"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="20px"
+                        android:textSize="@dimen/text_size_8"
+                        android:text="银行卡号    "/>
+                    <EditText
+                        android:id="@+id/et_banknum"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/textView17"
+                        android:ems="10"
+                        android:layout_marginLeft="20px"
+                        android:text=""
+                        android:hint="请输入"
+                        android:textColor="@color/textgreyone"
+                        android:textSize="@dimen/page_margin_8"
+                        android:inputType="number"
+                        android:singleLine="true"
+                        android:background="@null"/>
+                </RelativeLayout>
+
+
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+    </ScrollView>
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <TextView
+            android:id="@+id/tv_save"
+            android:layout_width="fill_parent"
+            android:layout_height="80px"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:text="保存"
+            android:gravity="center"
+            android:textColor="@color/colorwhite"
+            android:textSize="32px"
+            android:background="@color/colorred"/>
+    </RelativeLayout>
+
+
+</LinearLayout>

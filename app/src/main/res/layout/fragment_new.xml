@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/cor09bb07"
+       android:layout_marginBottom="10px"
+        >
+    <RadioGroup
+        android:paddingTop="15px"
+        android:id="@+id/rg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="horizontal"
+        android:paddingBottom="15px"
+    >
+        <RadioButton
+            android:id="@+id/rb0"
+            android:layout_height="wrap_content"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:button="@null"
+            android:text="   项目   "
+            android:checked="true"
+            android:textSize="30px"
+            android:gravity="center"
+            android:padding="20px"
+            android:paddingTop="6dip"
+            android:paddingBottom="6dip"
+            android:textColor="@drawable/title_text_sel"
+            android:background="@drawable/rb_bg_01"/>
+
+        <RadioButton
+            android:id="@+id/rb1"
+            android:layout_height="wrap_content"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:text="    客户    "
+            android:button="@null"
+            android:gravity="center"
+            android:textSize="30px"
+            android:paddingTop="6dip"
+            android:padding="20px"
+            android:paddingBottom="6dip"
+            android:textColor="@drawable/title_text_sel"
+            android:background="@drawable/rb_bg_02"/>
+    </RadioGroup>
+
+        <ImageView
+            android:id="@+id/lv_add"
+            android:layout_margin="20px"
+            android:layout_width="60px"
+            android:layout_height="60px"
+            android:layout_alignParentRight="true"
+            android:src="@mipmap/add_icon"
+            android:layout_marginTop="20px"
+            android:visibility="gone"
+            />
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/lv_home"
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></FrameLayout>
+</LinearLayout>

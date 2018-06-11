@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <include layout="@layout/include_bus_title"/>
+
+    <LinearLayout
+        android:id="@+id/ll_message"
+        android:layout_width="fill_parent"
+        android:layout_height="200px"
+        android:orientation="horizontal"
+        android:background="@color/textorange">
+        <ImageView
+            android:id="@+id/iv_icon"
+            android:layout_width="116px"
+            android:layout_height="116px"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="35px"
+            app:srcCompat="@drawable/ic_inficon" />
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginRight="20px"
+            android:layout_marginLeft="10px"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50px"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+                <TextView
+                    android:id="@+id/tv_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textColor="@color/colorwhite"
+                    android:textSize="@dimen/text_size_8"/>
+
+                <ImageView
+                    android:id="@+id/iv_vip"
+                    android:layout_width="30px"
+                    android:layout_height="30px"
+                    android:src="@drawable/ic_vipyellow"
+                    android:layout_marginLeft="15px"/>
+
+                <ImageView
+                    android:id="@+id/iv_level"
+                    android:layout_width="50px"
+                    android:layout_height="50px"
+                    android:src="@drawable/v1"
+                    android:layout_marginLeft="15px"/>
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8px"
+                android:layout_marginRight="20px"
+                android:gravity="center_vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="成就"
+                    android:textColor="@color/colorwhite"
+                    android:textSize="@dimen/text_size_m"/>
+                <ProgressBar
+                    android:id="@+id/pb_progress"
+                    android:layout_width="fill_parent"
+                    android:layout_height="20px"
+                    style="@style/StyleProgressBarMini"
+                    android:layout_marginLeft="10px"
+                    android:background="@drawable/progressbar_yellow"
+                    android:max="100"
+                    android:progress="0"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8px"
+                android:layout_marginLeft="60px"
+                android:layout_marginRight="20px"
+                android:gravity="center_horizontal">
+                <TextView
+                    android:id="@+id/tv_nowmoney"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0w"
+                    android:textColor="@color/textyellow"
+                    android:textSize="@dimen/text_size_m"/>
+                <TextView
+                    android:id="@+id/tv_allmoney"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="/ 0w"
+                    android:textColor="@color/colorwhite"
+                    android:textSize="@dimen/text_size_m"
+                    android:layout_marginLeft="8px"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/rl_houselevel"
+        android:layout_width="fill_parent"
+        android:layout_height="70px"
+        android:layout_marginTop="20px"
+        android:background="@color/colorwhite">
+
+        <ImageView
+            android:id="@+id/iv_houselevel"
+            android:layout_width="40px"
+            android:layout_height="40px"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20px"
+            app:srcCompat="@drawable/ic_level" />
+
+        <TextView
+            android:id="@+id/tv_houselevel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="30px"
+            android:layout_toRightOf="@+id/iv_houselevel"
+            android:text="量房等级"
+            android:textColor="@color/textblack"
+            android:textSize="@dimen/text_size_m"/>
+
+        <ImageView
+            android:id="@+id/iv_levels"
+            android:layout_width="50px"
+            android:layout_height="50px"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10px"
+            app:srcCompat="@drawable/v1" />
+
+        <ImageView
+            android:id="@+id/imageView9"
+            android:layout_width="30px"
+            android:layout_height="30px"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/iv_levels"
+            android:src="@drawable/ic_vipyellow"
+            android:layout_marginRight="10px"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/rl_setting"
+        android:layout_width="fill_parent"
+        android:layout_height="70px"
+        android:layout_marginTop="20px"
+        android:background="@color/colorwhite">
+        <ImageView
+            android:id="@+id/iv_setting"
+            android:layout_width="40px"
+            android:layout_height="40px"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20px"
+            app:srcCompat="@drawable/ic_settingnew" />
+
+        <TextView
+            android:id="@+id/tv_setting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="30px"
+            android:layout_toRightOf="@+id/iv_setting"
+            android:text="设置"
+            android:textColor="@color/textblack"
+            android:textSize="@dimen/text_size_m"/>
+
+        <ImageView
+            android:id="@+id/imageView11"
+            android:layout_width="30px"
+            android:layout_height="30px"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20px"
+            app:srcCompat="@drawable/ic_go" />
+
+    </RelativeLayout>
+
+
+</LinearLayout>

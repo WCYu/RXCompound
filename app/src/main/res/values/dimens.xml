@@ -1,0 +1,42 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <!-- 字体大小. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="text_size_l">30px</dimen>
+    <dimen name="text_size_l6">36px</dimen>
+    <dimen name="text_size_ll">40px</dimen>
+    <dimen name="text_size_big">50px</dimen>
+    <dimen name="text_size_maxbig">70px</dimen>
+    <dimen name="text_size_littlebig">48px</dimen>
+    <dimen name="text_size_sobig">55px</dimen>
+    <dimen name="text_size_8">28px</dimen>
+    <dimen name="text_size_m">26px</dimen>
+    <dimen name="text_size_4">24px</dimen>
+    <dimen name="text_size_s">22px</dimen>
+
+    <!-- 边距距离 -->
+    <dimen name="page_margin_s">20px</dimen>
+    <dimen name="page_margin_8">26px</dimen>
+    <dimen name="page_margin_sm">30px</dimen>
+    <dimen name="page_margin_m">40px</dimen>
+    <dimen name="page_margin_mm">50px</dimen>
+    <dimen name="page_margin_l">60px</dimen>
+    <dimen name="page_margin_lm">70px</dimen>
+
+    <!-- 线 -->
+    <dimen name="line_s">0.3dip</dimen>
+
+    <dimen name="line_one">1px</dimen>
+
+
+    <dimen name="text_size_lm">40px</dimen>
+    <dimen name="text_size_lmm">43px</dimen>
+    <dimen name="text_size_ls">35px</dimen>
+
+
+    <!-- listview行高 -->
+    <dimen name="lv_hight_s">80px</dimen>
+
+
+</resources>

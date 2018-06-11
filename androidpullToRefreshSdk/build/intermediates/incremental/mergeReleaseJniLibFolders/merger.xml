@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="F:\worker\android\svn\BusinessSystemCollection\MobilePlatform\trunk\020.SourceCode\010.android\RXCompound\androidpullToRefreshSdk\src\main\jniLibs"/></dataSet><dataSet config="release"><source path="F:\worker\android\svn\BusinessSystemCollection\MobilePlatform\trunk\020.SourceCode\010.android\RXCompound\androidpullToRefreshSdk\src\release\jniLibs"/></dataSet></merger>

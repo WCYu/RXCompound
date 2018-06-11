@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/layout_title" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:id="@+id/gv_top"
+                android:layout_width="fill_parent"
+                android:layout_height="100px"
+                android:background="@color/colorWhite">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20px"
+                    android:text="处罚人员"
+                    android:textColor="@color/text_black"
+                    android:textSize="@dimen/text_size_m" />
+
+                <ImageView
+                    android:id="@+id/imageView23"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20px"
+                    app:srcCompat="@mipmap/arrow_left" />
+
+                <TextView
+                    android:id="@+id/tv_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10px"
+                    android:layout_toLeftOf="@+id/imageView23"
+                    android:layout_toStartOf="@+id/imageView23"
+                    android:text=""
+                    android:textSize="@dimen/text_size_m" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20px"
+                android:background="@color/colorWhite"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/ed_idea"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20px"
+                    android:background="@null"
+                    android:ems="10"
+                    android:gravity="left|top"
+                    android:hint="这一刻的想法..."
+                    android:inputType="textPersonName"
+                    android:minHeight="200px"
+                    android:textSize="@dimen/text_size_m" />
+
+            </LinearLayout>
+            <RelativeLayout
+                android:id="@+id/rl_viewimg"
+                android:layout_width="fill_parent"
+                android:layout_height="150px"
+                android:orientation="vertical"
+                android:background="@color/colorWhite"
+                android:layout_marginBottom="20px">
+                <RelativeLayout
+                    android:layout_width="150px"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20px">
+                    <ImageView
+                        android:id="@+id/iv_picexample"
+                        android:layout_width="150px"
+                        android:layout_height="150px"
+                        android:scaleType="fitXY"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true" />
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:text="标准图片"
+                        android:textColor="@color/colorWhite"
+                        android:background="@color/bgtrsblackl"
+                        android:textSize="@dimen/text_size_s"
+                        android:paddingTop="5px"
+                        android:paddingBottom="5px"
+                        android:gravity="center"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true" />
+                </RelativeLayout>
+
+            </RelativeLayout>
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical"
+                android:background="@color/colorWhite">
+                <com.rxjy.rxcompound.widget.MyGridView
+                    android:id="@+id/gv_img"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginTop="10px"
+                    android:layout_marginBottom="20px"
+                    android:layout_marginLeft="20px"
+                    android:layout_marginRight="20px"
+                    android:verticalSpacing="10px"
+                    android:numColumns="4">
+
+                </com.rxjy.rxcompound.widget.MyGridView>
+            </LinearLayout>
+            
+        </LinearLayout>
+    </ScrollView>
+        <TextView
+            android:id="@+id/tv_submit"
+            android:layout_width="fill_parent"
+            android:layout_height="88px"
+            android:textSize="@dimen/text_size_l"
+            android:textColor="@color/colorWhite"
+            android:text="执行"
+            android:gravity="center"
+            android:background="@color/colorredbg"/>
+    </LinearLayout>
+</LinearLayout>

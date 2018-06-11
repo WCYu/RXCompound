@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        android:padding="24px">
+
+        <TextView
+            android:id="@+id/tv_list_item_audit_position"
+            android:layout_width="32px"
+            android:layout_height="32px"
+            android:background="@mipmap/list_index_icon"
+            android:gravity="center"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_m" />
+
+        <TextView
+            android:id="@+id/tv_list_item_audit_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20px"
+            android:layout_toRightOf="@+id/tv_list_item_audit_position"
+            android:text="精致石膏板"
+            android:singleLine="true"
+            android:layout_toLeftOf="@+id/iv_list_item_audit_state"
+            android:textColor="@color/colorBlackLight"
+            android:textSize="@dimen/text_size_l" />
+
+        <TextView
+            android:id="@+id/tv_list_item_audit_area"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/tv_list_item_audit_name"
+            android:layout_below="@+id/tv_list_item_audit_name"
+            android:layout_marginTop="6px"
+            android:text="泰山"
+            android:textColor="@color/colorGrayDark"
+            android:textSize="@dimen/text_size_m" />
+
+        <ImageView
+            android:id="@+id/iv_list_item_audit_state"
+            android:layout_width="64px"
+            android:layout_height="30px"
+            android:layout_alignBottom="@+id/tv_list_item_audit_name"
+            android:layout_alignParentRight="true"
+            android:src="@mipmap/audit_more_icon" />
+
+        <TextView
+            android:id="@+id/tv_list_item_audit_unit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/iv_list_item_audit_state"
+            android:layout_marginTop="10px"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/text_size_s" />
+
+        <TextView
+            android:id="@+id/tv_list_item_audit_unit_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/tv_list_item_audit_unit"
+            android:layout_alignBottom="@+id/tv_list_item_audit_unit"
+            android:layout_marginTop="10px"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/text_size_l" />
+
+    </RelativeLayout>
+
+</LinearLayout>

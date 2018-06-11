@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="80px"
+        android:layout_marginTop="10px">
+
+        <ImageView
+            android:id="@+id/iv_type"
+            android:layout_width="80px"
+            android:layout_height="50px"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="30px"
+            app:srcCompat="@drawable/ic_typeother" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20px"
+            android:layout_toRightOf="@+id/iv_type"
+            android:text=""
+            android:textSize="@dimen/text_size_8"
+            android:textColor="@color/textblack"/>
+
+        <ImageView
+            android:id="@+id/iv_go"
+            android:layout_width="30px"
+            android:layout_height="30px"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="12dp"
+            app:srcCompat="@drawable/ic_go" />
+
+        <TextView
+            android:id="@+id/tv_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/iv_go"
+            android:layout_marginRight="10px"
+            android:text=""
+            android:textSize="@dimen/text_size_m"
+            android:textColor="@color/textorange"/>
+    </RelativeLayout>
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="0.3px"
+        android:layout_marginLeft="25px"
+        android:background="@color/line"/>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="80px">
+        <TextView
+            android:id="@+id/tv_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="25px"
+            android:layout_marginLeft="25px"
+            android:text=""
+            android:layout_marginTop="10px"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:textColor="@color/textgreyone"
+            android:textSize="@dimen/text_size_m"/>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="80px">
+
+        <TextView
+            android:id="@+id/tv_person"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="25px"
+            android:textSize="@dimen/text_size_4"
+            android:textColor="@color/textgreytwo"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/tv_person"
+            android:textSize="@dimen/text_size_4"
+            android:textColor="@color/textgreytwo"
+            android:layout_marginLeft="20px"
+            android:text="" />
+
+        <ImageView
+            android:id="@+id/iv_add"
+            android:layout_width="80px"
+            android:layout_height="fill_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5px"
+            android:padding="20px"
+            app:srcCompat="@drawable/ic_busiadd" />
+
+        <ImageView
+            android:id="@+id/iv_phone"
+            android:layout_width="60px"
+            android:layout_height="fill_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_marginRight="20px"
+            android:layout_toLeftOf="@+id/iv_add"
+            android:padding="15px"
+            app:srcCompat="@drawable/ic_busiphone" />
+    </RelativeLayout>
+
+</LinearLayout>

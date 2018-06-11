@@ -1,0 +1,529 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBG"
+    android:orientation="vertical">
+
+    <include layout="@layout/include_header_green_layout" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="268px"
+        android:background="@mipmap/routing_bg_icon">
+
+        <TextView
+            android:id="@+id/tv_road_work_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/iv_pro_detail_person_icon"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="24px"
+            android:text="施工"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_s" />
+
+
+        <TextView
+            android:id="@+id/tv_unit_day"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/tv_road_work_text"
+            android:layout_marginRight="24px"
+            android:layout_marginTop="20px"
+            android:text="天"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_s" />
+
+        <TextView
+            android:id="@+id/tv_day_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_road_work_text"
+            android:layout_marginTop="4px"
+            android:layout_toLeftOf="@+id/tv_unit_day"
+            android:textColor="@color/colorWhite"
+            android:textSize="40px" />
+
+        <ImageView
+            android:id="@+id/iv_pro_detail_person_icon"
+            android:layout_width="32px"
+            android:layout_height="32px"
+            android:layout_marginLeft="24px"
+            android:layout_marginTop="80px"
+            android:src="@mipmap/person_white_icon" />
+
+        <TextView
+            android:id="@+id/tv_pro_detail_person"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/iv_pro_detail_person_icon"
+            android:layout_marginLeft="20px"
+            android:layout_marginRight="120px"
+            android:layout_toRightOf="@+id/iv_pro_detail_person_icon"
+            android:singleLine="true"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_l" />
+
+        <ImageView
+            android:id="@+id/iv_pro_detail_pro_name_icon"
+            android:layout_width="32px"
+            android:layout_height="32px"
+            android:layout_below="@+id/iv_pro_detail_person_icon"
+            android:layout_marginLeft="24px"
+            android:layout_marginTop="24px"
+            android:src="@mipmap/pro_name_icon" />
+
+        <TextView
+            android:id="@+id/tv_pro_detail_pro_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/iv_pro_detail_pro_name_icon"
+            android:layout_marginLeft="20px"
+            android:layout_marginRight="120px"
+            android:layout_toRightOf="@+id/iv_pro_detail_pro_name_icon"
+            android:singleLine="true"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_l" />
+
+        <ImageView
+            android:id="@+id/iv_pro_detail_address_icon"
+            android:layout_width="32px"
+            android:layout_height="32px"
+            android:layout_below="@+id/iv_pro_detail_pro_name_icon"
+            android:layout_marginLeft="24px"
+            android:layout_marginTop="24px"
+            android:src="@mipmap/address_icon" />
+
+        <TextView
+            android:id="@+id/tv_pro_detail_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/iv_pro_detail_address_icon"
+            android:layout_marginLeft="20px"
+            android:layout_marginRight="120px"
+            android:layout_toRightOf="@+id/iv_pro_detail_address_icon"
+            android:singleLine="true"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_l" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="24px"
+        android:background="@color/colorWhite"
+        android:orientation="horizontal"
+        android:padding="24px">
+
+        <ImageView
+            android:layout_width="10px"
+            android:layout_height="30px"
+            android:src="@mipmap/status_icon" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10px"
+            android:text="施工业务"
+            android:textColor="@color/colorBlackLight"
+            android:textSize="@dimen/text_size_l" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/colorLine" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        android:orientation="vertical"
+        android:padding="24px">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorWhite"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:id="@+id/rl_prepare"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/iv_prepare"
+                    android:layout_width="74px"
+                    android:layout_height="74px"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="28px"
+                    android:src="@mipmap/prepare_icon" />
+
+                <TextView
+                    android:id="@+id/tv_prepare"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/iv_prepare"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="18px"
+                    android:text="@string/prepare"
+                    android:textColor="@color/colorGrayDark"
+                    android:textSize="@dimen/text_size_l" />
+
+                <TextView
+                    android:id="@+id/tv_prepare_state_count"
+                    android:layout_width="24px"
+                    android:layout_height="24px"
+                    android:layout_alignRight="@+id/iv_prepare"
+                    android:layout_alignTop="@+id/iv_prepare"
+                    android:background="@drawable/shape_state_count"
+                    android:gravity="center"
+                    android:text="1"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/text_size_s"
+                    android:visibility="invisible" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_routing"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/iv_routing"
+                    android:layout_width="74px"
+                    android:layout_height="74px"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="28px"
+                    android:src="@mipmap/routing_icon" />
+
+                <TextView
+                    android:id="@+id/tv_routing"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/iv_routing"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="18px"
+                    android:text="@string/routing"
+                    android:textColor="@color/colorGrayDark"
+                    android:textSize="@dimen/text_size_l" />
+
+                <TextView
+                    android:id="@+id/tv_routing_state_count"
+                    android:layout_width="24px"
+                    android:layout_height="24px"
+                    android:layout_alignRight="@+id/iv_routing"
+                    android:layout_alignTop="@+id/iv_routing"
+                    android:background="@drawable/shape_state_count"
+                    android:gravity="center"
+                    android:text="1"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/text_size_s"
+                    android:visibility="invisible" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_camera"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/iv_camera"
+                    android:layout_width="74px"
+                    android:layout_height="74px"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="28px"
+                    android:src="@mipmap/camera_icon" />
+
+                <TextView
+                    android:id="@+id/tv_camera"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/iv_camera"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="18px"
+                    android:text="摄像头"
+                    android:textColor="@color/colorGrayDark"
+                    android:textSize="@dimen/text_size_l" />
+
+                <TextView
+                    android:id="@+id/tv_camera_state_count"
+                    android:layout_width="24px"
+                    android:layout_height="24px"
+                    android:layout_alignRight="@+id/iv_camera"
+                    android:layout_alignTop="@+id/iv_camera"
+                    android:background="@drawable/shape_state_count"
+                    android:gravity="center"
+                    android:text="1"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/text_size_s"
+                    android:visibility="invisible" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_visit"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/iv_visit"
+                    android:layout_width="74px"
+                    android:layout_height="74px"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="28px"
+                    android:src="@mipmap/visit_icon" />
+
+                <TextView
+                    android:id="@+id/tv_visit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/iv_visit"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="16px"
+                    android:text="项目回访"
+                    android:textColor="@color/colorGrayDark"
+                    android:textSize="28px" />
+
+                <TextView
+                    android:id="@+id/tv_visit_state_count"
+                    android:layout_width="24px"
+                    android:layout_height="24px"
+                    android:layout_alignRight="@+id/iv_visit"
+                    android:layout_alignTop="@+id/iv_visit"
+                    android:background="@drawable/shape_state_count"
+                    android:gravity="center"
+                    android:text="1"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/text_size_s"
+                    android:visibility="invisible" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="24px"
+        android:background="@color/colorWhite"
+        android:orientation="horizontal"
+        android:padding="24px">
+
+        <ImageView
+            android:layout_width="10px"
+            android:layout_height="30px"
+            android:src="@mipmap/status_icon" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10px"
+            android:text="合同"
+            android:textColor="@color/colorBlackLight"
+            android:textSize="@dimen/text_size_l" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/colorLine" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        android:orientation="vertical"
+        android:padding="24px">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorWhite"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:id="@+id/rl_contract"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/iv_contract"
+                    android:layout_width="74px"
+                    android:layout_height="74px"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="28px"
+                    android:src="@mipmap/contract_icon" />
+
+                <TextView
+                    android:id="@+id/tv_contract"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/iv_contract"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="18px"
+                    android:text="甲方合同"
+                    android:textColor="@color/colorGrayDark"
+                    android:textSize="@dimen/text_size_l" />
+
+                <TextView
+                    android:id="@+id/tv_contract_state_count"
+                    android:layout_width="24px"
+                    android:layout_height="24px"
+                    android:layout_alignRight="@+id/iv_contract"
+                    android:layout_alignTop="@+id/iv_contract"
+                    android:background="@drawable/shape_state_count"
+                    android:gravity="center"
+                    android:text="1"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/text_size_s"
+                    android:visibility="invisible" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_datum_upload"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/iv_material_upload"
+                    android:layout_width="74px"
+                    android:layout_height="74px"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="28px"
+                    android:src="@mipmap/material_upload_icon" />
+
+                <TextView
+                    android:id="@+id/tv_material_upload"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/iv_material_upload"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="18px"
+                    android:text="资料上传"
+                    android:textColor="@color/colorGrayDark"
+                    android:textSize="@dimen/text_size_l" />
+
+                <TextView
+                    android:id="@+id/tv_material_upload_state_count"
+                    android:layout_width="24px"
+                    android:layout_height="24px"
+                    android:layout_alignRight="@+id/iv_material_upload"
+                    android:layout_alignTop="@+id/iv_material_upload"
+                    android:background="@drawable/shape_state_count"
+                    android:gravity="center"
+                    android:text="1"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/text_size_s"
+                    android:visibility="invisible" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_mat_list"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/iv_mat_list"
+                    android:layout_width="74px"
+                    android:layout_height="74px"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="28px"
+                    android:src="@mipmap/mat_list_icon" />
+
+                <TextView
+                    android:id="@+id/tv_mat_list"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/iv_mat_list"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="18px"
+                    android:text="材料清单"
+                    android:textColor="@color/colorGrayDark"
+                    android:textSize="@dimen/text_size_l" />
+
+                <TextView
+                    android:id="@+id/tv_mat_list_state_count"
+                    android:layout_width="24px"
+                    android:layout_height="24px"
+                    android:layout_alignRight="@+id/iv_mat_list"
+                    android:layout_alignTop="@+id/iv_mat_list"
+                    android:background="@drawable/shape_state_count"
+                    android:gravity="center"
+                    android:text="1"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/text_size_s"
+                    android:visibility="invisible" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_audit"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/iv_audit"
+                    android:layout_width="74px"
+                    android:layout_height="74px"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="28px"
+                    android:src="@mipmap/pro_list_icon" />
+
+                <TextView
+                    android:id="@+id/tv_audit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/iv_audit"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="16px"
+                    android:text="审计"
+                    android:textColor="@color/colorGrayDark"
+                    android:textSize="28px" />
+
+                <TextView
+                    android:id="@+id/tv_audit_state_count"
+                    android:layout_width="24px"
+                    android:layout_height="24px"
+                    android:layout_alignRight="@+id/iv_audit"
+                    android:layout_alignTop="@+id/iv_audit"
+                    android:background="@drawable/shape_state_count"
+                    android:gravity="center"
+                    android:text="1"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/text_size_s"
+                    android:visibility="invisible" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

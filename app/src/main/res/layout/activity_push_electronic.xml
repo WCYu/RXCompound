@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBG"
+    android:orientation="vertical">
+
+    <include layout="@layout/include_header_layout" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="24px">
+
+        <EditText
+            android:id="@+id/et_push_electronic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_search_bg"
+            android:enabled="true"
+            android:gravity="top"
+            android:inputType="textMultiLine"
+            android:maxLines="8"
+            android:minLines="6"
+            android:padding="20px"
+            android:scrollbars="vertical"
+            android:textColorHint="@color/colorGray"
+            android:textSize="@dimen/text_size_m"></EditText>
+
+        <LinearLayout
+            android:id="@+id/lin_push_electronic"
+            android:layout_width="match_parent"
+            android:layout_height="60px"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_push_electronic_save"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/selector_btn_sub"
+                android:text="保存"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/text_size_l" />
+
+            <Button
+                android:id="@+id/btn_push_electronic_save_and_push"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20px"
+                android:layout_weight="1"
+                android:background="@drawable/selector_btn_sub"
+                android:text="保存并推送"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/text_size_l" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

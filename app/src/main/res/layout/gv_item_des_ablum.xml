@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+    android:gravity="center">
+
+    <RelativeLayout
+        android:layout_width="200px"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv_des_ablum"
+            android:layout_width="match_parent"
+            android:layout_height="200px"
+            android:scaleType="fitXY"
+            android:background="@drawable/shape_bg_iv_add"/>
+
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/iv_des_ablum_delete"
+            android:layout_width="40px"
+            android:layout_height="40px"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10px"
+            android:layout_marginTop="10px"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/delete"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

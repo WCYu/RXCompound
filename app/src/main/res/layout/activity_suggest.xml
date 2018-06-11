@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="100px"
+        android:background="#4990f9">
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="80px"
+            android:layout_height="80px"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            android:src="@drawable/ic_backwrite"
+            android:padding="20px"/>
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="投诉与建议"
+            android:textColor="@color/colorwhite"
+            android:textSize="@dimen/text_size_l6" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/et_suggest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorWhite"
+            android:enabled="true"
+            android:gravity="top"
+            android:hint="请输入投诉或建议信息..."
+            android:inputType="textMultiLine"
+            android:maxLines="10"
+            android:minLines="8"
+            android:padding="24px"
+            android:scrollbars="vertical"
+            android:textColorHint="@color/colorGray"
+            android:textSize="@dimen/text_size_m">
+
+        </EditText>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/colorLine" />
+
+        <GridView
+            android:id="@+id/gv_suggest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:horizontalSpacing="24px"
+            android:numColumns="3"
+            android:padding="24px"
+            android:verticalSpacing="24px"></GridView>
+
+    </LinearLayout>
+
+</LinearLayout>

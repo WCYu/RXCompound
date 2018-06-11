@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        android:padding="24px">
+
+        <TextView
+            android:id="@+id/tv_electronic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_size_l"
+            android:textColor="@color/colorBlackLight"
+            android:text="房屋现状"/>
+
+        <TextView
+            android:id="@+id/tv_electronic_state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_size_s"
+            android:layout_alignParentRight="true"
+            android:layout_alignBottom="@+id/tv_electronic"
+            android:textColor="@color/colorGrayDark"
+            android:text="未推送"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

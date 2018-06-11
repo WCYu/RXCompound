@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 边框  -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <!-- 设置固定填充色 -->
+    <solid android:color="#ffffff" />
+    <stroke android:width="1px"
+        android:color="#9fa0a0"/>
+
+    <corners android:radius="0px"  />
+</shape>

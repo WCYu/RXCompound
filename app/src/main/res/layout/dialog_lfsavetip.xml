@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="320px"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:background="@drawable/border_write">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="确认返回"
+            android:layout_marginTop="60px"
+            android:textColor="@color/text_black"
+            android:textSize="@dimen/text_size_lm"/>
+
+        <TextView
+            android:id="@+id/tv_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20px"
+            android:text="您的量房资料还未保存，确认返回？"
+            android:textSize="@dimen/text_size_ls"
+            android:textColor="@color/action_bar_bg"/>
+
+
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1px"
+            android:layout_marginTop="40px"
+            android:background="#dcdcdc"/>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/tv_cancle"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:text="取消"
+                android:textSize="@dimen/text_size_lmm"
+                android:textColor="@color/cor0068b7"
+                android:gravity="center"/>
+            <View
+                android:layout_width="1px"
+                android:layout_height="fill_parent"
+                android:background="#dcdcdc"/>
+            <TextView
+                android:id="@+id/tv_sure"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:text="确定"
+                android:textColor="@color/cor0068b7"
+                android:textSize="@dimen/text_size_lmm"
+                android:gravity="center"/>
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+</RelativeLayout>

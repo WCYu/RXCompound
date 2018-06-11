@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBG">
+    <TextView
+        android:id="@+id/zg_item_tv_zsxm_date"
+        android:layout_marginTop="20px"
+        android:layout_width="196px"
+        android:layout_height="32px"
+        android:text="2017-7-26 16:22"
+        android:textSize="@dimen/text_size_s"
+        android:gravity="center"
+        android:textColor="@color/colorWhite"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/shape_btn_sub_un_enabled"/>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20px"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/tv_type_leftblue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="经"
+            android:gravity="center"
+            android:paddingLeft="8px"
+            android:paddingRight="8px"
+            android:paddingBottom="5px"
+            android:paddingTop="5px"
+            android:textColor="@color/colorPrimaryDes"
+            android:background="@drawable/circle_blue"
+            android:layout_marginLeft="20px"/>
+
+    <LinearLayout
+        android:layout_marginBottom="10px"
+        android:background="@drawable/ic_chatblueleft"
+        android:layout_marginLeft="20px"
+        android:layout_marginRight="20px"
+        android:paddingLeft="50px"
+        android:paddingRight="20px"
+        android:paddingTop="20px"
+        android:paddingBottom="20px"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textColor="@color/white"
+            android:id="@+id/zg_item_tv_zsxm_res"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_size_8"
+            android:text="A.方案洽谈阶段nB.昨天和客户当面碰了方案，目前由于老总出差，负责人对我们的平面布局进行了点评，有局部修改。但暂时无法给出最终的修改意见，但对他装修报价比较在意，总价不高。nC.平面方案以按负责人的意思调整了一下，目前正在做报价，预计下班前报价也能出来。今天晚上会给负责人去个电话把报价的总价口述给他，另外和他谈一下主材代购费。估价下个礼拜一能和他们老总碰面沟通。"/>
+    </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

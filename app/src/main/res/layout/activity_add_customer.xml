@@ -1,0 +1,620 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/showdialog"
+    android:orientation="vertical" >
+    <include layout="@layout/include_header_layoutsu" />
+
+    <ScrollView
+        android:id="@+id/Customer_scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="100px"
+                android:focusable="true"
+                android:focusableInTouchMode="true">
+
+                <TextView
+                    android:id="@+id/tv_Customer_name"
+                    android:layout_width="160px"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="24px"
+                    android:text="@string/Customer_name"
+                    android:textColor="@color/colorBlackLight"
+                    android:textSize="@dimen/text_size_l" />
+
+                <EditText
+                    android:id="@+id/lv_Ctomer_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_above="@+id/tv_name_line"
+                    android:layout_toEndOf="@+id/tv_Customer_name"
+                    android:layout_toRightOf="@+id/tv_Customer_name"
+                    android:background="@null"
+                    android:hint="请输入"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:textColor="@color/colorBlackLight"
+                    android:textColorHint="@color/colorGray"
+                    android:textSize="@dimen/text_size_l" />
+
+                <TextView
+                    android:id="@+id/tv_name_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_alignParentBottom="true"
+                    android:background="@drawable/selector_input_line"
+                    android:enabled="false" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="100px"
+                android:focusable="true"
+                android:focusableInTouchMode="true">
+
+                <TextView
+                    android:id="@+id/tv_Customer_number"
+                    android:layout_width="160px"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="24px"
+                    android:text="@string/Customer_number"
+                    android:textColor="@color/colorBlackLight"
+                    android:textSize="@dimen/text_size_l" />
+
+                <EditText
+                    android:id="@+id/et_Customer_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="24px"
+                    android:layout_toRightOf="@id/tv_Customer_number"
+                    android:background="@null"
+                    android:hint="请输入"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:inputType="phone|number"
+                    android:textColor="@color/colorBlackLight"
+                    android:textColorHint="@color/colorGray"
+                    android:textSize="@dimen/text_size_l" />
+
+                <TextView
+                    android:id="@+id/tv_ic_card_num_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_alignParentBottom="true"
+                    android:background="@drawable/selector_input_line"
+                    android:enabled="false" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="100px"
+                android:focusable="true"
+                android:focusableInTouchMode="true">
+
+                <TextView
+                    android:id="@+id/tv_entry_name"
+                    android:layout_width="160px"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="24px"
+                    android:text="@string/entry_name_text"
+                    android:textColor="@color/colorBlackLight"
+                    android:textSize="@dimen/text_size_l" />
+
+                <EditText
+                    android:id="@+id/et_entry_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="24px"
+                    android:layout_toRightOf="@id/tv_entry_name"
+                    android:background="@null"
+                    android:hint="请输入"
+                    android:maxLines="1"
+                    android:singleLine="true"
+
+                    android:textColor="@color/colorBlackLight"
+                    android:textColorHint="@color/colorGray"
+                    android:textSize="@dimen/text_size_l"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_bank_num_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_alignParentBottom="true"
+                    android:background="@drawable/selector_input_line"
+                    android:enabled="false" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="100px">
+
+                <TextView
+                    android:id="@+id/tv_entry_type"
+                    android:layout_width="160px"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="24px"
+                    android:text="@string/entry_type"
+                    android:textColor="@color/colorBlackLight"
+                    android:textSize="@dimen/text_size_l" />
+
+
+                <TextView
+                    android:id="@+id/et_bank_master"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="24px"
+                    android:layout_toRightOf="@id/tv_entry_type"
+                    android:gravity="center_vertical"
+                    android:hint="请选择"
+                    android:textColor="@color/colorBlackLight"
+                    android:textSize="@dimen/text_size_l" />
+
+                <TextView
+                    android:id="@+id/tv_bank_master_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_alignParentBottom="true"
+                    android:background="@drawable/selector_input_line"
+                    android:enabled="false" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="100px">
+
+                <TextView
+                    android:id="@+id/tv_entry_attribute"
+                    android:layout_width="160px"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="24px"
+                    android:text="@string/entry_attribute"
+                    android:textColor="@color/colorBlackLight"
+                    android:textSize="@dimen/text_size_l" />
+
+                <TextView
+                    android:id="@+id/tv_bank_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="24px"
+                    android:layout_toRightOf="@id/tv_entry_attribute"
+                    android:gravity="center_vertical"
+                    android:hint="请选择"
+                    android:textColor="@color/colorBlackLight"
+                    android:textSize="@dimen/text_size_l" />
+
+                <TextView
+                    android:id="@+id/tv_bank_name_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_alignParentBottom="true"
+                    android:background="@drawable/selector_input_line"
+                    android:enabled="false" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="100px">
+
+                <TextView
+                    android:id="@+id/lv_Decoration_time"
+                    android:layout_width="160px"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="24px"
+                    android:text="@string/Decoration_time"
+                    android:textColor="@color/colorBlackLight"
+                    android:textSize="@dimen/text_size_l" />
+
+                <TextView
+                    android:id="@+id/tv_Decoration_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentBottom="true"
+                    android:layout_toEndOf="@id/lv_Decoration_time"
+                    android:layout_toRightOf="@id/lv_Decoration_time"
+                    android:gravity="center_vertical"
+                    android:hint="请选择"
+                    android:textColor="@color/colorBlackLight"
+                    android:textSize="@dimen/text_size_l" />
+
+
+                <TextView
+                    android:id="@+id/tvDecoration_time_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_alignParentBottom="true"
+                    android:background="@drawable/selector_input_line"
+                    android:enabled="false" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="100px"
+                android:focusable="true"
+                android:focusableInTouchMode="true">
+
+                <TextView
+                    android:id="@+id/tv_entry_measure"
+                    android:layout_width="160px"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="24px"
+                    android:text="@string/entry_measure"
+                    android:textColor="@color/colorBlackLight"
+                    android:textSize="@dimen/text_size_l" />
+
+                <EditText
+                    android:id="@+id/et_bank_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="24px"
+                    android:layout_toRightOf="@id/tv_entry_measure"
+                    android:background="@null"
+                    android:hint="请输入"
+                    android:maxLines="1"
+                    android:singleLine="true"
+
+                    android:inputType="phone|number"
+                    android:textColor="@color/colorBlackLight"
+                    android:textColorHint="@color/colorGray"
+                    android:textSize="@dimen/text_size_l"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_bank_address_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_alignParentBottom="true"
+                    android:background="@drawable/selector_input_line"
+                    android:enabled="false" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:textSize="30px"
+                    android:gravity="center"
+                    android:paddingRight="10px"
+                    android:text="㎡"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="100px"
+                android:focusable="true"
+                android:focusableInTouchMode="true">
+
+                <TextView
+                    android:id="@+id/tv_Customer_budget"
+                    android:layout_width="160px"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="24px"
+                    android:text="@string/Customer_budget"
+                    android:textColor="@color/colorBlackLight"
+                    android:textSize="@dimen/text_size_l" />
+
+                <EditText
+                    android:id="@+id/et_emergency_contact"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentTop="true"
+                    android:layout_toEndOf="@+id/tv_Customer_budget"
+                    android:layout_toRightOf="@+id/tv_Customer_budget"
+                    android:background="@null"
+                    android:hint="请输入"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:inputType="phone|number"
+                    android:textColor="@color/colorBlackLight"
+                    android:textColorHint="@color/colorGray"
+                    android:textSize="@dimen/text_size_l" />
+
+                <TextView
+                    android:id="@+id/tv_emergency_contact_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_alignParentBottom="true"
+                    android:background="@drawable/selector_input_line"
+                    android:enabled="false" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:textSize="30px"
+                    android:gravity="center"
+                    android:paddingRight="10px"
+                    android:text="W"/>
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="100px"
+                android:focusable="true"
+                android:focusableInTouchMode="true">
+
+                <TextView
+                    android:id="@+id/lv_amount_room"
+                    android:layout_width="160px"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="24px"
+                    android:text="@string/amount_room"
+                    android:textColor="@color/colorBlackLight"
+                    android:textSize="@dimen/text_size_l" />
+
+                <EditText
+                    android:id="@+id/tv_amount_room"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_toEndOf="@+id/lv_amount_room"
+                    android:layout_toRightOf="@+id/lv_amount_room"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:hint="请输入"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:textColor="@color/colorBlackLight"
+                    android:textSize="@dimen/text_size_l" />
+
+                <TextView
+                    android:id="@+id/tv_relation_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_alignParentBottom="true"
+                    android:background="@drawable/selector_input_line"
+                    android:enabled="false" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="100px">
+
+                <TextView
+                    android:id="@+id/tv_Housing_situation"
+                    android:layout_width="160px"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="24px"
+                    android:text="@string/Housing_situation"
+                    android:textColor="@color/colorBlackLight"
+                    android:textSize="@dimen/text_size_l" />
+
+                <!--<TextView-->
+                <!--android:id="@+id/et_Housing_situation"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_centerVertical="true"-->
+                <!--android:layout_marginRight="24px"-->
+                <!--android:layout_toRightOf="@id/tv_Housing_situation"-->
+                <!--android:background="@null"-->
+                <!--android:hint="请选择"-->
+                <!--android:inputType="number"-->
+                <!--android:maxLength="11"-->
+                <!--android:textColor="@color/colorBlackLight"-->
+                <!--android:textColorHint="@color/colorGray"-->
+                <!--android:textSize="@dimen/text_size_l" />-->
+                <!--<TextView-->
+                <!--android:id="@+id/et_Housing_situation"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_centerVertical="true"-->
+                <!--android:layout_marginRight="24px"-->
+                <!--android:layout_toRightOf="@id/tv_Housing_situation"-->
+                <!--android:hint="请选择"-->
+                <!--android:textColor="@color/colorBlackLight"-->
+                <!--android:textColorHint="@color/colorGray"-->
+                <!--android:textSize="@dimen/text_size_l" />-->
+                <TextView
+                    android:id="@+id/et_Housing_situation"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="24px"
+                    android:layout_toRightOf="@id/tv_Housing_situation"
+                    android:gravity="center_vertical"
+                    android:hint="请选择"
+                    android:textColor="@color/colorBlackLight"
+                    android:textSize="@dimen/text_size_l" />
+
+                <TextView
+                    android:id="@+id/tv_phone_line_leng"
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_alignParentBottom="true"
+                    android:background="@drawable/selector_input_line"
+                    android:enabled="false" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="100px">
+
+                <TextView
+                    android:id="@+id/tv_phone_text"
+                    android:layout_width="160px"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="24px"
+                    android:text="@string/Housing_state"
+                    android:textColor="@color/colorBlackLight"
+                    android:textSize="@dimen/text_size_l" />
+
+                <!--<TextView-->
+                <!--android:id="@+id/et_phone"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_centerVertical="true"-->
+                <!--android:layout_marginRight="24px"-->
+                <!--android:layout_toRightOf="@id/tv_phone_text"-->
+                <!--android:background="@null"-->
+                <!--android:hint="请输入"-->
+                <!--android:inputType="number"-->
+                <!--android:maxLength="11"-->
+                <!--android:textColor="@color/colorBlackLight"-->
+                <!--android:textColorHint="@color/colorGray"-->
+                <!--android:textSize="@dimen/text_size_l" />-->
+                <TextView
+                    android:id="@+id/et_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="24px"
+                    android:layout_toRightOf="@id/tv_phone_text"
+                    android:gravity="center_vertical"
+                    android:hint="请选择"
+                    android:textColor="@color/colorBlackLight"
+                    android:textSize="@dimen/text_size_l" />
+
+                <TextView
+                    android:id="@+id/tv_phone_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_alignParentBottom="true"
+                    android:background="@drawable/selector_input_line"
+                    android:enabled="false" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="100px">
+
+                <TextView
+                    android:id="@+id/tv_Transaction_type"
+                    android:layout_width="160px"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="24px"
+                    android:text="@string/Transaction_type"
+                    android:textColor="@color/colorBlackLight"
+                    android:textSize="@dimen/text_size_l" />
+
+                <!--<TextView-->
+                <!--android:id="@+id/et_Transaction_type"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_centerVertical="true"-->
+                <!--android:layout_marginRight="24px"-->
+                <!--android:layout_toRightOf="@id/tv_phone_text"-->
+                <!--android:background="@null"-->
+                <!--android:hint="请输入"-->
+                <!--android:inputType="number"-->
+                <!--android:maxLength="11"-->
+                <!--android:textColor="@color/colorBlackLight"-->
+                <!--android:textColorHint="@color/colorGray"-->
+                <!--android:textSize="@dimen/text_size_l" />-->
+                <TextView
+                    android:id="@+id/et_Transaction_type"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="24px"
+                    android:layout_toRightOf="@id/tv_Transaction_type"
+                    android:gravity="center_vertical"
+                    android:hint="请选择"
+                    android:textColor="@color/colorBlackLight"
+                    android:textSize="@dimen/text_size_l" />
+
+                <TextView
+                    android:id="@+id/tv_Transaction_type_leng"
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_alignParentBottom="true"
+                    android:background="@drawable/selector_input_line"
+                    android:enabled="false" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="100px">
+
+                <TextView
+                    android:id="@+id/tv_Volumeroom"
+                    android:layout_width="160px"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="24px"
+                    android:text="@string/Volumeroom"
+                    android:textColor="@color/colorBlackLight"
+                    android:textSize="@dimen/text_size_l" />
+
+                <!--<TextView-->
+                <!--android:id="@+id/lt_Volumeroom"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_centerVertical="true"-->
+                <!--android:layout_marginRight="24px"-->
+                <!--android:layout_toRightOf="@id/tv_phone_text"-->
+                <!--android:background="@null"-->
+                <!--android:hint="请输入"-->
+                <!--android:inputType="number"-->
+                <!--android:maxLength="11"-->
+                <!--android:textColor="@color/colorBlackLight"-->
+                <!--android:textColorHint="@color/colorGray"-->
+                <!--android:textSize="@dimen/text_size_l" />-->
+
+                <TextView
+                    android:id="@+id/lt_Volumeroom"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="24px"
+                    android:layout_toRightOf="@id/tv_Volumeroom"
+                    android:gravity="center_vertical"
+                    android:hint="请选择"
+                    android:textColor="@color/colorBlackLight"
+                    android:textSize="@dimen/text_size_l" />
+
+                <TextView
+                    android:id="@+id/tv_Volumeroom_leng"
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_alignParentBottom="true"
+                    android:background="@drawable/selector_input_line"
+                    android:enabled="false" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/Submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/Submit"
+        android:background="@color/textgreen"
+        android:textSize="36px"/>
+</LinearLayout>

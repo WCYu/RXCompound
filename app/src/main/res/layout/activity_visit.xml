@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    android:orientation="vertical">
+
+    <include layout="@layout/include_header_green_layout" />
+    <ListView
+        android:id="@+id/lv_visit"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:divider="@null"></ListView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/colorLine" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="24px"
+        android:paddingRight="24px"
+        android:paddingTop="24px">
+
+        <ImageView
+            android:layout_width="24px"
+            android:layout_height="24px"
+            android:src="@mipmap/mark_icon" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10px"
+            android:text="标记"
+            android:textColor="@color/colorGrayDark"
+            android:textSize="@dimen/text_size_m" />
+
+        <RadioGroup
+            android:id="@+id/rg_visit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40px"
+            android:layout_marginRight="40px"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rb_visit_left"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:button="@drawable/selector_radio"
+                android:text="正常"
+                android:drawablePadding="10px"
+                android:textColor="@color/colorGreen"
+                android:textSize="@dimen/text_size_m" />
+
+            <RadioButton
+                android:id="@+id/rb_visit_center"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:button="@drawable/selector_radio"
+                android:text="异常"
+                android:textColor="@color/colorOrange"
+                android:textSize="@dimen/text_size_m" />
+
+            <RadioButton
+                android:id="@+id/rb_visit_right"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:button="@drawable/selector_radio"
+                android:text="问题"
+                android:textColor="@color/colorRed"
+                android:textSize="@dimen/text_size_m" />
+
+        </RadioGroup>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        android:orientation="horizontal"
+        android:padding="24px">
+
+        <EditText
+            android:id="@+id/et_visit_content"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/shape_circular_et_black"
+            android:padding="8px"
+            android:textColor="@color/colorBlackLight"
+            android:textSize="26px" />
+
+        <Button
+            android:id="@+id/btn_visit_send"
+            android:layout_width="100px"
+            android:layout_height="60px"
+            android:layout_marginLeft="20px"
+            android:background="@drawable/selector_btn_sub"
+            android:text="发送"
+            android:textColor="@color/colorWhite"
+            android:textSize="26px" />
+
+    </LinearLayout>
+
+</LinearLayout>

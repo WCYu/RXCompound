@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <!--tools:context="com.rxjy.des.activity.ShigonghetongActivity">-->
+    <include layout="@layout/include_header_layout" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="98px"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/ll_tab_hetong"
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_tab_hetong"
+                android:layout_width="match_parent"
+                android:layout_height="0px"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="6px"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="合同"
+                android:textColor="@color/cor4d5f7e"
+                android:textSize="30px" />
+
+            <TextView
+                android:id="@+id/tv_tab_hetong_line"
+                android:layout_width="match_parent"
+                android:layout_height="4px"
+                android:background="@color/colorAccent" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_tab_yusuan"
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_tab_yusuan"
+                android:layout_width="match_parent"
+                android:layout_height="0px"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="6px"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="预算"
+                android:textColor="@color/cor4d5f7e"
+                android:textSize="30px" />
+
+            <TextView
+                android:id="@+id/tv_tab_yusuan_line"
+                android:layout_width="match_parent"
+                android:layout_height="4px"
+                android:background="@color/colorAccent"
+                android:visibility="invisible" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_tab_tuzhi"
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_tab_tuzhi"
+                android:layout_width="match_parent"
+                android:layout_height="0px"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="6px"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="图纸"
+                android:textColor="@color/cor4d5f7e"
+                android:textSize="30px" />
+
+            <TextView
+                android:id="@+id/tv_tab_tuzhi_line"
+                android:layout_width="match_parent"
+                android:layout_height="4px"
+                android:background="@color/colorAccent"
+                android:visibility="invisible" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/fl_des_dai_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </FrameLayout>
+</LinearLayout>

@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:id="@+id/rl_maintop"
+        android:layout_width="fill_parent"
+        android:layout_height="100px"
+        android:background="@color/colorred">
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="我"
+            android:textSize="@dimen/text_size_l6"
+            android:textColor="@color/colorwhite"/>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="0.1px"
+        android:background="@color/line1"
+        android:layout_marginTop="20px"/>
+    <RelativeLayout
+        android:id="@+id/rl_persondetails"
+        android:layout_width="fill_parent"
+        android:layout_height="140px"
+        android:background="@color/colorwhite">
+
+        <ImageView
+            android:id="@+id/iv_personicon"
+            android:layout_width="100px"
+            android:layout_height="100px"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20px"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_mainicon" />
+
+        <TextView
+            android:id="@+id/tv_pname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/iv_personicon"
+            android:layout_marginLeft="20px"
+            android:layout_toRightOf="@+id/iv_personicon"
+            android:layout_marginTop="12px"
+            android:textSize="@dimen/text_size_l"
+            android:textColor="@color/text_black"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/tv_pjob"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/tv_pname"
+            android:layout_toRightOf="@+id/tv_pname"
+            android:layout_marginLeft="40px"
+            android:textSize="@dimen/text_size_8"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/tv_paccount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/tv_pname"
+            android:layout_below="@+id/tv_pname"
+            android:layout_marginTop="15px"
+            android:textSize="@dimen/text_size_m"
+            android:text="" />
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="30px"
+            android:layout_height="30px"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="18px"
+            android:src="@drawable/ic_go" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="0.1px"
+        android:background="@color/line1"/>
+
+
+    <RelativeLayout
+        android:id="@+id/rl_office"
+        android:layout_width="fill_parent"
+        android:layout_height="80px"
+        android:layout_marginTop="20px"
+        android:background="@color/colorwhite">
+
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="35px"
+            android:layout_height="35px"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20px"
+            android:src="@drawable/ic_mine_noffice" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15px"
+            android:layout_toRightOf="@+id/imageView7"
+            android:textSize="@dimen/text_size_8"
+            android:text="办公" />
+
+        <ImageView
+            android:layout_width="30px"
+            android:layout_height="30px"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="18px"
+            android:src="@drawable/ic_go" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_wallet"
+        android:layout_width="fill_parent"
+        android:layout_height="80px"
+        android:layout_marginTop="20px"
+        android:background="@color/colorwhite">
+
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="35px"
+            android:layout_height="35px"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20px"
+            android:src="@drawable/ic_mine_nwallet" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15px"
+            android:layout_toRightOf="@+id/imageView8"
+            android:textSize="@dimen/text_size_8"
+            android:text="钱包" />
+
+        <ImageView
+            android:layout_width="30px"
+            android:layout_height="30px"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="18px"
+            android:src="@drawable/ic_go" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/rl_jifen"
+        android:layout_width="fill_parent"
+        android:layout_height="80px"
+        android:layout_marginTop="1px"
+        android:background="@color/colorwhite">
+
+        <ImageView
+            android:id="@+id/imageView9"
+            android:layout_width="35px"
+            android:layout_height="35px"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20px"
+            android:src="@drawable/ic_mine_njifen" />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15px"
+            android:layout_toRightOf="@+id/imageView9"
+            android:textSize="@dimen/text_size_8"
+            android:text="积分" />
+
+        <ImageView
+            android:layout_width="30px"
+            android:layout_height="30px"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="18px"
+            android:src="@drawable/ic_go" />
+    </RelativeLayout>
+    <!--<View-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:layout_height="0.1px"-->
+        <!--android:background="@color/line1"/>-->
+    <RelativeLayout
+        android:id="@+id/rl_chengjiu"
+        android:layout_width="fill_parent"
+        android:layout_height="80px"
+        android:layout_marginTop="1px"
+        android:background="@color/colorwhite">
+
+        <ImageView
+            android:id="@+id/imageView11"
+            android:layout_width="35px"
+            android:layout_height="35px"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20px"
+            android:src="@drawable/ic_mine_ngrade" />
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15px"
+            android:layout_toRightOf="@+id/imageView11"
+            android:textSize="@dimen/text_size_8"
+            android:text="成就" />
+
+        <ImageView
+            android:layout_width="30px"
+            android:layout_height="30px"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="18px"
+            android:src="@drawable/ic_go" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_informmessage"
+        android:layout_width="fill_parent"
+        android:layout_height="80px"
+        android:layout_marginTop="20px"
+        android:background="@color/colorwhite">
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="35px"
+            android:layout_height="35px"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20px"
+            android:src="@drawable/ic_mine_nmsg" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15px"
+            android:layout_toRightOf="@+id/imageView6"
+            android:text="消息"
+            android:textSize="@dimen/text_size_8" />
+
+        <ImageView
+            android:layout_width="30px"
+            android:layout_height="30px"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="18px"
+            android:src="@drawable/ic_go" />
+
+        <TextView
+            android:id="@+id/tv_messagenum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/textView9"
+            android:layout_centerVertical="true"
+            android:background="@drawable/dotred"
+            android:gravity="center"
+            android:text=""
+            android:layout_marginLeft="20px"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_4"
+            android:padding="2px"
+            android:visibility="gone"/>
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="80px"
+        android:background="@color/colorwhite"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/imageView10"
+            android:layout_width="50px"
+            android:layout_height="50px"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="19dp"
+            android:src="@drawable/ic_tab_main" />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="12dp"
+            android:layout_toRightOf="@+id/imageView10"
+            android:textSize="@dimen/text_size_8"
+            android:text="钱包" />
+        <ImageView
+            android:layout_width="30px"
+            android:layout_height="30px"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="30px"
+            android:src="@drawable/ic_go" />
+    </RelativeLayout>
+    <!--<View-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:layout_height="0.1px"-->
+        <!--android:background="@color/line1"/>-->
+    <RelativeLayout
+        android:layout_marginTop="1px"
+        android:id="@+id/rl_setting"
+        android:layout_width="fill_parent"
+        android:layout_height="80px"
+        android:background="@color/colorwhite">
+
+        <ImageView
+            android:id="@+id/imageView12"
+            android:layout_width="35px"
+            android:layout_height="35px"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20px"
+            android:src="@drawable/ic_mine_nset" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15px"
+            android:layout_toRightOf="@+id/imageView12"
+            android:textSize="@dimen/text_size_8"
+            android:text="设置" />
+        <ImageView
+            android:layout_width="30px"
+            android:layout_height="30px"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="18px"
+            android:src="@drawable/ic_go" />
+    </RelativeLayout>
+
+    <!--<View-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:layout_height="0.1px"-->
+        <!--android:background="@color/line1"/>-->
+
+
+</LinearLayout>

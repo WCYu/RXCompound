@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        android:padding="24px">
+
+        <ImageView
+            android:id="@+id/iv_list_item_routing_detail_mark_icon"
+            android:layout_width="10px"
+            android:layout_height="30px"
+            android:src="@mipmap/status_icon" />
+
+        <TextView
+            android:id="@+id/tv_list_item_routing_detail_mark_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10px"
+            android:layout_toRightOf="@+id/iv_list_item_routing_detail_mark_icon"
+            android:text="工程质量"
+            android:textColor="@color/colorBlackLight"
+            android:textSize="@dimen/text_size_l" />
+
+        <com.rxjy.rxcompound.widget.HorizontalListView
+            android:id="@+id/hlv_list_item_routing_detail_mark"
+            android:layout_width="match_parent"
+            android:layout_height="200px"
+            android:layout_below="@+id/tv_list_item_routing_detail_mark_name"
+            android:layout_marginTop="20px"></com.rxjy.rxcompound.widget.HorizontalListView>
+
+        <TextView
+            android:id="@+id/tv_list_item_routing_detail_remark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20px"
+            android:layout_below="@+id/hlv_list_item_routing_detail_mark"
+            android:text="请输入工程质量问题..."
+            android:textColor="@color/colorGrayDark"
+            android:textSize="@dimen/text_size_s" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

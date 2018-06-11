@@ -1,0 +1,551 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="100px">
+
+        <include layout="@layout/layout_title" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="80px"
+                android:background="@color/colorWhite">
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginBottom="25px"
+                    android:layout_marginLeft="15px"
+                    android:layout_marginTop="25px"
+                    android:src="@drawable/ic_titlelefticon" />
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="50px"
+                    android:text="形象照"
+                    android:textColor="@color/textgreyone"
+                    android:textSize="@dimen/text_size_8" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="0.3px"
+                android:background="@color/colorline" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="250px"
+                android:background="@color/colorWhite">
+
+                <RelativeLayout
+                    android:id="@+id/rl_idcardthree"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginBottom="20px"
+                    android:layout_marginLeft="20px"
+                    android:layout_marginRight="10px"
+                    android:layout_marginTop="20px"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/iv_personicon"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:src="@drawable/ic_idcard1" />
+
+                    <ImageView
+                        android:id="@+id/iv_addthree"
+                        android:layout_width="70px"
+                        android:layout_height="70px"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_add" />
+
+                    <TextView
+                        android:id="@+id/textView23"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:background="@drawable/corner_greytranstwo"
+                        android:gravity="center"
+                        android:paddingBottom="8px"
+                        android:paddingTop="8px"
+                        android:text="个人形象照"
+                        android:textColor="@color/colorwhite"
+                        android:textSize="@dimen/text_size_s" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_idcardfour"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginBottom="20px"
+                    android:layout_marginLeft="10px"
+                    android:layout_marginRight="20px"
+                    android:layout_marginTop="20px"
+                    android:layout_weight="1">
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="80px"
+                android:layout_marginTop="10px"
+                android:background="@color/colorWhite">
+
+                <ImageView
+                    android:id="@+id/imageView22"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginBottom="25px"
+                    android:layout_marginLeft="15px"
+                    android:layout_marginTop="25px"
+                    android:src="@drawable/ic_titlelefticon" />
+
+                <TextView
+                    android:id="@+id/textView55"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="50px"
+                    android:text="身份信息"
+                    android:textColor="@color/textgreyone"
+                    android:textSize="@dimen/text_size_8" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="0.3px"
+                android:background="@color/colorline" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="250px"
+                android:background="@color/colorWhite">
+
+                <RelativeLayout
+                    android:id="@+id/rl_idcardone"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginBottom="20px"
+                    android:layout_marginLeft="20px"
+                    android:layout_marginRight="10px"
+                    android:layout_marginTop="20px"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/iv_idcardone"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:src="@drawable/ic_idcard1" />
+
+                    <ImageView
+                        android:id="@+id/iv_addone"
+                        android:layout_width="70px"
+                        android:layout_height="70px"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_add" />
+
+                    <TextView
+                        android:id="@+id/textView14"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:background="@drawable/corner_greytranstwo"
+                        android:gravity="center"
+                        android:paddingBottom="8px"
+                        android:paddingTop="8px"
+                        android:text="身份证正面"
+                        android:textColor="@color/colorwhite"
+                        android:textSize="@dimen/text_size_s" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_idcardtwo"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginBottom="20px"
+                    android:layout_marginLeft="10px"
+                    android:layout_marginRight="20px"
+                    android:layout_marginTop="20px"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/iv_idcardtwo"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:src="@drawable/ic_idcard2" />
+
+                    <ImageView
+                        android:id="@+id/iv_addtwo"
+                        android:layout_width="70px"
+                        android:layout_height="70px"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_add" />
+
+                    <TextView
+                        android:id="@+id/textView15"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:background="@drawable/corner_greytranstwo"
+                        android:gravity="center"
+                        android:paddingBottom="8px"
+                        android:paddingTop="8px"
+                        android:text="身份证反面"
+                        android:textColor="@color/colorwhite"
+                        android:textSize="@dimen/text_size_s" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10px"
+                android:layout_marginTop="10px"
+                android:background="@color/colorwhite"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="72px">
+
+                    <TextView
+                        android:id="@+id/textView16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="20px"
+                        android:text="身份姓名"
+                        android:textSize="@dimen/text_size_8" />
+
+                    <EditText
+                        android:id="@+id/et_name"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="20px"
+                        android:layout_toRightOf="@+id/textView16"
+                        android:background="@null"
+                        android:ems="10"
+                        android:hint="请输入"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textColor="@color/textgreyone"
+                        android:textSize="@dimen/page_margin_8" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.3px"
+                    android:layout_marginLeft="20px"
+                    android:background="@color/colorline" />
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="72px">
+
+                    <TextView
+                        android:id="@+id/textView17"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="20px"
+                        android:text="身份证号"
+                        android:textSize="@dimen/text_size_8" />
+
+                    <EditText
+                        android:id="@+id/et_idcard"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="20px"
+                        android:layout_toRightOf="@+id/textView17"
+                        android:background="@null"
+                        android:digits="0123456789xX"
+                        android:ems="10"
+                        android:hint="请输入"
+                        android:maxLength="18"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textColor="@color/textgreyone"
+                        android:textSize="@dimen/page_margin_8" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.3px"
+                    android:layout_marginLeft="20px"
+                    android:background="@color/colorline" />
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="72px">
+
+                    <TextView
+                        android:id="@+id/textView19"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="20px"
+                        android:text="身份地址"
+                        android:textSize="@dimen/text_size_8" />
+
+                    <EditText
+                        android:id="@+id/et_oldaddress"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="20px"
+                        android:layout_toRightOf="@+id/textView19"
+                        android:background="@null"
+                        android:ems="10"
+                        android:hint="请输入"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textColor="@color/textgreyone"
+                        android:textSize="@dimen/page_margin_8" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.3px"
+                    android:layout_marginLeft="20px"
+                    android:background="@color/colorline" />
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="72px">
+
+                    <ImageView
+                        android:id="@+id/imageView111"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginBottom="21px"
+                        android:layout_marginTop="21px"
+                        android:src="@drawable/ic_titlelefticon" />
+
+                    <TextView
+                        android:id="@+id/textView18"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="20px"
+                        android:text="现住址    "
+                        android:textSize="@dimen/text_size_8" />
+
+                    <EditText
+                        android:id="@+id/et_nowaddress"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="20px"
+                        android:layout_toRightOf="@+id/textView18"
+                        android:background="@null"
+                        android:ems="10"
+                        android:hint="请输入"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textColor="@color/textgreyone"
+                        android:textSize="@dimen/page_margin_8" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.3px"
+                    android:layout_marginLeft="20px"
+                    android:background="@color/colorline" />
+
+                <RelativeLayout
+                    android:id="@+id/rl_birth"
+                    android:layout_width="fill_parent"
+                    android:layout_height="72px">
+
+                    <ImageView
+                        android:id="@+id/imageView112"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginBottom="21px"
+                        android:layout_marginTop="21px"
+                        android:src="@drawable/ic_titlelefticon" />
+
+                    <TextView
+                        android:id="@+id/textView20"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="20px"
+                        android:text="生日        "
+                        android:textSize="@dimen/text_size_8" />
+
+                    <TextView
+                        android:id="@+id/tv_birth"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="20px"
+                        android:layout_toRightOf="@+id/textView20"
+                        android:text=""
+                        android:textSize="@dimen/page_margin_8" />
+
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.3px"
+                    android:layout_marginLeft="20px"
+                    android:background="@color/colorline" />
+
+                <RelativeLayout
+                    android:id="@+id/rl_edu"
+                    android:layout_width="fill_parent"
+                    android:layout_height="72px">
+
+                    <ImageView
+                        android:id="@+id/imageView113"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginBottom="21px"
+                        android:layout_marginTop="21px"
+                        android:src="@drawable/ic_titlelefticon" />
+
+                    <TextView
+                        android:id="@+id/textView24"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="20px"
+                        android:text="学历        "
+                        android:textSize="@dimen/text_size_8" />
+
+                    <TextView
+                        android:id="@+id/tv_edu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="20px"
+                        android:layout_toRightOf="@+id/textView24"
+                        android:text=""
+                        android:textSize="@dimen/page_margin_8" />
+
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.3px"
+                    android:layout_marginLeft="20px"
+                    android:background="@color/colorline" />
+
+                <RelativeLayout
+                    android:id="@+id/rl_ismarry"
+                    android:layout_width="fill_parent"
+                    android:layout_height="72px">
+
+                    <ImageView
+                        android:id="@+id/imageView114"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginBottom="21px"
+                        android:layout_marginTop="21px"
+                        android:src="@drawable/ic_titlelefticon" />
+
+                    <TextView
+                        android:id="@+id/textView21"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="20px"
+                        android:text="婚否        "
+                        android:textSize="@dimen/text_size_8" />
+
+                    <TextView
+                        android:id="@+id/tv_marrary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="20px"
+                        android:layout_toRightOf="@+id/textView21"
+                        android:text=""
+                        android:textSize="@dimen/page_margin_8" />
+
+
+                </RelativeLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+        <TextView
+            android:id="@+id/tv_save"
+            android:layout_width="fill_parent"
+            android:layout_height="88px"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:background="@color/colorred"
+            android:gravity="center"
+            android:text="提交"
+            android:textColor="@color/colorwhite"
+            android:textSize="36px" />
+
+
+</LinearLayout>

@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/include_header_layout"/>
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="402px">
+                <ImageView
+                    android:id="@+id/iv_morebanner"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:src="@drawable/ic_officebg"
+                    android:scaleType="fitXY"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="84px"
+                android:background="@color/colorwhite"
+                android:layout_marginTop="15px">
+
+                <ImageView
+                    android:id="@+id/imageView15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15px"
+                    android:layout_marginTop="25px"
+                    android:layout_marginBottom="25px"
+                    android:src="@drawable/ic_titlelefticon"/>
+
+                <TextView
+                    android:id="@+id/textView15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="8px"
+                    android:layout_toEndOf="@+id/imageView15"
+                    android:layout_toRightOf="@+id/imageView15"
+                    android:textSize="@dimen/text_size_l"
+                    android:text="瑞祥文化" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorwhite"
+                android:layout_marginTop="2px">
+                <GridView
+                    android:id="@+id/gv_administrative"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:numColumns="4"
+                    android:layout_marginLeft="30px"
+                    android:layout_marginRight="30px"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="84px"
+                android:background="@color/colorwhite"
+                android:layout_marginTop="15px">
+
+                <ImageView
+                    android:id="@+id/imageView12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15px"
+                    android:layout_marginTop="25px"
+                    android:layout_marginBottom="25px"
+                    android:src="@drawable/ic_titlelefticon"/>
+
+                <TextView
+                    android:id="@+id/textView12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="8px"
+                    android:layout_toEndOf="@+id/imageView12"
+                    android:layout_toRightOf="@+id/imageView12"
+                    android:textSize="@dimen/text_size_l"
+                    android:text="出勤管理" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorwhite"
+                android:layout_marginTop="2px">
+                <GridView
+                    android:id="@+id/gv_attendance"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:numColumns="4"
+                    android:layout_marginLeft="30px"
+                    android:layout_marginRight="30px"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="84px"
+                android:background="@color/colorwhite"
+                android:layout_marginTop="15px">
+
+                <ImageView
+                    android:id="@+id/imageView14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15px"
+                    android:layout_marginTop="25px"
+                    android:layout_marginBottom="25px"
+                    android:src="@drawable/ic_titlelefticon"/>
+
+                <TextView
+                    android:id="@+id/textView14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="8px"
+                    android:layout_toEndOf="@+id/imageView14"
+                    android:layout_toRightOf="@+id/imageView14"
+                    android:textSize="@dimen/text_size_l"
+                    android:text="异动申请" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorwhite"
+                android:layout_marginTop="2px">
+                <GridView
+                    android:id="@+id/gv_move"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:numColumns="4"
+                    android:layout_marginLeft="30px"
+                    android:layout_marginRight="30px"/>
+            </RelativeLayout>
+
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

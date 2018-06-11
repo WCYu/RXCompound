@@ -1,0 +1,195 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <!--tools:context="com.rxjy.des.fragment.NewSevenFragment">-->
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20px"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/colorWhite"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="20px">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="楼盘"
+                android:textColor="@color/cor595757"
+                android:textSize="@dimen/text_size_m" />
+
+            <EditText
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:id="@+id/et_new_loupan"
+                android:layout_width="0px"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:gravity="right"
+                android:inputType="numberDecimal"
+                android:maxEms="11"
+                android:hint="请输入"
+                android:textColor="@color/cor595757"
+                android:textColorHint="@color/line"
+                android:textSize="@dimen/text_size_m" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20px"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/colorWhite"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="20px">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="期座"
+                android:textColor="@color/cor595757"
+                android:textSize="@dimen/text_size_m" />
+
+            <EditText
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:id="@+id/et_new_qizuo"
+                android:layout_width="0px"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:gravity="right"
+                android:inputType="numberDecimal"
+                android:maxEms="11"
+                android:hint="请输入"
+                android:textColor="@color/cor595757"
+                android:textColorHint="@color/line"
+                android:textSize="@dimen/text_size_m" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20px"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/colorWhite"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="20px">
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="楼层"
+                android:textColor="@color/cor595757"
+                android:textSize="@dimen/text_size_m" />
+
+            <EditText
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:id="@+id/et_new_louceng"
+                android:layout_width="0px"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:gravity="right"
+                android:inputType="numberDecimal"
+                android:maxEms="11"
+                android:hint="请输入"
+                android:textColor="@color/cor595757"
+                android:textColorHint="@color/line"
+                android:textSize="@dimen/text_size_m" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20px"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/colorWhite"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="20px">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="门牌号"
+                android:textColor="@color/cor595757"
+                android:textSize="@dimen/text_size_m" />
+
+            <EditText
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:id="@+id/et_new_menpaihao"
+                android:layout_width="0px"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:gravity="right"
+                android:inputType="numberDecimal"
+                android:maxEms="11"
+                android:hint="请输入"
+                android:textColor="@color/cor595757"
+                android:textColorHint="@color/line"
+                android:textSize="@dimen/text_size_m" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:visibility="invisible"
+        android:layout_marginTop="20px"
+        android:id="@+id/btn_des_dai_measure_sub"
+        android:layout_width="match_parent"
+        android:layout_height="80px"
+        android:background="@drawable/shape_bg_btn_sub"
+        android:text="保存"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_l" />
+    </LinearLayout>
+</LinearLayout>

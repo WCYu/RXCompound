@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <!--tools:context="com.rxjy.des.activity.KaigongjiaodiActivity">-->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:background="@color/colorPrimaryDes">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="19px"
+            android:layout_height="36px"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="20px"
+            android:layout_marginStart="20px"
+            android:gravity="center"
+            android:src="@mipmap/jiantouzuo" />
+
+        <TextView
+            android:id="@+id/iv_add"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="10px"
+            android:gravity="center"
+            android:text="更多"
+            android:textSize="@dimen/text_size_8"
+            android:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_toLeftOf="@id/iv_add"
+            android:layout_toRightOf="@+id/iv_back"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="注册"
+            android:textColor="@color/colorWhite"
+            android:textSize="36px" />
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200px"
+        android:background="@mipmap/kaigongjiaodi"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24px"
+            android:layout_marginStart="30px"
+            android:layout_marginTop="70px">
+
+            <ImageView
+                android:layout_width="29px"
+                android:layout_height="28px"
+                android:src="@mipmap/xiangmumingcheng" />
+
+            <TextView
+                android:id="@+id/tv_kaigong_xiangmuname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12px"
+                android:text="中国社会出版社"
+                android:textColor="@color/colorWhite"
+                android:textSize="28px" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24px"
+            android:layout_marginStart="30px"
+            android:layout_marginTop="20px">
+
+            <ImageView
+                android:layout_width="29px"
+                android:layout_height="28px"
+                android:src="@mipmap/dizhi" />
+
+            <TextView
+                android:id="@+id/tv_kaigong_xiangmuaddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12px"
+                android:text="北京市朝阳区六里屯19号院"
+                android:textColor="@color/colorWhite"
+                android:textSize="24px" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_jiedan"
+        android:layout_width="match_parent"
+        android:layout_height="84px"
+        android:layout_below="@+id/ll_biaoshu"
+        android:layout_marginTop="20px"
+        android:background="@color/colorWhite"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="9px"
+            android:layout_height="29px"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="20px"
+            android:src="@mipmap/biaotiqiandise" />
+
+        <TextView
+            android:id="@+id/tv_kaigongor_jungong"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="20px"
+            android:gravity="center_vertical"
+            android:text=""
+            android:textColor="@color/colorBlackLight"
+            android:textSize="@dimen/text_size_l" />
+
+        <TextView
+
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical|end"
+            android:text=""
+            android:textColor="#9fa0a0"
+            android:textSize="22px" />
+
+        <ImageView
+            android:id="@+id/jiedan_jiantou"
+            android:layout_width="20px"
+            android:layout_height="10px"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="20px"
+            android:layout_marginStart="12px" />
+
+
+    </LinearLayout>
+
+    <com.rxjy.rxcompound.widget.CustomGridView
+        android:id="@+id/gv_des_dai_measure_photo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnWidth="290px"
+        android:horizontalSpacing="60px"
+        android:numColumns="2"
+        android:paddingBottom="30px"
+        android:paddingLeft="10px"
+        android:paddingRight="10px"
+        android:paddingTop="30px"
+        android:verticalSpacing="60px">
+
+    </com.rxjy.rxcompound.widget.CustomGridView>
+
+
+</LinearLayout>

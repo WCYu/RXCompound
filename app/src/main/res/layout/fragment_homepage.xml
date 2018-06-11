@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="534px"
+        android:background="@drawable/ic_hometopbg"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="100px">
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="首页"
+                android:textColor="@color/colorwhite"
+                android:textSize="@dimen/text_size_l6" />
+
+            <TextView
+                android:id="@+id/tv_qrscan"
+                android:layout_width="130px"
+                android:layout_height="fill_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20px"
+                android:gravity="center"
+                android:text="扫一扫"
+                android:textColor="@color/colorwhite"
+                android:textSize="@dimen/text_size_8" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_margin="20px">
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/vp_banner"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:scaleType="fitXY" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_envir"
+        android:layout_width="fill_parent"
+        android:layout_height="80px"
+        android:layout_marginTop="20px"
+        android:background="@color/colorWhite">
+
+        <ImageView
+            android:id="@+id/imageView24"
+            android:layout_width="40px"
+            android:layout_height="40px"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20px"
+            android:src="@drawable/ic_homeenvir" />
+
+        <TextView
+            android:id="@+id/textView31"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10px"
+            android:layout_toRightOf="@+id/imageView24"
+            android:text="环境检查"
+            android:textSize="@dimen/text_size_m" />
+
+        <ImageView
+            android:id="@+id/imageView25"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20px"
+            app:srcCompat="@mipmap/arrow_left" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_xingxiang"
+        android:layout_width="fill_parent"
+        android:layout_height="80px"
+        android:layout_marginTop="1px"
+        android:background="@color/colorWhite">
+
+        <ImageView
+            android:id="@+id/imageView24xx"
+            android:layout_width="40px"
+            android:layout_height="40px"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20px"
+            android:src="@drawable/ic_homefigure" />
+
+        <TextView
+            android:id="@+id/textView31xx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10px"
+            android:layout_toRightOf="@+id/imageView24xx"
+            android:text="形象检查"
+            android:textSize="@dimen/text_size_m" />
+
+        <ImageView
+            android:id="@+id/imageView25xx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20px"
+            app:srcCompat="@mipmap/arrow_left" />
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/lv_task"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="20px"
+        android:divider="@null">
+
+    </ListView>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="84px"
+        android:layout_marginTop="15px"
+        android:background="@color/colorwhite"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="25px"
+            android:layout_marginLeft="15px"
+            android:layout_marginTop="25px"
+            android:src="@drawable/ic_titlelefticon" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8px"
+            android:layout_toEndOf="@+id/imageView2"
+            android:layout_toRightOf="@+id/imageView2"
+            android:text="培训结果"
+            android:textSize="@dimen/text_size_l" />
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="16dp"
+            android:text="2017-11-6"
+            android:textSize="@dimen/text_size_8" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="196px"
+        android:layout_marginTop="2px"
+        android:background="@color/colorwhite"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="25px"
+            android:layout_marginRight="25px"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/ll_dayone"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <com.rxjy.rxcompound.widget.CircleProgressView
+                    android:id="@+id/cpv_cirone"
+                    android:layout_width="80px"
+                    android:layout_height="80px" />
+
+                <TextView
+                    android:id="@+id/tv_scoresone"
+                    android:layout_width="80px"
+                    android:layout_height="80px"
+                    android:gravity="center"
+                    android:text="分"
+                    android:textSize="28px"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/tv_dayone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8px"
+                    android:text="第一天"
+                    android:textSize="@dimen/text_size_8" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_daytwo"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <com.rxjy.rxcompound.widget.CircleProgressView
+                    android:id="@+id/cpv_cirtwo"
+                    android:layout_width="80px"
+                    android:layout_height="80px" />
+
+                <TextView
+                    android:id="@+id/tv_scorestwo"
+                    android:layout_width="80px"
+                    android:layout_height="80px"
+                    android:gravity="center"
+                    android:text="分"
+                    android:textSize="28px"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/tv_daytwo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8px"
+                    android:text="第二天"
+                    android:textSize="@dimen/text_size_8" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_daythree"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <com.rxjy.rxcompound.widget.CircleProgressView
+                    android:id="@+id/cpv_cirthree"
+                    android:layout_width="80px"
+                    android:layout_height="80px" />
+
+                <TextView
+                    android:id="@+id/tv_scoresthree"
+                    android:layout_width="80px"
+                    android:layout_height="80px"
+                    android:gravity="center"
+                    android:text="分"
+                    android:textSize="28px"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/tv_daythree"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8px"
+                    android:text="第三天"
+                    android:textSize="@dimen/text_size_8" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="180px"
+        android:layout_marginTop="3px"
+        android:background="@color/colorwhite"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/iv_tryimg"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_brefore" />
+    </RelativeLayout>
+
+</LinearLayout>

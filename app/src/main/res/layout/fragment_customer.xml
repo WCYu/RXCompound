@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/appbg">
+
+    <include layout="@layout/include_bus_title" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="60px"
+        android:layout_marginLeft="20px"
+        android:layout_marginRight="20px"
+        android:layout_marginTop="10px"
+        android:background="@drawable/border_searchbg"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="40px"
+            android:layout_height="40px"
+            android:layout_marginLeft="10px"
+            android:src="@drawable/ic_search" />
+
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25px"
+            android:layout_marginRight="20px"
+            android:background="@null"
+            android:ems="10"
+            android:hint="请输入客户姓名/信息员姓名"
+            android:inputType="textPersonName"
+            android:textSize="@dimen/text_size_m" />
+    </LinearLayout>
+
+    <com.handmark.pulltorefresh.library.PullToRefreshScrollView
+        xmlns:ptr="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/pullsv_customer"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="20px"
+        ptr:ptrAnimationStyle="rotate"
+        ptr:ptrMode="both">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@color/colorwhite"
+            android:orientation="horizontal">
+
+            <com.rxjy.rxcompound.widget.MyListview
+                android:id="@+id/lv_customer"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:divider="@null">
+
+            </com.rxjy.rxcompound.widget.MyListview>
+
+        </LinearLayout>
+    </com.handmark.pulltorefresh.library.PullToRefreshScrollView>
+
+
+
+
+</LinearLayout>

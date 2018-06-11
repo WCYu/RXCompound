@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="100px">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="80px"
+            android:layout_height="80px"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            android:src="@drawable/ic_backgrey"
+            android:padding="20px"/>
+
+    </RelativeLayout>
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:background="@color/line1"/>
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <ImageView
+            android:id="@+id/iv_icon"
+            android:layout_width="200px"
+            android:layout_height="200px"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            app:srcCompat="@drawable/ic_inficon" />
+
+        <TextView
+            android:id="@+id/tv_cardnum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/iv_icon"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15px"
+            android:textSize="@dimen/text_size_m"
+            android:textColor="@color/textgreyone"
+            android:text="卡号：" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="WPS确认登录"
+            android:layout_marginTop="15px"
+            android:textSize="@dimen/text_size_m"
+            android:textColor="@color/textgreyone"
+            android:layout_below="@+id/tv_cardnum"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:id="@+id/tv_surelogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="60dp"
+            android:text="登录"
+            android:textSize="@dimen/text_size_l"
+            android:textColor="@color/textred"
+            android:gravity="center"
+            android:paddingLeft="100px"
+            android:paddingRight="100px"
+            android:paddingTop="10px"
+            android:paddingBottom="10px"
+            android:background="@drawable/border_red"/>
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/include_header_layout" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginTop="20px"
+                android:background="@color/colorWhite"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="290px"
+                    android:layout_marginLeft="20px"
+                    android:layout_marginRight="20px"
+                    android:layout_marginTop="10px"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="40px"
+                            android:layout_height="40px"
+                            android:layout_marginTop="20px"
+                            android:src="@drawable/ic_hfprogress" />
+
+                        <View
+                            android:layout_width="3px"
+                            android:layout_height="fill_parent"
+                            android:background="@color/line_color" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_marginLeft="10px"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="27px"
+                            android:text="项目进展"
+                            android:textColor="@color/text_black"
+                            android:textSize="@dimen/text_size_8" />
+
+                        <EditText
+                            android:id="@+id/ed_progress"
+                            android:layout_width="fill_parent"
+                            android:layout_height="190px"
+                            android:layout_marginTop="15px"
+                            android:background="@drawable/edtxt_bggrey"
+                            android:ems="10"
+                            android:gravity="left|top"
+                            android:hint="为此单你今天做了什么..."
+                            android:inputType="textPersonName"
+                            android:padding="10px"
+                            android:textColor="@color/text_black"
+                            android:textSize="@dimen/text_size_m" />
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="220px"
+                    android:layout_marginLeft="20px"
+                    android:layout_marginRight="20px"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="40px"
+                            android:layout_height="40px"
+                            android:src="@drawable/ic_hfproblem" />
+
+                        <View
+                            android:layout_width="3px"
+                            android:layout_height="fill_parent"
+                            android:background="@color/line_color" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_marginLeft="10px"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="7px"
+                            android:text="遇到问题"
+                            android:textColor="@color/text_black"
+                            android:textSize="@dimen/text_size_8" />
+
+                        <EditText
+                            android:id="@+id/ed_problem"
+                            android:layout_width="fill_parent"
+                            android:layout_height="140px"
+                            android:layout_marginTop="15px"
+                            android:background="@drawable/edtxt_bggrey"
+                            android:ems="10"
+                            android:gravity="left|top"
+                            android:hint="此单当前存在的问题..."
+                            android:inputType="textPersonName"
+                            android:padding="10px"
+                            android:textColor="@color/text_black"
+                            android:textSize="@dimen/text_size_m" />
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="260px"
+                    android:layout_marginLeft="20px"
+                    android:layout_marginRight="20px"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="40px"
+                            android:layout_height="40px"
+                            android:src="@drawable/ic_hfnextplan" />
+
+                        <View
+                            android:layout_width="3px"
+                            android:layout_height="fill_parent"
+                            android:background="@color/line_color" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_marginLeft="10px"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="7px"
+                            android:text="下步计划"
+                            android:textColor="@color/text_black"
+                            android:textSize="@dimen/text_size_8" />
+
+                        <EditText
+                            android:id="@+id/ed_nextplan"
+                            android:layout_width="fill_parent"
+                            android:layout_height="180px"
+                            android:layout_marginTop="15px"
+                            android:background="@drawable/edtxt_bggrey"
+                            android:ems="10"
+                            android:gravity="left|top"
+                            android:hint="为什么想这么做，以及时间节点..."
+                            android:inputType="textPersonName"
+                            android:padding="10px"
+                            android:textColor="@color/text_black"
+                            android:textSize="@dimen/text_size_m" />
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="220px"
+                    android:layout_marginBottom="80px"
+                    android:layout_marginLeft="20px"
+                    android:layout_marginRight="20px"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="40px"
+                            android:layout_height="40px"
+                            android:src="@drawable/ic_hfhelp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_marginLeft="10px"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="7px"
+                            android:text="部门协助"
+                            android:textColor="@color/text_black"
+                            android:textSize="@dimen/text_size_8" />
+
+                        <EditText
+                            android:id="@+id/ed_help"
+                            android:layout_width="fill_parent"
+                            android:layout_height="140px"
+                            android:layout_marginTop="15px"
+                            android:background="@drawable/edtxt_bggrey"
+                            android:ems="10"
+                            android:gravity="left|top"
+                            android:hint="输入需要协助的人、事、时间..."
+                            android:inputType="textPersonName"
+                            android:padding="10px"
+                            android:textColor="@color/text_black"
+                            android:textSize="@dimen/text_size_m" />
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+        <TextView
+            android:id="@+id/tv_submit"
+            android:layout_width="fill_parent"
+            android:layout_height="70px"
+            android:textColor="@color/colorWhite"
+            android:gravity="center"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="40px"
+            android:layout_marginRight="40px"
+            android:layout_marginBottom="20px"
+            android:textSize="@dimen/text_size_l"
+            android:background="@drawable/corner_blue"
+            android:text="提 交"/>
+    </RelativeLayout>
+
+
+</LinearLayout>

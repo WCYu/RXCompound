@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@drawable/bg_gv">
+       <RelativeLayout
+           android:id="@+id/redot"
+           android:layout_width="wrap_content"
+           android:layout_marginTop="60px"
+           android:layout_centerHorizontal="true"
+           android:layout_height="wrap_content">
+           <ImageView
+               android:id="@+id/iv_item"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_centerHorizontal="true"
+               android:contentDescription="@string/app_name"
+               android:src="@mipmap/more_redenvelopes"/>
+       </RelativeLayout>
+        <TextView
+            android:id="@+id/tv_messagenum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/dotred"
+            android:gravity="center"
+            android:text=""
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_4"
+            android:layout_marginTop="30px"
+            android:layout_alignLeft="@+id/redot"
+            android:layout_marginLeft="40px"
+            android:visibility="invisible"
+            />
+        <TextView
+            android:id="@+id/tv_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/redot"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40px"
+            android:layout_marginBottom="40px"
+            android:maxLines="1"
+            android:textSize="36px" />
+    </RelativeLayout>
+</LinearLayout>

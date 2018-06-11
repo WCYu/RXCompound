@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBG"
+    android:orientation="vertical">
+
+    <include layout="@layout/include_header_layout" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginTop="24px"
+        android:background="@color/colorLine" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/colorWhite"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="88px"
+            android:orientation="horizontal"
+            android:padding="24px">
+
+            <TextView
+                android:layout_width="220px"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="附件资料类型"
+                android:textColor="@color/colorBlackLight"
+                android:textSize="@dimen/text_size_l" />
+
+            <TextView
+                android:id="@+id/tv_attachment_choice_type"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="请选择类型"
+                android:textColor="@color/colorGray"
+                android:textSize="@dimen/text_size_l" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/colorLine" />
+
+        <LinearLayout
+            android:id="@+id/lin_attachment_project_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="88px"
+                android:orientation="horizontal"
+                android:padding="24px">
+
+                <TextView
+                    android:layout_width="220px"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="原完工日期"
+                    android:textColor="@color/colorBlackLight"
+                    android:textSize="@dimen/text_size_l" />
+
+                <TextView
+                    android:id="@+id/tv_attachment_complete_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="请输入日期"
+                    android:textColor="@color/colorGray"
+                    android:textSize="@dimen/text_size_l" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/colorLine" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="88px"
+                android:orientation="horizontal"
+                android:padding="24px">
+
+                <TextView
+                    android:layout_width="220px"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="延期"
+                    android:textColor="@color/colorBlackLight"
+                    android:textSize="@dimen/text_size_l" />
+
+                <EditText
+                    android:id="@+id/et_attachment_postpone"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:hint="请输入天数"
+                    android:inputType="number"
+                    android:textColor="@color/colorGray"
+                    android:textColorHint="@color/colorGray"
+                    android:textSize="@dimen/text_size_l" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/colorLine" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="88px"
+                android:orientation="horizontal"
+                android:padding="24px">
+
+                <TextView
+                    android:layout_width="220px"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="调整后日期"
+                    android:textColor="@color/colorBlackLight"
+                    android:textSize="@dimen/text_size_l" />
+
+                <TextView
+                    android:id="@+id/tv_attachment_choice_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="请输入日期"
+                    android:textColor="@color/colorGray"
+                    android:textSize="@dimen/text_size_l" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/colorLine" />
+
+        </LinearLayout>
+
+        <GridView
+            android:id="@+id/gv_attachment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:horizontalSpacing="20px"
+            android:numColumns="3"
+            android:padding="24px"
+            android:verticalSpacing="20px"></GridView>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_attachment"
+        android:layout_width="match_parent"
+        android:layout_height="80px"
+        android:background="@drawable/selector_btn_sub"
+        android:text="提交"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/text_size_l" />
+
+</LinearLayout>

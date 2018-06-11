@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBG"
+    android:orientation="vertical">
+
+    <include layout="@layout/include_header_tv_layout" />
+
+    <RadioGroup
+        android:id="@+id/rg_datum"
+        android:layout_width="match_parent"
+        android:layout_height="80px"
+        android:layout_gravity="center"
+        android:background="@color/colorWhite"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rb_datum_paper"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:checked="true"
+            android:gravity="center"
+            android:text="纸质资料"
+            android:textColor="@color/selector_gray_green"
+            android:textSize="@dimen/text_size_l" />
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="60px"
+            android:layout_gravity="center_vertical"
+            android:background="@color/colorLine" />
+
+        <RadioButton
+            android:id="@+id/rb_datum_electronic"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:text="电子资料"
+            android:textColor="@color/selector_gray_green"
+            android:textSize="@dimen/text_size_l" />
+
+    </RadioGroup>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="4px"
+        android:background="@color/colorWhite"
+        android:orientation="horizontal">
+
+        <View
+            android:id="@+id/v_datum_paper"
+            android:layout_width="0dp"
+            android:layout_height="4px"
+            android:layout_centerHorizontal="true"
+            android:layout_weight="1"
+            android:background="@color/colorPrimarys" />
+
+        <View
+            android:id="@+id/v_datum_electronic"
+            android:layout_width="0dp"
+            android:layout_height="4px"
+            android:layout_centerHorizontal="true"
+            android:layout_weight="1"
+            android:background="@color/colorPrimarys"
+            android:visibility="invisible" />
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/fl_datum"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+</LinearLayout>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="120px"
+    android:layout_marginTop="10px"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/rl_leveltop"
+            android:layout_width="70px"
+            android:layout_height="60px">
+
+            <ImageView
+                android:id="@+id/iv_levelicon"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_centerHorizontal="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_levelnow" />
+
+            <TextView
+                android:id="@+id/tv_level"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:text="v1"
+                android:textSize="@dimen/text_size_m" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_levelnum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10px"
+            android:text="1%"
+            android:textColor="@color/text_blueone"
+            android:textSize="@dimen/text_size_m" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/iv_line"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_guodulineblue" />
+    </LinearLayout>
+
+
+
+</LinearLayout>

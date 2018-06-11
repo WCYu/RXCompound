@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/iv_local_photo"
+        android:layout_width="match_parent"
+        android:layout_height="200px"
+        android:background="@color/white"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/default_img"/>
+
+    <ImageButton
+        android:id="@+id/iv_local_photo_select"
+        android:layout_width="48px"
+        android:layout_height="48px"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="6px"
+        android:layout_marginTop="6px"
+        android:background="@null"
+        android:clickable="false"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/choice_icon"/>
+
+</RelativeLayout>

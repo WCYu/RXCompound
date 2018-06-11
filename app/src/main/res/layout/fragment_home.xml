@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBG">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+
+        <RelativeLayout
+            android:id="@+id/rl_top"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <include
+                android:id="@+id/include_home"
+                layout="@layout/include_header_layout"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+         />
+
+            <TextView
+                android:id="@+id/tv_more"
+                android:layout_width="88px"
+                android:layout_height="88px"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10px"
+                android:gravity="center"
+                android:text="+"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/text_size_maxbig" />
+        </RelativeLayout>
+        <com.rxjy.rxcompound.widget.AutoTextView
+            android:id="@+id/autoTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20px"
+            android:layout_below="@+id/rl_top"
+            android:visibility="gone"
+            ></com.rxjy.rxcompound.widget.AutoTextView>
+        <ImageView
+            android:id="@+id/iv_biaoshu"
+            android:layout_width="fill_parent"
+            android:layout_height="125px"
+            android:layout_below="@+id/autoTextView"
+            android:scaleType="fitXY"
+            android:src="@mipmap/ic_hometop"
+            />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/iv_biaoshu"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:id="@+id/ll_jiedan"
+                    android:layout_width="match_parent"
+                    android:layout_height="84px"
+                    android:layout_below="@+id/ll_biaoshu"
+                    android:layout_marginTop="20px"
+                    android:background="@color/colorWhite"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="9px"
+                        android:layout_height="29px"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="20px"
+                        android:src="@mipmap/biaotiqiandise" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="20px"
+                        android:gravity="center_vertical"
+                        android:text="在谈"
+                        android:textColor="@color/colorBlackLight"
+                        android:textSize="@dimen/text_size_l" />
+
+                    <TextView
+
+                        android:layout_width="0px"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical|end"
+                        android:text="查看全部"
+                        android:textColor="#9fa0a0"
+                        android:textSize="22px" />
+
+                    <ImageView
+                        android:id="@+id/jiedan_jiantou"
+                        android:layout_width="20px"
+                        android:layout_height="10px"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginEnd="20px"
+                        android:layout_marginStart="12px"
+                        android:src="@mipmap/jiantouxia" />
+
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/line" />
+
+                <com.rxjy.rxcompound.widget.MyListview
+                    android:id="@+id/xlv_home_page2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/ll_jiedan"
+                    android:visibility="gone">
+
+                </com.rxjy.rxcompound.widget.MyListview>
+
+                <LinearLayout
+                    android:id="@+id/ll_zaishi"
+                    android:layout_width="match_parent"
+                    android:layout_height="84px"
+                    android:layout_below="@+id/xlv_home_page2"
+                    android:layout_marginTop="20px"
+                    android:background="@color/colorWhite"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="9px"
+                        android:layout_height="29px"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="20px"
+                        android:src="@mipmap/biaotiqiandise" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="20px"
+                        android:gravity="center_vertical"
+                        android:text="在施"
+                        android:textColor="@color/colorBlackLight"
+                        android:textSize="@dimen/text_size_l" />
+
+                    <TextView
+
+                        android:layout_width="0px"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical|end"
+                        android:text="查看全部"
+                        android:textColor="#9fa0a0"
+                        android:textSize="22px" />
+
+                    <ImageView
+                        android:id="@+id/zaishi_jiantou"
+                        android:layout_width="20px"
+                        android:layout_height="10px"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginEnd="20px"
+                        android:layout_marginStart="12px"
+                        android:src="@mipmap/jiantouxia" />
+
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/line" />
+
+                <com.rxjy.rxcompound.widget.MyListview
+                    android:id="@+id/xlv_home_zaishi"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/ll_zaishi"
+                    android:visibility="gone">
+
+                </com.rxjy.rxcompound.widget.MyListview>
+            </LinearLayout>
+
+        </ScrollView>
+
+
+        <ImageView
+            android:id="@+id/iv_home_noinfo"
+            android:layout_width="match_parent"
+            android:layout_height="500px"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="100px"
+            android:layout_marginStart="100px"
+            android:layout_marginTop="230px"
+            android:src="@mipmap/noinfobackground"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tv_home_noinfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/iv_home_noinfo"
+            android:layout_marginBottom="450px"
+            android:gravity="center"
+            android:text="亲，你还没有项目哦..."
+            android:textColor="@color/colorGrayDark"
+            android:textSize="@dimen/text_size_l"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/ll_topmore"
+            android:layout_width="150px"
+            android:layout_height="200px"
+            android:layout_marginRight="10px"
+            android:layout_marginTop="-15px"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/iv_biaoshu"
+            android:visibility="gone"
+            android:background="@mipmap/tanchubeijing"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_moreperson"
+                android:layout_width="wrap_content"
+                android:layout_height="0px"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="回头客"
+                android:textColor="@color/colorWhite"
+                android:textSize="22px" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1.5px"
+                android:layout_marginLeft="5px"
+                android:layout_marginRight="5px"
+                android:background="@color/colorWhite" />
+            <TextView
+                android:id="@+id/tv_huitokei"
+                android:layout_width="wrap_content"
+                android:layout_height="0px"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="回头客App"
+                android:textColor="@color/colorWhite"
+                android:textSize="22px" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1.5px"
+                android:layout_marginLeft="5px"
+                android:layout_marginRight="5px"
+                android:background="@color/colorWhite" />
+            <TextView
+                android:id="@+id/tv_ercode"
+                android:layout_width="wrap_content"
+                android:layout_height="0px"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="扫一扫"
+                android:textColor="@color/colorWhite"
+                android:textSize="22px" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

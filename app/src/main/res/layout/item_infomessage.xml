@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="110px">
+
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="60px"
+            android:layout_height="60px"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="30px"
+            android:src="@drawable/ic_messagenew" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20px"
+            android:layout_toEndOf="@+id/imageView7"
+            android:layout_toRightOf="@+id/imageView7"
+            android:text=""
+            android:textColor="@color/textblack"
+            android:textSize="@dimen/text_size_ll" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:layout_marginLeft="30px"
+        android:textSize="@dimen/text_size_l6"
+        android:layout_marginRight="30px"
+        android:layout_marginBottom="20px"/>
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="80px">
+
+        <TextView
+            android:id="@+id/tv_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="30px"
+            android:textSize="@dimen/text_size_l"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="30px"
+            android:textSize="@dimen/text_size_l"
+            android:text="" />
+    </RelativeLayout>
+
+</LinearLayout>

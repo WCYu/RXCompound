@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        android:padding="24px">
+
+        <TextView
+            android:id="@+id/tv_list_item_routing_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1.当日批准开工"
+            android:textColor="@color/colorGrayDark"
+            android:textSize="@dimen/text_size_m" />
+
+        <TextView
+            android:id="@+id/tv_list_item_routing_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/tv_list_item_routing_content"
+            android:layout_marginTop="24px"
+            android:text="12-31"
+            android:textColor="@color/colorGray"
+            android:textSize="@dimen/text_size_s" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_below="@+id/tv_list_item_routing_time"
+            android:layout_marginTop="24px"
+            android:background="@color/colorLine" />
+
+        <ImageView
+            android:id="@+id/iv_list_item_routing_status_one"
+            android:layout_width="76px"
+            android:layout_height="32px"
+            android:layout_below="@+id/tv_list_item_routing_time"
+            android:layout_marginTop="48px" />
+
+        <ImageView
+            android:id="@+id/iv_list_item_routing_status_two"
+            android:layout_width="76px"
+            android:layout_height="32px"
+            android:layout_alignTop="@+id/iv_list_item_routing_status_one"
+            android:layout_marginLeft="24px"
+            android:layout_toRightOf="@+id/iv_list_item_routing_status_one" />
+
+        <ImageView
+            android:id="@+id/iv_list_item_routing_status_three"
+            android:layout_width="76px"
+            android:layout_height="32px"
+            android:layout_alignTop="@+id/iv_list_item_routing_status_two"
+            android:layout_marginLeft="24px"
+            android:layout_toRightOf="@+id/iv_list_item_routing_status_two" />
+
+        <Button
+            android:id="@+id/btn_list_item_routing_push_task"
+            android:layout_width="140px"
+            android:layout_height="32px"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@id/iv_list_item_routing_status_three"
+            android:background="@drawable/selector_btn_sub"
+            android:focusable="false"
+            android:visibility="gone"
+            android:text="任务推送"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_s" />
+
+    </RelativeLayout>
+
+</LinearLayout>

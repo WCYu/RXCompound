@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/colorBG"
+              android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="80px">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.rxjy.des.widget.CustomGridView
+                android:id="@+id/gv_des_dai_surroundings_photo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:horizontalSpacing="60px"
+                android:numColumns="2"
+                android:padding="30px"
+                android:verticalSpacing="60px">
+
+            </com.rxjy.des.widget.CustomGridView>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

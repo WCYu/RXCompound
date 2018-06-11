@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:padding="20px">
+
+        <ImageView
+            android:layout_width="10px"
+            android:layout_height="30px"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/status_icon" />
+
+        <TextView
+            android:id="@+id/tv_list_item_process_group_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20px"
+            android:text="施工安全准备"
+            android:textColor="@color/colorBlackLight"
+            android:textSize="@dimen/text_size_l" />
+
+        <ImageView
+            android:id="@+id/iv_list_item_process_group_arrow"
+            android:layout_width="22px"
+            android:layout_height="12px"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/arrow_up_black" />
+
+        <TextView
+            android:id="@+id/tv_list_item_process_group_state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10px"
+            android:layout_toLeftOf="@+id/iv_list_item_process_group_arrow"
+            android:text="未完成"
+            android:textColor="@color/colorRedLight"
+            android:textSize="@dimen/text_size_l" />
+
+        <TextView
+            android:id="@+id/tv_list_item_process_group_count"
+            android:layout_width="24px"
+            android:layout_height="24px"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10px"
+            android:layout_toLeftOf="@+id/tv_list_item_process_group_state"
+            android:layout_toStartOf="@+id/tv_list_item_process_group_state"
+            android:background="@drawable/shape_state_red"
+            android:gravity="center"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_s"
+            android:visibility="invisible" />
+
+    </RelativeLayout>
+
+</LinearLayout>

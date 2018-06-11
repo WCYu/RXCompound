@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="98px"
+    android:background="@color/colorPrimaryDes"
+    android:orientation="vertical">
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="88px"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/ll_tab_liangfangxinxi"
+                android:layout_width="150px"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_tab_liangfangxinxi"
+                    android:layout_width="match_parent"
+                    android:layout_height="0px"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="6px"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="量房信息"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="30px" />
+
+                <TextView
+                    android:id="@+id/tv_tab_liangfangxinxi_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="4px"
+                    android:layout_marginBottom="10px"
+                    android:layout_marginLeft="12px"
+                    android:layout_marginRight="12px"
+                    android:background="@color/colorWhite" />
+
+            </LinearLayout>
+            <View
+                android:layout_width="1px"
+                android:layout_height="fill_parent"
+                android:background="@color/colorWhite"
+                android:layout_marginTop="23px"
+                android:layout_marginBottom="30px"/>
+
+            <LinearLayout
+                android:id="@+id/ll_tab_liangfangzhaopian"
+                android:layout_width="150px"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_tab_liangfangzhaopian"
+                    android:layout_width="match_parent"
+                    android:layout_height="0px"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="6px"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="量房照片"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="30px" />
+
+                <TextView
+                    android:id="@+id/tv_tab_liangfangzhaopian_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="4px"
+                    android:layout_marginBottom="10px"
+                    android:layout_marginLeft="12px"
+                    android:layout_marginRight="12px"
+                    android:background="@color/colorWhite"
+                    android:visibility="invisible" />
+
+            </LinearLayout>
+            <View
+                android:layout_width="1px"
+                android:layout_height="fill_parent"
+                android:background="@color/colorWhite"
+                android:layout_marginTop="23px"
+                android:layout_marginBottom="30px"/>
+
+            <LinearLayout
+                android:id="@+id/ll_tab_zhuangxiuxuqiu"
+                android:layout_width="150px"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_tab_zhuangxiuxuqiu"
+                    android:layout_width="match_parent"
+                    android:layout_height="0px"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="6px"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="装修需求"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="30px" />
+
+                <TextView
+                    android:id="@+id/tv_tab_zhuangxiuxuqiu_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="4px"
+                    android:layout_marginBottom="10px"
+                    android:layout_marginLeft="12px"
+                    android:layout_marginRight="12px"
+                    android:background="@color/colorWhite"
+                    android:visibility="invisible" />
+
+            </LinearLayout>
+            <View
+                android:layout_width="1px"
+                android:layout_height="fill_parent"
+                android:background="@color/colorWhite"
+                android:layout_marginTop="23px"
+                android:layout_marginBottom="30px"/>
+
+            <LinearLayout
+                android:id="@+id/ll_tab_wuyexinxi"
+                android:layout_width="150px"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_tab_wuyexinxi"
+                    android:layout_width="match_parent"
+                    android:layout_height="0px"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="6px"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="物业信息"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="30px" />
+
+                <TextView
+                    android:id="@+id/tv_tab_wuyexinxi_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="4px"
+                    android:layout_marginBottom="10px"
+                    android:layout_marginLeft="12px"
+                    android:layout_marginRight="12px"
+                    android:background="@color/colorWhite"
+                    android:visibility="invisible" />
+
+            </LinearLayout>
+            <View
+                android:layout_width="1px"
+                android:layout_height="fill_parent"
+                android:background="@color/colorWhite"
+                android:layout_marginTop="23px"
+                android:layout_marginBottom="30px"/>
+
+            <LinearLayout
+                android:id="@+id/ll_tab_jibenxinxi"
+                android:layout_width="150px"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_tab_jibenxinxi"
+                    android:layout_width="match_parent"
+                    android:layout_height="0px"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="6px"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="基本信息"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="30px" />
+
+                <TextView
+                    android:id="@+id/tv_tab_jibenxinxi_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="4px"
+                    android:layout_marginBottom="10px"
+                    android:layout_marginLeft="12px"
+                    android:layout_marginRight="12px"
+                    android:background="@color/colorWhite"
+                    android:visibility="invisible" />
+
+            </LinearLayout>
+            <View
+                android:layout_width="1px"
+                android:layout_height="fill_parent"
+                android:background="@color/colorWhite"
+                android:layout_marginTop="23px"
+                android:layout_marginBottom="30px"/>
+
+            <LinearLayout
+                android:id="@+id/ll_tab_fangyuanxinxi"
+                android:layout_width="150px"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_tab_fangyuanxinxi"
+                    android:layout_width="match_parent"
+                    android:layout_height="0px"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="6px"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="房源信息"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="30px" />
+
+                <TextView
+                    android:id="@+id/tv_tab_fangyuanxinxi_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="4px"
+                    android:layout_marginBottom="10px"
+                    android:layout_marginLeft="12px"
+                    android:layout_marginRight="12px"
+                    android:background="@color/colorWhite"
+                    android:visibility="invisible" />
+
+            </LinearLayout>
+            <View
+                android:layout_width="1px"
+                android:layout_height="fill_parent"
+                android:background="@color/colorWhite"
+                android:layout_marginTop="23px"
+                android:layout_marginBottom="30px"/>
+
+            <LinearLayout
+                android:id="@+id/ll_tab_loupanxinxi"
+                android:layout_width="150px"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_tab_loupanxinxi"
+                    android:layout_width="match_parent"
+                    android:layout_height="0px"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="6px"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="楼盘信息"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="30px" />
+
+                <TextView
+                    android:id="@+id/tv_tab_loupanxinxi_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="4px"
+                    android:layout_marginBottom="10px"
+                    android:layout_marginLeft="12px"
+                    android:layout_marginRight="12px"
+                    android:background="@color/colorWhite"
+                    android:visibility="invisible" />
+
+            </LinearLayout>
+            <View
+                android:layout_width="1px"
+                android:layout_height="fill_parent"
+                android:background="@color/colorWhite"
+                android:layout_marginTop="23px"
+                android:layout_marginBottom="30px"/>
+
+            <LinearLayout
+                android:id="@+id/ll_tab_kehuxinxi"
+                android:layout_width="150px"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_tab_kehuxinxi"
+                    android:layout_width="match_parent"
+                    android:layout_height="0px"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="6px"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="客户信息"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="30px" />
+
+                <TextView
+                    android:id="@+id/tv_tab_kehuxinxi_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="4px"
+                    android:layout_marginBottom="10px"
+                    android:layout_marginLeft="12px"
+                    android:layout_marginRight="12px"
+                    android:background="@color/colorWhite"
+                    android:visibility="invisible" />
+
+            </LinearLayout>
+            <View
+                android:layout_width="1px"
+                android:layout_height="fill_parent"
+                android:background="@color/colorWhite"
+                android:layout_marginTop="23px"
+                android:layout_marginBottom="30px"/>
+
+            <LinearLayout
+                android:id="@+id/ll_tab_qiyexinxi"
+                android:layout_width="150px"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:orientation="vertical">
+
+                <TextView
+
+                    android:id="@+id/tv_tab_qiyexinxi"
+                    android:layout_width="match_parent"
+                    android:layout_height="0px"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="6px"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="企业信息"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="30px" />
+
+                <TextView
+                    android:id="@+id/tv_tab_qiyexinxi_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="4px"
+                    android:layout_marginBottom="10px"
+                    android:layout_marginLeft="12px"
+                    android:layout_marginRight="12px"
+                    android:background="@color/colorWhite"
+                    android:visibility="invisible" />
+
+            </LinearLayout>
+            <View
+                android:layout_width="1px"
+                android:layout_height="fill_parent"
+                android:background="@color/colorWhite"
+                android:layout_marginTop="23px"
+                android:layout_marginBottom="30px"/>
+
+            <LinearLayout
+                android:id="@+id/ll_tab_qiyehuanjing"
+                android:layout_width="150px"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_tab_qiyehuanjing"
+                    android:layout_width="match_parent"
+                    android:layout_height="0px"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="6px"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="企业环境"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="30px" />
+
+                <TextView
+                    android:id="@+id/tv_tab_qiyehuanjing_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="4px"
+                    android:layout_marginBottom="10px"
+                    android:layout_marginLeft="12px"
+                    android:layout_marginRight="12px"
+                    android:background="@color/colorWhite"
+                    android:visibility="invisible" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </HorizontalScrollView>
+</LinearLayout>

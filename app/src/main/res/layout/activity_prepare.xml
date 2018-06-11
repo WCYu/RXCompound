@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBG"
+    android:orientation="vertical">
+
+    <include layout="@layout/include_header_green_layout" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="268px"
+        android:background="@mipmap/routing_bg_icon">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="56px"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="24px"
+            android:paddingRight="24px">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/tip_white_icon" />
+
+            <TextView
+                android:id="@+id/tv_prepare_tip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="marquee"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:padding="4px"
+                android:scrollHorizontally="true"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/text_size_s" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/iv_prepare_pro_name_icon"
+            android:layout_width="32px"
+            android:layout_height="32px"
+            android:layout_marginLeft="24px"
+            android:layout_marginTop="80px"
+            android:src="@mipmap/pro_name_icon" />
+
+        <TextView
+            android:id="@+id/tv_prepare_pro_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/iv_prepare_pro_name_icon"
+            android:layout_marginLeft="20px"
+            android:singleLine="true"
+            android:layout_toRightOf="@+id/iv_prepare_pro_name_icon"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_l" />
+
+        <ImageView
+            android:id="@+id/iv_prepare_address_icon"
+            android:layout_width="32px"
+            android:layout_height="32px"
+            android:layout_below="@+id/iv_prepare_pro_name_icon"
+            android:layout_marginLeft="24px"
+            android:layout_marginTop="24px"
+            android:src="@mipmap/address_icon" />
+
+        <TextView
+            android:id="@+id/tv_prepare_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/iv_prepare_address_icon"
+            android:layout_marginLeft="20px"
+            android:singleLine="true"
+            android:layout_toRightOf="@+id/iv_prepare_address_icon"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_l" />
+
+
+        <ImageView
+            android:id="@+id/iv_prepare_time_icon"
+            android:layout_width="32px"
+            android:layout_height="32px"
+            android:layout_below="@+id/iv_prepare_address_icon"
+            android:layout_marginLeft="24px"
+            android:layout_marginTop="24px"
+            android:src="@mipmap/time_white_icon" />
+
+        <TextView
+            android:id="@+id/tv_prepare_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/iv_prepare_time_icon"
+            android:layout_marginLeft="20px"
+            android:layout_toRightOf="@+id/iv_prepare_time_icon"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_l" />
+
+    </RelativeLayout>
+
+    <ExpandableListView
+        android:id="@+id/elv_prepare"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="24px"
+        android:groupIndicator="@null">
+
+    </ExpandableListView>
+
+</LinearLayout>

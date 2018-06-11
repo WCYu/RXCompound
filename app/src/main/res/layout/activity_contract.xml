@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBG"
+    android:orientation="vertical">
+
+    <include layout="@layout/include_header_layout" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="24px"
+        android:background="@color/colorWhite"
+        android:orientation="horizontal"
+        android:padding="24px">
+
+        <ImageView
+            android:layout_width="10px"
+            android:layout_height="30px"
+            android:src="@mipmap/status_icon" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10px"
+            android:text="甲方合同"
+            android:textColor="@color/colorBlackLight"
+            android:textSize="@dimen/text_size_l" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/colorLine" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        android:padding="24px">
+
+        <TextView
+            android:id="@+id/tv_contract_principal_text"
+            android:layout_width="180px"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text="甲方负责人"
+            android:textColor="@color/colorGrayDark"
+            android:textSize="@dimen/text_size_m" />
+
+        <TextView
+            android:id="@+id/tv_contract_principal_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/tv_contract_principal_text"
+            android:layout_toRightOf="@+id/tv_contract_principal_text"
+            android:singleLine="true"
+            android:textColor="@color/colorBlackLight"
+            android:textSize="@dimen/text_size_m" />
+
+        <TextView
+            android:id="@+id/tv_contract_principal_phone_text"
+            android:layout_width="180px"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_contract_principal_text"
+            android:layout_marginTop="30px"
+            android:singleLine="true"
+            android:text="负责人电话"
+            android:textColor="@color/colorGrayDark"
+            android:textSize="@dimen/text_size_m" />
+
+        <TextView
+            android:id="@+id/tv_contract_principal_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/tv_contract_principal_phone_text"
+            android:layout_toRightOf="@+id/tv_contract_principal_phone_text"
+            android:singleLine="true"
+            android:textColor="@color/colorBlackLight"
+            android:textSize="@dimen/text_size_m" />
+
+        <TextView
+            android:id="@+id/tv_contract_des_name_text"
+            android:layout_width="180px"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_contract_principal_phone_text"
+            android:layout_marginTop="30px"
+            android:singleLine="true"
+            android:text="设计师姓名"
+            android:textColor="@color/colorGrayDark"
+            android:textSize="@dimen/text_size_m" />
+
+        <TextView
+            android:id="@+id/tv_contract_des_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/tv_contract_des_name_text"
+            android:layout_toRightOf="@+id/tv_contract_des_name_text"
+            android:singleLine="true"
+            android:textColor="@color/colorBlackLight"
+            android:textSize="@dimen/text_size_m" />
+
+        <TextView
+            android:id="@+id/tv_contract_behalf_mat_price_text"
+            android:layout_width="180px"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_contract_des_name_text"
+            android:layout_marginTop="30px"
+            android:singleLine="true"
+            android:text="代购主材费"
+            android:textColor="@color/colorGrayDark"
+            android:textSize="@dimen/text_size_m" />
+
+        <TextView
+            android:id="@+id/tv_contract_behalf_mat_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/tv_contract_behalf_mat_price_text"
+            android:layout_toRightOf="@+id/tv_contract_behalf_mat_price_text"
+            android:singleLine="true"
+            android:textColor="@color/colorBlackLight"
+            android:textSize="@dimen/text_size_m" />
+
+        <TextView
+            android:id="@+id/tv_contract_date_of_signing_text"
+            android:layout_width="180px"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_contract_behalf_mat_price_text"
+            android:layout_marginTop="30px"
+            android:singleLine="true"
+            android:text="签订日期"
+            android:textColor="@color/colorGrayDark"
+            android:textSize="@dimen/text_size_m" />
+
+        <TextView
+            android:id="@+id/tv_contract_date_of_signing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/tv_contract_date_of_signing_text"
+            android:layout_toRightOf="@+id/tv_contract_date_of_signing_text"
+            android:singleLine="true"
+            android:textColor="@color/colorBlackLight"
+            android:textSize="@dimen/text_size_m" />
+
+        <TextView
+            android:id="@+id/tv_contract_time_limit_for_project_text"
+            android:layout_width="180px"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_contract_date_of_signing_text"
+            android:layout_marginTop="30px"
+            android:singleLine="true"
+            android:text="工期"
+            android:textColor="@color/colorGrayDark"
+            android:textSize="@dimen/text_size_m" />
+
+        <TextView
+            android:id="@+id/tv_contract_time_limit_for_project"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/tv_contract_time_limit_for_project_text"
+            android:layout_toRightOf="@+id/tv_contract_time_limit_for_project_text"
+            android:singleLine="true"
+            android:textColor="@color/colorBlackLight"
+            android:textSize="@dimen/text_size_m" />
+
+        <TextView
+            android:id="@+id/tv_contract_area_of_structure_text"
+            android:layout_width="180px"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_contract_time_limit_for_project_text"
+            android:layout_marginTop="30px"
+            android:singleLine="true"
+            android:text="建筑面积"
+            android:textColor="@color/colorGrayDark"
+            android:textSize="@dimen/text_size_m" />
+
+        <TextView
+            android:id="@+id/tv_contract_area_of_structure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/tv_contract_area_of_structure_text"
+            android:layout_toRightOf="@+id/tv_contract_area_of_structure_text"
+            android:singleLine="true"
+            android:textColor="@color/colorBlackLight"
+            android:textSize="@dimen/text_size_m" />
+
+        <TextView
+            android:id="@+id/tv_contract_pro_location_text"
+            android:layout_width="180px"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_contract_area_of_structure_text"
+            android:layout_marginTop="30px"
+            android:singleLine="true"
+            android:text="工程地址"
+            android:textColor="@color/colorGrayDark"
+            android:textSize="@dimen/text_size_m" />
+
+        <TextView
+            android:id="@+id/tv_contract_pro_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/tv_contract_pro_location_text"
+            android:layout_toRightOf="@+id/tv_contract_pro_location_text"
+            android:textColor="@color/colorBlackLight"
+            android:textSize="@dimen/text_size_m" />
+
+        <TextView
+            android:id="@+id/tv_contract_special_requirements_text"
+            android:layout_width="180px"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_contract_pro_location"
+            android:layout_marginTop="30px"
+            android:singleLine="true"
+            android:text="特殊要求"
+            android:textColor="@color/colorGrayDark"
+            android:textSize="@dimen/text_size_m" />
+
+        <TextView
+            android:id="@+id/tv_contract_special_requirements"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/tv_contract_special_requirements_text"
+            android:layout_toRightOf="@+id/tv_contract_special_requirements_text"
+            android:textColor="@color/colorBlackLight"
+            android:textSize="@dimen/text_size_m" />
+
+    </RelativeLayout>
+
+</LinearLayout>

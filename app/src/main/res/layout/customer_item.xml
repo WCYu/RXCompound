@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+   >
+     <RelativeLayout
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_margin="25px"
+       >
+         <TextView
+             android:id="@+id/tv_company"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="12312312"
+             android:textSize="30px"/>
+          <TextView
+             android:id="@+id/tv_state"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="在谈"
+             android:layout_alignParentRight="true"
+             android:layout_marginRight="20px"
+              android:textSize="30px"
+              android:textColor="@color/text_bluetwo"
+              />
+     </RelativeLayout>
+    <RelativeLayout
+
+        android:layout_marginBottom="25px"
+        android:layout_marginLeft="25px"
+        android:layout_marginRight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <TextView
+            android:id="@+id/lv_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/number"
+
+            android:textSize="30px"/>
+        <TextView
+            android:id="@+id/tv_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30px"
+            android:layout_toRightOf="@+id/lv_number"
+            android:layout_marginLeft="20px"
+            android:text="2123345"
+            />
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="232312"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20px"
+            android:textSize="30px"
+            />
+    </RelativeLayout>
+</LinearLayout>

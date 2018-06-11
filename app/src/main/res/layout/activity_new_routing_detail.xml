@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBG"
+    android:orientation="vertical">
+
+    <include layout="@layout/include_header_layout" />
+
+    <com.rxjy.rxcompound.widget.CustomListView
+        android:id="@+id/lv_new_routing_detail"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="24px"
+        android:layout_weight="1"
+        android:divider="@color/colorBG"
+        android:dividerHeight="24px"></com.rxjy.rxcompound.widget.CustomListView>
+
+</LinearLayout>

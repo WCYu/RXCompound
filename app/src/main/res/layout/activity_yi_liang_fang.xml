@@ -1,0 +1,893 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <include
+        layout="@layout/include_header_layout" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20px"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="10px"
+                    android:layout_height="38px"
+                    android:background="@color/cor2196f3"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="客户信息"
+                    android:layout_marginLeft="8px"
+                    android:textColor="@color/cor595757"
+                    android:textSize="@dimen/text_size_l"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80px">
+
+                <LinearLayout
+                    style="@style/measure_ll">
+
+                    <TextView
+                        style="@style/measure_title"
+                        android:text="@string/ci_proHead"/>
+
+                    <TextView
+                        android:id="@+id/tv_ci_proHead"
+                        style="@style/measure_value"
+                        android:text="李刚"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/measure_ll">
+
+                    <TextView
+                        style="@style/measure_title"
+                        android:text="@string/ca_DecBudgetPrice"/>
+
+                    <TextView
+                        android:id="@+id/tv_ca_DecBudgetPrice"
+                        style="@style/measure_value"
+                        android:text="10w"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80px">
+
+                <LinearLayout
+                    style="@style/measure_ll">
+
+                    <TextView
+                        style="@style/measure_title"
+                        android:text="@string/ca_RentFreeDate"/>
+
+                    <TextView
+                        android:id="@+id/tv_ca_RentFreeDate"
+                        style="@style/measure_value"
+                        android:text="两个月以上"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/measure_ll">
+
+                    <TextView
+                        style="@style/measure_title"
+                        android:text="@string/ca_Rental"/>
+
+                    <TextView
+                        android:id="@+id/tv_ca_Rental"
+                        style="@style/measure_value"
+                        android:text="100元/平"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80px"
+                android:gravity="center_vertical">
+
+                <TextView
+                    style="@style/measure_title"
+                    android:text="@string/ca_LeaseTerm"/>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="7"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:id="@+id/ca_LeaseTermStart"
+                        style="@style/measure_lease_term"
+                        android:text="2016-05-15"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10px"
+                        android:text=" - "
+                        android:textColor="@color/cor333"/>
+
+                    <TextView
+                        android:id="@+id/ca_LeaseTermEnd"
+                        style="@style/measure_lease_term"
+                        android:text="2018-05-15"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80px"
+                android:gravity="center_vertical">
+
+                <TextView
+                    style="@style/measure_title"
+                    android:text="@string/ci_DecorationAddress"/>
+
+                <TextView
+                    android:id="@+id/tv_ci_DecorationAddress"
+                    style="@style/measure_value"
+                    android:layout_weight="7"
+                    android:text="北京市海淀区玉泉路116号"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80px">
+
+                <LinearLayout
+                    style="@style/measure_ll">
+
+                    <TextView
+                        style="@style/measure_title"
+                        android:text="@string/ca_ca_HousingSituation"/>
+
+                    <TextView
+                        android:id="@+id/tv_ca_HousingType"
+                        style="@style/measure_value"
+                        android:text="精装"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/measure_ll">
+
+                    <TextView
+                        style="@style/measure_title"
+                        android:text="@string/ca_HouseOrientation"/>
+
+                    <TextView
+                        android:id="@+id/tv_ca_HouseOrientation"
+                        style="@style/measure_value"
+                        android:text="东"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80px">
+
+                <LinearLayout
+                    style="@style/measure_ll">
+
+                    <TextView
+                        style="@style/measure_title"
+                        android:text="@string/ca_OccupyPublicCorridor"/>
+
+                    <TextView
+                        android:id="@+id/tv_ca_OccupyPublicCorridor"
+                        style="@style/measure_value"
+                        android:text="是"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/measure_ll">
+
+                    <TextView
+                        style="@style/measure_title"
+                        android:text="@string/ca_CargoDoorWide"/>
+
+                    <TextView
+                        android:id="@+id/tv_ca_CargoDoorWide"
+                        style="@style/measure_value"
+                        android:text="1000"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80px">
+
+                <LinearLayout
+                    style="@style/measure_ll">
+
+                    <TextView
+                        style="@style/measure_title"
+                        android:text="@string/ca_isGroundSmooth"/>
+
+                    <TextView
+                        android:id="@+id/tv_ca_isGroundSmooth"
+                        style="@style/measure_value"
+                        android:text="是"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/measure_ll">
+
+                    <TextView
+                        style="@style/measure_title"
+                        android:text="@string/ca_CargoDoorHight"/>
+
+                    <TextView
+                        android:id="@+id/tv_ca_CargoDoorHight"
+                        style="@style/measure_value"
+                        android:text="2000"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80px">
+
+                <LinearLayout
+                    style="@style/measure_ll">
+
+                    <TextView
+                        style="@style/measure_title"
+                        android:text="@string/ca_OriginalGround"/>
+
+                    <TextView
+                        android:id="@+id/tv_ca_OriginalGround"
+                        style="@style/measure_value"
+                        android:text="是"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/measure_ll">
+
+                    <TextView
+                        style="@style/measure_title"
+                        android:text="@string/ca_OriginalGroundMaterial"/>
+
+                    <TextView
+                        android:id="@+id/tv_ca_OriginalGroundMaterial"
+                        style="@style/measure_value"
+                        android:text="水泥找平"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80px">
+
+                <LinearLayout
+                    style="@style/measure_ll">
+
+                    <TextView
+                        style="@style/measure_title"
+                        android:text="@string/ca_GroundElevation"/>
+
+                    <TextView
+                        android:id="@+id/tv_ca_GroundElevation"
+                        style="@style/measure_value"
+                        android:text="1000"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/measure_ll">
+
+                    <TextView
+                        style="@style/measure_title"
+                        android:text="@string/ca_OriginalWallMaterial"/>
+
+                    <TextView
+                        android:id="@+id/tv_ca_OriginalWallMaterial"
+                        style="@style/measure_value"
+                        android:text="水泥"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80px">
+
+                <LinearLayout
+                    style="@style/measure_ll">
+
+                    <TextView
+                        style="@style/measure_title"
+                        android:text="@string/ca_SpaceMaxHeight"/>
+
+                    <TextView
+                        android:id="@+id/tv_ca_SpaceMaxHeight"
+                        style="@style/measure_value"
+                        android:text="1000"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/measure_ll">
+
+                    <TextView
+                        style="@style/measure_title"
+                        android:text="@string/ca_SpaceMinHeight"/>
+
+                    <TextView
+                        android:id="@+id/tv_ca_SpaceMinHeight"
+                        style="@style/measure_value"
+                        android:text="1000"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80px">
+
+                <LinearLayout
+                    style="@style/measure_ll">
+
+                    <TextView
+                        style="@style/measure_title"
+                        android:text="@string/ca_OriginalTopMaterial"/>
+
+                    <TextView
+                        android:id="@+id/tv_ca_OriginalTopMaterial"
+                        style="@style/measure_value"
+                        android:text="水泥毛坯"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/measure_ll">
+
+                    <TextView
+                        style="@style/measure_title"
+                        android:text="@string/ca_MinimumSprayHeight"/>
+
+                    <TextView
+                        android:id="@+id/tv_ca_MinimumSprayHeight"
+                        style="@style/measure_value"
+                        android:text="1000"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80px">
+
+                <LinearLayout
+                    style="@style/measure_ll">
+
+                    <TextView
+                        style="@style/measure_title"
+                        android:text="@string/ca_mainBeamHeight"/>
+
+                    <TextView
+                        android:id="@+id/tv_ca_mainBeamHeight"
+                        style="@style/measure_value"
+                        android:text="1000"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/measure_ll">
+
+                    <TextView
+                        style="@style/measure_title"
+                        android:text="@string/ca_SecondaryHeight"/>
+
+                    <TextView
+                        android:id="@+id/tv_ca_SecondaryHeight"
+                        style="@style/measure_value"
+                        android:text="1000"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80px">
+
+                <LinearLayout
+                    style="@style/measure_ll">
+
+                    <TextView
+                        style="@style/measure_title"
+                        android:text="@string/ca_AirConditionerNum"/>
+
+                    <TextView
+                        android:id="@+id/tv_ca_AirConditionerNum"
+                        style="@style/measure_value"
+                        android:text="2"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/measure_ll">
+
+                    <TextView
+                        style="@style/measure_title"
+                        android:text="@string/ca_TuyereMinimumHeight"/>
+
+                    <TextView
+                        android:id="@+id/tv_ca_TuyereMinimumHeight"
+                        style="@style/measure_value"
+                        android:text="1000"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80px">
+
+                <LinearLayout
+                    style="@style/measure_ll">
+
+                    <TextView
+                        style="@style/measure_title"
+                        android:text="@string/ca_UpWaterSpot"/>
+
+                    <TextView
+                        android:id="@+id/tv_ca_UpWaterSpot"
+                        style="@style/measure_value"
+                        android:text="2"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/measure_ll">
+
+                    <TextView
+                        style="@style/measure_title"
+                        android:text="@string/ca_DownWaterSpot"/>
+
+                    <TextView
+                        android:id="@+id/tv_ca_DownWaterSpot"
+                        style="@style/measure_value"
+                        android:text="2"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80px">
+
+                <LinearLayout
+                    style="@style/measure_ll">
+
+                    <TextView
+                        style="@style/measure_title"
+                        android:text="@string/ca_DownWaterSpotSize"/>
+
+                    <TextView
+                        android:id="@+id/tv_ca_DownWaterSpotSize"
+                        style="@style/measure_value"
+                        android:text="1000"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/measure_ll">
+
+                    <TextView
+                        style="@style/measure_title"
+                        android:text="@string/ca_WaterPath"/>
+
+                    <TextView
+                        android:id="@+id/tv_ca_WaterPath"
+                        style="@style/measure_value"
+                        android:text="板顶"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80px">
+
+                <LinearLayout
+                    style="@style/measure_ll">
+
+                    <TextView
+                        style="@style/measure_title"
+                        android:text="@string/ca_StrongBoxNum"/>
+
+                    <TextView
+                        android:id="@+id/tv_ca_StrongBoxNum"
+                        style="@style/measure_value"
+                        android:text="2"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/measure_ll">
+
+                    <TextView
+                        style="@style/measure_title"
+                        android:text="@string/ca_WeakBoxNum"/>
+
+                    <TextView
+                        android:id="@+id/tv_ca_WeakBoxNum"
+                        style="@style/measure_value"
+                        android:text="2"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80px">
+
+                <LinearLayout
+                    style="@style/measure_ll">
+
+                    <TextView
+                        style="@style/measure_title"
+                        android:text="@string/ca_WindowType"/>
+
+                    <TextView
+                        android:id="@+id/tv_ca_WindowType"
+                        style="@style/measure_value"
+                        android:text="飘窗"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/measure_ll">
+
+                    <TextView
+                        style="@style/measure_title"
+                        android:text="@string/ca_WindowHight"/>
+
+                    <TextView
+                        android:id="@+id/tv_ca_WindowHight"
+                        style="@style/measure_value"
+                        android:text="1000"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80px">
+
+                <LinearLayout
+                    style="@style/measure_ll">
+
+                    <TextView
+                        style="@style/measure_title"
+                        android:text="@string/ca_WindowWidth"/>
+
+                    <TextView
+                        android:id="@+id/tv_ca_WindowWidth"
+                        style="@style/measure_value"
+                        android:text="1000"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/measure_ll">
+
+                    <TextView
+                        style="@style/measure_title"
+                        android:text="@string/ca_windowsillHight"/>
+
+                    <TextView
+                        android:id="@+id/tv_ca_windowsillHight"
+                        style="@style/measure_value"
+                        android:text="1000"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80px"
+                android:gravity="center_vertical">
+
+                <TextView
+                    style="@style/measure_title"
+                    android:text="@string/ca_CurtainWallSpacing"/>
+
+                <TextView
+                    android:id="@+id/tv_ca_CurtainWallSpacing"
+                    style="@style/measure_value"
+                    android:layout_weight="7"
+                    android:text="1000"/>
+
+            </LinearLayout>
+
+                <com.rxjy.rxcompound.widget.CustomGridView
+                android:id="@+id/gv_measure_photo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnWidth="290px"
+                android:horizontalSpacing="60px"
+                android:numColumns="2"
+                android:padding="30px"
+                android:verticalSpacing="60px">
+
+            </com.rxjy.rxcompound.widget.CustomGridView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20px"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="10px"
+                    android:layout_height="38px"
+                    android:background="@color/cor2196f3"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="企业环境"
+                    android:layout_marginLeft="8px"
+                    android:textColor="@color/cor595757"
+                    android:textSize="@dimen/text_size_l"/>
+
+            </LinearLayout>
+            <com.rxjy.rxcompound.widget.CustomGridView
+                android:id="@+id/gv_des_yi_surroundings_photo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:horizontalSpacing="60px"
+                android:numColumns="2"
+                android:padding="30px"
+                android:verticalSpacing="60px">
+
+            </com.rxjy.rxcompound.widget.CustomGridView>
+
+
+
+            <!--1111-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20px"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="10px"
+                    android:layout_height="38px"
+                    android:background="@color/cor2196f3"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="装饰需求"
+                    android:layout_marginLeft="8px"
+                    android:textColor="@color/cor595757"
+                    android:textSize="@dimen/text_size_l"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80px">
+
+                <LinearLayout
+                    style="@style/measure_ll">
+
+                    <TextView
+                        style="@style/measure_title"
+                        android:text="@string/ca_intentional_style"/>
+
+                    <TextView
+                        android:id="@+id/tv_ca_IntentionalStyle"
+                        style="@style/measure_value"
+                        android:text="现代简约"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/measure_ll">
+
+                    <TextView
+                        style="@style/measure_title"
+                        android:text="@string/ca_soft_furniture"/>
+
+                    <TextView
+                        android:id="@+id/tv_ca_soft_furniture"
+                        style="@style/measure_value"
+                        android:text="是"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80px">
+
+
+                <LinearLayout
+                    style="@style/measure_ll">
+
+                    <TextView
+                        style="@style/measure_title"
+                        android:text="@string/ca_fengshui_requirements"/>
+
+                    <TextView
+                        android:id="@+id/tv_ca_fenshui_requirements"
+                        style="@style/measure_value"
+                        android:text="有"/>
+                </LinearLayout>
+                <LinearLayout
+                    style="@style/measure_ll">
+
+                    <TextView
+                        style="@style/measure_title"
+                        android:text="@string/ca_intelligent_weak_current"/>
+
+                    <TextView
+                        android:id="@+id/tv_ca_intelligent_weak_current"
+                        style="@style/measure_value"
+                        android:text="是"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20px"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="10px"
+                    android:layout_height="38px"
+                    android:background="@color/cor2196f3"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="物业信息"
+                    android:layout_marginLeft="8px"
+                    android:textColor="@color/cor595757"
+                    android:textSize="@dimen/text_size_l"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80px">
+
+                <LinearLayout
+                    style="@style/measure_ll">
+
+                    <TextView
+                        style="@style/measure_title"
+                        android:text="@string/ca_req_con_time"/>
+
+                    <TextView
+                        android:id="@+id/tv_ca_req_con_time"
+                        style="@style/measure_value"
+                        android:text="白天"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/measure_ll">
+
+                    <TextView
+                        style="@style/measure_title"
+                        android:text="@string/ca_designated_fire_company"/>
+
+                    <TextView
+                        android:id="@+id/tv_ca_designated_fire_company"
+                        style="@style/measure_value"
+                        android:text="是"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80px">
+
+                <LinearLayout
+                    style="@style/measure_ll">
+
+                    <TextView
+                        style="@style/measure_title"
+                        android:text="@string/ca_product_protection"/>
+
+                    <TextView
+                        android:id="@+id/tv_ca_product_protection"
+                        style="@style/measure_value"
+                        android:text="是"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/measure_ll">
+
+                    <TextView
+                        style="@style/measure_title"
+                        android:text="@string/ca_designated_air_company"/>
+
+                    <TextView
+                        android:id="@+id/tv_ca_designated_air_company"
+                        style="@style/measure_value"
+                        android:text="是"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80px">
+
+                <LinearLayout
+                    style="@style/measure_ll">
+
+                    <TextView
+                        style="@style/measure_title"
+                        android:text="@string/ca_protective_material"/>
+
+                    <TextView
+                        android:id="@+id/tv_ca_protective_material"
+                        style="@style/measure_value"
+                        android:text="彩钢板"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/measure_ll">
+
+                    <TextView
+                        style="@style/measure_title"
+                        android:text="@string/ca_designated_sinotrans"/>
+
+                    <TextView
+                        android:id="@+id/tv_ca_designated_sinotrans"
+                        style="@style/measure_value"
+                        android:text="是"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80px">
+
+                <LinearLayout
+                    style="@style/measure_ll">
+
+                    <TextView
+                        style="@style/measure_title"
+                        android:text="@string/ca_property_insurance"/>
+
+                    <TextView
+                        android:id="@+id/tv_ca_property_insurance"
+                        style="@style/measure_value"
+                        android:text="是"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/measure_ll">
+
+                    <TextView
+                        style="@style/measure_title"
+                        android:text="@string/ca_blueprint"/>
+
+                    <TextView
+                        android:id="@+id/tv_ca_blueprint"
+                        style="@style/measure_value"
+                        android:text="蓝图"/>
+                </LinearLayout>
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>

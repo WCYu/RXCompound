@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="98px"
+    android:background="@color/colorWhite"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/colorLine" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/rl_tab_home"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/iv_tab_home"
+                android:layout_width="40px"
+                android:layout_height="40px"
+                android:layout_centerHorizontal="true"
+
+                android:src="@mipmap/ic_tab_hostpage" />
+
+            <TextView
+                android:id="@+id/tv_tab_home"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/iv_tab_home"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="6px"
+                android:text="首页"
+                android:textColor="@color/colorGrayDark"
+                android:textSize="20px" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_weight="1"
+            android:id="@+id/rl_tab_wallet"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:clickable="true"
+             android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/iv_tab_wallet"
+                android:layout_width="40px"
+                android:layout_height="40px"
+                android:layout_centerHorizontal="true"
+                android:src="@mipmap/ic_tab_more" />
+
+            <TextView
+                android:id="@+id/tv_tab_wallet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/iv_tab_wallet"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="6px"
+                android:text="更多"
+                android:textColor="@color/colorGrayDark"
+                android:textSize="20px" />
+            <TextView
+                android:id="@+id/red_display"
+                android:layout_width="16px"
+                android:layout_height="16px"
+                android:background="@drawable/dotred"
+                android:layout_toRightOf="@+id/iv_tab_wallet"
+                android:visibility="invisible"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_tab_find"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/iv_tab_find"
+                android:layout_width="40px"
+                android:layout_height="40px"
+                android:layout_centerHorizontal="true"
+                android:src="@mipmap/ic_tab_find" />
+
+            <TextView
+                android:id="@+id/tv_tab_find"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/iv_tab_find"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="6px"
+                android:text="发现"
+                android:textColor="@color/colorGrayDark"
+                android:textSize="20px" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_tab_mine"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:gravity="center">
+
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/ll_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/iv_tab_mine"
+                        android:layout_width="40px"
+                        android:layout_height="40px"
+                        android:layout_centerHorizontal="true"
+                        android:src="@mipmap/ic_tab_main" />
+
+                    <TextView
+                        android:id="@+id/tv_tab_mine"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/iv_tab_mine"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="6px"
+                        android:text="我"
+                        android:textColor="@color/colorGrayDark"
+                        android:textSize="20px" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_msgnum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignRight="@+id/ll_view"
+                    android:layout_alignTop="@+id/ll_view"
+                    android:background="@drawable/dotred"
+                    android:gravity="center"
+                    android:text="1"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/text_size_m"
+                    android:visibility="gone" />
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

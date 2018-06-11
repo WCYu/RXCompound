@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="100px"
+        android:background="@color/colorredbg">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="100px"
+            android:layout_marginRight="100px"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="注册"
+            android:textColor="@color/colorwhite"
+            android:textSize="@dimen/text_size_l6" />
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="80px"
+            android:layout_height="80px"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            android:padding="20px"
+            android:src="@drawable/ic_backwrite" />
+
+        <TextView
+            android:id="@+id/tv_right"
+            android:layout_width="100px"
+            android:layout_height="fill_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10px"
+            android:gravity="center"
+            android:text="修改"
+            android:textColor="@color/colorwhite"
+            android:textSize="@dimen/text_size_l"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:id="@+id/content"
+>
+        <ImageView
+            android:id="@+id/home_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/tan_dialog"
+
+         />
+        <TextView
+            android:id="@+id/dialog_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:paddingTop="30px"
+            android:textSize="40px"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/dialog_title_two"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:paddingTop="145px"
+            android:textSize="40px"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/delete_image"
+            android:layout_width="40px"
+            android:layout_height="40px"
+            android:layout_alignParentRight="true"
+            android:src="@mipmap/delete"
+            android:visibility="gone" />
+
+</RelativeLayout>

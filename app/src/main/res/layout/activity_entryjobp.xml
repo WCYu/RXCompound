@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="100px"
+        android:background="@color/colorred">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="入职需知"
+            android:textColor="@color/colorwhite"
+            android:textSize="@dimen/text_size_l6" />
+
+        <ImageView
+            android:id="@+id/ic_back"
+            android:layout_width="40px"
+            android:layout_height="40px"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="19dp"
+            android:src="@drawable/ic_backwrite" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginBottom="80px">
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical"
+                android:background="@color/colorwhite">
+                <WebView
+                    android:id="@+id/wb_entryjobview"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" />
+                <CheckBox
+                    android:id="@+id/cb_entrybox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="我已了解《入职需知》同意加入瑞祥大家庭"
+                    android:textSize="@dimen/page_margin_s"
+                    android:layout_marginBottom="20px"
+                    android:layout_marginTop="20px"/>
+
+            </LinearLayout>
+        </ScrollView>
+
+
+        <TextView
+            android:id="@+id/tv_sure"
+            android:layout_width="fill_parent"
+            android:layout_height="80px"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:gravity="center"
+            android:textColor="@color/colorwhite"
+            android:background="@color/colorred"
+            android:textSize="@dimen/text_size_l6"
+            android:text="确定" />
+    </RelativeLayout>
+
+
+
+</LinearLayout>

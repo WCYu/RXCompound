@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBG"
+    android:orientation="vertical">
+    <!--tools:context="com.rxjy.des.activity.JinduxunjianXQYActivty">-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:background="@color/colorPrimary">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="19px"
+            android:layout_height="36px"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="20px"
+            android:layout_marginStart="20px"
+            android:gravity="center"
+            android:src="@mipmap/jiantouzuo" />
+
+        <TextView
+            android:id="@+id/tv_submit"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="10px"
+            android:gravity="center"
+            android:text="提交"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_8" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+
+            android:ellipsize="end"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="进度巡检"
+            android:textColor="@color/colorWhite"
+            android:textSize="36px" />
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20px"
+        android:background="@color/colorWhite">
+
+        <EditText
+            android:id="@+id/et_jinduxunjian_content"
+            android:layout_width="match_parent"
+            android:layout_height="150px"
+            android:layout_marginStart="20px"
+            android:layout_marginTop="15px"
+            android:background="@null"
+            android:gravity="top"
+            android:hint="请描述现场施工进度，以及所施工内容项,如:施工进度完成55%"
+            android:textColorHint="@color/colorGray"
+            android:textSize="22px" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite">
+
+        <ImageView
+            android:layout_width="16px"
+            android:layout_height="22px"
+            android:layout_marginBottom="15px"
+            android:layout_marginStart="20px"
+            android:layout_marginTop="15px"
+            android:src="@mipmap/address" />
+
+        <TextView
+            android:id="@+id/tv_jinduxunjian_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10px"
+            android:textSize="22px" />
+
+    </LinearLayout>
+
+    <GridView
+        android:id="@+id/gv_des_album"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="20px"
+        android:horizontalSpacing="20px"
+        android:numColumns="3"
+        android:verticalSpacing="20px">
+
+    </GridView>
+
+</LinearLayout>

@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+    <include layout="@layout/include_header_tv_layout"
+        ></include>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100px">
+
+        <TextView
+            android:id="@+id/tv_entry_type"
+            android:layout_width="160px"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="24px"
+            android:text="请假类型"
+             android:textStyle="bold"
+            android:textColor="@color/colorBlackLight"
+            android:textSize="@dimen/text_size_l" />
+
+
+        <TextView
+            android:id="@+id/et_bank_master"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="24px"
+            android:layout_toRightOf="@id/tv_entry_type"
+            android:gravity="center_vertical"
+            android:hint="类型"
+            android:textColor="@color/colorBlackLight"
+            android:textSize="@dimen/text_size_l" />
+
+        <TextView
+            android:id="@+id/tv_bank_master_line"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/selector_input_line"
+            android:enabled="false" />
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100px">
+
+        <TextView
+            android:id="@+id/tv_kaishi"
+            android:layout_width="160px"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="24px"
+            android:text="开始时间"
+            android:textStyle="bold"
+            android:textColor="@color/colorBlackLight"
+            android:textSize="@dimen/text_size_l" />
+
+
+        <TextView
+            android:id="@+id/et_kaishi"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="24px"
+            android:layout_toRightOf="@id/tv_kaishi"
+            android:gravity="center_vertical"
+            android:hint="开始请假"
+            android:textColor="@color/colorBlackLight"
+            android:textSize="@dimen/text_size_l" />
+
+        <TextView
+            android:id="@+id/tv_kaishi_line"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/selector_input_line"
+            android:enabled="false" />
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100px">
+
+        <TextView
+            android:id="@+id/tv_jieshu"
+            android:layout_width="160px"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="24px"
+            android:text="结束时间"
+            android:textStyle="bold"
+            android:textColor="@color/colorBlackLight"
+            android:textSize="@dimen/text_size_l" />
+
+
+        <TextView
+            android:id="@+id/et_jieshu"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="24px"
+            android:layout_toRightOf="@id/tv_jieshu"
+            android:gravity="center_vertical"
+            android:hint="正常上班"
+            android:textColor="@color/colorBlackLight"
+            android:textSize="@dimen/text_size_l" />
+
+        <TextView
+            android:id="@+id/tv_jieshu_line"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/selector_input_line"
+            android:enabled="false" />
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100px"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
+
+        <TextView
+            android:id="@+id/tv_zongshichang"
+            android:layout_width="160px"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="24px"
+            android:text="总时长"
+            android:textStyle="bold"
+            android:textColor="@color/colorBlackLight"
+            android:textSize="@dimen/text_size_l" />
+
+
+        <EditText
+            android:id="@+id/et_zongshichang"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="24px"
+            android:layout_toRightOf="@id/tv_zongshichang"
+            android:gravity="center_vertical"
+            android:hint="请假天数"
+            android:textColor="@color/colorBlackLight"
+            android:background="@null"
+            android:textSize="@dimen/text_size_l" />
+
+        <TextView
+            android:id="@+id/tv_zongshichang_line"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/selector_input_line"
+            android:enabled="false" />
+
+    </RelativeLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_size_l"
+        android:text="请假事由"
+        android:textStyle="bold"
+        android:textColor="@color/colorBlackLight"
+        android:layout_margin="20px"
+
+        />
+      <EditText
+          android:id="@+id/leave_Reason"
+          android:layout_marginRight="20px"
+          android:layout_marginLeft="20px"
+          android:layout_width="match_parent"
+          android:gravity="top"
+          android:textSize="28px"
+          android:background="@drawable/miaobian"
+          android:layout_height="400px" />
+    <RelativeLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+   >
+        <Button
+            android:id="@+id/submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="36px"
+            android:text="提交"
+            android:background="@color/bgtbluetheme"
+            android:layout_alignParentBottom="true"
+            />
+    </RelativeLayout>
+</LinearLayout>

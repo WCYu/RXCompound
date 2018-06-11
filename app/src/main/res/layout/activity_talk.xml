@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBG"
+    android:orientation="vertical">
+    <!--tools:context="com.rxjy.des.activity.TalkActivity">-->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="1">
+
+        <include
+            android:id="@+id/zsxm_include"
+            layout="@layout/include_header_layout" />
+
+
+        <ImageView
+            android:id="@+id/iv_zsxm_noinfo"
+            android:layout_width="match_parent"
+            android:layout_height="500px"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_below="@+id/zsxm_include"
+            android:layout_marginEnd="100px"
+            android:layout_marginStart="100px"
+            android:layout_marginTop="230px"
+            android:src="@mipmap/noinfobackground"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tv_zsxm_noinfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/iv_zsxm_noinfo"
+            android:gravity="center"
+            android:text="天哪，这人竟懒到备忘都不写..."
+            android:textColor="@color/colorGrayDark"
+            android:textSize="@dimen/text_size_l"
+            android:visibility="gone"
+
+            />
+
+        <com.rxjy.rxcompound.widget.xlistview.XListView
+            android:id="@+id/zsxm_lv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/zsxm_include"
+            android:divider="@null"
+            android:scrollbars="none"></com.rxjy.rxcompound.widget.xlistview.XListView>
+
+        <LinearLayout
+            android:id="@+id/ll_liangfangandyiqian"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/zsxm_include"
+            android:layout_below="@+id/zsxm_include"
+            android:layout_marginEnd="10px"
+            android:layout_marginTop="5px"
+            android:background="@mipmap/tanchubeijing"
+            android:orientation="vertical"
+            android:visibility="gone"
+           >
+
+            <TextView
+                android:id="@+id/tv_liangfang"
+                android:layout_width="wrap_content"
+                android:layout_height="0px"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="量房"
+                android:layout_marginTop="10px"
+                android:textColor="@color/colorWhite"
+                android:textSize="22px" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginEnd="5px"
+                android:layout_marginStart="5px"
+                android:background="@color/colorWhite" />
+            <TextView
+                android:id="@+id/tv_plan"
+                android:layout_width="wrap_content"
+                android:layout_height="0px"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="方案"
+                android:textColor="@color/colorWhite"
+                android:textSize="22px" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginEnd="5px"
+                android:layout_marginStart="5px"
+                android:background="@color/colorWhite" />
+
+
+
+            <TextView
+                android:id="@+id/tv_contract"
+                android:layout_width="wrap_content"
+                android:layout_height="0px"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="合同"
+                android:textColor="@color/colorWhite"
+                android:textSize="22px" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginEnd="5px"
+                android:layout_marginStart="5px"
+                android:background="@color/colorWhite" />
+            <TextView
+                android:id="@+id/tv_shigongyiqian"
+                android:layout_width="wrap_content"
+                android:layout_height="0px"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="施工已签"
+                android:textColor="@color/colorWhite"
+                android:textSize="22px" />
+
+
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/colorLine" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        android:padding="10px">
+
+        <!--<ImageView-->
+            <!--android:id="@+id/iv_mark_icon"-->
+            <!--android:layout_width="30px"-->
+            <!--android:layout_height="30px"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:src="@mipmap/mark_icon" />-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/tv_mark_text"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_marginLeft="10px"-->
+            <!--android:layout_toRightOf="@+id/iv_mark_icon"-->
+            <!--android:text="标记"-->
+            <!--android:textColor="@color/colorGrayDark"-->
+            <!--android:textSize="@dimen/text_size_8" />-->
+
+        <RadioGroup
+            android:id="@+id/gv_talk"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rb_face_to_face"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5px"
+                android:gravity="center"
+                android:text="外出面谈"
+                android:textColor="@color/colorGrayDark"
+                android:textSize="@dimen/text_size_m" />
+
+            <RadioButton
+                android:id="@+id/rb_communication"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5px"
+                android:gravity="center"
+                android:text="通讯"
+                android:textColor="@color/colorGrayDark"
+                android:textSize="@dimen/text_size_m" />
+
+            <RadioButton
+                android:id="@+id/rb_un_talk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5px"
+                android:gravity="center"
+                android:text="未沟通"
+                android:textColor="@color/colorGrayDark"
+                android:textSize="@dimen/text_size_m" />
+
+            <RadioButton
+                android:id="@+id/rb_un_companytalk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5px"
+                android:gravity="center"
+                android:text="公司面谈"
+                android:textColor="@color/colorGrayDark"
+                android:textSize="@dimen/text_size_m" />
+
+        </RadioGroup>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:minHeight="100px"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/zsxm_lv"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginEnd="16px"
+            android:layout_marginStart="16px"
+            android:src="@mipmap/zsxm_add"
+            android:visibility="gone" />
+
+        <EditText
+            android:id="@+id/zsxm_et"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10px"
+            android:layout_weight="1"
+            android:hint="进都进来了，不想写点什么吗？"
+            android:textColor="@color/colorBlackLight"
+            android:textColorHint="@color/colorGray"
+            android:layout_gravity="bottom"
+            android:maxLines="3"
+            android:textSize="@dimen/text_size_l" />
+
+        <Button
+            android:id="@+id/btn_talk_send"
+            android:layout_width="110px"
+            android:layout_height="48px"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="24px"
+            android:layout_marginStart="24px"
+            android:background="@drawable/selector_btn_sub"
+            android:text="发送"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_m" />
+    </LinearLayout>
+
+</LinearLayout>

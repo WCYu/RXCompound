@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <include layout="@layout/layout_title" />
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="300px"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_figurebg"/>
+    <LinearLayout
+        android:layout_marginTop="20px"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:id="@+id/ll_tz"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginLeft="1px"
+            android:background="@color/colorWhite"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/imageView26"
+                android:layout_width="90px"
+                android:layout_height="90px"
+                android:layout_marginTop="25px"
+                android:src="@drawable/ic_figuretz"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="投资部"
+                android:layout_marginTop="16px"
+                android:layout_marginBottom="20px"
+                android:textSize="@dimen/text_size_l"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/ll_sw"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:background="@color/colorWhite"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="90px"
+                android:layout_height="90px"
+                android:layout_marginTop="25px"
+                android:src="@drawable/ic_figuresw"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="商务部"
+                android:layout_marginTop="16px"
+                android:layout_marginBottom="20px"
+                android:textSize="@dimen/text_size_l"/>
+        </LinearLayout>
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="1px">
+        <LinearLayout
+            android:id="@+id/ll_za"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="1px"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:background="@color/colorWhite"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="90px"
+                android:layout_height="90px"
+                android:layout_marginTop="25px"
+                android:src="@drawable/ic_figureza"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20px"
+                android:layout_marginTop="16px"
+                android:text="主案部"
+                android:textSize="@dimen/text_size_l" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/ll_gc"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="@color/colorWhite">
+            <ImageView
+                android:layout_width="90px"
+                android:layout_height="90px"
+                android:layout_marginTop="25px"
+                android:src="@drawable/ic_figuregc"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="工程部"
+                android:layout_marginTop="16px"
+                android:layout_marginBottom="20px"
+                android:textSize="@dimen/text_size_l"/>
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

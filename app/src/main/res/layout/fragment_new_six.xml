@@ -1,0 +1,257 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBG"
+    android:orientation="vertical">
+    <!--tools:context="com.rxjy.des.fragment.NewFiveFragment">-->
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/ll_bottom">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+                <com.rxjy.rxcompound.widget.TextGridview
+                    android:id="@+id/tgv_housestatus"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                </com.rxjy.rxcompound.widget.TextGridview>
+
+                <com.rxjy.rxcompound.widget.TextGridview
+                    android:id="@+id/tgv_norenttime"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                </com.rxjy.rxcompound.widget.TextGridview>
+
+                <com.rxjy.rxcompound.widget.TextGridview
+                    android:id="@+id/tgv_makedealtype"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                </com.rxjy.rxcompound.widget.TextGridview>
+
+                <com.rxjy.rxcompound.widget.TextGridview
+                    android:id="@+id/tgv_housefromstatus"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                </com.rxjy.rxcompound.widget.TextGridview>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20px"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@color/colorWhite"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="20px">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="建筑面积"
+                            android:textColor="@color/cor595757"
+                            android:textSize="@dimen/text_size_m" />
+
+                        <EditText
+                            android:id="@+id/et_new_buildmianji"
+                            android:layout_width="0px"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@null"
+                            android:gravity="right"
+                            android:hint="请输入"
+                            android:inputType="numberDecimal"
+                            android:maxEms="11"
+                            android:textColor="@color/cor595757"
+                            android:textColorHint="@color/line"
+                            android:textSize="@dimen/text_size_m" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="㎡"
+                            android:textColor="@color/cor595757"
+                            android:textSize="26px" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20px"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@color/colorWhite"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="20px">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="使用面积"
+                            android:textColor="@color/cor595757"
+                            android:textSize="@dimen/text_size_m" />
+
+                        <EditText
+                            android:id="@+id/et_new_mianji"
+                            android:layout_width="0px"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@null"
+                            android:gravity="right"
+                            android:hint="请输入"
+                            android:inputType="numberDecimal"
+                            android:maxEms="11"
+                            android:textColor="@color/cor595757"
+                            android:textColorHint="@color/line"
+                            android:textSize="@dimen/text_size_m" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="㎡"
+                            android:textColor="@color/cor595757"
+                            android:textSize="26px" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="78px"
+                    android:layout_marginTop="20px"
+                    android:background="@color/colorWhite"
+                    android:padding="20px">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="交房时间"
+                        android:textColor="@color/cor595757"
+                        android:textSize="@dimen/text_size_m" />
+
+                    <TextView
+                        android:id="@+id/tv_new_jiaofangshijian"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:text="请选择"
+                        android:textColor="@color/cor595757"
+                        android:textSize="@dimen/text_size_m" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="78px"
+                    android:layout_marginTop="20px"
+                    android:background="@color/colorWhite"
+                    android:padding="20px">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="量房时间"
+                        android:textColor="@color/cor595757"
+                        android:textSize="@dimen/text_size_m" />
+
+                    <TextView
+                        android:id="@+id/tv_new_liangfangshijian"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:text="请选择"
+                        android:textColor="@color/cor595757"
+                        android:textSize="@dimen/text_size_m" />
+
+
+                </RelativeLayout>
+
+            </LinearLayout>
+        </ScrollView>
+
+        <LinearLayout
+            android:id="@+id/ll_bottom"
+            android:layout_width="fill_parent"
+            android:layout_height="80px"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:orientation="horizontal"
+            android:visibility="invisible">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:background="@color/corf39800"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="当前您已赚了"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/text_size_m" />
+
+                <TextView
+                    android:id="@+id/tv_moneyget"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5px"
+                    android:text="￥"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/text_size_l" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_des_dai_measure_sub"
+                android:layout_width="match_parent"
+                android:layout_height="80px"
+                android:layout_weight="2"
+                android:background="#2196f3"
+                android:text="保存"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_l" />
+
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+</LinearLayout>

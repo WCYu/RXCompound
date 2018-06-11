@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/action_bar_bg"
+    tools:context=".activity.WpsImageActivity"
+    >
+
+
+    <include layout="@layout/include_header_layout" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.rxjy.rxcompound.widget.HackyViewPager
+            android:id="@+id/hvp_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </com.rxjy.rxcompound.widget.HackyViewPager>
+
+        <TextView
+            android:id="@+id/tv_image_num"
+            android:layout_width="match_parent"
+            android:layout_height="90px"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:background="@color/white"
+            android:gravity="center"
+            android:textSize="30px" />
+
+    </RelativeLayout>
+
+</LinearLayout>
