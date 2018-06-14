@@ -25,6 +25,7 @@ public class BodyBean {
      */
 
     private String token;
+    private String is_group;
     private String cardNo;
     private String account;
     private int depart;
@@ -54,6 +55,14 @@ public class BodyBean {
 
     public void setToken(String token) {
         this.token = token;
+    }
+
+    public String getIs_group() {
+        return is_group;
+    }
+
+    public void setIs_group(String is_group) {
+        this.is_group = is_group;
     }
 
     public String getCardNo() {

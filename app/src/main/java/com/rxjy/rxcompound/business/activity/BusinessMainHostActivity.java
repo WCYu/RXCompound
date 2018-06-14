@@ -24,6 +24,7 @@ import com.rxjy.rxcompound.entity.NumberPackets;
 import com.rxjy.rxcompound.fragment.FindFrqagment;
 import com.rxjy.rxcompound.fragment.MainFragment;
 import com.rxjy.rxcompound.fragment.MoreFragment;
+import com.rxjy.rxcompound.fragment.NewHomeFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -94,9 +95,11 @@ public class BusinessMainHostActivity extends BaseActivity<DestoryPresenter> imp
     private List<Fragment> fragmentList;
 
 
-    private CustomerFragment customerFragment;
+//    private CustomerFragment customerFragment;
     private CustomerNewFragment customerFragmentnew;
     private MoreFragment walletFragment;
+    private NewHomeFragment newHomeFragment;
+
     //    private WalletFragment walletFragment;
     private FindFrqagment findFragment;
     //    private MineFragment mineFragment;
@@ -141,8 +144,8 @@ public class BusinessMainHostActivity extends BaseActivity<DestoryPresenter> imp
     }
 
     private void initFragment() {
-        if (customerFragment == null)
-            customerFragment = new CustomerFragment();
+        if (newHomeFragment == null)
+            newHomeFragment = new NewHomeFragment();
         if (customerFragmentnew == null)
             customerFragmentnew = new CustomerNewFragment();
         if (walletFragment == null)
@@ -159,7 +162,7 @@ public class BusinessMainHostActivity extends BaseActivity<DestoryPresenter> imp
         if (App.busisnew == 1) {
             fragmentList.add(customerFragmentnew);
         } else {
-            fragmentList.add(customerFragment);
+            fragmentList.add(newHomeFragment);
         }
 
         fragmentList.add(walletFragment);

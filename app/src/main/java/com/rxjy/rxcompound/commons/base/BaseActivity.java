@@ -25,6 +25,7 @@ import com.rxjy.rxcompound.activity.WpsImageActivity;
 import com.rxjy.rxcompound.commons.App;
 import com.rxjy.rxcompound.commons.Constants;
 import com.rxjy.rxcompound.commons.utils.AutoUtils;
+import com.rxjy.rxcompound.utils.ToastUtil;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -154,6 +155,28 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
         if (dialog != null && dialog.isShowing()) {
             dialog.dismiss();
         }
+    }
+
+    public void setProgressDialog(final long l) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(l);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        if(dialog!=null && dialog.isShowing()){
+                            dialog.dismiss();
+                            ToastUtil.getInstance().toastCentent("当前网络较差",BaseActivity.this);
+                        }
+                    }
+                });
+            }
+        }).start();
     }
 
     //输入框下划线效果

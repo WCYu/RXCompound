@@ -4,23 +4,11 @@
         "source": "E:\\Work\\RXCompound\\androidpullToRefreshSdk\\build\\intermediates\\bundles\\debug\\res\\layout\\activity_main.xml"
     },
     {
-        "merged": "F:\\worker\\android\\svn\\BusinessSystemCollection\\MobilePlatform\\trunk\\020.SourceCode\\010.android\\RXCompound\\androidpullToRefreshSdk\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\pull_to_refresh_header_vertical.xml",
-        "source": "F:\\worker\\android\\svn\\BusinessSystemCollection\\MobilePlatform\\trunk\\020.SourceCode\\010.android\\RXCompound\\androidpullToRefreshSdk\\build\\intermediates\\bundles\\debug\\res\\layout\\pull_to_refresh_header_vertical.xml"
-    },
-    {
-        "merged": "F:\\worker\\android\\svn\\BusinessSystemCollection\\MobilePlatform\\trunk\\020.SourceCode\\010.android\\RXCompound\\androidpullToRefreshSdk\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\pull_to_refresh_header_horizontal.xml",
-        "source": "F:\\worker\\android\\svn\\BusinessSystemCollection\\MobilePlatform\\trunk\\020.SourceCode\\010.android\\RXCompound\\androidpullToRefreshSdk\\build\\intermediates\\bundles\\debug\\res\\layout\\pull_to_refresh_header_horizontal.xml"
-    },
-    {
         "merged": "E:\\Work\\RXCompound\\androidpullToRefreshSdk\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\pull_to_refresh_header_vertical.xml",
         "source": "E:\\Work\\RXCompound\\androidpullToRefreshSdk\\build\\intermediates\\bundles\\debug\\res\\layout\\pull_to_refresh_header_vertical.xml"
     },
     {
         "merged": "E:\\Work\\RXCompound\\androidpullToRefreshSdk\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\pull_to_refresh_header_horizontal.xml",
         "source": "E:\\Work\\RXCompound\\androidpullToRefreshSdk\\build\\intermediates\\bundles\\debug\\res\\layout\\pull_to_refresh_header_horizontal.xml"
-    },
-    {
-        "merged": "F:\\worker\\android\\svn\\BusinessSystemCollection\\MobilePlatform\\trunk\\020.SourceCode\\010.android\\RXCompound\\androidpullToRefreshSdk\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\activity_main.xml",
-        "source": "F:\\worker\\android\\svn\\BusinessSystemCollection\\MobilePlatform\\trunk\\020.SourceCode\\010.android\\RXCompound\\androidpullToRefreshSdk\\build\\intermediates\\bundles\\debug\\res\\layout\\activity_main.xml"
     }
 ]

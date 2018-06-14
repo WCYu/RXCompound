@@ -255,6 +255,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
         App.is_exist = data.getBody().getIs_exist();
         App.dcid = data.getBody().getDepart();
         App.ustart = data.getBody().getU_start();
+        App.is_group = data.getBody().getIs_group();
         App.setContext(this);
         App.setAlias(data.getBody().getAccount());
         regionid = data.getBody().getRegion_id();
@@ -271,49 +272,83 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
 
     private void ToMain(int type, int stage, String cardno) {
              Log.e("tag","++++++++++");
-        if (App.postName.equals("客服主管") || App.postName.equals("客服专员") || (App.postName.equals("客服经理") || App.postName.equals("平台客服"))) {
-            App.busisnew = 1;
-            startActivity(new Intent(this, BusinessMainHostActivity.class));
-            finish();
-        }  else if (type == 2) {
-            /**
-             * 跳转顾问在职
-             */ //
-            startActivity(new Intent(this, BusinessMainHostActivity.class));
-            finish();
-        } else if (type == 3) {
-            //跳转温特斯 //主案
-            startActivity(new Intent(this, NjjActivity.class));
-        } else if (type == 4) {//项目监理
-            //SupervisionMainActivity
-            startActivity(new Intent(this, SupervisionMainActivity.class));
-            finish();
-        } else if (App.postid == 10000) {
-          //外部人事
-            if (App.is_exist == 0) {//未同意
-                startActivity(new Intent(this, AgreeDesActivity.class));
-                finish();
-            } else {//NjjActivity
-                startActivity(new Intent(this, NjjActivity.class));
-                finish();
-            }
-        }
-        else if (App.postid == 30001){
-            //招商
-            startActivity(new Intent(this, JoininNjjActivity.class));
-            finish();
-        } else {
-            Log.e("tag","---------");
-            if (stage > 1) {//资料以及完善
+        switch (App.is_group){
+            case "0"://分公司
+                if (App.postName.equals("客服主管") || App.postName.equals("客服专员") || (App.postName.equals("客服经理") || App.postName.equals("平台客服"))) {
+                    App.busisnew = 1;
+                    startActivity(new Intent(this, BusinessMainHostActivity.class));
+                    finish();
+                }  else if (type == 2) {
+                    /**
+                     * 跳转顾问在职
+                     */ //
+                    startActivity(new Intent(this, BusinessMainHostActivity.class));
+                    finish();
+                } else if (type == 3) {
+                    //跳转温特斯 //主案
+                    startActivity(new Intent(this, NjjActivity.class));
+                } else if (type == 4) {//项目监理
+                    //SupervisionMainActivity
+                    startActivity(new Intent(this, SupervisionMainActivity.class));
+                    finish();
+                } else {
+                    Log.e("tag","---------");
+                    if (stage > 1) {//资料以及完善
 //                if (data.getBody().getApp_stage() > 1) {//资料以及完善
-                startActivity(new Intent(this, MainTabHostActivity.class));
-                finish();
-                Log.e("tag","ccccccccccccc");
-            } else {
-                stages=2;
-                mPresenter.getIsConsent(cardno, "2");//请求是否需要同意协议
-                Log.e("tag","ddddddddd");
-            }
+                        startActivity(new Intent(this, MainTabHostActivity.class));
+                        finish();
+                        Log.e("tag","ccccccccccccc");
+                    } else {
+                        stages=2;
+                        mPresenter.getIsConsent(cardno, "2");//请求是否需要同意协议
+                        Log.e("tag","ddddddddd");
+                    }
+                }
+                break;
+            case "1"://集团
+                if (stage > 1) {//资料以及完善
+//                if (data.getBody().getApp_stage() > 1) {//资料以及完善
+                    startActivity(new Intent(this, MainTabHostActivity.class));
+                    finish();
+                    Log.e("tag","ccccccccccccc");
+                } else {
+                    stages=2;
+                    mPresenter.getIsConsent(cardno, "2");//请求是否需要同意协议
+                    Log.e("tag","ddddddddd");
+                }
+                break;
+            case "2"://招商
+                if (App.postid == 10000) {
+                    //外部人事
+                    if (App.is_exist == 0) {//未同意
+                        startActivity(new Intent(this, AgreeDesActivity.class));
+                        finish();
+                    } else {//NjjActivity
+                        startActivity(new Intent(this, NjjActivity.class));
+                        finish();
+                    }
+                }
+                else if (App.postid == 30001){
+                    //招商
+                    startActivity(new Intent(this, JoininNjjActivity.class));
+                    finish();
+                }else {
+                    Log.e("tag","---------");
+                    if (stage > 1) {//资料以及完善
+//                if (data.getBody().getApp_stage() > 1) {//资料以及完善
+                        startActivity(new Intent(this, MainTabHostActivity.class));
+                        finish();
+                        Log.e("tag","ccccccccccccc");
+                    } else {
+                        stages=2;
+                        mPresenter.getIsConsent(cardno, "2");//请求是否需要同意协议
+                        Log.e("tag","ddddddddd");
+                    }
+                }
+                break;
+                default:
+
+                    break;
         }
 
     }

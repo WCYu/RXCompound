@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.rxjy.rxcompound.activity.my.JiFenActivity">
+
+    <RelativeLayout
+        android:id="@+id/rl_tool"
+        android:layout_width="fill_parent"
+        android:layout_height="100px"
+        android:background="@color/textorange">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="@string/jifen"
+            android:textSize="@dimen/text_size_l6"
+            android:layout_marginRight="10px"
+            android:layout_marginLeft="100px"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:textColor="@color/colorwhite"/>
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="80px"
+            android:layout_height="80px"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            android:src="@drawable/ic_backwrite"
+            android:padding="20px"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="30px">
+
+        <ImageView
+            android:layout_width="50px"
+            android:layout_height="46px"
+            android:background="@mipmap/jifen"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="40px"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/jibie"
+                android:textColor="#464646"
+                android:textSize="28px"
+                />
+
+            <TextView
+                android:id="@+id/tv_jibie"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/jibie"
+                android:layout_marginTop="30px"
+                android:textColor="#cbcbcb"
+                android:textSize="28px"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#cbcbcb"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="30px">
+
+        <ImageView
+            android:layout_width="50px"
+            android:layout_height="46px"
+            android:background="@mipmap/tidian"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="40px"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ticheng"
+                android:textColor="#464646"
+                android:textSize="28px"
+                />
+
+            <TextView
+                android:id="@+id/tv_tidian"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ticheng"
+                android:layout_marginTop="30px"
+                android:textColor="#cbcbcb"
+                android:textSize="28px"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#cbcbcb"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="30px">
+
+        <ImageView
+            android:layout_width="50px"
+            android:layout_height="46px"
+            android:background="@mipmap/yushou"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="40px"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/yushou"
+                android:textColor="#464646"
+                android:textSize="28px"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30px">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="正常单 "
+                    android:textColor="#cbcbcb"
+                    android:textSize="28px"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_yushou"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="500"
+                    android:textColor="@color/cir_greenone"
+                    android:textSize="28px"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" 元        C单 "
+                    android:textColor="#cbcbcb"
+                    android:textSize="28px"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_yushouC"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="500"
+                    android:textColor="@color/cir_greenone"
+                    android:textSize="28px"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" 元"
+                    android:textColor="#cbcbcb"
+                    android:textSize="28px"
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#cbcbcb"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="30px">
+
+        <ImageView
+            android:layout_width="50px"
+            android:layout_height="46px"
+            android:background="@mipmap/shengji"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="40px"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/shengji"
+                android:textColor="#464646"
+                android:textSize="28px"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30px">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="距离下级的签单金额 "
+                    android:textColor="#cbcbcb"
+                    android:textSize="28px"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_shengji"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="500"
+                    android:textSize="28px"
+                    android:textColor="@color/cir_greenone"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" 万"
+                    android:textColor="#cbcbcb"
+                    android:textSize="28px"
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#cbcbcb"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="30px">
+
+        <ImageView
+            android:layout_width="50px"
+            android:layout_height="46px"
+            android:background="@mipmap/jiangji"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="40px"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/jiangji"
+                android:textSize="28px"
+                android:textColor="#464646"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30px">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="正常单 "
+                    android:textColor="#cbcbcb"
+                    android:textSize="28px"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_jiangji"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="500"
+                    android:textColor="@color/text_red"
+                    android:textSize="28px"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" 万  或  量房 "
+                    android:textColor="#cbcbcb"
+                    android:textSize="28px"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_jiangjiC"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="500"
+                    android:textColor="@color/text_red"
+                    android:textSize="28px"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" 套"
+                    android:textColor="#cbcbcb"
+                    android:textSize="28px"
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#cbcbcb"/>
+</LinearLayout>

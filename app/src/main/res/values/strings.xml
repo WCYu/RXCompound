@@ -14,10 +14,6 @@
     <string name="login_pwdhint">请输入密码</string>
 
 
-
-
-
-
     <string name="xlistview_header_hint_normal">下拉刷新</string>
     <string name="xlistview_header_hint_ready">松开刷新数据</string>
     <string name="xlistview_header_hint_loading">正在加载...</string>
@@ -76,6 +72,7 @@
     <string name="phone">电话</string>
     <string name="mailbox">邮箱</string>
     <string name="area">地区</string>
+    <string name="erweima">二维码</string>
 
     <string name="has_withdraw">已提现</string>
     <string name="balance">余额</string>
@@ -435,9 +432,9 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
-   <string name="number">编号 : </string>
+    <string name="number">编号 : </string>
 
-   <string name="Customer_name">客户姓名</string>
+    <string name="Customer_name">客户姓名</string>
     <string name="Customer_number">电    话</string>
     <string name="entry_name_text">项目名称</string>
     <string name="entry_type">项目类型</string>
@@ -451,4 +448,36 @@
     <string name="Transaction_type">成交类型</string>
     <string name="Volumeroom">量房时间</string>
     <string name="Submit">提交</string>
+
+    <!--更多-->
+
+    <string name="kehuxinxi">客户信息</string>
+    <string name="yidi">异   地</string>
+    <string name="xingming">姓   名</string>
+    <string name="dianhua">电   话</string>
+    <string name="mianji">面   积</string>
+    <string name="hangyeleixing">行业类型</string>
+    <string name="xindian">信   电</string>
+    <string name="fangyuan">房   源</string>
+    <string name="gongsi">公   司</string>
+
+    <string name="ziliao">资料</string>
+    <string name="leixing">类型</string>
+    <string name="hangye">行业</string>
+    <string name="zhiming">知名</string>
+    <string name="kehu">客户</string>
+    <string name="shenfen">身份</string>
+    <string name="xijie">注重</string>
+    <string name="fangwu">房屋</string>
+    <string name="yusuan">预算</string>
+    <string name="liangfang">量房</string>
+    <string name="shuxing">属性</string>
+
+    <string name="jifen">积分</string>
+    <string name="jibie">级别</string>
+    <string name="ticheng">追加提点</string>
+    <string name="yushou">量房预收</string>
+    <string name="shengji">升级</string>
+    <string name="jiangji">降级</string>
+
 </resources>

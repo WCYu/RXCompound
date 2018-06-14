@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "E:\\Work\\RXCompound\\androidpullToRefreshSdk\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-ru\\values-ru.xml",
+            "outputFile": "E:\\Work\\RXCompound\\androidpullToRefreshSdk\\build\\intermediates\\res\\merged\\androidTest\\debug\\values-ru\\values-ru.xml",
             "map": [
                 {
                     "source": "E:\\Work\\RXCompound\\androidpullToRefreshSdk\\build\\intermediates\\bundles\\debug\\res\\values-ru\\values-ru.xml",
@@ -16,7 +16,7 @@
             ]
         },
         {
-            "outputFile": "E:\\Work\\RXCompound\\androidpullToRefreshSdk\\build\\intermediates\\res\\merged\\androidTest\\debug\\values-ru\\values-ru.xml",
+            "outputFile": "E:\\Work\\RXCompound\\androidpullToRefreshSdk\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-ru\\values-ru.xml",
             "map": [
                 {
                     "source": "E:\\Work\\RXCompound\\androidpullToRefreshSdk\\build\\intermediates\\bundles\\debug\\res\\values-ru\\values-ru.xml",

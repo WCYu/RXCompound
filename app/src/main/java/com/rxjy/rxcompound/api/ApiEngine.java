@@ -25,7 +25,7 @@ public class ApiEngine {
     public static final String RXBUSIC_API_HOST = "https://api.niujingji.cn:8183/";//商务客户
     //   public static final String RXBUSIC_API_HOST_TEST = "https://api.niujingji.cn:8183/";//商务客户测试（获取地址）
     private static final String DES_API_GET = "http://api.wenes.cn/";//线上温特斯
-    // private static final String DES_API_GET = "http://10.10.3.167:10030/";//测试温特斯
+//     private static final String DES_API_GET = "http://10.10.3.167:10030/";//测试温特斯
 
     // private static final String DES_API_LH="http://swb.idc.rx/";//温特斯量房单号获取
     private static final String DES_API_LH = "https://api.niujingji.cn:8183/";//温特斯量房单号获取
@@ -78,6 +78,23 @@ public class ApiEngine {
     //http://api.p.rx/api/Join/GetNewsList?card=01012480
     public static final String NO_API_HOST = "http://nf.wenes.cn/";
     public static final String ZT_API_HOST = "http://apitz.rxjy.com:9192";
+
+    //新增接口
+    public static final String BASEURL = "http://swb.api.cs/"; // 测试
+//    public static final String BASEURL = "https://api.niujingji.cn:8183/"; //线上
+
+    //积分数据
+    public static final String JIFENURL = BASEURL + "JTRenShi/APP_RS_GetIntegralPlate";
+    //客户列表
+    public static final String KEHULISTURL = BASEURL + "AppEmployee/GetCustomerList";
+    //添加客户
+    public static final String ADDKEHUURL = BASEURL + "AppEmployee/AddCustomer";
+    //客户详情 AppAgent/GetKeHuInfo AppEmployee/GetCustomerDetail
+    public static final String KEHUINFOURL = BASEURL + "AppAgent/GetKeHuInfo";
+    //放弃客户
+    public static final String DELETEURL = BASEURL + "AppEmployee/GiveUpCustomerApply";
+    //
+    public static final String LISTURL = BASEURL + "AppAgent/CustomerProperty";
     private Retrofit rxRetrofit;
     private Retrofit rsRetrofit;
     private Retrofit rsRetrofitsss;
@@ -278,7 +295,7 @@ public class ApiEngine {
                 .addConverterFactory(ScalarsConverterFactory.create())
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .build();
-        ztRetrofit= new Retrofit.Builder()
+        ztRetrofit = new Retrofit.Builder()
                 .baseUrl(ZT_API_HOST)
                 .client(client)
                 .addConverterFactory(ScalarsConverterFactory.create())
@@ -391,6 +408,7 @@ public class ApiEngine {
     public ApiService getNOApiService() {
         return noRetrofit.create(ApiService.class);
     }
+
     public ApiService getZTApiService() {
         return ztRetrofit.create(ApiService.class);
     }

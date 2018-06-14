@@ -26,6 +26,8 @@ import com.rxjy.rxcompound.activity.MoneyTzActivity;
 import com.rxjy.rxcompound.activity.OfficeActivity;
 import com.rxjy.rxcompound.activity.SettingActivity;
 import com.rxjy.rxcompound.activity.WorkActivity;
+import com.rxjy.rxcompound.activity.my.JiFenActivity;
+import com.rxjy.rxcompound.activity.my.UserInfoActivity;
 import com.rxjy.rxcompound.commons.App;
 import com.rxjy.rxcompound.commons.base.BaseFragment;
 import com.rxjy.rxcompound.commons.utils.ACache;
@@ -123,6 +125,7 @@ public class MainFragment extends BaseFragment<BaseInformPresenter> implements B
         String persondata = aCache.getAsString("rx_persondata");
 //        cardno = sp.getString("rxdy_cardno", null);
         cardno = App.cardNo;
+
         mPresenter.getUserStatus(cardno);
         if (App.depart.equals("3")&&App.postid==10000){
                 mPresenter.getDesMessage(App.cardNo);
@@ -173,10 +176,13 @@ public class MainFragment extends BaseFragment<BaseInformPresenter> implements B
             case R.id.rl_persondetails:
 
 
-                if(App.depart.equals("3")&&App.postid==10000){
+                if(App.depart.equals("3")&&App.postid==10000){//设计师会员
                     startActivity(new Intent(getActivity(), DesBaseInfoActivity.class));
+//                    startActivity(new Intent(getActivity(), UserInfoActivity.class));
+
                 }else{
-                    startActivity(new Intent(getActivity(), BaseInformationActivity.class).putExtra("isback", "1").putExtra("status", status + "").putExtra("ismain", "1"));
+//                    startActivity(new Intent(getActivity(), BaseInformationActivity.class).putExtra("isback", "1").putExtra("status", status + "").putExtra("ismain", "1"));
+                    startActivity(new Intent(getActivity(), UserInfoActivity.class));
                 }
                 break;
             case R.id.rl_setting:
@@ -200,7 +206,12 @@ public class MainFragment extends BaseFragment<BaseInformPresenter> implements B
             case R.id.rl_jifen:
                 switch (App.apptype){
                     case 3:
-                        startActivity(new Intent(getActivity(), JifenZAActivity.class).putExtra("icon",icon).putExtra("name",name));
+//                        startActivity(new Intent(getActivity(), JifenZAActivity.class).putExtra("icon",icon).putExtra("name",name));
+                        startActivity(new Intent(getActivity(), JiFenActivity.class));
+                        break;
+                    case 2:
+//                        startActivity(new Intent(getActivity(), JifenZAActivity.class).putExtra("icon",icon).putExtra("name",name));
+                        startActivity(new Intent(getActivity(), JiFenActivity.class));
                         break;
                 }
                 break;

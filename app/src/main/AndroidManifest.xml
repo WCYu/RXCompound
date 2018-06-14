@@ -7,7 +7,6 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
-
     <uses-permission android:name="com.rxjy.des.permission.JPUSH_MESSAGE" />
     <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
@@ -32,173 +31,166 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
-
     <uses-permission android:name="android.permission.SYSTEM_OVERLAY_WINDOW" />
 
-
-    <application
+    <application xmlns:tools="http://schemas.android.com/tools"
         android:name=".commons.App"
         android:allowBackup="true"
+        android:hardwareAccelerated="true"
         android:icon="@drawable/ic_rxdyicon"
         android:label="@string/app_name"
         android:roundIcon="@drawable/ic_rxdyicon"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-        android:hardwareAccelerated="true"
-        xmlns:tools="http://schemas.android.com/tools"
         tools:replace="android:icon, android:theme">
         <activity android:name=".activity.SplashActivity">
-        <!--<activity android:name=".activity.MainTabHostActivity">-->
+
+            <!-- <activity android:name=".activity.MainTabHostActivity"> -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".joinin.activity.AnswerActivity"></activity>
-        <activity android:name=".joinin.activity.AnswerTwoActivity"></activity>
-        <activity android:name=".joinin.activity.AnswerThereActivity"></activity>
-        <activity android:name=".joinin.activity.JoininNjjActivity"></activity>
-        <activity android:name=".activity.MainTabHostActivity"/>
-        <activity android:name=".activity.InformationActivity"/>
-        <activity android:name=".activity.BaseInformationActivity"/>
-        <activity android:name=".activity.LoginActivity"/>
-        <activity android:name=".activity.GuideActivity"/>
-        <activity android:name=".activity.EntryJobProtocolActivity"/>
-        <activity android:name=".activity.RXSongsActivity"/>
-        <activity android:name=".activity.RXlinesActivity"/>
-        <activity android:name=".activity.BannerDetailsActivity"/>
-        <activity android:name=".activity.FindListActivity"/>
-        <activity android:name=".activity.JobTryAnswer"/>
-        <activity android:name=".activity.AnswerActivity"/>
-        <activity android:name=".activity.VideoPlayActivity"/>
-        <activity android:name=".activity.SettingActivity"/>
-        <activity android:name=".activity.IdentityInfoActivity"/>
-        <activity android:name=".activity.EnterJobActivity"/>
-        <activity android:name=".activity.BeforeJobActivity"/>
-        <activity android:name=".activity.SecretSureActivity"/>
-        <activity android:name=".activity.ImageShowActivity"/>
-        <activity android:name=".activity.ImagesShowActivity"/>
-        <activity android:name=".activity.InformMessageActivity"/>
-        <activity android:name=".activity.MoreBannerActivity"/>
-        <activity android:name=".activity.QRLoginSureActivity"/>
-        <activity android:name=".activity.MsgActivity"/>
-        <activity android:name=".activity.Advicectivity"/>
-        <activity android:name=".activity.PersonCenterActivity"/>
-        <activity android:name=".activity.MoneyActivity"/>
-        <activity android:name=".activity.MessageTwoActivity"/>
-        <activity android:name=".activity.MessageDetailsActivity"/>
-        <activity android:name=".activity.MoneyDetailsActivity"/>
-        <activity android:name=".activity.MoneyDetailsTzActivity"/>
-        <activity android:name=".activity.MoneyDetailsTzTwoActivity"/>
-        <activity android:name=".activity.TextDetailsActivity"/>
-        <activity android:name=".activity.MoneyDetailsZaActivity"/>
-        <activity android:name=".activity.MoneyDetailsGcActivity"/>
-        <activity android:name=".activity.MoneyTzActivity"/>
-        <activity android:name=".activity.ForgetPwdActivity"/>
-        <activity android:name=".activity.JifenZAActivity"/>
-        <activity android:name=".activity.BackVisitActivity"/>
-        <activity android:name=".activity.OfficeActivity"/>
-        <activity android:name=".activity.OfficeWebViewActivity"/>
-        <activity android:name=".activity.TaskActivity"/>
-        <activity android:name=".activity.MoneyDetailsBusjfActivity"/>
-        <activity android:name=".activity.WpsImage2Activity"/>
-        <activity android:name=".activity.WpsImageActivity"/>
-        <activity android:name=".activity.DesBaseInfoActivity"/>
-        <activity android:name=".activity.DesIdentityInfoActivity"/>
-        <activity android:name=".activity.DesEnterJobActivity"/>
-        <activity android:name=".activity.ImageShowDesActivity"/>
-        <activity android:name=".activity.AgreeDesActivity"/>
-        <activity android:name=".activity.FigureActivity"/>
-        <activity android:name=".activity.FigureDetailsActivity"/>
-        <activity android:name=".activity.EnvironmentActivity"/>
-        <activity android:name=".activity.EnvironmentDetailsActivity"/>
-        <activity android:name=".activity.TaskNewActivity"/>
-        <activity android:name=".activity.IdentityInfoNewActivity"/>
-        <activity android:name=".activity.ZThreeActivity"/>
-        <activity android:name=".business.activity.BusinessMainHostActivity"/>
-        <activity android:name=".business.activity.BusiPersonMessage"/>
-        <activity android:name=".business.activity.AddActivity"/>
-        <activity android:name=".business.activity.CustomerFollowActivity"/>
-        <activity android:name=".business.activity.AddNewActivity"/>
-        <!--温特斯-->
-        <activity android:name=".des.activity.JinduxunjianXQYActivty"/>
-        <activity android:name=".des.activity.JungongActivity"/>
-        <activity android:name=".des.activity.BiaoShuActivity"/>
-        <activity android:name=".des.activity.DesAlbum2Activity"/>
-        <activity android:name=".des.activity.DesAlbumActivity"/>
-        <activity android:name=".des.activity.DesAlbumActivityh"/>
-        <activity android:name=".des.activity.DesAlbumActivityhd"/>
-        <activity android:name=".des.activity.DesDaiMeasureActivity"/>
-        <activity android:name=".des.activity.JiaoChengListActivity"/>
-        <activity android:name=".des.activity.JinduXunjianActivity"/>
-        <activity android:name=".des.activity.KaigongjiaodiActivity"/>
-        <activity android:name=".des.activity.YiLiangFangActivity"/>
-        <activity android:name=".des.activity.WpsLocalPhotoActivityh"/>
-        <activity android:name=".des.activity.WpsLocalPhotoActivity"/>
-        <activity android:name=".des.activity.NjjActivity"/>
-        <activity android:name=".des.activity.TalkActivity"/>
-        <activity android:name=".des.activity.ShigonghetongActivity"/>
-        <activity android:name=".des.activity.LHouseMoreActivity"/>
-        <activity android:name=".des.activity.OrderGetActivity"/>
-        <activity android:name=".des.activity.PlanActivity"/>
-        <activity android:name=".des.activity.TalkContractActivity"/>
+        <activity android:name=".joinin.activity.AnswerActivity" />
+        <activity android:name=".joinin.activity.AnswerTwoActivity" />
+        <activity android:name=".joinin.activity.AnswerThereActivity" />
+        <activity android:name=".joinin.activity.JoininNjjActivity" />
+        <activity android:name=".activity.MainTabHostActivity" />
+        <activity android:name=".activity.InformationActivity" />
+        <activity android:name=".activity.BaseInformationActivity" />
+        <activity android:name=".activity.LoginActivity" />
+        <activity android:name=".activity.GuideActivity" />
+        <activity android:name=".activity.EntryJobProtocolActivity" />
+        <activity android:name=".activity.RXSongsActivity" />
+        <activity android:name=".activity.RXlinesActivity" />
+        <activity android:name=".activity.BannerDetailsActivity" />
+        <activity android:name=".activity.FindListActivity" />
+        <activity android:name=".activity.JobTryAnswer" />
+        <activity android:name=".activity.AnswerActivity" />
+        <activity android:name=".activity.VideoPlayActivity" />
+        <activity android:name=".activity.SettingActivity" />
+        <activity android:name=".activity.IdentityInfoActivity" />
+        <activity android:name=".activity.EnterJobActivity" />
+        <activity android:name=".activity.BeforeJobActivity" />
+        <activity android:name=".activity.SecretSureActivity" />
+        <activity android:name=".activity.ImageShowActivity" />
+        <activity android:name=".activity.ImagesShowActivity" />
+        <activity android:name=".activity.InformMessageActivity" />
+        <activity android:name=".activity.MoreBannerActivity" />
+        <activity android:name=".activity.QRLoginSureActivity" />
+        <activity android:name=".activity.MsgActivity" />
+        <activity android:name=".activity.Advicectivity" />
+        <activity android:name=".activity.PersonCenterActivity" />
+        <activity android:name=".activity.MoneyActivity" />
+        <activity android:name=".activity.MessageTwoActivity" />
+        <activity android:name=".activity.MessageDetailsActivity" />
+        <activity android:name=".activity.MoneyDetailsActivity" />
+        <activity android:name=".activity.MoneyDetailsTzActivity" />
+        <activity android:name=".activity.MoneyDetailsTzTwoActivity" />
+        <activity android:name=".activity.TextDetailsActivity" />
+        <activity android:name=".activity.MoneyDetailsZaActivity" />
+        <activity android:name=".activity.MoneyDetailsGcActivity" />
+        <activity android:name=".activity.MoneyTzActivity" />
+        <activity android:name=".activity.ForgetPwdActivity" />
+        <activity android:name=".activity.JifenZAActivity" />
+        <activity android:name=".activity.BackVisitActivity" />
+        <activity android:name=".activity.OfficeActivity" />
+        <activity android:name=".activity.OfficeWebViewActivity" />
+        <activity android:name=".activity.TaskActivity" />
+        <activity android:name=".activity.MoneyDetailsBusjfActivity" />
+        <activity android:name=".activity.WpsImage2Activity" />
+        <activity android:name=".activity.WpsImageActivity" />
+        <activity android:name=".activity.DesBaseInfoActivity" />
+        <activity android:name=".activity.DesIdentityInfoActivity" />
+        <activity android:name=".activity.DesEnterJobActivity" />
+        <activity android:name=".activity.ImageShowDesActivity" />
+        <activity android:name=".activity.AgreeDesActivity" />
+        <activity android:name=".activity.FigureActivity" />
+        <activity android:name=".activity.FigureDetailsActivity" />
+        <activity android:name=".activity.EnvironmentActivity" />
+        <activity android:name=".activity.EnvironmentDetailsActivity" />
+        <activity android:name=".activity.TaskNewActivity" />
+        <activity android:name=".activity.IdentityInfoNewActivity" />
+        <activity android:name=".activity.ZThreeActivity" />
+        <activity android:name=".business.activity.BusinessMainHostActivity" />
+        <activity android:name=".business.activity.BusiPersonMessage" />
+        <activity android:name=".business.activity.AddActivity" />
+        <activity android:name=".business.activity.CustomerFollowActivity" />
+        <activity android:name=".business.activity.AddNewActivity" />
+        <!-- 温特斯 -->
+        <activity android:name=".des.activity.JinduxunjianXQYActivty" />
+        <activity android:name=".des.activity.JungongActivity" />
+        <activity android:name=".des.activity.BiaoShuActivity" />
+        <activity android:name=".des.activity.DesAlbum2Activity" />
+        <activity android:name=".des.activity.DesAlbumActivity" />
+        <activity android:name=".des.activity.DesAlbumActivityh" />
+        <activity android:name=".des.activity.DesAlbumActivityhd" />
+        <activity android:name=".des.activity.DesDaiMeasureActivity" />
+        <activity android:name=".des.activity.JiaoChengListActivity" />
+        <activity android:name=".des.activity.JinduXunjianActivity" />
+        <activity android:name=".des.activity.KaigongjiaodiActivity" />
+        <activity android:name=".des.activity.YiLiangFangActivity" />
+        <activity android:name=".des.activity.WpsLocalPhotoActivityh" />
+        <activity android:name=".des.activity.WpsLocalPhotoActivity" />
+        <activity android:name=".des.activity.NjjActivity" />
+        <activity android:name=".des.activity.TalkActivity" />
+        <activity android:name=".des.activity.ShigonghetongActivity" />
+        <activity android:name=".des.activity.LHouseMoreActivity" />
+        <activity android:name=".des.activity.OrderGetActivity" />
+        <activity android:name=".des.activity.PlanActivity" />
+        <activity android:name=".des.activity.TalkContractActivity" />
 
-        <!--项目监理-->
-        <activity android:name=".supervision.activity.SupervisionMainActivity"/>
-        <activity android:name=".supervision.activity.ProDetailActivity"/>
-        <activity android:name=".supervision.activity.AttachmentActivity"/>
-        <activity android:name=".supervision.activity.AuditActivity"/>
-        <activity android:name=".supervision.activity.ContractActivity"/>
-        <activity android:name=".supervision.activity.DatumActivity"/>
-        <activity android:name=".supervision.activity.MatListActivity"/>
-        <activity android:name=".supervision.activity.NewRoutingDetailActivity"/>
-        <activity android:name=".supervision.activity.NewRoutingSubActivity"/>
-        <activity android:name=".supervision.activity.PrepareActivity"/>
-        <activity android:name=".supervision.activity.PrepareDetailActivity"/>
-        <activity android:name=".supervision.activity.VisitActivity"/>
-        <activity android:name=".supervision.activity.SubjoinActivity"/>
-        <activity android:name=".supervision.activity.PushElectronicActivity"/>
-        <activity android:name=".supervision.activity.ProListActivity"/>
-        <activity android:name=".supervision.activity.RoutingActivity"/>
-
-     <activity android:name=".activity.CustomerActivity"></activity>
-        <activity android:name=".des.activity.CompactActivity"></activity>
-
-
-
-        <activity android:name=".activity.AdministrationRedActivity"></activity>
-        <activity android:name=".activity.RedTaskActivity"></activity>
-        <activity android:name=".activity.PublishActivity"></activity>
-        <activity android:name=".activity.LeaveActivity"></activity>
-        <activity android:name=".activity.LeavePageActivirt"></activity>
-        <activity android:name=".activity.BecomeWorkerActivity"></activity>
-       <activity android:name=".activity.AdnewsActivity"></activity>
-        <activity android:name=".activity.WorkActivity"></activity>
-        <activity android:name=".joinin.activity.PersonnelActivity"></activity>
-         <activity android:name=".activity.activityImage"></activity>
-        <activity android:name=".des.activity.ShopModifyActivity"></activity>
-        <activity android:name=".des.activity.WebActivity"></activity>
-
+        <!-- 项目监理 -->
+        <activity android:name=".supervision.activity.SupervisionMainActivity" />
+        <activity android:name=".supervision.activity.ProDetailActivity" />
+        <activity android:name=".supervision.activity.AttachmentActivity" />
+        <activity android:name=".supervision.activity.AuditActivity" />
+        <activity android:name=".supervision.activity.ContractActivity" />
+        <activity android:name=".supervision.activity.DatumActivity" />
+        <activity android:name=".supervision.activity.MatListActivity" />
+        <activity android:name=".supervision.activity.NewRoutingDetailActivity" />
+        <activity android:name=".supervision.activity.NewRoutingSubActivity" />
+        <activity android:name=".supervision.activity.PrepareActivity" />
+        <activity android:name=".supervision.activity.PrepareDetailActivity" />
+        <activity android:name=".supervision.activity.VisitActivity" />
+        <activity android:name=".supervision.activity.SubjoinActivity" />
+        <activity android:name=".supervision.activity.PushElectronicActivity" />
+        <activity android:name=".supervision.activity.ProListActivity" />
+        <activity android:name=".supervision.activity.RoutingActivity" />
+        <activity android:name=".activity.CustomerActivity" />
+        <activity android:name=".des.activity.CompactActivity" />
+        <activity android:name=".activity.AdministrationRedActivity" />
+        <activity android:name=".activity.RedTaskActivity" />
+        <activity android:name=".activity.PublishActivity" />
+        <activity android:name=".activity.LeaveActivity" />
+        <activity android:name=".activity.LeavePageActivirt" />
+        <activity android:name=".activity.BecomeWorkerActivity" />
+        <activity android:name=".activity.AdnewsActivity" />
+        <activity android:name=".activity.WorkActivity" />
+        <activity android:name=".joinin.activity.PersonnelActivity" />
+        <activity android:name=".activity.activityImage" />
+        <activity android:name=".des.activity.ShopModifyActivity" />
+        <activity android:name=".des.activity.WebActivity" />
         <activity
             android:name="com.yanzhenjie.album.AlbumActivity"
-            android:label="选择图片"
             android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="选择图片"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:windowSoftInputMode="stateAlwaysHidden|stateHidden" />
-        <!--<activity android:name=".activity.OfficeWebViewActivity" />-->
+        <!-- <activity android:name=".activity.OfficeWebViewActivity" /> -->
 
-
-        <receiver android:name=".receiver.MessageReceiver"
+        <receiver
+            android:name=".receiver.MessageReceiver"
             android:enabled="true"
             android:exported="false">
             <intent-filter>
-                <action android:name="cn.jpush.android.intent.REGISTRATION" /> <!--Required  用户注册SDK的intent-->
-                <action android:name="cn.jpush.android.intent.MESSAGE_RECEIVED" /> <!--Required  用户接收SDK消息的intent-->
-                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED" /> <!--Required  用户接收SDK通知栏信息的intent-->
-                <action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED" /> <!--Required  用户打开自定义通知栏的intent-->
-                <action android:name="cn.jpush.android.intent.ACTION_RICHPUSH_CALLBACK" /> <!--Optional 用户接受Rich Push Javascript 回调函数的intent-->
-                <action android:name="cn.jpush.android.intent.CONNECTION" /><!-- 接收网络变化 连接/断开 since 1.6.3 -->
+                <action android:name="cn.jpush.android.intent.REGISTRATION" /> <!-- Required  用户注册SDK的intent -->
+                <action android:name="cn.jpush.android.intent.MESSAGE_RECEIVED" /> <!-- Required  用户接收SDK消息的intent -->
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED" /> <!-- Required  用户接收SDK通知栏信息的intent -->
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED" /> <!-- Required  用户打开自定义通知栏的intent -->
+                <action android:name="cn.jpush.android.intent.ACTION_RICHPUSH_CALLBACK" /> <!-- Optional 用户接受Rich Push Javascript 回调函数的intent -->
+                <action android:name="cn.jpush.android.intent.CONNECTION" /> <!-- 接收网络变化 连接/断开 since 1.6.3 -->
                 <category android:name="com.rxjy.rxcompound" />
             </intent-filter>
         </receiver>
@@ -212,5 +204,15 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
+
+        <activity android:name=".activity.more.KeHuActivity" />
+        <activity android:name=".activity.more.ZaiGenActivity" />
+        <activity android:name=".activity.more.ZaiTanActivity" />
+        <activity android:name=".activity.more.DaHuiActivity" />
+        <activity android:name=".activity.more.WeiQianActivity" />
+        <activity android:name=".activity.more.YiQianActivity" />
+        <activity android:name=".activity.my.JiFenActivity" />
+        <activity android:name=".activity.my.UserInfoActivity"></activity>
     </application>
+
 </manifest>

@@ -13,6 +13,7 @@ import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.SimpleAdapter;
 
@@ -21,21 +22,17 @@ import com.rxjy.rxcompound.activity.AdministrationRedActivity;
 import com.rxjy.rxcompound.activity.BaseInformationActivity;
 import com.rxjy.rxcompound.activity.BeforeJobActivity;
 import com.rxjy.rxcompound.activity.CustomerActivity;
-import com.rxjy.rxcompound.activity.EnterJobActivity;
-import com.rxjy.rxcompound.activity.IdentityInfoActivity;
 import com.rxjy.rxcompound.activity.IdentityInfoNewActivity;
 import com.rxjy.rxcompound.activity.MoreBannerActivity;
 import com.rxjy.rxcompound.activity.RXSongsActivity;
 import com.rxjy.rxcompound.activity.RXlinesActivity;
-import com.rxjy.rxcompound.adapter.NattenDanceAdapter;
-
 import com.rxjy.rxcompound.activity.ZThreeActivity;
-
+import com.rxjy.rxcompound.activity.more.KeHuActivity;
+import com.rxjy.rxcompound.adapter.NattenDanceAdapter;
 import com.rxjy.rxcompound.commons.App;
 import com.rxjy.rxcompound.commons.base.BaseFragment;
 import com.rxjy.rxcompound.commons.utils.ShowUtils;
 import com.rxjy.rxcompound.des.activity.LHouseMoreActivity;
-import com.rxjy.rxcompound.entity.AdRedEnvelopesBean;
 import com.rxjy.rxcompound.entity.NumberPackets;
 import com.rxjy.rxcompound.entity.UserStatusBean;
 import com.rxjy.rxcompound.mvp.contract.GetUserStatusContract;
@@ -72,6 +69,8 @@ public class MoreFragment extends BaseFragment<GetUserStatusPresenter> implement
     RelativeLayout moreOne;
     @Bind(R.id.gv_attendance)
     MyGridView gvAttendance;
+    @Bind(R.id.ly_kehu)
+    LinearLayout lyKehu;
     private String TAG = "MoreFragment";
     @Bind(R.id.gv_rxculture)
     GridView gv_rxculture;
@@ -255,7 +254,7 @@ public class MoreFragment extends BaseFragment<GetUserStatusPresenter> implement
         nattendance_list = new ArrayList<Map<String, Object>>();
         getAttendanceData();
         Log.e("tag", App.dcid + "");
-        if (App.dcid == 3 || App.dcid == 34||App.dcid ==2) {
+        if (App.dcid == 3 || App.dcid == 34 || App.dcid == 2) {
             mPresenter.getRedTask(App.cardNo);
         } else {
             //  Toast.makeText(getContext(), "=========", Toast.LENGTH_SHORT).show();
@@ -269,8 +268,8 @@ public class MoreFragment extends BaseFragment<GetUserStatusPresenter> implement
                         case 1:
                             String depart = App.depart;
                             //判读是否是监理
-                            if(depart.equals("4")){
-                                Intent intent=new Intent(getContext(), CustomerActivity.class);
+                            if (depart.equals("4")) {
+                                Intent intent = new Intent(getContext(), CustomerActivity.class);
                                 startActivity(intent);
                             }
 
@@ -424,7 +423,6 @@ public class MoreFragment extends BaseFragment<GetUserStatusPresenter> implement
         });
     }
 
-
     /**
      * 资料
      */
@@ -567,7 +565,7 @@ public class MoreFragment extends BaseFragment<GetUserStatusPresenter> implement
                         startActivity(new Intent(getContext(), AdministrationRedActivity.class));
                         break;
                     case 1:
-                        if(App.dcid==3){
+                        if (App.dcid == 3) {
                             startActivity(new Intent(getActivity(), LHouseMoreActivity.class));
                         }
                         break;
@@ -586,8 +584,15 @@ public class MoreFragment extends BaseFragment<GetUserStatusPresenter> implement
         ButterKnife.unbind(this);
     }
 
-    @OnClick(R.id.iv_morebanner)
-    public void onViewClicked() {
-        startActivity(new Intent(getActivity(), MoreBannerActivity.class));
+    @OnClick({R.id.iv_morebanner, R.id.ly_kehu})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.iv_morebanner:
+                startActivity(new Intent(getActivity(), MoreBannerActivity.class));
+                break;
+            case R.id.ly_kehu:
+                startActivity(new Intent(getActivity(), KeHuActivity.class));
+                break;
+        }
     }
 }
