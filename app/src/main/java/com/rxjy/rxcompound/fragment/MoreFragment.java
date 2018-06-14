@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 
 import com.rxjy.rxcompound.R;
 import com.rxjy.rxcompound.activity.AdministrationRedActivity;
@@ -26,8 +27,16 @@ import com.rxjy.rxcompound.activity.IdentityInfoNewActivity;
 import com.rxjy.rxcompound.activity.MoreBannerActivity;
 import com.rxjy.rxcompound.activity.RXSongsActivity;
 import com.rxjy.rxcompound.activity.RXlinesActivity;
+import com.rxjy.rxcompound.activity.WebViewActivity;
 import com.rxjy.rxcompound.activity.ZThreeActivity;
+import com.rxjy.rxcompound.activity.more.AnLiActivity;
+import com.rxjy.rxcompound.activity.more.BoWenActivity;
+import com.rxjy.rxcompound.activity.more.CaiWuActivity;
+import com.rxjy.rxcompound.activity.more.FuWuActivity;
+import com.rxjy.rxcompound.activity.more.JiaMengActivity;
 import com.rxjy.rxcompound.activity.more.KeHuActivity;
+import com.rxjy.rxcompound.activity.more.PaiDanActivity;
+import com.rxjy.rxcompound.activity.more.XiaXianActivity;
 import com.rxjy.rxcompound.adapter.NattenDanceAdapter;
 import com.rxjy.rxcompound.commons.App;
 import com.rxjy.rxcompound.commons.base.BaseFragment;
@@ -71,6 +80,72 @@ public class MoreFragment extends BaseFragment<GetUserStatusPresenter> implement
     MyGridView gvAttendance;
     @Bind(R.id.ly_kehu)
     LinearLayout lyKehu;
+    @Bind(R.id.imageView4)
+    ImageView imageView4;
+    @Bind(R.id.imageView11)
+    ImageView imageView11;
+    @Bind(R.id.textView11)
+    TextView textView11;
+    @Bind(R.id.imageView12)
+    ImageView imageView12;
+    @Bind(R.id.textView12)
+    TextView textView12;
+    @Bind(R.id.imageView13)
+    ImageView imageView13;
+    @Bind(R.id.textView13)
+    TextView textView13;
+    @Bind(R.id.imageView14)
+    ImageView imageView14;
+    @Bind(R.id.textView14)
+    TextView textView14;
+    @Bind(R.id.imageView15)
+    ImageView imageView15;
+    @Bind(R.id.textView15)
+    TextView textView15;
+    @Bind(R.id.imageView2)
+    ImageView imageView2;
+    @Bind(R.id.textView5)
+    TextView textView5;
+    @Bind(R.id.imageView3)
+    ImageView imageView3;
+    @Bind(R.id.textView6)
+    TextView textView6;
+    @Bind(R.id.imageView5)
+    ImageView imageView5;
+    @Bind(R.id.textView8)
+    TextView textView8;
+    @Bind(R.id.img_kehu)
+    ImageView imgKehu;
+    @Bind(R.id.tv_kehu)
+    TextView tvKehu;
+    @Bind(R.id.red_image)
+    ImageView redImage;
+    @Bind(R.id.tv_tab_wallet_state)
+    TextView tvTabWalletState;
+    @Bind(R.id.imageView27)
+    ImageView imageView27;
+    @Bind(R.id.img_touzi)
+    ImageView imgTouzi;
+    @Bind(R.id.tv_touzi)
+    TextView tvTouzi;
+    @Bind(R.id.ly_dianpu)
+    LinearLayout lyDianpu;
+    @Bind(R.id.ly_anli)
+    LinearLayout lyAnli;
+    @Bind(R.id.ly_bowen)
+    LinearLayout lyBowen;
+    @Bind(R.id.ly_fuwu)
+    LinearLayout lyFuwu;
+    @Bind(R.id.ly_paidan)
+    LinearLayout lyPaidan;
+    @Bind(R.id.ly_caiwu)
+    LinearLayout lyCaiwu;
+    @Bind(R.id.ly_jiameng)
+    LinearLayout lyJiameng;
+    @Bind(R.id.ly_xiaxian)
+    LinearLayout lyXiaxian;
+    @Bind(R.id.ly_touzi)
+    LinearLayout lyTouzi;
     private String TAG = "MoreFragment";
     @Bind(R.id.gv_rxculture)
     GridView gv_rxculture;
@@ -131,6 +206,11 @@ public class MoreFragment extends BaseFragment<GetUserStatusPresenter> implement
                 break;
             default:
                 break;
+        }
+        if (App.depart.equals("3")) {//设计师
+            lyTouzi.setVisibility(View.VISIBLE);
+        }else {
+            lyTouzi.setVisibility(View.GONE);
         }
         initTaskData();
         initAttenData();
@@ -584,8 +664,10 @@ public class MoreFragment extends BaseFragment<GetUserStatusPresenter> implement
         ButterKnife.unbind(this);
     }
 
-    @OnClick({R.id.iv_morebanner, R.id.ly_kehu})
+    @OnClick({R.id.iv_morebanner, R.id.ly_kehu,R.id.ly_dianpu, R.id.ly_anli, R.id.ly_bowen, R.id.ly_fuwu, R.id.ly_paidan, R.id.ly_caiwu, R.id.ly_jiameng, R.id.ly_xiaxian, R.id.ly_touzi})
     public void onViewClicked(View view) {
+        Intent intent = null;
+
         switch (view.getId()) {
             case R.id.iv_morebanner:
                 startActivity(new Intent(getActivity(), MoreBannerActivity.class));
@@ -593,6 +675,38 @@ public class MoreFragment extends BaseFragment<GetUserStatusPresenter> implement
             case R.id.ly_kehu:
                 startActivity(new Intent(getActivity(), KeHuActivity.class));
                 break;
+            case R.id.ly_dianpu://店铺
+                intent = new Intent(getActivity(), WebViewActivity.class);
+            intent.putExtra("url","");
+                intent.putExtra("name","店铺");
+                break;
+            case R.id.ly_anli://案例
+                intent = new Intent(getActivity(), AnLiActivity.class);
+                break;
+            case R.id.ly_bowen://博文
+                intent = new Intent(getActivity(), BoWenActivity.class);
+                break;
+            case R.id.ly_fuwu://服务
+                intent = new Intent(getActivity(), FuWuActivity.class);
+                break;
+            case R.id.ly_paidan://派单
+                intent = new Intent(getActivity(), PaiDanActivity.class);
+                break;
+            case R.id.ly_caiwu://财务
+                intent = new Intent(getActivity(), CaiWuActivity.class);
+                break;
+            case R.id.ly_jiameng://加盟
+                intent = new Intent(getActivity(), JiaMengActivity.class);
+                break;
+            case R.id.ly_xiaxian://下线
+                intent = new Intent(getActivity(), XiaXianActivity.class);
+                break;
+            case R.id.ly_touzi:
+//                intent = new Intent(getActivity(), WebViewActivity.class);
+                break;
+        }
+        if(intent!=null){
+            startActivity(intent);
         }
     }
 }

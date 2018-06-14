@@ -242,6 +242,8 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
         App.name = data.getBody().getName();
         cardno = data.getBody().getCardNo();
         App.cardNo = data.getBody().getCardNo();
+        App.token = data.getBody().getToken();
+        Log.e("-------------登陆--------",data.getBody().getToken());
         App.depart = data.getBody().getDepart() + "";
         App.regionid = data.getBody().getRegion_id() + "";///39阶段小于2，请求
         App.account = data.getBody().getAccount();

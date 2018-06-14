@@ -212,7 +212,17 @@
         <activity android:name=".activity.more.WeiQianActivity" />
         <activity android:name=".activity.more.YiQianActivity" />
         <activity android:name=".activity.my.JiFenActivity" />
-        <activity android:name=".activity.my.UserInfoActivity"></activity>
+        <activity android:name=".activity.my.UserInfoActivity" />
+        <activity android:name=".activity.my.SetNameActivity" />
+        <activity android:name=".activity.my.SetEmiActivity" />
+        <activity android:name=".activity.WebViewActivity" />
+        <activity android:name=".activity.more.AnLiActivity" />
+        <activity android:name=".activity.more.BoWenActivity" />
+        <activity android:name=".activity.more.FuWuActivity" />
+        <activity android:name=".activity.more.PaiDanActivity" />
+        <activity android:name=".activity.more.CaiWuActivity" />
+        <activity android:name=".activity.more.JiaMengActivity" />
+        <activity android:name=".activity.more.XiaXianActivity"></activity>
     </application>
 
 </manifest>

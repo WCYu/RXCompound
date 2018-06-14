@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -175,14 +176,13 @@ public class MainFragment extends BaseFragment<BaseInformPresenter> implements B
         switch (v.getId()) {
             case R.id.rl_persondetails:
 
-
+                Log.e("tag___信息",App.depart  +  "  "  +App.postid);
                 if(App.depart.equals("3")&&App.postid==10000){//设计师会员
-                    startActivity(new Intent(getActivity(), DesBaseInfoActivity.class));
-//                    startActivity(new Intent(getActivity(), UserInfoActivity.class));
-
-                }else{
-//                    startActivity(new Intent(getActivity(), BaseInformationActivity.class).putExtra("isback", "1").putExtra("status", status + "").putExtra("ismain", "1"));
+//                    startActivity(new Intent(getActivity(), DesBaseInfoActivity.class));
                     startActivity(new Intent(getActivity(), UserInfoActivity.class));
+                }else{
+                    startActivity(new Intent(getActivity(), BaseInformationActivity.class).putExtra("isback", "1").putExtra("status", status + "").putExtra("ismain", "1"));
+
                 }
                 break;
             case R.id.rl_setting:

@@ -45,6 +45,13 @@ public class Constants {
     public static final String OFFICE_PUBLIC = "http://edu.rxjy.com";//办公外网域名
     public static final String OFFICE_PRIVATE = "http://edu.rx";//办公内网域名
 
+    //向修改信息界面传递KeyValue
+    public static final String ACTION_TO_UPD_USER_INFO_KEY_VALUE = "action_to_upd_user_info_key_value";
+    //向修改信息界面传递Key
+    public static final String ACTION_TO_UPD_USER_INFO_KEY = "action_to_upd_user_info_key";
+    //向修改信息界面传递Value
+    public static final String ACTION_TO_UPD_USER_INFO_VALUE = "action_to_upd_user_info_value";
+
 //    public static final String IS_FIRST_SPLASH = "first_pref";//是否首次启动
 //    public static final String IS_FIRST_SPLASH = "first_pref";//是否首次启动
 //    public static final String IS_FIRST_SPLASH = "first_pref";//是否首次启动

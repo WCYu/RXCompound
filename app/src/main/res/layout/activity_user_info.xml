@@ -10,7 +10,7 @@
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="100px"
-        android:background="@color/colorRed">
+        android:background="@color/colorPrimaryDes">
 
         <ImageView
             android:id="@+id/iv_back"
@@ -65,9 +65,10 @@
                 android:layout_width="130px"
                 android:layout_height="130px"
                 android:layout_alignParentRight="true"
+                android:layout_marginRight="30px"
+                android:src="@mipmap/morenicon"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="36px"
-                android:text="鲁迅" />
+                />
 
         </RelativeLayout>
 
@@ -264,9 +265,8 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="36px"
-                android:text="1972-12-30"
-                android:textColor="@color/colorGrayDark"
-                android:textSize="@dimen/text_size_l" />
+                android:background="@mipmap/saoma"
+                />
 
         </RelativeLayout>
 
