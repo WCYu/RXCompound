@@ -467,11 +467,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
                     if (lengths == 11) {//11手机号位请求判断
                         String strthree = phonenum.substring(0, 3);
                         if (!strthree.equals("WTS")) {
-                            if (StringUtils.isMobileNO(phonenum)) {
                                 mPresenter.getCheckIsVerity(phonenum);
-                            } else {
-                                ShowUtils.Toastshort(LoginActivity.this, "请输入正确的手机号！");
-                            }
                         } else {
                             mPresenter.getCheckIsVerity(phonenum);
                         }

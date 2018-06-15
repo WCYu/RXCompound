@@ -1968,7 +1968,8 @@ public interface ApiService {
     /**
      * 申请转正
      */
-    @GET("actionapi/TZManage/ApplyFormalUser")
+    @FormUrlEncoded
+    @POST("actionapi/TZManage/ApplyFormalUser")
     Observable<String> getpplyAttendance(
             @Query("CardNo") String CardNo,
             @Query("Reason1") String Reason1,

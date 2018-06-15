@@ -43,10 +43,10 @@ public class activityImage extends BaseActivity {
            pictureImage.setImageResource(R.mipmap.zijing);
            break;
        case "商务":
-           pictureImage.setImageResource(R.mipmap.shangwutwo);
+           pictureImage.setImageResource(R.mipmap.shangwuphoto);
            break;
        case "主案":
-           pictureImage.setImageResource(R.mipmap.zhuanone);
+           pictureImage.setImageResource(R.mipmap.shangwutwo);
            break;
        case "工程":
          pictureImage.setImageResource(R.mipmap.gongshione);
