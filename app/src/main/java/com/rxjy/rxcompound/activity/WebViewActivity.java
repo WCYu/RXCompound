@@ -6,6 +6,7 @@ import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.rxjy.rxcompound.R;
@@ -26,6 +27,8 @@ public class WebViewActivity extends BaseActivity {
     ImageView ivAdd;
     @Bind(R.id.tv_title)
     TextView tvTitle;
+    @Bind(R.id.rl_tool)
+    RelativeLayout rlTool;
 
     String url=null;
     String name=null;
@@ -43,6 +46,9 @@ public class WebViewActivity extends BaseActivity {
         webDianpu.loadUrl(url);
         webDianpu.getSettings().setJavaScriptEnabled(true);
         // 为图片添加放大缩小功能
+        if(name.equals("量房")){
+            rlTool.setBackgroundColor(getResources().getColor(R.color.textorange));
+        }
         webDianpu.getSettings().setUseWideViewPort(true);
         webDianpu.setWebViewClient(new WebViewClient() {
             @Override

@@ -394,8 +394,10 @@
             </RelativeLayout>
 
             <LinearLayout
+                android:id="@+id/ly_guwenfuwu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+
                 android:orientation="vertical">
 
                 <RelativeLayout
@@ -459,7 +461,7 @@
                                 android:layout_gravity="center"
                                 android:layout_marginBottom="15px"
                                 android:layout_marginTop="40px"
-                                android:src="@mipmap/more_redenvelopes" />
+                                android:src="@mipmap/kehu" />
 
                             <TextView
                                 android:id="@+id/tv_tab_wallet_state"
@@ -623,7 +625,7 @@
                                 android:layout_gravity="center"
                                 android:layout_marginBottom="15px"
                                 android:layout_marginTop="40px"
-                                android:src="@mipmap/more_redenvelopes" />
+                                android:src="@mipmap/dianpu" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -668,6 +670,7 @@
                             android:layout_marginBottom="15px"
                             android:layout_marginTop="40px"
                             android:layout_weight="1"
+                            android:background="@mipmap/anli"
                             />
 
                         <TextView
@@ -699,7 +702,8 @@
                             android:layout_gravity="center"
                             android:layout_marginBottom="15px"
                             android:layout_marginTop="40px"
-                            android:layout_weight="1" />
+                            android:layout_weight="1"
+                            android:background="@mipmap/bowen"/>
 
                         <TextView
                             android:layout_width="match_parent"
@@ -743,7 +747,7 @@
                                 android:layout_gravity="center"
                                 android:layout_marginBottom="15px"
                                 android:layout_marginTop="40px"
-                                android:src="@mipmap/more_redenvelopes" />
+                                android:src="@mipmap/fuwu" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -788,6 +792,7 @@
                             android:layout_marginBottom="15px"
                             android:layout_marginTop="40px"
                             android:layout_weight="1"
+                            android:background="@mipmap/paidan"
                             />
 
                         <TextView
@@ -819,7 +824,8 @@
                             android:layout_gravity="center"
                             android:layout_marginBottom="15px"
                             android:layout_marginTop="40px"
-                            android:layout_weight="1" />
+                            android:layout_weight="1"
+                            android:background="@mipmap/caiwu"/>
 
                         <TextView
                             android:layout_width="match_parent"
@@ -863,7 +869,7 @@
                                 android:layout_gravity="center"
                                 android:layout_marginBottom="15px"
                                 android:layout_marginTop="40px"
-                                android:src="@mipmap/more_redenvelopes" />
+                                android:src="@mipmap/jiameng" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -908,6 +914,7 @@
                             android:layout_marginBottom="15px"
                             android:layout_marginTop="40px"
                             android:layout_weight="1"
+                            android:background="@mipmap/xiaxian"
                             />
 
                         <TextView

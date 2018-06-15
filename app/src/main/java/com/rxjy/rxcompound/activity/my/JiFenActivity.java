@@ -14,6 +14,7 @@ import com.rxjy.rxcompound.commons.base.BaseActivity;
 import com.rxjy.rxcompound.commons.base.BasePresenter;
 import com.rxjy.rxcompound.entity.more.JiFenBean;
 import com.rxjy.rxcompound.utils.OkhttpUtils;
+import com.rxjy.rxcompound.utils.ToastUtil;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -95,16 +96,28 @@ public class JiFenActivity extends BaseActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        Gson gson = new Gson();
-                        JiFenBean jiFenBean = gson.fromJson(string, JiFenBean.class);
-                        JiFenBean.BodyBean body = jiFenBean.getBody();
-                        tvJibie.setText( body.getSpare1()+"级");
-                        tvTidian.setText(body.getRewardPercent()+"%");
-                        tvYushou.setText(body.getRewardRoom()+"");
-                        tvYushouC.setText(body.getCRewardRoom()+"");
-                        tvShengji.setText(body.getSignOrderUp()+"");
-                        tvJiangji.setText(body.getSignOrderDown()+"");
-                        tvJiangjiC.setText(body.getMeasureHourse()+"");
+                        try {
+                            JSONObject jsonObject = new JSONObject(string);
+                            int statusCode = jsonObject.getInt("StatusCode");
+                            String statusMsg = jsonObject.getString("StatusMsg");
+                            if(statusCode == 0){
+                                Gson gson = new Gson();
+                                JiFenBean jiFenBean = gson.fromJson(string, JiFenBean.class);
+                                JiFenBean.BodyBean body = jiFenBean.getBody();
+                                tvJibie.setText( body.getSpare1()+"级");
+                                tvTidian.setText(body.getRewardPercent()+"%");
+                                tvYushou.setText(body.getRewardRoom()+"");
+                                tvYushouC.setText(body.getCRewardRoom()+"");
+                                tvShengji.setText(body.getSignOrderUp()+"");
+                                tvJiangji.setText(body.getSignOrderDown()+"");
+                                tvJiangjiC.setText(body.getMeasureHourse()+"");
+                            }else {
+                                ToastUtil.getInstance().toastCentent(statusMsg,JiFenActivity.this);
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
                     }
                 });
             }

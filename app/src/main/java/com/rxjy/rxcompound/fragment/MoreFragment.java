@@ -146,6 +146,9 @@ public class MoreFragment extends BaseFragment<GetUserStatusPresenter> implement
     LinearLayout lyXiaxian;
     @Bind(R.id.ly_touzi)
     LinearLayout lyTouzi;
+    @Bind(R.id.ly_guwenfuwu)
+    LinearLayout lyGuwenfuwu;
+
     private String TAG = "MoreFragment";
     @Bind(R.id.gv_rxculture)
     GridView gv_rxculture;
@@ -211,6 +214,11 @@ public class MoreFragment extends BaseFragment<GetUserStatusPresenter> implement
             lyTouzi.setVisibility(View.VISIBLE);
         }else {
             lyTouzi.setVisibility(View.GONE);
+        }
+        if(App.depart.equals("2")){ //上午
+            lyGuwenfuwu.setVisibility(View.VISIBLE);
+        }else {
+            lyGuwenfuwu.setVisibility(View.GONE);
         }
         initTaskData();
         initAttenData();
