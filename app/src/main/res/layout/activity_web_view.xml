@@ -8,6 +8,7 @@
     tools:context="com.rxjy.rxcompound.activity.WebViewActivity">
 
     <RelativeLayout
+        android:id="@+id/rl_tool"
         android:layout_width="match_parent"
         android:layout_height="88px"
         android:background="@color/colorPrimaryDes">

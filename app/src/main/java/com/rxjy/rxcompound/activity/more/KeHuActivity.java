@@ -31,14 +31,17 @@ import com.baoyz.swipemenulistview.SwipeMenuItem;
 import com.baoyz.swipemenulistview.SwipeMenuListView;
 import com.google.gson.Gson;
 import com.rxjy.rxcompound.R;
+import com.rxjy.rxcompound.activity.WebViewActivity;
 import com.rxjy.rxcompound.adapter.more.KeHuAdapter;
 import com.rxjy.rxcompound.api.ApiEngine;
 import com.rxjy.rxcompound.business.activity.AddActivity;
 import com.rxjy.rxcompound.business.activity.CustomerFollowActivity;
+import com.rxjy.rxcompound.commons.App;
 import com.rxjy.rxcompound.commons.base.BaseActivity;
 import com.rxjy.rxcompound.commons.base.BasePresenter;
 import com.rxjy.rxcompound.commons.utils.StringUtils;
 import com.rxjy.rxcompound.entity.more.KeHuInfoBean;
+import com.rxjy.rxcompound.entity.more.KeHuTongJiBean;
 import com.rxjy.rxcompound.utils.OkhttpUtils;
 import com.rxjy.rxcompound.utils.ToastUtil;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
@@ -108,6 +111,9 @@ public class KeHuActivity extends BaseActivity implements View.OnClickListener {
     private TextView tv_yiqian;
     private LinearLayout ly_yiqian;
 
+    private LinearLayout ly_shenpi;
+    private TextView tv_shenpi;
+
     private void initPopuView(View vicinityView) {
         tv_zaigen = (TextView) vicinityView.findViewById(R.id.tv_zaigen);
         ly_zaigen = (LinearLayout) vicinityView.findViewById(R.id.ly_zaigen);
@@ -124,6 +130,12 @@ public class KeHuActivity extends BaseActivity implements View.OnClickListener {
         tv_yiqian = (TextView) vicinityView.findViewById(R.id.tv_yiqian);
         ly_yiqian = (LinearLayout) vicinityView.findViewById(R.id.ly_yiqian);
         ly_yiqian.setOnClickListener(this);
+        ly_shenpi = (LinearLayout) vicinityView.findViewById(R.id.ly_shenpi);
+        tv_shenpi = (TextView) vicinityView.findViewById(R.id.tv_shenpi);
+        ly_shenpi.setOnClickListener(this);
+
+        getKeHuData();
+
     }
 
     @Override
@@ -151,6 +163,8 @@ public class KeHuActivity extends BaseActivity implements View.OnClickListener {
         key = "";
         arrayList.clear();
         getKuHuList();
+        View inflate = LayoutInflater.from(this).inflate(R.layout.popu_item_kehu, null);
+        popupWindow(inflate, rlTool);
     }
 
     private void initListener() {
@@ -188,7 +202,7 @@ public class KeHuActivity extends BaseActivity implements View.OnClickListener {
                         break;
                     case 2:
                         // delete
-                        new AlertDialog.Builder(KeHuActivity.this).setTitle("是否取消").setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                        new AlertDialog.Builder(KeHuActivity.this).setTitle("放弃后此单将删除").setPositiveButton("确定", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 deleteKuHu(arrayList.get(position).getKeHuBaseID());
@@ -220,9 +234,12 @@ public class KeHuActivity extends BaseActivity implements View.OnClickListener {
                         case "在跟踪":
 //                           intent = new Intent(KeHuActivity.this,ZaiGenActivity.class);
 //                           break;
+                        case "审核":
                         case "打回":
-//                           intent = new Intent(KeHuActivity.this,DaHuiActivity.class);
-//                           break;
+                            intent = new Intent(KeHuActivity.this, WebViewActivity.class);
+                            intent.putExtra("url", "http://app.rxjy.com/customer.html?order=22-201349");
+                            intent.putExtra("name", "量房");
+                            break;
                         case "在谈":
                         case "已签":
                         case "未签":
@@ -288,13 +305,13 @@ public class KeHuActivity extends BaseActivity implements View.OnClickListener {
         popupWindow.setWidth(ViewGroup.LayoutParams.FILL_PARENT);
         popupWindow.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
         popupWindow.setBackgroundDrawable(new BitmapDrawable());
-        popupWindow.showAsDropDown(view, 0, 0);
         popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
             @Override
             public void onDismiss() {
 
             }
         });
+
     }
 
 
@@ -367,9 +384,70 @@ public class KeHuActivity extends BaseActivity implements View.OnClickListener {
         listView.setMenuCreator(creator);
     }
 
+    public void getKeHuData() {
+        Map map = new HashMap();
+        map.put("card", App.cardNo);
+        map.put("type", -1);
+        OkhttpUtils.doPost("http://swb.api.cs/AppEmployee/GetAdvserCustomStatusCount", map, new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                Log.e("tag_数据统计_失败", e.getMessage().toString());
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                final String string = response.body().string();
+                Log.e("tag_数据统计", string);
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            JSONObject jsonObject = new JSONObject(string);
+                            int statusCode = jsonObject.getInt("StatusCode");
+                            String statusMsg = jsonObject.getString("StatusMsg");
+                            if (statusCode == 0) {
+                                Gson gson = new Gson();
+                                KeHuTongJiBean keHuTongJiBean = gson.fromJson(string, KeHuTongJiBean.class);
+                                List<KeHuTongJiBean.BodyBean> body = keHuTongJiBean.getBody();
+                                for (int i = 0; i < body.size(); i++) {
+                                    KeHuTongJiBean.BodyBean bodyBean = body.get(i);
+                                    String status = bodyBean.getStatus();
+                                    switch (status) {
+                                        case "在跟踪":
+                                            tv_zaigen.setText("在跟/" + bodyBean.getNum());
+                                            break;
+                                        case "打回":
+                                            tv_dahui.setText("打回/" + bodyBean.getNum());
+                                            break;
+                                        case "审批":
+                                            tv_shenpi.setText("审批/" + bodyBean.getNum());
+                                            break;
+                                        case "在谈":
+                                            tv_zaitan.setText("在谈/" + bodyBean.getNum());
+                                            break;
+                                        case "已签":
+                                            tv_yiqian.setText("已签/" + bodyBean.getNum());
+                                            break;
+                                        case "未签":
+                                            tv_weiqian.setText("未签/" + bodyBean.getNum());
+                                            break;
+                                    }
+                                }
+                            } else {
+                                ToastUtil.getInstance().toastCentent(statusMsg, KeHuActivity.this);
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+            }
+        });
+    }
+
     public void getKuHuList() {
         Map map = new HashMap();
-        map.put("card", "00001236");
+        map.put("card", "02700552 ");
         map.put("pageIndex", pager);
         map.put("PageSize", 10);
         map.put("type", type);
@@ -398,9 +476,9 @@ public class KeHuActivity extends BaseActivity implements View.OnClickListener {
                         } else {
                             keHuAdapter.notifyDataSetChanged();
                         }
-                        if(arrayList.size()>0){
+                        if (arrayList.size() > 0) {
                             ltBackground.setVisibility(View.GONE);
-                        }else {
+                        } else {
                             ltBackground.setVisibility(View.VISIBLE);
                         }
                         dismissLoading();
@@ -426,8 +504,7 @@ public class KeHuActivity extends BaseActivity implements View.OnClickListener {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.img_gengduo:
-                View inflate = LayoutInflater.from(this).inflate(R.layout.popu_item_kehu, null);
-                popupWindow(inflate, rlTool);
+                popupWindow.showAsDropDown(view, 0, 0);
                 break;
             case R.id.iv_back:
                 finish();
@@ -450,31 +527,37 @@ public class KeHuActivity extends BaseActivity implements View.OnClickListener {
                 popupWindow.dismiss();
                 showLoading();
                 getKuHuList();
-
                 break;
-            case R.id.ly_zaitan:
-                type = 4;
+            case R.id.ly_dahui:
+                type = 2;
                 pager = 1;
                 popupWindow.dismiss();
                 showLoading();
                 getKuHuList();
                 break;
-            case R.id.ly_dahui:
-                type = 3;
+            case R.id.ly_zaitan:
+                type = 5;
                 pager = 1;
                 popupWindow.dismiss();
                 showLoading();
                 getKuHuList();
                 break;
             case R.id.ly_weiqian:
-                type = 6;
+                type = 8;
                 pager = 1;
                 popupWindow.dismiss();
                 showLoading();
                 getKuHuList();
                 break;
             case R.id.ly_yiqian:
-                type = 5;
+                type = 7;
+                pager = 1;
+                popupWindow.dismiss();
+                showLoading();
+                getKuHuList();
+                break;
+            case R.id.ly_shenpi:
+                type = 3;
                 pager = 1;
                 popupWindow.dismiss();
                 showLoading();

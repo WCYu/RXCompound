@@ -56,23 +56,25 @@ public class KeHuAdapter extends BaseAdapter {
             convertView.setTag(viewHolder);
         }
 
+        if(position<arrayList.size()){
+            //        ViewHolder viewHolder = new ViewHolder(convertView);
+            ViewHolder viewHolder= (ViewHolder) convertView.getTag();
+            viewHolder.tv_biaoqian.setText(arrayList.get(position).getType());
 
-//        ViewHolder viewHolder = new ViewHolder(convertView);
-        ViewHolder viewHolder= (ViewHolder) convertView.getTag();
-        viewHolder.tv_biaoqian.setText(arrayList.get(position).getType());
-        Object visitContent = arrayList.get(position).getVisitContent();
-        ViewHolder tag = (ViewHolder) convertView.getTag();
-        if(visitContent == null){
-            viewHolder.tv_content.setText("暂无更多内容");
-        }else {
-            viewHolder.tv_content.setText(visitContent.toString());
+            Object visitContent = arrayList.get(position).getVisitContent();
+
+            if(visitContent == null){
+                viewHolder.tv_content.setText("暂无更多内容");
+            }else {
+                viewHolder.tv_content.setText(visitContent.toString());
+            }
+
+            viewHolder.tv_gcname.setText(arrayList.get(position).getXingMing()+"-"+arrayList.get(position).getGongSiMingCheng());
+            viewHolder.tv_name.setText(arrayList.get(position).getXinXiYuanXingMing());
+            viewHolder.tv_time.setText(arrayList.get(position).getTianJiaShiJian());
+            viewHolder.tv_zhuangtai.setText(arrayList.get(position).getStatus());
+            Log.e("tag __adapter",position+""+arrayList.get(position).getStatus());
         }
-
-        viewHolder.tv_gcname.setText(arrayList.get(position).getXingMing()+"-"+arrayList.get(position).getGongSiMingCheng());
-        viewHolder.tv_name.setText(arrayList.get(position).getXinXiYuanXingMing());
-        viewHolder.tv_time.setText(arrayList.get(position).getTianJiaShiJian());
-        viewHolder.tv_zhuangtai.setText(arrayList.get(position).getStatus());
-        Log.e("tag __adapter",position+""+arrayList.get(position).getStatus());
         return convertView;
     }
 

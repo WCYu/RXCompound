@@ -85,8 +85,8 @@ public class ApiEngine {
 
     //积分数据
     public static final String JIFENURL = BASEURL + "JTRenShi/APP_RS_GetIntegralPlate";
-    //客户列表
-    public static final String KEHULISTURL = BASEURL + "AppEmployee/GetCustomerList";
+    //客户列表  AppEmployee/GetAdvserCustomList  AppEmployee/GetCustomerList
+    public static final String KEHULISTURL = BASEURL + "AppEmployee/GetAdvserCustomList";
     //添加客户
     public static final String ADDKEHUURL = BASEURL + "AppEmployee/AddCustomer";
     //客户详情 AppAgent/GetKeHuInfo AppEmployee/GetCustomerDetail
