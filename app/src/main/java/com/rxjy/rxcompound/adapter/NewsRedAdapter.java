@@ -51,7 +51,7 @@ public class NewsRedAdapter extends SingleBaseAdapter<InfoMessageBodyBean, NewsR
             String[] split = data.getReward_money().split(" ");
             holder.tvReward.setText(split[0]);
         }else {
-            holder.zongliang.setText(data.getTask_num()+"套");
+            holder.zongliang.setText(data.getTask_num());
             holder.allowance.setText(data.getTask_balance());
             holder.tvReward.setText(data.getReward_money());
         }
