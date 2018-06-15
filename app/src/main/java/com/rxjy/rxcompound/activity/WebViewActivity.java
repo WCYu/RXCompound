@@ -2,7 +2,9 @@ package com.rxjy.rxcompound.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.webkit.WebResourceRequest;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageView;
@@ -10,6 +12,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.rxjy.rxcompound.R;
+import com.rxjy.rxcompound.api.ApiEngine;
 import com.rxjy.rxcompound.commons.base.BaseActivity;
 import com.rxjy.rxcompound.commons.base.BasePresenter;
 
@@ -19,8 +22,8 @@ import butterknife.OnClick;
 
 public class WebViewActivity extends BaseActivity {
 
-    @Bind(R.id.web_dianpu)
-    WebView webDianpu;
+    @Bind(R.id.new_web)
+    WebView newWeb;
     @Bind(R.id.iv_back)
     ImageView ivBack;
     @Bind(R.id.iv_add)
@@ -43,20 +46,27 @@ public class WebViewActivity extends BaseActivity {
         url = getIntent().getStringExtra("url");
         name = getIntent().getStringExtra("name");
         tvTitle.setText(name);
-        webDianpu.loadUrl(url);
-        webDianpu.getSettings().setJavaScriptEnabled(true);
-        // 为图片添加放大缩小功能
         if(name.equals("量房")){
             rlTool.setBackgroundColor(getResources().getColor(R.color.textorange));
         }
-        webDianpu.getSettings().setUseWideViewPort(true);
-        webDianpu.setWebViewClient(new WebViewClient() {
+
+        newWeb.loadUrl(url);
+        Log.e("webView————————",url);
+
+        WebSettings settings = newWeb.getSettings();
+        settings.setJavaScriptEnabled(true);
+        //设置自适应屏幕，两者合用
+        settings.setUseWideViewPort(true); //将图片调整到适合webview的大小
+        settings.setLoadWithOverviewMode(true); // 缩放至屏幕的大小
+        settings.setDomStorageEnabled(true);
+        newWeb.setWebViewClient(new WebViewClient(){
             @Override
-            public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 view.loadUrl(url);
-                return super.shouldOverrideUrlLoading(view, request);
+                return super.shouldOverrideUrlLoading(view, url);
             }
         });
+
     }
 
     @Override

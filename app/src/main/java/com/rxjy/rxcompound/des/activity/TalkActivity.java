@@ -21,9 +21,9 @@ import com.rxjy.rxcompound.commons.base.BaseActivity;
 import com.rxjy.rxcompound.des.adapter.TalkAdapter;
 import com.rxjy.rxcompound.des.entity.AllClientNewBean;
 import com.rxjy.rxcompound.des.entity.GetHuiFang;
-import com.rxjy.rxcompound.des.mvp.contract.CompactContract;
 import com.rxjy.rxcompound.des.mvp.contract.TalkContract;
 import com.rxjy.rxcompound.des.mvp.presenter.TalkPresenter;
+import com.rxjy.rxcompound.utils.ToastUtil;
 import com.rxjy.rxcompound.widget.xlistview.XListView;
 
 import java.text.SimpleDateFormat;
@@ -78,16 +78,24 @@ public class TalkActivity extends BaseActivity<TalkPresenter> implements TalkCon
     TextView tvPlan;
     @Bind(R.id.tv_contract)
     TextView tvContract;
+    @Bind(R.id.ly_liangfang)
+    LinearLayout lyLiangfang;
+    @Bind(R.id.ly_fangan)
+    LinearLayout lyFangan;
+    @Bind(R.id.ly_yusuan)
+    LinearLayout lyYusuan;
+    @Bind(R.id.ly_qiatan)
+    LinearLayout lyQiatan;
     private int visitMonth = -1;
     public static TalkActivity activity;
     public static String isshuaxin = "";//1：刷新所有数据  2：只刷新底部选中按钮
 
-    //int i=1;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_talk);
-    }
+//    //int i=1;
+//    @Override
+//    protected void onCreate(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        //setContentView(R.layout.activity_talk);
+//    }
 
     private boolean panduan;
 
@@ -228,7 +236,7 @@ public class TalkActivity extends BaseActivity<TalkPresenter> implements TalkCon
         tvContract.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-             Intent intent=new Intent(TalkActivity.this, CompactActivity.class);
+                Intent intent = new Intent(TalkActivity.this, CompactActivity.class);
                 intent.putExtra(Constants.ACTION_TO_DAI_MEASURE_CLIENT_INFO, info);
                 startActivity(intent);
             }
@@ -317,14 +325,14 @@ public class TalkActivity extends BaseActivity<TalkPresenter> implements TalkCon
     int i = 2;
 
     @Override
-    public void onRefresh(){
+    public void onRefresh() {
 //        mPresenter.xlgetHuiFangData(info.getCi_rwdid(), i);
         mPresenter.xlgetHuiFangData(info.getCi_RwdId(), i);
 
     }
 
     @Override
-    public void onLoadMore(){
+    public void onLoadMore() {
 
     }
 
@@ -357,9 +365,7 @@ public class TalkActivity extends BaseActivity<TalkPresenter> implements TalkCon
     }
 
 
-
-
-    @OnClick({R.id.tv_plan, R.id.tv_contract})
+    @OnClick({R.id.tv_plan, R.id.tv_contract,R.id.ly_liangfang,R.id.ly_fangan,R.id.ly_yusuan,R.id.ly_qiatan})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.tv_plan:
@@ -370,7 +376,26 @@ public class TalkActivity extends BaseActivity<TalkPresenter> implements TalkCon
             case R.id.tv_contract://合同
                 lfandyqbs = 0;
                 llLiangfangandyiqian.setVisibility(View.GONE);
-                startActivity(new Intent(this,TalkContractActivity.class).putExtra("rwdid",info.getCi_RwdId()));
+                startActivity(new Intent(this, TalkContractActivity.class).putExtra("rwdid", info.getCi_RwdId()));
+                break;
+            case R.id.ly_liangfang://量房
+                Intent intent = new Intent(TalkActivity.this, YiLiangFangActivity.class);
+                intent.putExtra(Constants.ACTION_TO_DAI_MEASURE_CLIENT_INFO, getIntent().getSerializableExtra(Constants.ACTION_TO_DAI_MEASURE_CLIENT_INFO));
+                lfandyqbs = 0;
+                llLiangfangandyiqian.setVisibility(View.GONE);
+
+                startActivity(intent);
+                break;
+            case R.id.ly_fangan://方案
+                lfandyqbs = 0;
+                llLiangfangandyiqian.setVisibility(View.GONE);
+                startActivity(new Intent(this, PlanActivity.class).putExtra("title", info.getCi_ClientName()).putExtra("address", info.getCi_DecorationAddress()).putExtra("rwdid", info.getCi_RwdId()));
+                break;
+            case R.id.ly_yusuan://预算
+
+                break;
+            case R.id.ly_qiatan://洽谈
+                startActivity(new Intent(this, BackVisitActivity.class).putExtra("type", 0 + "").putExtra("cid", info.getCi_RwdId()));
                 break;
         }
     }
