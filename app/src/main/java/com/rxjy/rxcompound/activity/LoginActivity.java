@@ -386,8 +386,12 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
 
     @Override
     public void responseIsConsentError(String msg) {//未同意
-        startActivity(new Intent(this, EntryJobProtocolActivity.class).putExtra("from", "1"));
-        finish();
+        if(msg.equals("连接失败")){
+            tv_prompt.setText(msg);
+        }else {
+            startActivity(new Intent(this, EntryJobProtocolActivity.class).putExtra("from", "1"));
+            finish();
+        }
     }
 
     @Override
