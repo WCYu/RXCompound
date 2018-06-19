@@ -96,7 +96,7 @@ public class TalkActivity extends BaseActivity<TalkPresenter> implements TalkCon
 //        super.onCreate(savedInstanceState);
 //        //setContentView(R.layout.activity_talk);
 //    }
-
+List<GetHuiFang.Body> list = new ArrayList<>();
     private boolean panduan;
 
     @Override
@@ -110,6 +110,8 @@ public class TalkActivity extends BaseActivity<TalkPresenter> implements TalkCon
         initTitle();
         onclick();
         initMark();
+        adapter = new TalkAdapter(this, list);
+        xListView.setAdapter(adapter);
         xListView.setXListViewListener(this);
         xListView.setPullLoadEnable(false);
 
@@ -133,11 +135,11 @@ public class TalkActivity extends BaseActivity<TalkPresenter> implements TalkCon
                 if (totalItemCount < visibleItemCount) {
                     panduan = false;
                 }
-                if (panduan == true) {
-                    xListView.setStackFromBottom(true);
-                } else if (panduan == false) {
-                    xListView.setStackFromBottom(false);
-                }
+//                if (panduan == true) {
+//                    xListView.setStackFromBottom(true);
+//                } else if (panduan == false) {
+//                    xListView.setStackFromBottom(false);
+//                }
 
             }
         });
@@ -260,8 +262,6 @@ public class TalkActivity extends BaseActivity<TalkPresenter> implements TalkCon
         showToast("没有更多数据了！");
     }
 
-    List<GetHuiFang.Body> list = new ArrayList<>();
-
     @Override
     public void responseTalkData() {
 //        mPresenter.getHuiFangData(info.getCi_rwdid(), 1);
@@ -304,9 +304,9 @@ public class TalkActivity extends BaseActivity<TalkPresenter> implements TalkCon
             Log.e("pos22", body1.getCv_TodayProgress());
 
         }
-        list.addAll(body);
-        adapter = new TalkAdapter(this, list);
-        xListView.setAdapter(adapter);
+        list.addAll(0,body);
+        adapter.notifyDataSetChanged();
+        Log.e("tag_数据",list.size()+"-----");
     }
 
     @Override
