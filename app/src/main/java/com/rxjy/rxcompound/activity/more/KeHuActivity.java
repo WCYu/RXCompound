@@ -246,7 +246,7 @@ public class KeHuActivity extends BaseActivity implements View.OnClickListener {
 //                           break;
                         case "打回":
                             intent = new Intent(KeHuActivity.this, WebViewActivity.class);
-                            intent.putExtra("url", "http://app.rxjy.com/customer.html?order=22-201349");
+                            intent.putExtra("url", "http://app.rxjy.com/customer.html?order="+arrayList.get(position).getDanHao());
                             intent.putExtra("name", "量房");
                             break;
                         case "在谈":

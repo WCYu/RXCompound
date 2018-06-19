@@ -30,4 +30,17 @@
             android:paddingRight="20px"
             android:src="@mipmap/write"/>
     </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="400px"
+        android:layout_margin="20px">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/vp_banner"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:scaleType="fitXY" />
+    </RelativeLayout>
+
 </LinearLayout>

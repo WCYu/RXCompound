@@ -45,6 +45,7 @@ public class WebViewActivity extends BaseActivity {
         ButterKnife.bind(this);
         url = getIntent().getStringExtra("url");
         name = getIntent().getStringExtra("name");
+
         tvTitle.setText(name);
         if(name.equals("量房")){
             rlTool.setBackgroundColor(getResources().getColor(R.color.textorange));

@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageView;
@@ -22,7 +23,7 @@ import com.rxjy.rxcompound.commons.base.BasePresenter;
  * Created by hjh on 2017/11/14.
  */
 
-public class FindListActivity extends BaseActivity{
+public class FindListActivity extends Activity{
 
     private WebView wb_rxsongs;
     private TextView tv_title;
@@ -31,21 +32,9 @@ public class FindListActivity extends BaseActivity{
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-    }
-
-    @Override
-    public int getLayout() {
-        return R.layout.activity_bannersetails;
-    }
-
-    @Override
-    public void initData() {
+        setContentView(R.layout.activity_bannersetails);
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE|WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
         init();
-    }
-
-    @Override
-    protected BasePresenter onCreatePresenter() {
-        return null;
     }
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
