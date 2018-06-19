@@ -24,6 +24,7 @@ import com.rxjy.rxcompound.widget.MoneyView;
 import com.rxjy.rxcompound.widget.moneytext.RiseNumberTextView;
 
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.util.Calendar;
 
 import butterknife.Bind;
@@ -483,10 +484,20 @@ public class MoneyActivity extends BaseActivity<MoneyPresenter> implements Money
         double social_security = bean.getSocial_security();//社保
         double accumulation_fund = bean.getAccumulation_fund();//公积
         double income_tax = bean.getIncome_tax();//个税
-        double v2 = social_security + accumulation_fund + income_tax;//合计
-        mvSix.setContent(social_security+"",accumulation_fund+"",income_tax+"",v2+"");
+        double v3 = income_tax * (-1);//个税
+
+        double v2 = social_security + accumulation_fund + v3;//合计
+        mvSix.setContent(social_security+"",accumulation_fund+"",v3+"",doubleToString(v2));
         double historymoney = bean.getHistorymoney();
         mvSeven.setContent(historymoney+"","0","","");
     }
-
+    /**
+     * double转String,保留小数点后两位
+     * @param num
+     * @return
+     */
+    public static String doubleToString(double num){
+        //使用0.00不足位补0，#.##仅保留有效位
+        return new DecimalFormat("0.00").format(num);
+    }
 }
