@@ -100,9 +100,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8px"
-            android:text="使用期业绩"
+            android:text="试用期业绩"
             android:textColor="#333"
-
             android:textSize="30px" />
     </LinearLayout>
     <EditText
