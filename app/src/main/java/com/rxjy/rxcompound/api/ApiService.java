@@ -482,8 +482,7 @@ public interface ApiService {
     /**
      * 获取版本信息
      */
-//    @GET("actionapi/AppCurrencyHome/IsAndroidUpdated")
-    @GET("actionapi/AppPort/IsAndroidUpdated")
+    @GET("actionapi/AppCurrencyHome/IsAndroidUpdated")
     Observable<String> getVCode(
             @Query("Version") int version
     );

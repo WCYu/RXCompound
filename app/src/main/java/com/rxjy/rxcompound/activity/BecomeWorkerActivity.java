@@ -42,6 +42,7 @@ public class BecomeWorkerActivity extends BaseActivity<BecomeWorkerPresenter> im
     TextView condition;
     @Bind(R.id.hiddenDisplay)
     LinearLayout hiddenDisplay;
+    private boolean aBoolean;
 
     @Override
     public int getLayout() {
@@ -72,12 +73,17 @@ public class BecomeWorkerActivity extends BaseActivity<BecomeWorkerPresenter> im
                 finish();
                 break;
             case R.id.submit:
-                String shuzhi = duty.getText().toString();
-                String yeji = achievement.getText().toString();
-                if (!shuzhi.equals("") && !yeji.equals("")) {
-                    mPresenter.getSubmitBecome(App.cardNo, shuzhi, yeji);
+                //setFocusable
+                if (aBoolean) {
+                    String shuzhi = duty.getText().toString();
+                    String yeji = achievement.getText().toString();
+                    if (!shuzhi.equals("") && !yeji.equals("")) {
+                        mPresenter.getSubmitBecome(App.cardNo, shuzhi, yeji);
+                    } else {
+                        showToast("转正资料不全");
+                    }
                 } else {
-                    showToast("转正资料不全");
+                    showToast("转正条件未达成");
                 }
                 break;
         }
@@ -110,7 +116,7 @@ public class BecomeWorkerActivity extends BaseActivity<BecomeWorkerPresenter> im
         String applyFormalUserCondition = bodyBean.getApplyFormalUserCondition();
         if (applyFormalUserCondition.equals("")) {
             hiddenDisplay.setVisibility(View.GONE);
-            submit.setFocusable(true);
+            aBoolean = true;
         } else {
             hiddenDisplay.setVisibility(View.VISIBLE);
             String[] split = applyFormalUserCondition.split(";");
@@ -119,13 +125,13 @@ public class BecomeWorkerActivity extends BaseActivity<BecomeWorkerPresenter> im
                 string.append(i + 1 + ". " + split[i] + "\n");
             }
             condition.setText(string);
-            submit.setFocusable(false);
+            aBoolean = false;
         }
     }
 
     @Override
     public void responseBeconmeData(BecomeBean becomeBean) {
-    App.ustart=4;
+        App.ustart = 4;
         finish();
     }
 
