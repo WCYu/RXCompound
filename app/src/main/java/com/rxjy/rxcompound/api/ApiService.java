@@ -1970,9 +1970,9 @@ public interface ApiService {
     @FormUrlEncoded
     @POST("actionapi/TZManage/ApplyFormalUser")
     Observable<String> getpplyAttendance(
-            @Query("CardNo") String CardNo,
-            @Query("Reason1") String Reason1,
-            @Query("Reason2") String Reason2
+            @Field("CardNo") String CardNo,
+            @Field("Reason1") String Reason1,
+            @Field("Reason2") String Reason2
     );
     /**
      * 转正条件
