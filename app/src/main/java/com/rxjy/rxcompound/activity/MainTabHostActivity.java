@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTabHost;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -67,7 +68,7 @@ public class MainTabHostActivity extends BaseActivity<MainPresenter> implements 
     public void initData() {
         instance = this;
         init();
-        mPresenter.getVersionInfo(Integer.parseInt(App.getVersionCode()));
+//        mPresenter.getVersionInfo(Integer.parseInt(App.getVersionCode()));
     }
 
     @Override
@@ -75,13 +76,14 @@ public class MainTabHostActivity extends BaseActivity<MainPresenter> implements 
         return new MainPresenter(this);
     }
 
-    Tabs tab_home,tab_more,tab_find,tab_main;
+    Tabs tab_home, tab_more, tab_find, tab_main;
     TabHost.TabSpec tabSpec;
+
     private void init() {
-        tab_home = new Tabs("首页",null, R.drawable.selector_tabicon_home, HomePageFragment.class);
-        tab_more = new Tabs("更多",null, R.drawable.selector_tabicon_more, MoreFragment.class);
-        tab_find = new Tabs("发现", null,R.drawable.selector_tabicon_find, FindFrqagment.class);
-        tab_main = new Tabs("我",null, R.drawable.selector_tabicon_main, MainFragment.class);
+        tab_home = new Tabs("首页", null, R.drawable.selector_tabicon_home, HomePageFragment.class);
+        tab_more = new Tabs("更多", null, R.drawable.selector_tabicon_more, MoreFragment.class);
+        tab_find = new Tabs("发现", null, R.drawable.selector_tabicon_find, FindFrqagment.class);
+        tab_main = new Tabs("我", null, R.drawable.selector_tabicon_main, MainFragment.class);
 //        Tabs tab_main = new Tabs("我", R.drawable.selector_tabicon_main, PersonalFragment.class);
 
         mTabs.add(tab_home);
@@ -106,7 +108,7 @@ public class MainTabHostActivity extends BaseActivity<MainPresenter> implements 
             mTabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
                 @Override
                 public void onTabChanged(String tabId) {
-                    switch (tabId){
+                    switch (tabId) {
                         case "我":
                             SharedPreferences preferences = getSharedPreferences(MSG_NUM, MODE_PRIVATE);
                             preferences.edit().putInt(msgnum, 0).commit();
@@ -118,13 +120,14 @@ public class MainTabHostActivity extends BaseActivity<MainPresenter> implements 
         }
         SharedPreferences preferences = getSharedPreferences(MSG_NUM, MODE_PRIVATE);
         int num = preferences.getInt(msgnum, 0);
-        if(num>0){
+        if (num > 0) {
             SetMsgNum(num);
         }
     }
 
     /**
      * 给Tab设置图标跟文字
+     *
      * @param tab
      * @return
      */
@@ -135,10 +138,10 @@ public class MainTabHostActivity extends BaseActivity<MainPresenter> implements 
         TextView msgnum = (TextView) view.findViewById(R.id.tv_msgnum);
         img.setBackgroundResource(tab.getIcon());
         text.setText(tab.getTitle());
-        if(!StringUtils.isEmpty(tab.getMsgnum())&&!tab.getMsgnum().equals("0")){
+        if (!StringUtils.isEmpty(tab.getMsgnum()) && !tab.getMsgnum().equals("0")) {
             msgnum.setText(tab.getMsgnum());
             msgnum.setVisibility(View.VISIBLE);
-        }else{
+        } else {
             msgnum.setVisibility(View.GONE);
         }
         return view;
@@ -147,44 +150,79 @@ public class MainTabHostActivity extends BaseActivity<MainPresenter> implements 
 
     /**
      * 设置消息角标
+     *
      * @param num
      */
-    public static void SetMsgNum(int num){
-        Log.e("设置消息角标",num+"....");
-            View view=mTabHost.getTabWidget().getChildAt(3);
-            if(view!=null){
-                TextView txt= (TextView) view.findViewById(R.id.tv_msgnum);
-                if(num>0){
-                    txt.setText(num+"");
-                    txt.setVisibility(View.VISIBLE);
-                }else{
-                    txt.setVisibility(View.GONE);
-                }
+    public static void SetMsgNum(int num) {
+        Log.e("设置消息角标", num + "....");
+        View view = mTabHost.getTabWidget().getChildAt(3);
+        if (view != null) {
+            TextView txt = (TextView) view.findViewById(R.id.tv_msgnum);
+            if (num > 0) {
+                txt.setText(num + "");
+                txt.setVisibility(View.VISIBLE);
+            } else {
+                txt.setVisibility(View.GONE);
             }
+        }
     }
 
 
     @Override
     public void responseVersionData(final VersionInfo.Version data) {
-        Log.e("版本号是：：：：：：：：：",data.toString());
+        Log.e("版本号是：：：：：：：：：", "-----");
         if (data.getVersionNo() > Integer.parseInt(App.getVersionCode())) {
+            View view = LayoutInflater.from(this).inflate(R.layout.item_shengji, null);
+            TextView shengji = (TextView) view.findViewById(R.id.tv_shengji);
+            TextView quxiao = (TextView) view.findViewById(R.id.tv_quxiao);
+            TextView contentTv = (TextView) view.findViewById(R.id.tv_content);
+            if (data != null) {
+                String content = data.getContent();
+                if (TextUtils.isEmpty(content)) {
+                    contentTv.setText(content);
+                }
+            }
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle("版本升级");
+            builder.setView(view);
             builder.setCancelable(false);// 设置点击屏幕Dialog不消失
-            builder.setMessage(data.getContent());
-            builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+            final AlertDialog dialog = builder.create();
+            dialog.show();
+            shengji.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
+                public void onClick(View v) {
                     DownLoadApk downLoadApk = new DownLoadApk(MainTabHostActivity.this);
                     downLoadApk.downLoadApk(data);
                 }
             });
-            if (data.getForce() == 0) {
-                builder.setNegativeButton("取消", null);
-            }
-            AlertDialog dialog = builder.create();
-            dialog.show();
+
+            quxiao.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (dialog != null) {
+                        dialog.dismiss();
+                    }
+                }
+            });
         }
+        //        if (data.getVersionNo() > Integer.parseInt(App.getVersionCode())) {
+//            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+//            builder.setTitle("版本升级");
+//            builder.setCancelable(false);// 设置点击屏幕Dialog不消失
+//            builder.setMessage(data.getContent());
+//            builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+//                @Override
+//                public void onClick(DialogInterface dialogInterface, int i) {
+//                    DownLoadApk downLoadApk = new DownLoadApk(MainTabHostActivity.this);
+//                    downLoadApk.downLoadApk(data);
+//                }
+//            });
+        //            if (data.getForce() == 0) {
+//                builder.setNegativeButton("取消", null);
+//            }
+//            AlertDialog dialog = builder.create();
+//            dialog.show();
+//        }
+
     }
 
     @Override

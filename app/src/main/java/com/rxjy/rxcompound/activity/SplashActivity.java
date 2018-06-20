@@ -1,13 +1,18 @@
 package com.rxjy.rxcompound.activity;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.rxjy.rxcompound.R;
@@ -15,19 +20,25 @@ import com.rxjy.rxcompound.business.activity.BusinessMainHostActivity;
 import com.rxjy.rxcompound.commons.App;
 import com.rxjy.rxcompound.commons.Constants;
 import com.rxjy.rxcompound.commons.base.BaseActivity;
+import com.rxjy.rxcompound.commons.utils.DownLoadApk;
+import com.rxjy.rxcompound.commons.utils.JSONUtils;
 import com.rxjy.rxcompound.commons.utils.StringUtils;
 import com.rxjy.rxcompound.des.activity.NjjActivity;
 import com.rxjy.rxcompound.entity.CheckIsBeingBean;
 import com.rxjy.rxcompound.entity.PersonBean;
 import com.rxjy.rxcompound.entity.UserStatusBean;
 import com.rxjy.rxcompound.entity.VPhoneBean;
+import com.rxjy.rxcompound.entity.VersionInfo;
 import com.rxjy.rxcompound.entity.ZiDonBean;
 import com.rxjy.rxcompound.joinin.activity.JoininNjjActivity;
 import com.rxjy.rxcompound.mvp.contract.LoginContract;
+import com.rxjy.rxcompound.mvp.model.MainModel;
 import com.rxjy.rxcompound.mvp.presenter.LoginPresenter;
 import com.rxjy.rxcompound.supervision.activity.SupervisionMainActivity;
 
 import butterknife.ButterKnife;
+import rx.Subscriber;
+import rx.Subscription;
 
 import static com.rxjy.rxcompound.receiver.MessageReceiver.MSG_NUM;
 import static com.rxjy.rxcompound.receiver.MessageReceiver.msgnum;
@@ -58,9 +69,83 @@ public class SplashActivity extends BaseActivity<LoginPresenter> implements Logi
 
     @Override
     public void initData() {
+        getVersionInfo(Integer.parseInt(App.getVersionCode()));
+    }
 
-        init();
+    private void getVersionInfo(int version) {
 
+        MainModel mModel = new MainModel();
+        Subscription subscribe = mModel.getVersionInfo(version)
+                .subscribe(new Subscriber<String>() {
+
+                    @Override
+                    public void onCompleted() {
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        Log.e("tag_获取版本信息失败", "获取版本信息失败 = " + e.toString());
+                        onCompleted();
+                        init();
+                    }
+
+                    @Override
+                    public void onNext(String s) {
+                        Log.e("tag_获取版本信息", "tag_获取版本信息" + s);
+                        VersionInfo info = JSONUtils.toObject(s, VersionInfo.class);
+                        if (info.getStatusCode() == 0) {
+                            VersionInfo.Version data = info.getBody();
+                            if(data!=null){
+                                responseVersionData(data);
+                            }else {
+                                init();
+                            }
+                        } else {
+
+                        }
+                    }
+                });
+
+    }
+
+    private void responseVersionData(final VersionInfo.Version data) {
+        if (data.getVersionNo() > Integer.parseInt(App.getVersionCode())) {
+            View view = LayoutInflater.from(this).inflate(R.layout.item_shengji, null);
+            TextView shengji = (TextView) view.findViewById(R.id.tv_shengji);
+            TextView quxiao = (TextView) view.findViewById(R.id.tv_quxiao);
+            TextView contentTv = (TextView) view.findViewById(R.id.tv_content);
+            if (data != null) {
+                String content = data.getContent();
+                if (TextUtils.isEmpty(content)) {
+                    contentTv.setText(content);
+                }
+            }
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setView(view);
+            builder.setCancelable(false);// 设置点击屏幕Dialog不消失
+            final AlertDialog dialog = builder.create();
+            dialog.show();
+            shengji.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    DownLoadApk downLoadApk = new DownLoadApk(SplashActivity.this);
+                    downLoadApk.downLoadApk(data);
+                }
+            });
+
+            quxiao.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (dialog != null) {
+                        dialog.dismiss();
+                        init();
+                    }
+                }
+            });
+        }else {
+            init();
+        }
     }
 
     @Override

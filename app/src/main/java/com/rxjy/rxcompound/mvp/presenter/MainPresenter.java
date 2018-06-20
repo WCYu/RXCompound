@@ -42,10 +42,13 @@ public class MainPresenter extends MainContract.Presenter {
 
                     @Override
                     public void onNext(String s) {
+                        Log.e(TAG, "tag_获取版本信息" + s);
                         VersionInfo info = JSONUtils.toObject(s, VersionInfo.class);
                         if (info.getStatusCode() == 0) {
+                            Log.e(TAG, "tag_获取版本信息" + "开始");
                             VersionInfo.Version data = info.getBody();
-                            mView.responseVersionData(data);
+                            mView.responseVersionData(null);
+                            Log.e(TAG, "tag_获取版本信息" + "结束");
                         } else {
                             mView.responseVersionDataError(info.getStatusMsg());
                         }

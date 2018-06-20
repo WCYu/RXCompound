@@ -120,7 +120,7 @@ public class SupervisionMainActivity extends BaseActivity<MainPresenter> impleme
         initFragment();
         //加载默认显示碎片
         showFragment(fragmentList.get(HOME_FRAGMENT), HOME_FRAGMENT);
-//        mPresenter.getVersionInfo();
+        mPresenter.getVersionInfo();
 
         SharedPreferences preferences = getSharedPreferences(MSG_NUM, MODE_PRIVATE);
         int num = preferences.getInt(msgnum, 0);
