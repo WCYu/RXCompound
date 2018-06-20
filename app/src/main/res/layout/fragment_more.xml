@@ -556,7 +556,7 @@
 
             </LinearLayout>
 
-            <!--投资人服务-->
+            <!--设计师服务-->
             <LinearLayout
                 android:id="@+id/ly_touzi"
                 android:layout_width="match_parent"
@@ -590,7 +590,7 @@
                         android:layout_toEndOf="@+id/img_touzi"
                         android:layout_toRightOf="@+id/img_touzi"
                         android:textSize="@dimen/text_size_l"
-                        android:text="投资人服务" />
+                        android:text="设计师服务" />
 
                 </RelativeLayout>
 
@@ -690,7 +690,7 @@
                         android:background="#f7f5f5" />
 
                     <LinearLayout
-                        android:id="@+id/ly_bowen"
+                        android:id="@+id/ly_zaishi"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -703,7 +703,7 @@
                             android:layout_marginBottom="15px"
                             android:layout_marginTop="40px"
                             android:layout_weight="1"
-                            android:background="@mipmap/bowen"/>
+                            android:background="@mipmap/gongcheng" />
 
                         <TextView
                             android:layout_width="match_parent"
@@ -711,7 +711,7 @@
                             android:layout_marginBottom="40px"
                             android:gravity="center"
                             android:textSize="25px"
-                            android:text="博文"/>
+                            android:text="在施"/>
                     </LinearLayout>
 
                 </LinearLayout>
@@ -779,6 +779,36 @@
                         android:background="#f7f5f5" />
 
                     <LinearLayout
+                        android:id="@+id/ly_bowen"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="56px"
+                            android:layout_height="56px"
+                            android:layout_gravity="center"
+                            android:layout_marginBottom="15px"
+                            android:layout_marginTop="40px"
+                            android:layout_weight="1"
+                            android:background="@mipmap/bowen"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="40px"
+                            android:gravity="center"
+                            android:textSize="25px"
+                            android:text="博文"/>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="3px"
+                        android:layout_height="match_parent"
+                        android:background="#f7f5f5" />
+
+                    <LinearLayout
                         android:id="@+id/ly_paidan"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -806,10 +836,19 @@
 
                     </LinearLayout>
 
-                    <View
-                        android:layout_width="3px"
-                        android:layout_height="match_parent"
-                        android:background="#f7f5f5" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="3px"
+                    android:background="#f7f5f5" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:background="@color/white"
+                    android:orientation="horizontal">
 
                     <LinearLayout
                         android:id="@+id/ly_caiwu"
@@ -836,19 +875,10 @@
                             android:text="财务"/>
                     </LinearLayout>
 
-                </LinearLayout>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="3px"
-                    android:background="#f7f5f5" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:background="@color/white"
-                    android:orientation="horizontal">
+                    <View
+                        android:layout_width="3px"
+                        android:layout_height="match_parent"
+                        android:background="#f7f5f5" />
 
                     <LinearLayout
                         android:id="@+id/ly_jiameng"
@@ -926,33 +956,6 @@
                             android:text="下线"/>
 
 
-                    </LinearLayout>
-
-                    <View
-                        android:layout_width="3px"
-                        android:layout_height="match_parent"
-                        android:background="#f7f5f5" />
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:layout_width="56px"
-                            android:layout_height="56px"
-                            android:layout_gravity="center"
-                            android:layout_marginBottom="15px"
-                            android:layout_marginTop="40px"
-                            android:layout_weight="1" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginBottom="40px"
-                            android:gravity="center"
-                            android:textSize="25px" />
                     </LinearLayout>
 
                 </LinearLayout>

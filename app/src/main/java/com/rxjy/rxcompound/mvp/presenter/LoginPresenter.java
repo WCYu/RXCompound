@@ -48,6 +48,7 @@ public class LoginPresenter  extends LoginContract.Presenter {
                     public void onError(Throwable e) {
                         Log.e(TAG, "获取检查是否存在失败 = " + e.toString());
                         onCompleted();
+                        mView.responseIsConsentError("连接失败");
                     }
 
                     @Override

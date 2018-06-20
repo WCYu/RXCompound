@@ -6,6 +6,55 @@
 
     <include layout="@layout/include_header_layout" />
 
+    <RadioGroup
+        android:id="@+id/gv_talk"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rb_face_to_face"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5px"
+            android:gravity="center"
+            android:text="外出面谈"
+            android:textColor="@color/colorGrayDark"
+            android:textSize="@dimen/text_size_m" />
+
+        <RadioButton
+            android:id="@+id/rb_communication"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5px"
+            android:gravity="center"
+            android:text="通讯"
+            android:textColor="@color/colorGrayDark"
+            android:textSize="@dimen/text_size_m" />
+
+        <RadioButton
+            android:id="@+id/rb_un_talk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5px"
+            android:gravity="center"
+            android:text="未沟通"
+            android:textColor="@color/colorGrayDark"
+            android:textSize="@dimen/text_size_m" />
+
+        <RadioButton
+            android:id="@+id/rb_un_companytalk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5px"
+            android:gravity="center"
+            android:text="公司面谈"
+            android:textColor="@color/colorGrayDark"
+            android:textSize="@dimen/text_size_m" />
+
+    </RadioGroup>
+
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent">

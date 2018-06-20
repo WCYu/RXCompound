@@ -77,6 +77,7 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
         }
         App.getApp().addActivity(this);
         initData();
+        App.context = this;
     }
 
     //加载布局

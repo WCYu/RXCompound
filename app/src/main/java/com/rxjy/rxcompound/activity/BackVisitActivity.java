@@ -6,6 +6,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,6 +17,7 @@ import com.rxjy.rxcompound.commons.utils.StringUtils;
 import com.rxjy.rxcompound.des.activity.TalkActivity;
 import com.rxjy.rxcompound.mvp.contract.BackVisitContract;
 import com.rxjy.rxcompound.mvp.presenter.BackVisitPresenter;
+import com.rxjy.rxcompound.utils.ToastUtil;
 import com.rxjy.rxcompound.widget.UrlTools;
 
 import butterknife.Bind;
@@ -25,7 +28,7 @@ import butterknife.OnClick;
  * Created by hjh on 2018/4/4.
  */
 
-public class BackVisitActivity extends BaseActivity<BackVisitPresenter> implements BackVisitContract.View {
+public class BackVisitActivity extends BaseActivity<BackVisitPresenter> implements BackVisitContract.View ,RadioGroup.OnCheckedChangeListener{
 
 
     @Bind(R.id.ed_progress)
@@ -42,6 +45,18 @@ public class BackVisitActivity extends BaseActivity<BackVisitPresenter> implemen
     TextView tvTitle;
     @Bind(R.id.iv_back)
     ImageView ivBack;
+    @Bind(R.id.rb_face_to_face)
+    RadioButton rbFaceToFace;
+    @Bind(R.id.rb_communication)
+    RadioButton rbCommunication;
+    @Bind(R.id.rb_un_talk)
+    RadioButton rbUnTalk;
+    @Bind(R.id.rb_un_companytalk)
+    RadioButton rb_un_companytalk;
+    @Bind(R.id.gv_talk)
+    RadioGroup gvTalk;
+
+    private int visitMonth = -1;
 
     @Override
     public int getLayout() {
@@ -56,6 +71,7 @@ public class BackVisitActivity extends BaseActivity<BackVisitPresenter> implemen
         cid = intent.getStringExtra("cid");
         type = intent.getStringExtra("type");
         tvTitle.setText("回访");
+        gvTalk.setOnCheckedChangeListener(this);
     }
 
     @Override
@@ -127,6 +143,32 @@ public class BackVisitActivity extends BaseActivity<BackVisitPresenter> implemen
                 //刷新
                 TalkActivity.isshuaxin = "2";
                 finish();
+                break;
+        }
+    }
+
+    @Override
+    public void onCheckedChanged(RadioGroup group, int checkedId) {
+        switch (checkedId) {
+            case R.id.rb_face_to_face:
+                visitMonth = 0;
+                type = "0";
+//                ToastUtil.getInstance().toastCentent(type,BackVisitActivity.this);
+                break;
+            case R.id.rb_communication:
+                visitMonth = 1;
+                type = "1";
+//                ToastUtil.getInstance().toastCentent(type,BackVisitActivity.this);
+                break;
+            case R.id.rb_un_talk:
+                visitMonth = 2;
+                type = "2";
+//                ToastUtil.getInstance().toastCentent(type,BackVisitActivity.this);
+                break;
+            case R.id.rb_un_companytalk:
+                visitMonth = 3;
+                type = "3";
+//                ToastUtil.getInstance().toastCentent(type,BackVisitActivity.this);
                 break;
         }
     }

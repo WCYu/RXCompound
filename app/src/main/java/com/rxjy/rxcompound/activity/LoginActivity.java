@@ -70,6 +70,8 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
     RelativeLayout rl_pwd;
     @Bind(R.id.ll_toforget)
     LinearLayout ll_toforget;
+    @Bind(R.id.tv_prompt)
+    TextView tv_prompt;
 
 
     String phonenum, veritycode, pwdnum;
@@ -109,17 +111,24 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
 //                startActivity(new Intent(this, SupervisionMainActivity.class));
                 veritycode = ed_vitifycode.getText().toString();
                 pwdnum = ed_pwd.getText().toString();
+                if(pwdnum.length()<6){
+                    tv_prompt.setText("密码不少于6位");
+                    return;
+                }
                 switch (logintype) {
                     case 1:
                         if (!phonenum.isEmpty() && !veritycode.isEmpty() && !pwdnum.isEmpty()) {
                             //请求登录
                             mPresenter.tologin(phonenum, veritycode, pwdnum);
                         } else if (phonenum.isEmpty()) {
-                            ShowUtils.Toastshort(this, "请输入手机号！");
+//                            ShowUtils.Toastshort(this, "请输入手机号！");
+                            tv_prompt.setText("请输入手机号！");
                         } else if (veritycode.isEmpty()) {
-                            ShowUtils.Toastshort(this, "请输入验证码！");
+//                            ShowUtils.Toastshort(this, "请输入验证码！");
+                            tv_prompt.setText("请输入验证码！");
                         } else if (pwdnum.isEmpty()) {
-                            ShowUtils.Toastshort(this, "请输入密码！");
+//                            ShowUtils.Toastshort(this, "请输入密码！");
+                            tv_prompt.setText("请输入密码！");
                         }
                         break;
                     case 0:
@@ -127,9 +136,11 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
                             //请求登录
                             mPresenter.tologin(phonenum, "", pwdnum);
                         } else if (phonenum.isEmpty()) {
-                            ShowUtils.Toastshort(this, "请输入手机号！");
+//                            ShowUtils.Toastshort(this, "请输入手机号！");
+                            tv_prompt.setText("请输入手机号！");
                         } else if (pwdnum.isEmpty()) {
-                            ShowUtils.Toastshort(this, "请输入密码！");
+//                            ShowUtils.Toastshort(this, "请输入密码！");
+                            tv_prompt.setText("请输入密码！");
                         }
                         break;
                 }
@@ -167,6 +178,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
     public void responseIsCheck(VPhoneBean data) {
         switch (data.getStatusCode()) {
             case 0://用户存在
+                tv_prompt.setText("");
                 getphone = data.getBody().getPhone();
                 btn_next.setText("登录");
                 logintype = 0;
@@ -177,6 +189,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
                 rl_veritycode.setVisibility(View.GONE);
                 break;
             case 1://用户不存在,获取验证码注册
+                tv_prompt.setText("");
                 logintype = 1;
                 rl_veritycode.setVisibility(View.VISIBLE);
                 btn_next.setVisibility(View.VISIBLE);
@@ -185,7 +198,9 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
                 ll_toforget.setVisibility(View.GONE);
                 break;
             default:
-                showToast(data.getStatusMsg());
+//                showToast(data.getStatusMsg());
+                Log.e("hahahah",data.getStatusMsg());
+                tv_prompt.setText(data.getStatusMsg());
                 break;
         }
     }
@@ -358,8 +373,8 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
 
     @Override
     public void responseLoginError(String msg) {
-        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
-
+//        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+        tv_prompt.setText(msg);
     }
 
     @Override
@@ -371,8 +386,12 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
 
     @Override
     public void responseIsConsentError(String msg) {//未同意
-        startActivity(new Intent(this, EntryJobProtocolActivity.class).putExtra("from", "1"));
-        finish();
+        if(msg.equals("连接失败")){
+            tv_prompt.setText(msg);
+        }else {
+            startActivity(new Intent(this, EntryJobProtocolActivity.class).putExtra("from", "1"));
+            finish();
+        }
     }
 
     @Override
@@ -400,7 +419,8 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
 
     @Override
     public void responseIsPrefectError(String msg) {
-        showToast(msg);
+//        showToast(msg);
+        tv_prompt.setText(msg);
     }
 
     @Override
@@ -410,7 +430,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
 
     @Override
     public void hideDialog() {
-
+//        tv_prompt.setText("连接失败");
     }
 
     @Override
@@ -481,10 +501,13 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
                                     mPresenter.getCheckIsVerity(phonenum);
                                 }
                             } catch (Exception e) {
-                                showToast("请输入正确的账号！");
+//                                showToast("请输入正确的账号！");
+                                tv_prompt.setText("请输入正确的账号！");
                             }
                         }
 
+                    }else {
+                        tv_prompt.setText("");
                     }
                     break;
             }

@@ -80,13 +80,15 @@ public class ApiEngine {
     public static final String ZT_API_HOST = "http://apitz.rxjy.com:9192";
 
     //新增接口
-    public static final String BASEURL = "http://swb.api.cs/"; // 测试
-//    public static final String BASEURL = "https://api.niujingji.cn:8183/"; //线上
+//    public static final String BASEURL = "http://swb.api.cs/"; // 测试
+    public static final String BASEURL = "https://api.niujingji.cn:8183/"; //线上
 
     //积分数据
     public static final String JIFENURL = BASEURL + "JTRenShi/APP_RS_GetIntegralPlate";
     //客户列表  AppEmployee/GetAdvserCustomList  AppEmployee/GetCustomerList
     public static final String KEHULISTURL = BASEURL + "AppEmployee/GetAdvserCustomList";
+    //客户数据
+    public static final String KEHUDATAURL = BASEURL + "AppEmployee/GetAdvserCustomStatusCount";
     //添加客户
     public static final String ADDKEHUURL = BASEURL + "AppEmployee/AddCustomer";
     //客户详情 AppAgent/GetKeHuInfo AppEmployee/GetCustomerDetail

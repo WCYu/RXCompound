@@ -93,7 +93,7 @@ public class KeHuActivity extends BaseActivity implements View.OnClickListener {
     public KeHuAdapter keHuAdapter;
     private PopupWindow popupWindow;
 
-    int type = 0;
+    int type = 1;
     int pager = 1;
     String key = "";
     private TextView tv_zaigen;
@@ -158,7 +158,7 @@ public class KeHuActivity extends BaseActivity implements View.OnClickListener {
     protected void onResume() {
         super.onResume();
         showLoading();
-        type = 0;
+        type = 1;
         pager = 1;
         key = "";
         arrayList.clear();
@@ -172,7 +172,7 @@ public class KeHuActivity extends BaseActivity implements View.OnClickListener {
             @Override
             public void onRefresh(@NonNull RefreshLayout refreshLayout) {
                 refreshLayout.finishRefresh();
-                type = 0;
+                type = 1;
                 pager = 1;
                 key = "";
                 arrayList.clear();
@@ -189,6 +189,7 @@ public class KeHuActivity extends BaseActivity implements View.OnClickListener {
         listView.setOnMenuItemClickListener(new SwipeMenuListView.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(final int position, SwipeMenu menu, int index) {
+                String status = arrayList.get(position).getStatus();
                 switch (index) {
                     case 0:
                         // open
@@ -196,24 +197,33 @@ public class KeHuActivity extends BaseActivity implements View.OnClickListener {
                         break;
                     case 1:
                         // delete
-                        startActivity(new Intent(KeHuActivity.this, CustomerFollowActivity.class)
-                                .putExtra("customerid", arrayList.get(position).getKeHuBaseID() + "")
-                                .putExtra("saleid", arrayList.get(position).getYeWuYuanID() + ""));
+                        if (status.equals("已签") || status.equals("未签")) {
+                            ToastUtil.getInstance().toastCentent("已签/未签 状态下不可回访", KeHuActivity.this);
+                        } else {
+                            startActivity(new Intent(KeHuActivity.this, CustomerFollowActivity.class)
+                                    .putExtra("customerid", arrayList.get(position).getKeHuBaseID() + "")
+                                    .putExtra("saleid", arrayList.get(position).getYeWuYuanID() + ""));
+                        }
+
                         break;
                     case 2:
                         // delete
-                        new AlertDialog.Builder(KeHuActivity.this).setTitle("放弃后此单将删除").setPositiveButton("确定", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                deleteKuHu(arrayList.get(position).getKeHuBaseID());
-                                dialog.dismiss();
-                            }
-                        }).setNegativeButton("取消", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.dismiss();
-                            }
-                        }).create().show();
+                        if (status.equals("打回") || status.equals("在跟踪")) {
+                            new AlertDialog.Builder(KeHuActivity.this).setTitle("放弃后此单将删除").setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    deleteKuHu(arrayList.get(position).getKeHuBaseID());
+                                    dialog.dismiss();
+                                }
+                            }).setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                }
+                            }).create().show();
+                        } else {
+                            ToastUtil.getInstance().toastCentent("不可放弃", KeHuActivity.this);
+                        }
                         break;
                 }
                 // false : close the menu; true : not close the menu
@@ -234,15 +244,15 @@ public class KeHuActivity extends BaseActivity implements View.OnClickListener {
                         case "在跟踪":
 //                           intent = new Intent(KeHuActivity.this,ZaiGenActivity.class);
 //                           break;
-                        case "审核":
                         case "打回":
                             intent = new Intent(KeHuActivity.this, WebViewActivity.class);
-                            intent.putExtra("url", "http://app.rxjy.com/customer.html?order=22-201349");
+                            intent.putExtra("url", "http://app.rxjy.com/customer.html?order="+arrayList.get(position).getDanHao());
                             intent.putExtra("name", "量房");
                             break;
                         case "在谈":
                         case "已签":
                         case "未签":
+                        case "审批":
                             int keHuBaseID = arrayList.get(position).getKeHuBaseID();
                             intent = new Intent(KeHuActivity.this, ZaiTanActivity.class);
                             intent.putExtra("id", keHuBaseID);
@@ -387,8 +397,8 @@ public class KeHuActivity extends BaseActivity implements View.OnClickListener {
     public void getKeHuData() {
         Map map = new HashMap();
         map.put("card", App.cardNo);
-        map.put("type", -1);
-        OkhttpUtils.doPost("http://swb.api.cs/AppEmployee/GetAdvserCustomStatusCount", map, new Callback() {
+//        map.put("type", -1);
+        OkhttpUtils.doPost(ApiEngine.KEHUDATAURL, map, new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 Log.e("tag_数据统计_失败", e.getMessage().toString());
@@ -447,7 +457,7 @@ public class KeHuActivity extends BaseActivity implements View.OnClickListener {
 
     public void getKuHuList() {
         Map map = new HashMap();
-        map.put("card", "02700552 ");
+        map.put("card", App.cardNo);
         map.put("pageIndex", pager);
         map.put("PageSize", 10);
         map.put("type", type);

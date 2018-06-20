@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="F:\worker\worker\RXCompound\androidpullToRefreshSdk\src\main\assets"/><source path="F:\worker\worker\RXCompound\androidpullToRefreshSdk\build\generated\assets\shaders\debug"/></dataSet><dataSet config="debug"><source path="F:\worker\worker\RXCompound\androidpullToRefreshSdk\src\debug\assets"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="E:\Work\RXCompound\androidpullToRefreshSdk\src\main\assets"/><source path="E:\Work\RXCompound\androidpullToRefreshSdk\build\generated\assets\shaders\debug"/></dataSet><dataSet config="debug"><source path="E:\Work\RXCompound\androidpullToRefreshSdk\src\debug\assets"/></dataSet></merger>
