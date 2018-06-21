@@ -222,7 +222,9 @@
         <activity android:name=".activity.more.PaiDanActivity" />
         <activity android:name=".activity.more.CaiWuActivity" />
         <activity android:name=".activity.more.JiaMengActivity" />
-        <activity android:name=".activity.more.XiaXianActivity"></activity>
+        <activity android:name=".activity.more.XiaXianActivity" />
+        <activity android:name=".activity.my.ZhuanZhengActivity" />
+        <activity android:name=".activity.my.NewKeHuActivity"></activity>
     </application>
 
 </manifest>

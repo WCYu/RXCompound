@@ -1,7 +1,6 @@
 package com.rxjy.rxcompound.api;
 
 
-
 import com.rxjy.rxcompound.commons.App;
 import com.rxjy.rxcompound.commons.utils.NetUtil;
 

@@ -75,6 +75,15 @@ public class ZiDonBean {
         private String passport_photo;
         private String sex;
         private int is_exist;
+        private int is_group;
+
+        public int getIs_group() {
+            return is_group;
+        }
+
+        public void setIs_group(int is_group) {
+            this.is_group = is_group;
+        }
 
         public int getIs_exist() {
             return is_exist;

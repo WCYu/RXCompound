@@ -12,11 +12,17 @@
             android:layout_height="fill_parent"
             android:scaleType="fitXY"/>
         <RelativeLayout
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="80px"
-            android:layout_alignParentBottom="true"
-            android:background="@color/textblack"
-            android:id="@+id/relativeLayout">
+            android:layout_alignParentBottom="true">
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_alignParentBottom="true"
+                android:background="@color/textblack"
+                android:alpha="0.5"
+                android:id="@+id/relativeLayout">
+            </RelativeLayout>
 
             <TextView
                 android:id="@+id/tv_bannerdescribe"
@@ -31,13 +37,7 @@
                 android:maxWidth="400px"
                 android:text="" />
 
-
-
         </RelativeLayout>
-
-
-
-
 
     </RelativeLayout>
 
