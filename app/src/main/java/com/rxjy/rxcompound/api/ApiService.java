@@ -116,7 +116,8 @@ public interface ApiService {
             @Query("OperatorCardNo") String OperatorCardNo,
             @Query("OperatorName") String OperatorName,
             @Query("RegionId") String RegionId,
-            @Query("EduDepartId") String EduDepartId
+            @Query("EduDepartId") String EduDepartId,
+            @Query("img_type") int img_type
     );
 
     /**

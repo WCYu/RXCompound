@@ -51,7 +51,7 @@ public class FigureModel implements FigureContract.Model{
     @Override
     public Observable<String> upLoadData(String CardNo, String Name, String EvaluateTxt, String Urls, String Id, String OperatorCardNo, String OperatorName, String RegionId, String EduDepartId) {
         return ApiEngine.getInstance().getRsApiService()
-                .getFigureUpLode(CardNo, Name, EvaluateTxt, Urls, Id, OperatorCardNo, OperatorName, RegionId, EduDepartId)
+                .getFigureUpLode(CardNo, Name, EvaluateTxt, Urls, Id, OperatorCardNo, OperatorName, RegionId, EduDepartId,1)
                 .compose(RxSchedulers.<String>switchThread());
     }
 }

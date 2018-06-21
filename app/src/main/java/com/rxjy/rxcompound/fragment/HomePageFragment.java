@@ -16,6 +16,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -101,11 +104,15 @@ public class HomePageFragment extends BaseFragment<HomePageFPresenter> implement
     RelativeLayout rlEnvir;
     @Bind(R.id.rl_xingxiang)
     RelativeLayout rlXingxiang;
+    @Bind(R.id.home_view)
+    WebView newWeb;
     private PagerAdapter pagerAdapter;
     int index = 0;
     int size = 0;
     int day;
     String part;
+
+    String url = "http://i.rxjy.com/AppGroup/APPIndex/Index";
 
     @Override
     protected HomePageFPresenter onCreatePresenter() {
@@ -135,6 +142,27 @@ public class HomePageFragment extends BaseFragment<HomePageFPresenter> implement
         mPresenter.getBannerList(cardno);
 //        mPresenter.getEduData(cardno);
 
+        if (App.is_group.equals("1")) {
+            newWeb.loadUrl(url);
+            Log.e("webView————————", url);
+
+            WebSettings settings = newWeb.getSettings();
+            settings.setJavaScriptEnabled(true);
+            //设置自适应屏幕，两者合用
+            settings.setUseWideViewPort(true); //将图片调整到适合webview的大小
+            settings.setLoadWithOverviewMode(true); // 缩放至屏幕的大小
+            settings.setDomStorageEnabled(true);
+            newWeb.setWebViewClient(new WebViewClient() {
+                @Override
+                public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                    view.loadUrl(url);
+                    return super.shouldOverrideUrlLoading(view, url);
+                }
+            });
+        }else {
+            newWeb.setVisibility(View.GONE);
+        }
+
         //获取进度===
         cpv_cirone.setProgress(0);
         cpv_cirtwo.setProgress(0);
@@ -145,11 +173,11 @@ public class HomePageFragment extends BaseFragment<HomePageFPresenter> implement
         ll_daytwo.setEnabled(false);
         ll_daythree.setEnabled(false);
 
-        if(App.apptype==34){
+        if (App.apptype == 34) {
             rlEnvir.setVisibility(View.VISIBLE);
             rlXingxiang.setVisibility(View.VISIBLE);
             lvTask.setVisibility(View.GONE);
-        }else{
+        } else {
             rlEnvir.setVisibility(View.GONE);
             rlXingxiang.setVisibility(View.GONE);
         }
@@ -161,7 +189,7 @@ public class HomePageFragment extends BaseFragment<HomePageFPresenter> implement
     /**
      * 测试时间
      */
-    private void Test(){
+    private void Test() {
     }
 
 
@@ -242,7 +270,7 @@ public class HomePageFragment extends BaseFragment<HomePageFPresenter> implement
 
     @Override
     public void responseTaskData(final TaskListBean data) {
-        Log.e("dddddd","显示");
+        Log.e("dddddd", "显示");
         taskAdapter = new TaskAdapter(getActivity(), data.getBody());
         lvTask.setAdapter(taskAdapter);
         lvTask.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -269,7 +297,7 @@ public class HomePageFragment extends BaseFragment<HomePageFPresenter> implement
         dismissLoading();
     }
 
-    @OnClick({R.id.ll_dayone, R.id.ll_daytwo, R.id.ll_daythree, R.id.tv_qrscan,R.id.rl_envir, R.id.rl_xingxiang})
+    @OnClick({R.id.ll_dayone, R.id.ll_daytwo, R.id.ll_daythree, R.id.tv_qrscan, R.id.rl_envir, R.id.rl_xingxiang})
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.ll_dayone:
