@@ -287,21 +287,21 @@ public interface ApiService {
     /**
      * 忘记密码获取验证码
      */
-    @Multipart
-    @POST("actionapi/AppCurrencyHome/GetVcodeUpdatePwd")
+    @FormUrlEncoded
+    @POST("actionapi/AppHome/GetVcodeUpdatePwd")
     Observable<String> getVCodes(
-            @Part("phone") String phone
+            @Field("phone") String phone
     );
 
     /**
      * 忘记密码修改密码
      */
-    @Multipart
-    @POST("actionapi/AppCurrencyHome/UpdatePassword_Vcode")
+    @FormUrlEncoded
+    @POST("actionapi/AppHome/UpdatePassword_Vcode")
     Observable<String> postFixPwd(
-            @Part("phone") String cardNo,
-            @Part("newPassword") String newPassword,
-            @Part("vCode") String vCode
+            @Field("phone") String cardNo,
+            @Field("newPassword") String newPassword,
+            @Field("vCode") String vCode
     );
 
 

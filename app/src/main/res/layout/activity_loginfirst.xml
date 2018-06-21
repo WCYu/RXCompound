@@ -166,24 +166,7 @@
                 android:hint="@string/login_pwdhint"
                 android:inputType="textPassword"
                 android:textSize="@dimen/text_size_8" />
-
-            <!--<EditText-->
-            <!--android:id="@+id/ed_pwd"-->
-            <!--android:layout_width="fill_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:ems="10"-->
-            <!--android:numeric="integer"-->
-            <!--android:maxLength="11"-->
-            <!--android:inputType="numberPassword"-->
-            <!--android:hint="@string/login_pwdhint"-->
-            <!--android:background="@null"-->
-            <!--android:layout_centerVertical="true"-->
-            <!--android:layout_toRightOf="@+id/tv_pwd"-->
-            <!--android:layout_marginLeft="@dimen/page_margin_l"-->
-            <!--android:textSize="@dimen/text_size_8"-->
-            <!--android:layout_marginRight="@dimen/page_margin_l"/>-->
         </RelativeLayout>
-
         <View
             android:layout_width="fill_parent"
             android:layout_height="@dimen/line_s"
