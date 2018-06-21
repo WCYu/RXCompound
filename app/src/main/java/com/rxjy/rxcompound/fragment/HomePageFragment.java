@@ -142,26 +142,26 @@ public class HomePageFragment extends BaseFragment<HomePageFPresenter> implement
         mPresenter.getBannerList(cardno);
 //        mPresenter.getEduData(cardno);
 
-        if (App.is_group.equals("1")) {
-            newWeb.loadUrl(url);
-            Log.e("webView————————", url);
-
-            WebSettings settings = newWeb.getSettings();
-            settings.setJavaScriptEnabled(true);
-            //设置自适应屏幕，两者合用
-            settings.setUseWideViewPort(true); //将图片调整到适合webview的大小
-            settings.setLoadWithOverviewMode(true); // 缩放至屏幕的大小
-            settings.setDomStorageEnabled(true);
-            newWeb.setWebViewClient(new WebViewClient() {
-                @Override
-                public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                    view.loadUrl(url);
-                    return super.shouldOverrideUrlLoading(view, url);
-                }
-            });
-        }else {
-            newWeb.setVisibility(View.GONE);
-        }
+//        if (App.is_group.equals("1")) {
+//            newWeb.loadUrl(url);
+//            Log.e("webView————————", url);
+//
+//            WebSettings settings = newWeb.getSettings();
+//            settings.setJavaScriptEnabled(true);
+//            //设置自适应屏幕，两者合用
+//            settings.setUseWideViewPort(true); //将图片调整到适合webview的大小
+//            settings.setLoadWithOverviewMode(true); // 缩放至屏幕的大小
+//            settings.setDomStorageEnabled(true);
+//            newWeb.setWebViewClient(new WebViewClient() {
+//                @Override
+//                public boolean shouldOverrideUrlLoading(WebView view, String url) {
+//                    view.loadUrl(url);
+//                    return super.shouldOverrideUrlLoading(view, url);
+//                }
+//            });
+//        }else {
+//            newWeb.setVisibility(View.GONE);
+//        }
 
         //获取进度===
         cpv_cirone.setProgress(0);
