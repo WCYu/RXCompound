@@ -15,6 +15,7 @@ import com.bigkoo.pickerview.OptionsPickerView;
 import com.google.gson.Gson;
 import com.rxjy.rxcompound.R;
 import com.rxjy.rxcompound.activity.more.KeHuActivity;
+import com.rxjy.rxcompound.api.ApiEngine;
 import com.rxjy.rxcompound.commons.App;
 import com.rxjy.rxcompound.commons.base.BaseActivity;
 import com.rxjy.rxcompound.entity.BankBean;
@@ -301,11 +302,11 @@ public class ZhuanZhengActivity extends BaseActivity<BaseInformPresenter> implem
 
                 int hege = zhuanZhengBean.getHege();
 
-//                if(hege == 1){
+                if(hege == 1){//允许转正
                     commitData();
-//                }else {
-//                    ToastUtil.getInstance().toastCentent(zhuanZhengBean.getZhuanzhengTimeStr());
-//                }
+                }else {
+                    ToastUtil.getInstance().toastCentent(zhuanZhengBean.getZhuanzhengTimeStr());
+                }
 
                 break;
         }
@@ -320,7 +321,7 @@ public class ZhuanZhengActivity extends BaseActivity<BaseInformPresenter> implem
         map.put("u_zhuanzhengtime", zhuanZhengBean.getZhuanzhengTime());
         map.put("reason", "App提交转正");
         map.put("KaHao", "");
-        OkhttpUtils.doPost("http://api.p.rx/api/HR/ZhuanzhengBanli", map, new Callback() {
+        OkhttpUtils.doPost(ApiEngine.ZHUANZHNEGURL, map, new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 Log.e("tag_申请转正_失败",e.getMessage().toString());
@@ -356,7 +357,7 @@ public class ZhuanZhengActivity extends BaseActivity<BaseInformPresenter> implem
     public void getUserData(String card) {
         Map map = new HashMap();
         map.put("u_kahao",card);
-        OkhttpUtils.doGet("http://api.p.rx/api/HR/GetAppZhuanzheng", map, new Callback() {
+        OkhttpUtils.doGet(ApiEngine.ZHUANZHNEDATAGURL, map, new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 Log.e("tag_获取转正状态失败",e.getMessage().toString());

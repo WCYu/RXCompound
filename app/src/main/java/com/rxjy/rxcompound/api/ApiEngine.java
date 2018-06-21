@@ -97,6 +97,12 @@ public class ApiEngine {
     public static final String DELETEURL = BASEURL + "AppEmployee/GiveUpCustomerApply";
     //
     public static final String LISTURL = BASEURL + "AppAgent/CustomerProperty";
+
+    //申请转正
+    public static final String ZHUANZHNEGURL = "http://api.p.rx/api/HR/ZhuanzhengBanli";
+    //获取转正状态
+    public static final String ZHUANZHNEDATAGURL = "http://api.p.rx/api/HR/GetAppZhuanzheng";
+
     private Retrofit rxRetrofit;
     private Retrofit rsRetrofit;
     private Retrofit rsRetrofitsss;

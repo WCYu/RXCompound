@@ -2,6 +2,7 @@ package com.rxjy.rxcompound.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -89,10 +90,18 @@ public class WorkActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 // Toast.makeText(WorkActivity.this, "点击了"+App.ustart, Toast.LENGTH_SHORT).show();\
-//                if (App.ustart == 2) {
-//                    startActivity(new Intent(WorkActivity.this, BecomeWorkerActivity.class));
-//                }
-                startActivity(new Intent(WorkActivity.this, ZhuanZhengActivity.class));
+                Log.e("tag_状态",App.ustart+"  "+App.is_group);
+                if (App.ustart == 2) {
+                    if(App.is_group.equals("0")){
+                        startActivity(new Intent(WorkActivity.this, BecomeWorkerActivity.class));
+                    }else if(App.is_group.equals("1")){
+                        startActivity(new Intent(WorkActivity.this, ZhuanZhengActivity.class));
+                    }
+                }else if(App.ustart == 3){
+                    ToastUtil.getInstance().toastCentent("您已经是正式员工");
+                }else {
+                    ToastUtil.getInstance().toastCentent("只有试用期人员才可以申请");
+                }
                 //  showToast("暂未开放");
             }
         });
@@ -113,7 +122,7 @@ public class WorkActivity extends BaseActivity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.ly_ruzhi:
-                ToastUtil.getInstance().toastCentent("入职");
+//                ToastUtil.getInstance().toastCentent("入职");
                 break;
             case R.id.ly_tiaozhi:
                 ToastUtil.getInstance().toastCentent("调职");

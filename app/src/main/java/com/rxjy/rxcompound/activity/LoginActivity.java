@@ -291,11 +291,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
              Log.e("tag","++++++++++");
         switch (App.is_group){
             case "0"://分公司
-                if (App.postName.equals("客服主管") || App.postName.equals("客服专员") || (App.postName.equals("客服经理") || App.postName.equals("平台客服"))) {
-                    App.busisnew = 1;
-                    startActivity(new Intent(this, BusinessMainHostActivity.class));
-                    finish();
-                }  else if (type == 2) {
+                if (type == 2) {
                     /**
                      * 跳转顾问在职
                      */ //
@@ -323,7 +319,11 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
                 }
                 break;
             case "1"://集团
-                if (stage > 1) {//资料以及完善
+                if (App.postName.equals("客服主管") || App.postName.equals("客服专员") || (App.postName.equals("客服经理") || App.postName.equals("平台客服"))) {
+                    App.busisnew = 1;
+                    startActivity(new Intent(this, BusinessMainHostActivity.class));
+                    finish();
+                }  else if (stage > 1) {//资料以及完善
 //                if (data.getBody().getApp_stage() > 1) {//资料以及完善
                     startActivity(new Intent(this, MainTabHostActivity.class));
                     finish();

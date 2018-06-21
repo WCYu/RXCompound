@@ -37,6 +37,7 @@ import com.rxjy.rxcompound.activity.more.JiaMengActivity;
 import com.rxjy.rxcompound.activity.more.KeHuActivity;
 import com.rxjy.rxcompound.activity.more.PaiDanActivity;
 import com.rxjy.rxcompound.activity.more.XiaXianActivity;
+import com.rxjy.rxcompound.activity.my.NewKeHuActivity;
 import com.rxjy.rxcompound.adapter.NattenDanceAdapter;
 import com.rxjy.rxcompound.commons.App;
 import com.rxjy.rxcompound.commons.base.BaseFragment;
@@ -217,7 +218,13 @@ public class MoreFragment extends BaseFragment<GetUserStatusPresenter> implement
         } else {
             lyTouzi.setVisibility(View.GONE);
         }
-        if (App.depart.equals("2")) { //上午
+        if (App.depart.equals("2")) { //商务
+            lyGuwenfuwu.setVisibility(View.VISIBLE);
+        } else {
+            lyGuwenfuwu.setVisibility(View.GONE);
+        }
+
+        if(App.busisnew == 1){
             lyGuwenfuwu.setVisibility(View.VISIBLE);
         } else {
             lyGuwenfuwu.setVisibility(View.GONE);
@@ -683,7 +690,11 @@ public class MoreFragment extends BaseFragment<GetUserStatusPresenter> implement
                 startActivity(new Intent(getActivity(), MoreBannerActivity.class));
                 break;
             case R.id.ly_kehu:
-                startActivity(new Intent(getActivity(), KeHuActivity.class));
+                if(App.busisnew == 1){
+                    startActivity(new Intent(getActivity(), NewKeHuActivity.class));
+                }else {
+                    startActivity(new Intent(getActivity(), KeHuActivity.class));
+                }
                 break;
             case R.id.ly_dianpu://店铺
                 intent = new Intent(getActivity(), WebViewActivity.class);

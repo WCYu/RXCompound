@@ -159,11 +159,11 @@ public class BusinessMainHostActivity extends BaseActivity<DestoryPresenter> imp
 //            mineFragment = new MineFragment();
         fragmentList = new ArrayList<>();
 
-        if (App.busisnew == 1) {
-            fragmentList.add(customerFragmentnew);
-        } else {
+//        if (App.busisnew == 1) {
+//            fragmentList.add(customerFragmentnew);
+//        } else {
             fragmentList.add(newHomeFragment);
-        }
+//        }
 
         fragmentList.add(walletFragment);
         fragmentList.add(findFragment);

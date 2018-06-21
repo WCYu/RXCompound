@@ -49,7 +49,7 @@ public class VersionInfo {
         private int VersionNo;
         private String VersionUrl;
         private String Content;
-        private int force;
+        private int Force;
 
         @Override
         public String toString() {
@@ -58,16 +58,16 @@ public class VersionInfo {
                     ", VersionNo=" + VersionNo +
                     ", VersionUrl='" + VersionUrl + '\'' +
                     ", Content='" + Content + '\'' +
-                    ", force=" + force +
+                    ", force=" + Force +
                     '}';
         }
 
         public int getForce() {
-            return force;
+            return Force;
         }
 
-        public void setForce(int force) {
-            this.force = force;
+        public void setForce(int Force) {
+            this.Force = Force;
         }
 
         public String getVersionName() {
