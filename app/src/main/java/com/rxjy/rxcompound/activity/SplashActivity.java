@@ -134,6 +134,9 @@ public class SplashActivity extends BaseActivity<LoginPresenter> implements Logi
             shengji.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    if (dialog != null) {
+                        dialog.dismiss();
+                    }
                     DownLoadApk downLoadApk = new DownLoadApk(SplashActivity.this);
                     downLoadApk.downLoadApk(data);
                 }
