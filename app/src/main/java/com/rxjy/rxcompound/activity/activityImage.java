@@ -35,26 +35,26 @@ public class activityImage extends BaseActivity {
     public void initData() {
         String title = getIntent().getStringExtra("title");
         tvTitle.setText(title);
-   switch (title){
-       case "财务":
-           pictureImage.setImageResource(R.mipmap.caiwuone);
-           break;
-       case "资金":
-           pictureImage.setImageResource(R.mipmap.zijing);
-           break;
-       case "商务":
-           pictureImage.setImageResource(R.mipmap.shangwuphoto);
-           break;
-       case "主案":
-           pictureImage.setImageResource(R.mipmap.shangwutwo);
-           break;
-       case "工程":
-         pictureImage.setImageResource(R.mipmap.gongshione);
-           break;
-       case "公司":
-           pictureImage.setImageResource(R.mipmap.gongcitwo);
-           break;
-   }
+        switch (title) {
+            case "财务":
+                pictureImage.setImageResource(R.mipmap.caiwuone);
+                break;
+            case "资金":
+                pictureImage.setImageResource(R.mipmap.zijing);
+                break;
+            case "商务":
+                pictureImage.setImageResource(R.mipmap.shangwuphoto);
+                break;
+            case "主案":
+                pictureImage.setImageResource(R.mipmap.shangwutwo);
+                break;
+            case "工程":
+                pictureImage.setImageResource(R.mipmap.gongshione);
+                break;
+            case "公司":
+                pictureImage.setImageResource(R.mipmap.gongcitwo);
+                break;
+        }
     }
 
     @Override

@@ -29,6 +29,7 @@ public interface ApiService {
     Observable<String> getCheckIsVerity(
             @Query("Phone") String cardNo
     );
+
     /**
      * 获取验证码
      */
@@ -51,7 +52,8 @@ public interface ApiService {
             @Field("vCode") String verityCode,
             @Field("password") String pwd
     );
-   //
+    //
+
     /**
      * 是否同意协议
      */
@@ -1804,7 +1806,7 @@ public interface ApiService {
     @Multipart
     @POST("a/sap/sapArticle/SaveArticle")
     Observable<String> postPublishArticle(
-         //   @Part("id") String id,   //文章id  （修改文章的时候必传）
+            //   @Part("id") String id,   //文章id  （修改文章的时候必传）
             @Part("name") String name,     // 文章标题
             @Part("cardno") String cardno,       // 作者卡号
             @Part("author") String author,       // 作者名称
@@ -1915,6 +1917,7 @@ public interface ApiService {
      */
     /**
      * 获取在谈合同信息
+     *
      * @param rwdId
      * @return
      */
@@ -1926,6 +1929,7 @@ public interface ApiService {
 
     /**
      * 提交合同信息
+     *
      * @param ca
      * @param rwdid
      * @return
@@ -1936,6 +1940,7 @@ public interface ApiService {
             @Part("ca") String ca,
             @Part("rwdId") String rwdid
     );
+
     /**
      * 请假列表
      */
@@ -1945,6 +1950,7 @@ public interface ApiService {
             @Query("year") int year,
             @Query("month") int month
     );
+
     /**
      * 请假类型
      */
@@ -1952,7 +1958,9 @@ public interface ApiService {
     Observable<String> getLeaTypeTyData(
 
     );
-    /**申请考勤
+
+    /**
+     * 申请考勤
      * /ActionApi/TZManage/ApplicationLeave
      */
     @GET("ActionApi/TZManage/ApplicationLeave")
@@ -1964,6 +1972,7 @@ public interface ApiService {
             @Query("reason") String reason,
             @Query("vacationState") int vacationState
     );
+
     /**
      * 申请转正
      */
@@ -1974,6 +1983,7 @@ public interface ApiService {
             @Field("Reason1") String Reason1,
             @Field("Reason2") String Reason2
     );
+
     /**
      * 转正条件
      */
@@ -1982,6 +1992,7 @@ public interface ApiService {
             @Query("CardNo") String CardNo
 
     );
+
     /**
      * 获取商务的红包任务列表
      *///https://api.niujingji.cn:8183/JTRenShi/APP_RS_GetRedPackTask?kahao=01010784
@@ -1990,6 +2001,7 @@ public interface ApiService {
             @Query("kahao") String cardno
 
     );
+
     /**
      * 检查token
      */ ///actionapi/AppCurrencyHome/GetAppCheckToken
@@ -1999,29 +2011,31 @@ public interface ApiService {
             @Query("Token") String Token
 
     );
+
     /**
      * 获取店铺信息
-     *
      */
     @GET("api/MemberManage/ShopInfo")
     Observable<String> getShopInfo(
             @Query("cardNo") String CardNo
     );
+
     /**
      * 修改店铺信息
      * //api/MemberManage/UpShopInfo
      */
-     @Multipart
+    @Multipart
     @POST("api/MemberManage/UpShopInfo")
     Observable<String> postUpShopInfo(
             @Part("cardNo") String cardNo,
             @Part("image") String image,
-            @Part("age")int age,
+            @Part("age") int age,
             @Part("workYears") int workYears,
             @Part("english") String english,
             @Part("consultation") String consultation,
             @Part("motto") String motto
     );
+
     /**
      * 获取首页信息
      */
@@ -2029,6 +2043,7 @@ public interface ApiService {
     Observable<String> getNeswList(
             @Query("card") String card
     );
+
     /**
      * 招商答题提价接口
      */
@@ -2039,6 +2054,7 @@ public interface ApiService {
             @Field("arr") String arr,
             @Field("newsId") int newsId
     );
+
     /**
      * actionapi/KGManage/GetWelcomes
      */
@@ -2046,6 +2062,7 @@ public interface ApiService {
     Observable<String> getHuanying(
             @Query("card") String card
     );
+
     /**
      * 获取商务的红包数量接口
      */ //https://api.niujingji.cn:8183/JTRenShi/APP_RS_GetRedPackTaskCount?kahao=02900672
@@ -2063,6 +2080,7 @@ public interface ApiService {
     Observable<String> getMainCaseRed(
             @Query("cardNo") String card
     );
+
     /**
      * 获取行政的红包数量接口
      *///http://apitz.rxjy.com:9192/actionapi/TZManage/RedPacketNum?cardNo=00002000
@@ -2070,6 +2088,7 @@ public interface ApiService {
     Observable<String> getAdministrationRed(
             @Query("cardNo") String card
     );
+
     /**
      * 获取大院得薪酬
      */
