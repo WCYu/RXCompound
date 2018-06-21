@@ -84,11 +84,9 @@ public class MoneyTzActivity extends BaseActivity<MoneyTzPresenter> implements M
                         mvFive.setTitleAndType("社保", "社保", "公积金", "", "合计");
                         mvSix.setTitleAndType("分红", "笔数", "", "", "合计");
                         mvSeven.setVisibility(View.GONE);
-                        Toast.makeText(this, "111111111", Toast.LENGTH_SHORT).show();
                         mPresenter.getxzmoneydata(year + "", month + "", cardno);
                         break;
                     case 35://投资人事主管
-
                         mvOne.setTitleAndType("合计", "保底", "绩效", "取其高", "最终");
                         mvTwo.setTitleAndType("结果", "结果", "", "", "合计");
                         mvThree.setTitleAndType("过程", "过程", "", "", "合计");
@@ -99,7 +97,6 @@ public class MoneyTzActivity extends BaseActivity<MoneyTzPresenter> implements M
                         mPresenter.gettzmoneydata(year + "", month + "", cardno);
                         break;
                     case 54://投资会计
-
                         mvOne.setTitleAndType("总收", "保底工资", "绩效收入", "取其高", "合计");
                         mvTwo.setTitleAndType("过程", "过程收入", "", "", "过程收入");
                         mvThree.setTitleAndType("结果", "结果收入", "", "", "结果收入");
@@ -110,7 +107,6 @@ public class MoneyTzActivity extends BaseActivity<MoneyTzPresenter> implements M
                         mPresenter.getkjmoneydata(year + "", month + "", cardno);
                         break;
                     case 55://投资出纳
-
                         mvOne.setTitleAndType("总收", "保底工资", "绩效收入", "取其高", "合计");
                         mvTwo.setTitleAndType("过程", "过程收入", "", "", "过程收入");
                         mvThree.setTitleAndType("结果", "结果收入", "", "", "结果收入");
@@ -288,26 +284,26 @@ public class MoneyTzActivity extends BaseActivity<MoneyTzPresenter> implements M
      * 查看详情
      */
     private void DataDetails(int type) {//种类
-//        switch (App.apptype) {
-//            case 34:
-//                switch (App.postid) {//投资行政经理
-//                    case 34:
-//                        switch (type) {
-//                            case 2:
-//                                startActivity(new Intent(this, MoneyDetailsTzActivity.class).putExtra("type", type + "").putExtra("money", tzxzresultmoney));
-//                                break;
-//                            case 3:
-//                                startActivity(new Intent(this, MoneyDetailsTzActivity.class).putExtra("type", type + "").putExtra("money", tzxzgcmoney));
-//                                break;
-//                            case 4:
-//                                startActivity(new Intent(this, MoneyDetailsTzTwoActivity.class).putExtra("type", "jiangfa").putExtra("money", tzxzjfmoney));
-//                                break;
-//                            case 6:
-//                                startActivity(new Intent(this, MoneyDetailsTzTwoActivity.class).putExtra("type", "fenhong").putExtra("money", tzxzfhmoney));
-//                                break;
-//                        }
-//                        break;
-//                    case 35:
+        switch (App.apptype) {
+            case 34:
+                switch (App.postid) {//投资行政经理
+                    case 34:
+                        switch (type) {
+                            case 2:
+                                startActivity(new Intent(this, MoneyDetailsTzActivity.class).putExtra("type", type + "").putExtra("money", tzxzresultmoney));
+                                break;
+                            case 3:
+                                startActivity(new Intent(this, MoneyDetailsTzActivity.class).putExtra("type", type + "").putExtra("money", tzxzgcmoney));
+                                break;
+                            case 4:
+                                startActivity(new Intent(this, MoneyDetailsTzTwoActivity.class).putExtra("type", "jiangfa").putExtra("money", tzxzjfmoney));
+                                break;
+                            case 6:
+                                startActivity(new Intent(this, MoneyDetailsTzTwoActivity.class).putExtra("type", "fenhong").putExtra("money", tzxzfhmoney));
+                                break;
+                        }
+                        break;
+                    case 35:
                         switch (type){
                             case 2:
                                 startActivity(new Intent(this, MoneyDetailsTzActivity.class).putExtra("type", type + "rs").putExtra("money", tzxzresultmoney));
@@ -316,10 +312,10 @@ public class MoneyTzActivity extends BaseActivity<MoneyTzPresenter> implements M
                                 startActivity(new Intent(this, MoneyDetailsTzActivity.class).putExtra("type", type + "rs").putExtra("money", tzxzresultmoney));
                                 break;
                         }
-//                        break;
-//                }
-//                break;
-//        }
+                        break;
+                }
+                break;
+        }
     }
 
 }

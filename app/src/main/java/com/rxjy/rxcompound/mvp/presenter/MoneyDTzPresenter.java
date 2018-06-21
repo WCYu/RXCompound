@@ -37,12 +37,13 @@ public class MoneyDTzPresenter extends MoneyDTzContract.Presenter{
 
                     @Override
                     public void onError(Throwable e) {
-                        Log.e("", "获取钱包信息失败 = " + e.toString());
+                        Log.e("MoneyDTzPresenter", "获取钱包信息失败 = " + e.toString());
                         onCompleted();
                     }
 
                     @Override
                     public void onNext(String s) {
+                        Log.e("MoneyDTzPresenter", "获取钱包信息成功 = " + s);
                         MoneyDTzResultBean info = JSONUtils.toObject(s, MoneyDTzResultBean.class);
                         if (info.getStatusCode() == 0) {
                             mView.responsetzresultdata(info);
