@@ -218,13 +218,14 @@ public class MoreFragment extends BaseFragment<GetUserStatusPresenter> implement
         } else {
             lyTouzi.setVisibility(View.GONE);
         }
-        if (App.depart.equals("2")) { //商务
-            lyGuwenfuwu.setVisibility(View.VISIBLE);
-        } else {
-            lyGuwenfuwu.setVisibility(View.GONE);
-        }
 
-        if(App.busisnew == 1){
+//        if(){
+//            lyGuwenfuwu.setVisibility(View.VISIBLE);
+//        } else {
+//            lyGuwenfuwu.setVisibility(View.GONE);
+//        }
+
+        if (App.depart.equals("2")||App.busisnew == 1) { //商务
             lyGuwenfuwu.setVisibility(View.VISIBLE);
         } else {
             lyGuwenfuwu.setVisibility(View.GONE);
@@ -690,6 +691,7 @@ public class MoreFragment extends BaseFragment<GetUserStatusPresenter> implement
                 startActivity(new Intent(getActivity(), MoreBannerActivity.class));
                 break;
             case R.id.ly_kehu:
+                Log.e("tag_bus",App.busisnew+"");
                 if(App.busisnew == 1){
                     startActivity(new Intent(getActivity(), NewKeHuActivity.class));
                 }else {

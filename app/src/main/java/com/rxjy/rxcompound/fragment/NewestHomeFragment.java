@@ -8,23 +8,27 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.rxjy.rxcompound.R;
+import com.rxjy.rxcompound.commons.base.BaseFragment;
+import com.rxjy.rxcompound.commons.base.BasePresenter;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class NewestHomeFragment extends Fragment {
-
-
-    public NewestHomeFragment() {
-        // Required empty public constructor
-    }
-
+public class NewestHomeFragment extends BaseFragment {
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_newest_home, container, false);
+    protected int getFragmentLayout() {
+        return R.layout.fragment_newest_home;
+    }
+
+    @Override
+    protected void FragmentInitData() {
+
+    }
+
+    @Override
+    protected BasePresenter onCreatePresenter() {
+        return null;
     }
 
 }

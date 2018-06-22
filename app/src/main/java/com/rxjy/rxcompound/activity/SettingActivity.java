@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.rxjy.rxcompound.R;
 import com.rxjy.rxcompound.business.activity.BusinessMainHostActivity;
+import com.rxjy.rxcompound.commons.App;
 import com.rxjy.rxcompound.commons.Constants;
 import com.rxjy.rxcompound.commons.base.BaseActivity;
 import com.rxjy.rxcompound.commons.utils.ACache;
@@ -110,6 +111,7 @@ public class SettingActivity extends BaseActivity<SettingPresenter> implements S
                 if (SupervisionMainActivity.activity != null) {
                     SupervisionMainActivity.activity.finish();
                 }
+                App.busisnew = 0;
                 finish();
                 break;
             case R.id.iv_back:
