@@ -227,7 +227,7 @@ public class SplashActivity extends BaseActivity<LoginPresenter> implements Logi
     }
 
     String cardno;
-    int regionid, departs, stages;
+    int regionid, departs, stages ,stage;
 
     @Override
     public void responseLogin(CheckIsBeingBean data) {
@@ -253,13 +253,13 @@ public class SplashActivity extends BaseActivity<LoginPresenter> implements Logi
                     finish();
                 } else {
                     Log.e("tag","---------");
-                    if (stage > 1) {//资料以及完善
+                    if (App.stage > 1) {//资料以及完善
 //                if (data.getBody().getApp_stage() > 1) {//资料以及完善
                         startActivity(new Intent(this, MainTabHostActivity.class));
                         finish();
                         Log.e("tag","ccccccccccccc");
                     } else {
-                        stages=2;
+                        App.stage=2;
                         mPresenter.getIsConsent(cardno, "2");//请求是否需要同意协议
                         Log.e("tag","ddddddddd");
                     }
@@ -270,13 +270,13 @@ public class SplashActivity extends BaseActivity<LoginPresenter> implements Logi
                     App.busisnew = 1;
                     startActivity(new Intent(this, BusinessMainHostActivity.class));
                     finish();
-                }  else if (stage > 1) {//资料以及完善
+                }  else if (App.stage > 1) {//资料以及完善
 //                if (data.getBody().getApp_stage() > 1) {//资料以及完善
                     startActivity(new Intent(this, MainTabHostActivity.class));
                     finish();
                     Log.e("tag","ccccccccccccc");
                 } else {
-                    stages=2;
+                    App.stage=2;
                     mPresenter.getIsConsent(cardno, "2");//请求是否需要同意协议
                     Log.e("tag","ddddddddd");
                 }
@@ -298,13 +298,13 @@ public class SplashActivity extends BaseActivity<LoginPresenter> implements Logi
                     finish();
                 }else {
                     Log.e("tag","---------");
-                    if (stage > 1) {//资料以及完善
+                    if (App.stage > 1) {//资料以及完善
 //                if (data.getBody().getApp_stage() > 1) {//资料以及完善
                         startActivity(new Intent(this, MainTabHostActivity.class));
                         finish();
                         Log.e("tag","ccccccccccccc");
                     } else {
-                        stages=2;
+                        App.stage=2;
                         mPresenter.getIsConsent(cardno, "2");//请求是否需要同意协议
                         Log.e("tag","ddddddddd");
                     }
@@ -353,7 +353,7 @@ public class SplashActivity extends BaseActivity<LoginPresenter> implements Logi
 //                startActivity(new Intent(this, MainTabHostActivity.class));
 //                finish();
 //            } else {
-//                stages=2;
+//                App.stage=2;
 //                mPresenter.getIsConsent(cardno, "2");//请求是否需要同意协议
 //            }
 //        }
@@ -372,7 +372,7 @@ public class SplashActivity extends BaseActivity<LoginPresenter> implements Logi
     @Override
     public void responseIsConsent(CheckIsBeingBean data) {
         //已同意
-        ToMain(departs, stages, cardno);
+        ToMain(departs, stage, cardno);
     }
 
     @Override
@@ -385,9 +385,9 @@ public class SplashActivity extends BaseActivity<LoginPresenter> implements Logi
     public void responseUserStatus(UserStatusBean data) {
 //        if (regionid == 39 && data.getBody().getStage() < 2) {//请求一个接口
 //            mPresenter.getLoginTz(cardno, "Z1||type|1");
-//            ToMain(departs, stages, cardno);
+//            ToMain(departs, stage, cardno);
 //        } else {
-            ToMain(departs, stages, cardno);
+            ToMain(departs, stage, cardno);
     //    }
     }
 
@@ -452,7 +452,7 @@ public class SplashActivity extends BaseActivity<LoginPresenter> implements Logi
         departs = data.getBody().getDepart();
 
         stages = data.getBody().getApp_stage();
-
+        stage = App.stage;
         mPresenter.getUserStatus(cardno);
     }
 }

@@ -106,13 +106,16 @@ public class HomePageFragment extends BaseFragment<HomePageFPresenter> implement
     RelativeLayout rlXingxiang;
     @Bind(R.id.home_view)
     WebView newWeb;
+    @Bind(R.id.ly_web)
+    LinearLayout ly_web;
+
     private PagerAdapter pagerAdapter;
     int index = 0;
     int size = 0;
     int day;
     String part;
 
-    String url = "http://i.rxjy.com/AppGroup/APPIndex/Index";
+    String url = "http://edu.rxjy.com/a/rs/curaInfo/01012167/tryPostApp";
 
     @Override
     protected HomePageFPresenter onCreatePresenter() {
@@ -142,26 +145,31 @@ public class HomePageFragment extends BaseFragment<HomePageFPresenter> implement
         mPresenter.getBannerList(cardno);
 //        mPresenter.getEduData(cardno);
 
-//        if (App.is_group.equals("1")) {
-//            newWeb.loadUrl(url);
-//            Log.e("webView————————", url);
-//
-//            WebSettings settings = newWeb.getSettings();
-//            settings.setJavaScriptEnabled(true);
-//            //设置自适应屏幕，两者合用
-//            settings.setUseWideViewPort(true); //将图片调整到适合webview的大小
-//            settings.setLoadWithOverviewMode(true); // 缩放至屏幕的大小
-//            settings.setDomStorageEnabled(true);
-//            newWeb.setWebViewClient(new WebViewClient() {
-//                @Override
-//                public boolean shouldOverrideUrlLoading(WebView view, String url) {
-//                    view.loadUrl(url);
-//                    return super.shouldOverrideUrlLoading(view, url);
-//                }
-//            });
-//        }else {
-//            newWeb.setVisibility(View.GONE);
-//        }
+        if (App.is_group.equals("1") || App.is_group.equals("0")) {
+            if (App.ustart != 2 && App.ustart != 3 && App.ustart != 4) {
+                ly_web.setVisibility(View.VISIBLE);
+                newWeb.loadUrl(url);
+                Log.e("webView————————", url);
+
+                WebSettings settings = newWeb.getSettings();
+                settings.setJavaScriptEnabled(true);
+                //设置自适应屏幕，两者合用
+                settings.setUseWideViewPort(true); //将图片调整到适合webview的大小
+                settings.setLoadWithOverviewMode(true); // 缩放至屏幕的大小
+                settings.setDomStorageEnabled(true);
+                newWeb.setWebViewClient(new WebViewClient() {
+                    @Override
+                    public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                        view.loadUrl(url);
+                        return super.shouldOverrideUrlLoading(view, url);
+                    }
+                });
+            } else {
+                ly_web.setVisibility(View.GONE);
+            }
+        } else {
+            ly_web.setVisibility(View.GONE);
+        }
 
         //获取进度===
         cpv_cirone.setProgress(0);

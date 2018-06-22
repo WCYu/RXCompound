@@ -240,7 +240,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
      *
      * @param data
      */
-    int regionid, departs, stages;
+    int regionid, departs, stages ,stage;
 
     @Override
     public void responseLogin(CheckIsBeingBean data) {
@@ -279,6 +279,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
         departs = data.getBody().getDepart();
         stages = data.getBody().getApp_stage();
 
+        stage = App.stage;
         mPresenter.getUserStatus(cardno);
 
 //        //判断部门决定跳转到哪个App
@@ -306,13 +307,13 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
                     finish();
                 } else {
                     Log.e("tag","---------");
-                    if (stage > 1) {//资料以及完善
+                    if (App.stage > 1) {//资料以及完善
 //                if (data.getBody().getApp_stage() > 1) {//资料以及完善
                         startActivity(new Intent(this, MainTabHostActivity.class));
                         finish();
                         Log.e("tag","ccccccccccccc");
                     } else {
-                        stages=2;
+                        App.stage=2;
                         mPresenter.getIsConsent(cardno, "2");//请求是否需要同意协议
                         Log.e("tag","ddddddddd");
                     }
@@ -323,13 +324,13 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
                     App.busisnew = 1;
                     startActivity(new Intent(this, BusinessMainHostActivity.class));
                     finish();
-                }  else if (stage > 1) {//资料以及完善
+                }  else if (App.stage > 1) {//资料以及完善
 //                if (data.getBody().getApp_stage() > 1) {//资料以及完善
                     startActivity(new Intent(this, MainTabHostActivity.class));
                     finish();
                     Log.e("tag","ccccccccccccc");
                 } else {
-                    stages=2;
+                    App.stage=2;
                     mPresenter.getIsConsent(cardno, "2");//请求是否需要同意协议
                     Log.e("tag","ddddddddd");
                 }
@@ -351,13 +352,13 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
                     finish();
                 }else {
                     Log.e("tag","---------");
-                    if (stage > 1) {//资料以及完善
+                    if (App.stage > 1) {//资料以及完善
 //                if (data.getBody().getApp_stage() > 1) {//资料以及完善
                         startActivity(new Intent(this, MainTabHostActivity.class));
                         finish();
                         Log.e("tag","ccccccccccccc");
                     } else {
-                        stages=2;
+                        App.stage=2;
                         mPresenter.getIsConsent(cardno, "2");//请求是否需要同意协议
                         Log.e("tag","ddddddddd");
                     }
@@ -380,7 +381,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
     @Override
     public void responseIsConsent(CheckIsBeingBean data) {
         //已同意
-        ToMain(departs, stages, cardno);
+        ToMain(departs, stage, cardno);
 
     }
 
@@ -397,7 +398,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
     @Override
     public void responseUserStatus(UserStatusBean data) {
           Log.e("tag","11111111111");
-          ToMain(departs, stages, cardno);
+          ToMain(departs, stage, cardno);
 
     }
 

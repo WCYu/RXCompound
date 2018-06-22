@@ -152,7 +152,7 @@ public class LoginPresenter  extends LoginContract.Presenter {
 
                     @Override
                     public void onNext(String s) {
-                          Log.e("tag",s);
+                          Log.e("tag_是否",s);
                         CheckIsBeingBean info = JSONUtils.toObject(s, CheckIsBeingBean.class);
                         if (info.getStatusCode() == 0) {//已同意
                             mView.responseIsConsent(info);
