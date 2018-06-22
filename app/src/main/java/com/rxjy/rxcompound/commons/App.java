@@ -201,6 +201,7 @@ public class App extends Application {
             }
         }
     };
+
     private static final int MSG_SET_ALIAS = 1001;
     public static Handler mHandler = new Handler() {
         @Override

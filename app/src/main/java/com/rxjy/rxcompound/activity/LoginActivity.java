@@ -1,8 +1,12 @@
 package com.rxjy.rxcompound.activity;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -18,7 +22,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.rxjy.rxcompound.R;
+import com.rxjy.rxcompound.activity.more.KeHuActivity;
 import com.rxjy.rxcompound.business.activity.BusinessMainHostActivity;
 import com.rxjy.rxcompound.commons.App;
 import com.rxjy.rxcompound.commons.base.BaseActivity;
@@ -30,14 +36,37 @@ import com.rxjy.rxcompound.entity.PersonBean;
 import com.rxjy.rxcompound.entity.UserStatusBean;
 import com.rxjy.rxcompound.entity.VPhoneBean;
 import com.rxjy.rxcompound.entity.ZiDonBean;
+import com.rxjy.rxcompound.entity.more.KeHuTongJiBean;
 import com.rxjy.rxcompound.joinin.activity.JoininNjjActivity;
 import com.rxjy.rxcompound.mvp.contract.LoginContract;
 import com.rxjy.rxcompound.mvp.presenter.LoginPresenter;
 import com.rxjy.rxcompound.supervision.activity.SupervisionMainActivity;
+import com.rxjy.rxcompound.utils.OkhttpUtils;
+import com.rxjy.rxcompound.utils.ToastUtil;
+import com.rxjy.rxcompound.utils.ZJson;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.net.Inet4Address;
+import java.net.InetAddress;
+import java.net.NetworkInterface;
+import java.net.SocketException;
+import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.Map;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 
 /**
  * 登录页面
@@ -85,6 +114,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
 
     @Override
     public void initData() {
+
         rl_veritycode.setVisibility(View.GONE);
         btn_next.setVisibility(View.GONE);
         rl_pwd.setVisibility(View.GONE);
@@ -111,7 +141,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
 //                startActivity(new Intent(this, SupervisionMainActivity.class));
                 veritycode = ed_vitifycode.getText().toString();
                 pwdnum = ed_pwd.getText().toString();
-                if(pwdnum.length()<6){
+                if (pwdnum.length() < 6) {
                     tv_prompt.setText("密码不少于6位");
                     return;
                 }
@@ -199,7 +229,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
                 break;
             default:
 //                showToast(data.getStatusMsg());
-                Log.e("hahahah",data.getStatusMsg());
+                Log.e("hahahah", data.getStatusMsg());
                 tv_prompt.setText(data.getStatusMsg());
                 break;
         }
@@ -240,7 +270,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
      *
      * @param data
      */
-    int regionid, departs, stages ,stage;
+    int regionid, departs, stages, stage;
 
     @Override
     public void responseLogin(CheckIsBeingBean data) {
@@ -254,11 +284,12 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
         edit.putString("rxdy_phone", ed_phone.getText().toString());
         edit.putString("rxdy_pwd", ed_pwd.getText().toString());
         edit.commit();
+
         App.name = data.getBody().getName();
         cardno = data.getBody().getCardNo();
         App.cardNo = data.getBody().getCardNo();
         App.token = data.getBody().getToken();
-        Log.e("-------------登陆--------",data.getBody().getToken());
+        Log.e("-------------登陆--------", data.getBody().getToken());
         App.depart = data.getBody().getDepart() + "";
         App.regionid = data.getBody().getRegion_id() + "";///39阶段小于2，请求
         App.account = data.getBody().getAccount();
@@ -281,92 +312,212 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
 
         stage = App.stage;
         mPresenter.getUserStatus(cardno);
-
+        startLogin();
 //        //判断部门决定跳转到哪个App
 //        ToMain(data.getBody().getDepart(),data.getBody().getApp_stage(),cardno);
 
     }
 
+    private void startLogin() {
+
+        Map map = new HashMap();
+        map.put("app_id", "");
+        map.put("card_no", App.cardNo);
+        map.put("landing_date", "");
+        map.put("offline_date","");
+        map.put("locate_province_now", "");
+        map.put("locate_city_now", "");
+        map.put("a_equipment ", android.os.Build.MODEL);//使用设备
+        map.put("network_status ", "");//网络状态
+        map.put("a_ip ", getIp(this));//IP地址
+        map.put("id", "");
+        map.put("flag", "");
+        map.put("name", "");
+        map.put("create_date", "");
+        map.put("update_date", "");
+//        {
+//            "app_id": "string",
+//                "card_no": "string",
+//                "landing_date": "2018-06-22T07:16:27.303Z",
+//                "offline_date": "2018-06-22T07:16:27.303Z",
+//                "locate_province_now": "string",
+//                "locate_city_now": "string",
+//                "a_equipment": "string",
+//                "network_status": "string",
+//                "a_ip": "string",
+//                "id": 0,
+//                "flag": 0,
+//                "name": "string",
+//                "create_date": "2018-06-22T07:16:27.303Z",
+//                "update_date": "2018-06-22T07:16:27.303Z"
+//        }
+
+//        map.put("locate_province_now", -1);//当前定位省
+//        map.put("locate_city_now", -1);//当前定位市
+
+        String toJSONMap = ZJson.toJSONMap(map);
+        OkHttpClient client = new OkHttpClient();
+        MediaType MEDIA_TYPE_TEXT = MediaType.parse("application/json");
+
+        Request request = new Request.Builder()
+                .url("https://api.dcwzg.com:9191/actionapi/AppHome/AddlandingMessage")
+                .post(RequestBody.create(MEDIA_TYPE_TEXT, toJSONMap))
+                .build();
+        Log.e("tag_数据统计", toJSONMap);
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                Log.e("tag_数据统计_失败", e.getMessage().toString());
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                final String string = response.body().string();
+                Log.e("tag_数据统计", string);
+            }
+        });
+
+    }
+
+    public static String getIp(final Context context) {
+        String ip = null;
+        ConnectivityManager conMan = (ConnectivityManager) context
+                .getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        // mobile 3G Data Network
+        android.net.NetworkInfo.State mobile = conMan.getNetworkInfo(
+                ConnectivityManager.TYPE_MOBILE).getState();
+        // wifi
+        android.net.NetworkInfo.State wifi = conMan.getNetworkInfo(
+                ConnectivityManager.TYPE_WIFI).getState();
+
+        // 如果3G网络和wifi网络都未连接，且不是处于正在连接状态 则进入Network Setting界面 由用户配置网络连接
+        if (mobile == android.net.NetworkInfo.State.CONNECTED
+                || mobile == android.net.NetworkInfo.State.CONNECTING) {
+            ip = getLocalIpAddress();
+        }
+        if (wifi == android.net.NetworkInfo.State.CONNECTED
+                || wifi == android.net.NetworkInfo.State.CONNECTING) {
+            //获取wifi服务
+            WifiManager wifiManager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
+            //判断wifi是否开启
+            if (!wifiManager.isWifiEnabled()) {
+                wifiManager.setWifiEnabled(true);
+            }
+            WifiInfo wifiInfo = wifiManager.getConnectionInfo();
+            int ipAddress = wifiInfo.getIpAddress();
+            ip = (ipAddress & 0xFF) + "." +
+                    ((ipAddress >> 8) & 0xFF) + "." +
+                    ((ipAddress >> 16) & 0xFF) + "." +
+                    (ipAddress >> 24 & 0xFF);
+        }
+        return ip;
+
+    }
+
+    private static String getLocalIpAddress() {
+        try {
+            //Enumeration<NetworkInterface> en=NetworkInterface.getNetworkInterfaces();
+            for (Enumeration<NetworkInterface> en = NetworkInterface.getNetworkInterfaces(); en.hasMoreElements(); ) {
+                NetworkInterface intf = en.nextElement();
+                for (Enumeration<InetAddress> enumIpAddr = intf.getInetAddresses(); enumIpAddr.hasMoreElements(); ) {
+                    InetAddress inetAddress = enumIpAddr.nextElement();
+                    if (!inetAddress.isLoopbackAddress() && inetAddress instanceof Inet4Address) {//获取IPv4的IP地址
+                        return inetAddress.getHostAddress();
+                    }
+                }
+            }
+        } catch (SocketException e) {
+            e.printStackTrace();
+        }
+
+
+        return null;
+    }
 
     private void ToMain(int type, int stage, String cardno) {
-             Log.e("tag","++++++++++");
-        switch (App.is_group){
+        Log.e("tag", "++++++++++");
+        switch (App.is_group) {
             case "0"://分公司
-                if (type == 2) {
-                    /**
-                     * 跳转顾问在职
-                     */ //
-                    startActivity(new Intent(this, BusinessMainHostActivity.class));
-                    finish();
-                } else if (type == 3) {
-                    //跳转温特斯 //主案
-                    startActivity(new Intent(this, NjjActivity.class));
-                } else if (type == 4) {//项目监理
-                    //SupervisionMainActivity
-                    startActivity(new Intent(this, SupervisionMainActivity.class));
-                    finish();
-                } else {
-                    Log.e("tag","---------");
-                    if (App.stage > 1) {//资料以及完善
+                if (App.stage > 1) {
+                    if (type == 2) {
+                        /**
+                         * 跳转顾问在职
+                         */ //
+                        startActivity(new Intent(this, BusinessMainHostActivity.class));
+                        finish();
+                    } else if (type == 3) {
+                        //跳转温特斯 //主案
+                        startActivity(new Intent(this, NjjActivity.class));
+                    } else if (type == 4) {//项目监理
+                        //SupervisionMainActivity
+                        startActivity(new Intent(this, SupervisionMainActivity.class));
+                        finish();
+                    } else {
 //                if (data.getBody().getApp_stage() > 1) {//资料以及完善
                         startActivity(new Intent(this, MainTabHostActivity.class));
                         finish();
-                        Log.e("tag","ccccccccccccc");
-                    } else {
-                        App.stage=2;
-                        mPresenter.getIsConsent(cardno, "2");//请求是否需要同意协议
-                        Log.e("tag","ddddddddd");
+                        Log.e("tag", "ccccccccccccc");
                     }
+                } else {
+                    App.stage = 2;
+                    mPresenter.getIsConsent(cardno, "2");//请求是否需要同意协议
+                    Log.e("tag", "ddddddddd");
                 }
+
                 break;
             case "1"://集团
-                if (App.postName.equals("客服主管") || App.postName.equals("客服专员") || (App.postName.equals("客服经理") || App.postName.equals("平台客服"))) {
-                    App.busisnew = 1;
-                    startActivity(new Intent(this, BusinessMainHostActivity.class));
-                    finish();
-                }  else if (App.stage > 1) {//资料以及完善
+                 if (App.stage > 1) {//资料以及完善
 //                if (data.getBody().getApp_stage() > 1) {//资料以及完善
-                    startActivity(new Intent(this, MainTabHostActivity.class));
-                    finish();
-                    Log.e("tag","ccccccccccccc");
+                     if (App.postName.equals("客服主管") || App.postName.equals("客服专员") || (App.postName.equals("客服经理") || App.postName.equals("平台客服"))) {
+                         App.busisnew = 1;
+                         startActivity(new Intent(this, BusinessMainHostActivity.class));
+                         finish();
+                     }else {
+                         startActivity(new Intent(this, MainTabHostActivity.class));
+                         finish();
+                         Log.e("tag", "ccccccccccccc");
+                     }
                 } else {
-                    App.stage=2;
+                    App.stage = 2;
                     mPresenter.getIsConsent(cardno, "2");//请求是否需要同意协议
-                    Log.e("tag","ddddddddd");
+                    Log.e("tag", "ddddddddd");
                 }
                 break;
             case "2"://招商
-                if (App.postid == 10000) {
-                    //外部人事
-                    if (App.is_exist == 0) {//未同意
-                        startActivity(new Intent(this, AgreeDesActivity.class));
+
+                Log.e("tag", "---------");
+                if (App.stage > 1) {//资料以及完善
+                    if (App.postid == 10000) {
+                        //外部人事
+                        if (App.is_exist == 0) {//未同意
+                            startActivity(new Intent(this, AgreeDesActivity.class));
+                            finish();
+                        } else {//NjjActivity
+                            startActivity(new Intent(this, NjjActivity.class));
+                            finish();
+                        }
+                    } else if (App.postid == 30001) {
+                        //招商
+                        startActivity(new Intent(this, JoininNjjActivity.class));
                         finish();
-                    } else {//NjjActivity
-                        startActivity(new Intent(this, NjjActivity.class));
-                        finish();
-                    }
-                }
-                else if (App.postid == 30001){
-                    //招商
-                    startActivity(new Intent(this, JoininNjjActivity.class));
-                    finish();
-                }else {
-                    Log.e("tag","---------");
-                    if (App.stage > 1) {//资料以及完善
-//                if (data.getBody().getApp_stage() > 1) {//资料以及完善
+                    }else {
                         startActivity(new Intent(this, MainTabHostActivity.class));
                         finish();
-                        Log.e("tag","ccccccccccccc");
-                    } else {
-                        App.stage=2;
-                        mPresenter.getIsConsent(cardno, "2");//请求是否需要同意协议
-                        Log.e("tag","ddddddddd");
+                        Log.e("tag", "ccccccccccccc");
                     }
-                }
-                break;
-                default:
+//                if (data.getBody().getApp_stage() > 1) {//资料以及完善
 
-                    break;
+                } else {
+                    App.stage = 2;
+                    mPresenter.getIsConsent(cardno, "2");//请求是否需要同意协议
+                    Log.e("tag", "ddddddddd");
+                }
+
+                break;
+            default:
+
+                break;
         }
 
     }
@@ -387,9 +538,9 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
 
     @Override
     public void responseIsConsentError(String msg) {//未同意
-        if(msg.equals("连接失败")){
+        if (msg.equals("连接失败")) {
             tv_prompt.setText(msg);
-        }else {
+        } else {
             startActivity(new Intent(this, EntryJobProtocolActivity.class).putExtra("from", "1"));
             finish();
         }
@@ -397,8 +548,8 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
 
     @Override
     public void responseUserStatus(UserStatusBean data) {
-          Log.e("tag","11111111111");
-          ToMain(departs, stage, cardno);
+        Log.e("tag", "11111111111");
+        ToMain(departs, stage, cardno);
 
     }
 
@@ -488,7 +639,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
                     if (lengths == 11) {//11手机号位请求判断
                         String strthree = phonenum.substring(0, 3);
                         if (!strthree.equals("WTS")) {
-                                mPresenter.getCheckIsVerity(phonenum);
+                            mPresenter.getCheckIsVerity(phonenum);
                         } else {
                             mPresenter.getCheckIsVerity(phonenum);
                         }
@@ -507,7 +658,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
                             }
                         }
 
-                    }else {
+                    } else {
                         tv_prompt.setText("");
                     }
                     break;

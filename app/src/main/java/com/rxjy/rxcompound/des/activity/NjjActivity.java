@@ -8,6 +8,7 @@ import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -29,13 +30,20 @@ import com.rxjy.rxcompound.fragment.MainFragment;
 import com.rxjy.rxcompound.fragment.MoreFragment;
 import com.rxjy.rxcompound.joinin.fragment.JoininMoreFragment;
 import com.rxjy.rxcompound.joinin.fragment.OnTrialFragment;
+import com.rxjy.rxcompound.utils.OkhttpUtils;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Response;
 
 import static com.rxjy.rxcompound.receiver.MessageReceiver.MSG_NUM;
 import static com.rxjy.rxcompound.receiver.MessageReceiver.msgnum;
@@ -332,6 +340,21 @@ public class NjjActivity extends BaseActivity<DestoryPresenter> implements Desto
     protected void onDestroy() {
         super.onDestroy();
         mPresenter.getDestoryListener();
+            Log.e("应用被杀死","应用死亡");
+            Map map = new HashMap();
+            map.put("cardNo",App.cardNo);
+            OkhttpUtils.doPost("https://api.dcwzg.com:9191/actionapi/AppHome/OfflineApp", map, new Callback() {
+                @Override
+                public void onFailure(Call call, IOException e) {
+                    Log.e("下线",e.getMessage().toString());
+                }
+
+                @Override
+                public void onResponse(Call call, Response response) throws IOException {
+                    String string = response.body().string();
+                    Log.e("下线",string);
+                }
+            });
     }
 
     @Override
@@ -358,4 +381,6 @@ public class NjjActivity extends BaseActivity<DestoryPresenter> implements Desto
         }
 
     }
+
+
 }
