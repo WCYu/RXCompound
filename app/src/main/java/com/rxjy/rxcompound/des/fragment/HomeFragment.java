@@ -137,7 +137,7 @@ public class HomeFragment extends BaseFragment<GetALLClientInfoPresenter> implem
     private List<FloatedBean> list = new ArrayList<>();
     private AlertDialog alertDialog;
 
-    String url ="http://edu.rxjy.com/a/rs/curaInfo/01012167/tryPostApp";
+    String url ="http://edu.rxjy.com/a/rs/curaInfo/"+App.cardNo+"01012167/tryPostApp";
 
     @Override
     protected int getFragmentLayout() {

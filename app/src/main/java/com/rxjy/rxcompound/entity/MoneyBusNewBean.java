@@ -86,6 +86,9 @@ public class MoneyBusNewBean {
         private String sheBaoGJHeJi;
         private String yingFaXinChou;
         private String weiFaXinChou;
+        private String dHuiIncome;
+        private String dCusIncome;
+        private String dTotalIncome;
 
         public BodyBean() {
             super();
@@ -115,6 +118,31 @@ public class MoneyBusNewBean {
                     ", weiFaXinChou='" + weiFaXinChou + '\'' +
                     '}';
         }
+
+        public String getDHuiIncome() {
+            return dHuiIncome;
+        }
+
+        public void setDHuiIncome(String dHuiIncome) {
+            this.dHuiIncome = dHuiIncome;
+        }
+
+        public String getDCusIncome() {
+            return dCusIncome;
+        }
+
+        public void setDCusIncome(String dCusIncome) {
+            this.dCusIncome = dCusIncome;
+        }
+
+        public String getDTotalIncome() {
+            return dTotalIncome;
+        }
+
+        public void setDTotalIncome(String dTotalIncome) {
+            this.dTotalIncome = dTotalIncome;
+        }
+
 
         public String getPreMonth() {
             return preMonth;

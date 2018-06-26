@@ -113,6 +113,10 @@
         <activity android:name=".activity.TaskNewActivity" />
         <activity android:name=".activity.IdentityInfoNewActivity" />
         <activity android:name=".activity.ZThreeActivity" />
+        <activity android:name=".activity.guwen.HuiShouActivity" />
+        <activity android:name=".activity.guwen.KeShouActivity" />
+        <activity android:name=".activity.guwen.ZhangBenActivity" />
+        <activity android:name=".activity.guwen.ZhangBenDetailsActivity" />
         <activity android:name=".business.activity.BusinessMainHostActivity" />
         <activity android:name=".business.activity.BusiPersonMessage" />
         <activity android:name=".business.activity.AddActivity" />
@@ -225,7 +229,9 @@
         <activity android:name=".activity.more.XiaXianActivity" />
         <activity android:name=".activity.my.ZhuanZhengActivity" />
         <activity android:name=".activity.my.NewKeHuActivity" />
-        <activity android:name=".activity.my.TestActivity"></activity>
+        <activity android:name=".activity.my.TestActivity" />
+        <activity android:name=".activity.guwen.DownLineActivity" />
+        <activity android:name=".activity.guwen.TiXianActivity"></activity>
     </application>
 
 </manifest>

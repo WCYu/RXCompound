@@ -115,7 +115,7 @@ public class HomePageFragment extends BaseFragment<HomePageFPresenter> implement
     int day;
     String part;
 
-    String url = "http://edu.rxjy.com/a/rs/curaInfo/01012167/tryPostApp";
+    String url = "http://edu.rxjy.com/a/rs/curaInfo/"+App.cardNo+"/tryPostApp";
 
     @Override
     protected HomePageFPresenter onCreatePresenter() {

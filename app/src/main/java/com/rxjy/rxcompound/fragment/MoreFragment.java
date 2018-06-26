@@ -29,14 +29,11 @@ import com.rxjy.rxcompound.activity.RXSongsActivity;
 import com.rxjy.rxcompound.activity.RXlinesActivity;
 import com.rxjy.rxcompound.activity.WebViewActivity;
 import com.rxjy.rxcompound.activity.ZThreeActivity;
-import com.rxjy.rxcompound.activity.more.AnLiActivity;
-import com.rxjy.rxcompound.activity.more.BoWenActivity;
-import com.rxjy.rxcompound.activity.more.CaiWuActivity;
-import com.rxjy.rxcompound.activity.more.FuWuActivity;
-import com.rxjy.rxcompound.activity.more.JiaMengActivity;
+import com.rxjy.rxcompound.activity.guwen.DownLineActivity;
+import com.rxjy.rxcompound.activity.guwen.HuiShouActivity;
+import com.rxjy.rxcompound.activity.guwen.KeShouActivity;
+import com.rxjy.rxcompound.activity.guwen.ZhangBenActivity;
 import com.rxjy.rxcompound.activity.more.KeHuActivity;
-import com.rxjy.rxcompound.activity.more.PaiDanActivity;
-import com.rxjy.rxcompound.activity.more.XiaXianActivity;
 import com.rxjy.rxcompound.activity.my.NewKeHuActivity;
 import com.rxjy.rxcompound.adapter.NattenDanceAdapter;
 import com.rxjy.rxcompound.commons.App;
@@ -151,6 +148,16 @@ public class MoreFragment extends BaseFragment<GetUserStatusPresenter> implement
     LinearLayout lyGuwenfuwu;
     @Bind(R.id.ly_zaishi)
     LinearLayout lyZaishi;
+    @Bind(R.id.ly_dianpu_guwen)
+    LinearLayout lyDianpuGuwen;
+    @Bind(R.id.ly_huiyuan)
+    LinearLayout lyHuiyuan;
+    @Bind(R.id.ly_zhangben)
+    LinearLayout lyZhangben;
+    @Bind(R.id.ly_huishou)
+    LinearLayout lyHuishou;
+    @Bind(R.id.ly_keshou)
+    LinearLayout lyKeshou;
 
     private String TAG = "MoreFragment";
     @Bind(R.id.gv_rxculture)
@@ -225,7 +232,7 @@ public class MoreFragment extends BaseFragment<GetUserStatusPresenter> implement
 //            lyGuwenfuwu.setVisibility(View.GONE);
 //        }
 
-        if (App.depart.equals("2")||App.busisnew == 1) { //商务
+        if (App.depart.equals("2") || App.busisnew == 1) { //商务
             lyGuwenfuwu.setVisibility(View.VISIBLE);
         } else {
             lyGuwenfuwu.setVisibility(View.GONE);
@@ -682,21 +689,13 @@ public class MoreFragment extends BaseFragment<GetUserStatusPresenter> implement
         ButterKnife.unbind(this);
     }
 
-    @OnClick({R.id.iv_morebanner, R.id.ly_kehu, R.id.ly_dianpu, R.id.ly_anli, R.id.ly_bowen, R.id.ly_fuwu, R.id.ly_paidan, R.id.ly_caiwu, R.id.ly_jiameng, R.id.ly_xiaxian, R.id.ly_touzi,R.id.ly_zaishi})
+    @OnClick({R.id.iv_morebanner, R.id.ly_kehu, R.id.ly_dianpu, R.id.ly_anli, R.id.ly_bowen, R.id.ly_fuwu, R.id.ly_paidan, R.id.ly_caiwu, R.id.ly_jiameng, R.id.ly_xiaxian, R.id.ly_touzi, R.id.ly_zaishi,R.id.ly_dianpu_guwen, R.id.ly_huiyuan, R.id.ly_zhangben, R.id.ly_huishou, R.id.ly_keshou})
     public void onViewClicked(View view) {
         Intent intent = null;
 
         switch (view.getId()) {
             case R.id.iv_morebanner:
                 startActivity(new Intent(getActivity(), MoreBannerActivity.class));
-                break;
-            case R.id.ly_kehu:
-                Log.e("tag_bus",App.busisnew+"");
-                if(App.busisnew == 1){
-                    startActivity(new Intent(getActivity(), NewKeHuActivity.class));
-                }else {
-                    startActivity(new Intent(getActivity(), KeHuActivity.class));
-                }
                 break;
             case R.id.ly_dianpu://店铺
                 intent = new Intent(getActivity(), WebViewActivity.class);
@@ -753,9 +752,37 @@ public class MoreFragment extends BaseFragment<GetUserStatusPresenter> implement
             case R.id.ly_touzi:
 //                intent = new Intent(getActivity(), WebViewActivity.class);
                 break;
+//顾问模块
+            case R.id.ly_kehu://客户
+                Log.e("tag_bus", App.busisnew + "");
+                if (App.busisnew == 1) {
+                    startActivity(new Intent(getActivity(), NewKeHuActivity.class));
+                } else {
+                    startActivity(new Intent(getActivity(), KeHuActivity.class));
+                }
+                break;
+            case R.id.ly_dianpu_guwen://顾问店铺
+                intent = new Intent(getActivity(), WebViewActivity.class);
+                intent.putExtra("url", "http://www.niujingji.cn/static/shop/index.html?CardNo=s0101010102");
+                intent.putExtra("name", "店铺");
+                break;
+            case R.id.ly_huiyuan://会员
+                intent = new Intent(getActivity(), DownLineActivity.class);
+                break;
+            case R.id.ly_zhangben://账本
+                intent = new Intent(getActivity(), ZhangBenActivity.class);
+                break;
+            case R.id.ly_huishou://会收
+                intent = new Intent(getActivity(), HuiShouActivity.class);
+                break;
+            case R.id.ly_keshou://客收
+                intent = new Intent(getActivity(), KeShouActivity.class);
+                break;
+
         }
         if (intent != null) {
             startActivity(intent);
         }
     }
+
 }

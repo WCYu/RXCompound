@@ -442,6 +442,70 @@
                     android:orientation="horizontal">
 
                     <LinearLayout
+                        android:id="@+id/ly_dianpu_guwen"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="56px"
+                            android:layout_height="56px"
+                            android:layout_gravity="center"
+                            android:layout_marginBottom="15px"
+                            android:layout_marginTop="40px"
+                            android:layout_weight="1"
+                            android:src="@mipmap/dianpuguwen"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="40px"
+                            android:gravity="center"
+                            android:text="店铺"
+                            android:textSize="25px" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="3px"
+                        android:layout_height="match_parent"
+                        android:background="#f7f5f5" />
+
+                    <LinearLayout
+                        android:id="@+id/ly_huiyuan"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/imageView27"
+                            android:layout_width="56px"
+                            android:layout_height="56px"
+                            android:layout_gravity="center"
+                            android:layout_marginBottom="15px"
+                            android:layout_marginTop="40px"
+                            android:layout_weight="1"
+                            android:src="@mipmap/huiyuan"
+                             />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="40px"
+                            android:gravity="center"
+                            android:text="会员"
+                            android:textSize="25px" />
+
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="3px"
+                        android:layout_height="match_parent"
+                        android:background="#f7f5f5" />
+
+                    <LinearLayout
                         android:id="@+id/ly_kehu"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -454,7 +518,6 @@
                             android:layout_weight="1">
 
                             <ImageView
-                                android:id="@+id/red_image"
                                 android:layout_width="56px"
                                 android:layout_height="56px"
                                 android:layout_centerHorizontal="true"
@@ -464,7 +527,6 @@
                                 android:src="@mipmap/kehu" />
 
                             <TextView
-                                android:id="@+id/tv_tab_wallet_state"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="130px"
@@ -489,32 +551,73 @@
 
                     </LinearLayout>
 
-                    <View
-                        android:layout_width="3px"
-                        android:layout_height="match_parent"
-                        android:background="#f7f5f5" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="3px"
+                    android:background="#f7f5f5" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:background="@color/white"
+                    android:orientation="horizontal">
 
                     <LinearLayout
+                        android:id="@+id/ly_zhangben"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:orientation="vertical">
 
                         <ImageView
-                            android:id="@+id/imageView27"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                            android:layout_width="56px"
+                            android:layout_height="56px"
                             android:layout_gravity="center"
                             android:layout_marginBottom="15px"
                             android:layout_marginTop="40px"
                             android:layout_weight="1"
-                             />
+                            android:src="@mipmap/zhangben"/>
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_marginBottom="40px"
                             android:gravity="center"
+                            android:text="账本"
+                            android:textSize="25px" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="3px"
+                        android:layout_height="match_parent"
+                        android:background="#f7f5f5" />
+
+                    <LinearLayout
+                        android:id="@+id/ly_huishou"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="56px"
+                            android:layout_height="56px"
+                            android:layout_gravity="center"
+                            android:layout_marginBottom="15px"
+                            android:layout_marginTop="40px"
+                            android:layout_weight="1"
+                            android:src="@mipmap/huishou"
+                            />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="40px"
+                            android:gravity="center"
+                            android:text="会收"
                             android:textSize="25px" />
 
 
@@ -526,25 +629,51 @@
                         android:background="#f7f5f5" />
 
                     <LinearLayout
+                        android:id="@+id/ly_keshou"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:orientation="vertical">
 
-                        <ImageView
+                        <RelativeLayout
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:layout_marginBottom="15px"
-                            android:layout_marginTop="40px"
-                            android:layout_weight="1" />
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1">
+
+                            <ImageView
+                                android:id="@+id/red_image"
+                                android:layout_width="56px"
+                                android:layout_height="56px"
+                                android:layout_centerHorizontal="true"
+                                android:layout_gravity="center"
+                                android:layout_marginBottom="15px"
+                                android:layout_marginTop="40px"
+                                android:src="@mipmap/keshou" />
+
+                            <TextView
+                                android:id="@+id/tv_tab_wallet_state"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="130px"
+
+                                android:layout_marginTop="20px"
+                                android:background="@drawable/shape_tip"
+                                android:gravity="center"
+                                android:text="12"
+                                android:textColor="@color/colorWhite"
+                                android:textSize="16px"
+                                android:visibility="invisible" />
+                        </RelativeLayout>
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_marginBottom="40px"
                             android:gravity="center"
+                            android:text="客收"
                             android:textSize="25px" />
+
+
                     </LinearLayout>
 
                 </LinearLayout>

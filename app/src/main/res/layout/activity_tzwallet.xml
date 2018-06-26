@@ -73,6 +73,12 @@
                 android:id="@+id/mv_five"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"/>
+
+            <com.rxjy.rxcompound.widget.MoneyTzView
+                android:id="@+id/mv_huiyuan"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"/>
+
             <com.rxjy.rxcompound.widget.MoneyTzView
                 android:id="@+id/mv_six"
                 android:layout_width="fill_parent"

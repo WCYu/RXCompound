@@ -155,6 +155,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="50px"
                 android:text="姓名"
+                android:enabled="false"
                 android:textSize="@dimen/text_size_8"
                 android:textColor="@color/textblack"/>
 
@@ -165,6 +166,7 @@
                 android:layout_centerVertical="true"
                 android:layout_toRightOf="@+id/textView16"
                 android:ems="10"
+                android:enabled="false"
                 android:inputType="textPersonName"
                 android:layout_marginLeft="20px"
                 android:text=""
@@ -236,6 +238,7 @@
                 android:inputType="number"
                 android:layout_marginLeft="20px"
                 android:text=""
+                android:enabled="false"
                 android:textColor="@color/textgreyone"
                 android:textSize="@dimen/text_size_m"
                 android:background="@null"/>

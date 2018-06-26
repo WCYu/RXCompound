@@ -40,6 +40,15 @@ public interface ApiService {
     );
 
     /**
+     * 获取下线
+     */
+    @GET("AppAgent/GetSubordinateList")
+    Observable<String> GetSubordinateList(
+            @Query("card") String card
+    );
+
+
+    /**
      * 登录
      */
 //    @GET("actionapi/AppCurrencyHome/GetAppLogin")

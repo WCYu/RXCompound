@@ -51,7 +51,7 @@ public class HomeNewFragment extends BaseFragment {
     @Bind(R.id.home_view)
     WebView newWeb;
 
-    String url ="http://edu.rxjy.com/a/rs/curaInfo/01012167/tryPostApp";
+    String url ="http://edu.rxjy.com/a/rs/curaInfo/"+App.cardNo+"/tryPostApp";
     private Fragment currentFragment;
     private ProjectFragment projectFragment;
     private CustomerFragment customerFragment;

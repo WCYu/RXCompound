@@ -46,6 +46,7 @@ public class MoneyPresenter extends MoneyContract.Presenter{
 
                     @Override
                     public void onNext(String s) {
+                        Log.e("", "获取钱包信息 = " + s);
                         MoneyBean info = JSONUtils.toObject(s, MoneyBean.class);
                         if (info.getStatusCode() == 0) {
                             mView.responsemoneydata(info);
@@ -106,6 +107,7 @@ public class MoneyPresenter extends MoneyContract.Presenter{
 
                     @Override
                     public void onNext(String s) {
+                        Log.e("tag_钱包信息",s);
                         MoneyBusNewBean info = JSONUtils.toObject(s, MoneyBusNewBean.class);
                         if (info.getStatusCode() == 0) {
                             mView.responsebusmoneynewdata(info);
@@ -135,6 +137,7 @@ public class MoneyPresenter extends MoneyContract.Presenter{
 
                     @Override
                     public void onNext(String s) {
+                        Log.e("tag_钱包信息",s);
                         MoneyDesBean info = JSONUtils.toObject(s, MoneyDesBean.class);
                         if (info.getStatusCode() == 0) {
                             mView.responsedesmoneydata(info);
@@ -164,6 +167,7 @@ public class MoneyPresenter extends MoneyContract.Presenter{
 
                     @Override
                     public void onNext(String s) {
+                        Log.e("tag_钱包信息",s);
                         MoneySupBean info = JSONUtils.toObject(s, MoneySupBean.class);
                         if (info.getStatusCode() == 0) {
                             mView.responsegcmoneydata(info);
@@ -193,6 +197,7 @@ public class MoneyPresenter extends MoneyContract.Presenter{
 
                     @Override
                     public void onNext(String s) {
+                        Log.e("tag_钱包信息",s);
                         MoneyTzBean info = JSONUtils.toObject(s, MoneyTzBean.class);
                         if (info.getStatusCode() == 0) {
                             mView.responsetzmoneydata(info);
@@ -222,6 +227,7 @@ public class MoneyPresenter extends MoneyContract.Presenter{
 
                     @Override
                     public void onNext(String s) {
+                        Log.e("tag_钱包信息",s);
                         MoneyTzBean info = JSONUtils.toObject(s, MoneyTzBean.class);
                         if (info.getStatusCode() == 0) {
                             mView.responsexzmoneydata(info);
@@ -251,6 +257,7 @@ public class MoneyPresenter extends MoneyContract.Presenter{
 
                     @Override
                     public void onNext(String s) {
+                        Log.e("tag_钱包信息",s);
                         HospitalBean info = JSONUtils.toObject(s, HospitalBean.class);
                         if (info.getStatusCode() == 0) {
                             mView.responseHospitalSalary(info.getBody());
