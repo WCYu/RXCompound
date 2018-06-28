@@ -283,22 +283,24 @@ public class NewPeopleHomeFragment extends BaseFragment {
     }
 
     private void jugdeText(String data,TextView view) {
-        switch (data){
-            case "未":
-                view.setText(data);
-                view.setTextColor(Color.parseColor("#e60012"));
-                view.setBackgroundResource(R.drawable.tv_back_red);
-                break;
-            case "待":
-                view.setText(data);
-                view.setTextColor(Color.parseColor("#E0FF6100"));
-                view.setBackgroundResource(R.drawable.tv_back_cheng);
-                break;
-            case "全":
-                view.setText(data);
-                view.setTextColor(Color.parseColor("#39d27f"));
-                view.setBackgroundResource(R.drawable.tv_back_lv);
-                break;
+        if(data!=null&&view!=null){
+            switch (data){
+                case "未":
+                    view.setText("未");
+                    view.setTextColor(Color.parseColor("#e60012"));
+                    view.setBackgroundResource(R.drawable.tv_back_red);
+                    break;
+                case "待":
+                    view.setText("待");
+                    view.setTextColor(Color.parseColor("#E0FF6100"));
+                    view.setBackgroundResource(R.drawable.tv_back_cheng);
+                    break;
+                case "全":
+                    view.setText("全");
+                    view.setTextColor(Color.parseColor("#39d27f"));
+                    view.setBackgroundResource(R.drawable.tv_back_lv);
+                    break;
+            }
         }
     }
 }

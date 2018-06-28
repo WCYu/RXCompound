@@ -596,6 +596,8 @@ public class SplashActivity extends BaseActivity<LoginPresenter> implements Logi
     @Override
     public void responseIsPrefectError(String msg) {
         showToast(msg);
+        Intent intent = new Intent(SplashActivity.this,LoginActivity.class);
+        startActivity(intent);
     }
 
     @Override
