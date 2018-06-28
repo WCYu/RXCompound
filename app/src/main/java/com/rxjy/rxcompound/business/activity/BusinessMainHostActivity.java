@@ -175,10 +175,10 @@ public class BusinessMainHostActivity extends BaseActivity<DestoryPresenter> imp
 //            fragmentList.add(newHomeFragment);
 //        }
 
-        if(getIntent().getIntExtra("isShow",0) == 0){
-            fragmentList.add(new NewPeopleHomeFragment());
-        }else {
+        if(getIntent().getIntExtra("isShow",0) == 1){
             fragmentList.add(newHomeFragment);
+        }else {
+            fragmentList.add(new NewPeopleHomeFragment());
         }
 
         fragmentList.add(walletFragment);

@@ -93,7 +93,7 @@ public class AnswerTwoActivity extends BaseActivity {
         datatwo.add(new Person("40万",27));
         datatwo.add(new Person("60万",28));
         datathere.add(new Person("合伙",29));
-        datathere.add(new Person("投资",30));
+        datathere.add(new Person("独资",30));
         twoAdapter = new AnswerAdapter(this, datatwo);
         thereAdapter = new AnswerAdapter(this, datathere);
         myAdapter = new AnswerAdapter(this, datas);
@@ -167,7 +167,7 @@ public class AnswerTwoActivity extends BaseActivity {
                     datathere.get(position).setChecked(true);
                     currentNum = position;
                 } else if (currentNum != position) { //不是同一个item选中当前的，去除上一个选中的
-                    for (Person person : datas) {
+                    for (Person person : datathere) {
                         person.setChecked(false);
                     }
                     datathere.get(position).setChecked(true);

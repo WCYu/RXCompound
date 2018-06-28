@@ -79,14 +79,14 @@ public class AnswerActivity extends BaseActivity {
 
         tvTitle.setText("瑞祥装饰");
         datas.add(new Person("无", 14));
-        datas.add(new Person("三年已下", 15));
+        datas.add(new Person("三年以下", 15));
         datas.add(new Person("三年以上", 16));
         datatwo.add(new Person("家装", 17));
         datatwo.add(new Person("公装", 18));
         datatwo.add(new Person("其他", 19));
         datathere.add(new Person("无", 20));
         datathere.add(new Person("10人以上", 21));
-        datathere.add(new Person("30人已下", 22));
+        datathere.add(new Person("30人以上", 22));
         twoAdapter = new AnswerAdapter(this, datatwo);
         thereAdapter = new AnswerAdapter(this, datathere);
         myAdapter = new AnswerAdapter(this, datas);
@@ -159,7 +159,7 @@ public class AnswerActivity extends BaseActivity {
                     datathere.get(position).setChecked(true);
                     currentNum = position;
                 } else if (currentNum != position) { //不是同一个item选中当前的，去除上一个选中的
-                    for (Person person : datas) {
+                    for (Person person : datathere) {
                         person.setChecked(false);
                     }
                     datathere.get(position).setChecked(true);

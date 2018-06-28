@@ -91,10 +91,10 @@ public class MainTabHostActivity extends BaseActivity<MainPresenter> implements 
     TabHost.TabSpec tabSpec;
 
     private void init() {
-        if(getIntent().getIntExtra("isShow",0) == 0){
-            tab_home = new Tabs("首页", null, R.drawable.selector_tabicon_home, NewPeopleHomeFragment.class);
-        }else {
+        if(getIntent().getIntExtra("isShow",0) == 1){
             tab_home = new Tabs("首页", null, R.drawable.selector_tabicon_home, HomePageFragment.class);
+        }else {
+            tab_home = new Tabs("首页", null, R.drawable.selector_tabicon_home, NewPeopleHomeFragment.class);
         }
         tab_more = new Tabs("更多", null, R.drawable.selector_tabicon_more, MoreFragment.class);
         tab_find = new Tabs("发现", null, R.drawable.selector_tabicon_find, FindFrqagment.class);

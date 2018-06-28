@@ -95,7 +95,7 @@ public class AnswerThereActivity extends BaseActivity<AnswerPresenter> implement
         titileThere.setText("3、经验目标");
         datas.add(new Person("品牌", 31));
         datas.add(new Person("发展", 32));
-        datas.add(new Person("单元", 33));
+        datas.add(new Person("单源", 33));
         datas.add(new Person("资质", 34));
         datatwo.add(new Person("人员目标", 35));
         datatwo.add(new Person("企业发展", 36));
@@ -177,7 +177,7 @@ public class AnswerThereActivity extends BaseActivity<AnswerPresenter> implement
                     datathere.get(position).setChecked(true);
                     currentNum = position;
                 } else if (currentNum != position) { //不是同一个item选中当前的，去除上一个选中的
-                    for (Person person : datas) {
+                    for (Person person : datathere) {
                         person.setChecked(false);
                     }
                     datathere.get(position).setChecked(true);
