@@ -159,7 +159,7 @@ public class AnswerActivity extends BaseActivity {
                     datathere.get(position).setChecked(true);
                     currentNum = position;
                 } else if (currentNum != position) { //不是同一个item选中当前的，去除上一个选中的
-                    for (Person person : datas) {
+                    for (Person person : datathere) {
                         person.setChecked(false);
                     }
                     datathere.get(position).setChecked(true);
@@ -180,7 +180,6 @@ public class AnswerActivity extends BaseActivity {
     public void onViewClicked() {
         StringBuffer stringbuffer = new StringBuffer();
         StringBuffer string = new StringBuffer();
-
         for (Person pos : datas) {
             boolean checked = pos.isChecked();
             if (checked) {
@@ -202,6 +201,7 @@ public class AnswerActivity extends BaseActivity {
                 string.append("3");
             }
         }
+    Log.e("tag",string.toString());
         if (string.toString().equals("123")) {
             startActivity(new Intent(this, AnswerTwoActivity.class).putExtra("answer", stringbuffer.toString()));
             Log.e("tag", "tag");
