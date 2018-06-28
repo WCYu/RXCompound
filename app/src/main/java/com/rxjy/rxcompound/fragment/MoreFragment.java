@@ -674,6 +674,13 @@ public class MoreFragment extends BaseFragment<GetUserStatusPresenter> implement
                             startActivity(new Intent(getActivity(), LHouseMoreActivity.class));
                         }
                         break;
+                    case 2:
+                        Intent intent = new Intent(getActivity(), WebViewActivity.class);
+                        intent.putExtra("url","https://api.niujingji.cn:8183/static/develop/recommendApp.html?CardNo="+App.cardNo);
+                        intent.putExtra("name","加盟推荐");
+                        intent.putExtra("type","顾问");
+                        startActivity(intent);
+                        break;
                 }
             }
         });
@@ -689,7 +696,7 @@ public class MoreFragment extends BaseFragment<GetUserStatusPresenter> implement
         ButterKnife.unbind(this);
     }
 
-    @OnClick({R.id.iv_morebanner, R.id.ly_kehu, R.id.ly_dianpu, R.id.ly_anli, R.id.ly_bowen, R.id.ly_fuwu, R.id.ly_paidan, R.id.ly_caiwu, R.id.ly_jiameng, R.id.ly_xiaxian, R.id.ly_touzi, R.id.ly_zaishi,R.id.ly_dianpu_guwen, R.id.ly_huiyuan, R.id.ly_zhangben, R.id.ly_huishou, R.id.ly_keshou})
+    @OnClick({R.id.iv_morebanner, R.id.ly_kehu, R.id.ly_dianpu, R.id.ly_anli, R.id.ly_bowen, R.id.ly_fuwu, R.id.ly_paidan, R.id.ly_caiwu, R.id.ly_jiameng, R.id.ly_xiaxian, R.id.ly_touzi, R.id.ly_zaishi, R.id.ly_dianpu_guwen, R.id.ly_huiyuan, R.id.ly_zhangben, R.id.ly_huishou, R.id.ly_keshou})
     public void onViewClicked(View view) {
         Intent intent = null;
 
@@ -763,8 +770,8 @@ public class MoreFragment extends BaseFragment<GetUserStatusPresenter> implement
                 break;
             case R.id.ly_dianpu_guwen://顾问店铺
                 intent = new Intent(getActivity(), WebViewActivity.class);
-                intent.putExtra("url", "http://www.niujingji.cn/static/shop/index.html?CardNo="+App.cardNo);
-                intent.putExtra("type","顾问");
+                intent.putExtra("url", "http://www.niujingji.cn/static/shop/index.html?CardNo=" + App.cardNo);
+                intent.putExtra("type", "顾问");
                 intent.putExtra("name", "店铺");
                 break;
             case R.id.ly_huiyuan://会员
