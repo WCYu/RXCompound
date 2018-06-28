@@ -35,8 +35,8 @@ public class ApiEngine {
 
     private static final String DES_API_ERLOGIN = "http://192.168.1.192:8616/";//温特斯二维码登录
 
-    private static final String GC_API_HOST = "http://api.gc.rxjy.com:/";//线上
-    //  private static final String GC_API_HOST = "http://api.gc.cs/";//测试
+    //private static final String GC_API_HOST = "http://api.gc.rxjy.com:/";//线上
+      private static final String GC_API_HOST = "http://api.gc.cs/";//测试
 
     private static final String BAPI_HOSTMONEY = "http://idc.dcwzg.com:13207/";//线上钱包
     // private static final String BAPI_HOSTMONEY = "http://idc.dcwzg.com/";//测试

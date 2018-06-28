@@ -95,12 +95,12 @@ public class AnswerThereActivity extends BaseActivity<AnswerPresenter> implement
         titileThere.setText("3、经验目标");
         datas.add(new Person("品牌", 31));
         datas.add(new Person("发展", 32));
-        datas.add(new Person("单元", 33));
+        datas.add(new Person("单源", 33));
         datas.add(new Person("资质", 34));
-        datatwo.add(new Person("人员目标", 35));
+        datatwo.add(new Person("人员管理", 35));
         datatwo.add(new Person("企业发展", 36));
         datatwo.add(new Person("投资收益", 37));
-        datatwo.add(new Person("企业服务", 38));
+        datatwo.add(new Person("客户服务", 38));
         datathere.add(new Person("本地立足", 39));
         datathere.add(new Person("年产值20万", 40));
         datathere.add(new Person("大区总代", 41));
