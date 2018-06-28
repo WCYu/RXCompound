@@ -1,5 +1,13 @@
 [
     {
+        "merged": "F:\\worker\\worker\\RXCompound\\androidpullToRefreshSdk\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\indicator_bg_top.xml",
+        "source": "F:\\worker\\worker\\RXCompound\\androidpullToRefreshSdk\\build\\intermediates\\bundles\\debug\\res\\drawable\\indicator_bg_top.xml"
+    },
+    {
+        "merged": "F:\\worker\\worker\\RXCompound\\androidpullToRefreshSdk\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\indicator_bg_bottom.xml",
+        "source": "F:\\worker\\worker\\RXCompound\\androidpullToRefreshSdk\\build\\intermediates\\bundles\\debug\\res\\drawable\\indicator_bg_bottom.xml"
+    },
+    {
         "merged": "E:\\Work\\RXCompound\\androidpullToRefreshSdk\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\indicator_bg_bottom.xml",
         "source": "E:\\Work\\RXCompound\\androidpullToRefreshSdk\\build\\intermediates\\bundles\\debug\\res\\drawable\\indicator_bg_bottom.xml"
     },

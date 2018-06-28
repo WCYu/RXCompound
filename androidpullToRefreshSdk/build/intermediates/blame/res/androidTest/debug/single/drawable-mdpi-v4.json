@@ -8,8 +8,24 @@
         "source": "E:\\Work\\RXCompound\\androidpullToRefreshSdk\\build\\intermediates\\bundles\\debug\\res\\drawable-mdpi-v4\\indicator_arrow.png"
     },
     {
+        "merged": "F:\\worker\\worker\\RXCompound\\androidpullToRefreshSdk\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4\\ic_launcher.png",
+        "source": "F:\\worker\\worker\\RXCompound\\androidpullToRefreshSdk\\build\\intermediates\\bundles\\debug\\res\\drawable-mdpi-v4\\ic_launcher.png"
+    },
+    {
+        "merged": "F:\\worker\\worker\\RXCompound\\androidpullToRefreshSdk\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4\\default_ptr_rotate.png",
+        "source": "F:\\worker\\worker\\RXCompound\\androidpullToRefreshSdk\\build\\intermediates\\bundles\\debug\\res\\drawable-mdpi-v4\\default_ptr_rotate.png"
+    },
+    {
         "merged": "E:\\Work\\RXCompound\\androidpullToRefreshSdk\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4\\default_ptr_rotate.png",
         "source": "E:\\Work\\RXCompound\\androidpullToRefreshSdk\\build\\intermediates\\bundles\\debug\\res\\drawable-mdpi-v4\\default_ptr_rotate.png"
+    },
+    {
+        "merged": "F:\\worker\\worker\\RXCompound\\androidpullToRefreshSdk\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4\\indicator_arrow.png",
+        "source": "F:\\worker\\worker\\RXCompound\\androidpullToRefreshSdk\\build\\intermediates\\bundles\\debug\\res\\drawable-mdpi-v4\\indicator_arrow.png"
+    },
+    {
+        "merged": "F:\\worker\\worker\\RXCompound\\androidpullToRefreshSdk\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4\\default_ptr_flip.png",
+        "source": "F:\\worker\\worker\\RXCompound\\androidpullToRefreshSdk\\build\\intermediates\\bundles\\debug\\res\\drawable-mdpi-v4\\default_ptr_flip.png"
     },
     {
         "merged": "E:\\Work\\RXCompound\\androidpullToRefreshSdk\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4\\default_ptr_flip.png",
