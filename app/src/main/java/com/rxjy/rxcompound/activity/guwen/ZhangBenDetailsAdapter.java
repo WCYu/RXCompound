@@ -45,7 +45,7 @@ public class ZhangBenDetailsAdapter extends BaseAdapter {
         ViewHolder viewHolder = new ViewHolder(convertView);
         viewHolder.tv_danhao.setText(table1.get(position).getDanHao()+"");
         viewHolder.tv_ly.setText(table1.get(position).getLaiYuan()+"");
-        viewHolder.tv_money.setText("+ "+table1.get(position).getMoney());
+        viewHolder.tv_money.setText("-  "+table1.get(position).getMoney());
         viewHolder.tv_time.setText(table1.get(position).getTJShiJian()+"");
         return convertView;
     }

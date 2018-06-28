@@ -78,7 +78,7 @@ public class DownLineBean {
 
             private String Phone;
             private String Name;
-            private Object image;
+            private String image;
             private String State;
 
             public String getPhone() {
@@ -97,11 +97,11 @@ public class DownLineBean {
                 this.Name = Name;
             }
 
-            public Object getImage() {
+            public String getImage() {
                 return image;
             }
 
-            public void setImage(Object image) {
+            public void setImage(String image) {
                 this.image = image;
             }
 

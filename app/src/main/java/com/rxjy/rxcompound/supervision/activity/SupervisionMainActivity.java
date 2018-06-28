@@ -24,6 +24,7 @@ import com.rxjy.rxcompound.fragment.FindFrqagment;
 import com.rxjy.rxcompound.fragment.HomeNewFragment;
 import com.rxjy.rxcompound.fragment.MainFragment;
 import com.rxjy.rxcompound.fragment.MoreFragment;
+import com.rxjy.rxcompound.fragment.NewPeopleHomeFragment;
 import com.rxjy.rxcompound.supervision.fragment.ProjectFragment;
 import com.rxjy.rxcompound.supervision.mvp.contract.MainContract;
 import com.rxjy.rxcompound.supervision.mvp.presenter.MainPresenter;
@@ -155,7 +156,12 @@ public class SupervisionMainActivity extends BaseActivity<MainPresenter> impleme
         //初始化fragmentList数据集合
         fragmentList = new ArrayList<>();
         //将碎片添加到集合中
-        fragmentList.add(homeNewFragment);
+//        fragmentList.add(homeNewFragment);
+        if(getIntent().getIntExtra("isShow",0) == 0){
+            fragmentList.add(new NewPeopleHomeFragment());
+        }else {
+            fragmentList.add(homeNewFragment);
+        }
         fragmentList.add(moreFragment);
         fragmentList.add(findFragment);
         fragmentList.add(mineFragment);

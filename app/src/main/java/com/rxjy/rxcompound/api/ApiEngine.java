@@ -83,7 +83,7 @@ public class ApiEngine {
     //新增接口
 //    public static final String BASEURL = "http://swb.api.cs/"; // 测试
     public static final String BASEURL = "https://api.niujingji.cn:8183/"; //线上
-
+    public static final String NEWYUANGONGURL = RS_API_HOST + "actionapi/GroupManage/GetAppState";
     //积分数据
     public static final String JIFENURL = BASEURL + "JTRenShi/APP_RS_GetIntegralPlate";
     //客户列表  AppEmployee/GetAdvserCustomList  AppEmployee/GetCustomerList

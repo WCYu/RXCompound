@@ -21,10 +21,13 @@ import com.rxjy.rxcompound.commons.base.BaseActivity;
 import com.rxjy.rxcompound.des.mvp.contract.DestoryContract;
 import com.rxjy.rxcompound.des.mvp.presenter.DestoryPresenter;
 import com.rxjy.rxcompound.entity.NumberPackets;
+import com.rxjy.rxcompound.entity.Tabs;
 import com.rxjy.rxcompound.fragment.FindFrqagment;
+import com.rxjy.rxcompound.fragment.HomePageFragment;
 import com.rxjy.rxcompound.fragment.MainFragment;
 import com.rxjy.rxcompound.fragment.MoreFragment;
 import com.rxjy.rxcompound.fragment.NewHomeFragment;
+import com.rxjy.rxcompound.fragment.NewPeopleHomeFragment;
 import com.rxjy.rxcompound.utils.OkhttpUtils;
 
 import java.io.IOException;
@@ -169,8 +172,14 @@ public class BusinessMainHostActivity extends BaseActivity<DestoryPresenter> imp
 //        if (App.busisnew == 1) {
 //            fragmentList.add(customerFragmentnew);
 //        } else {
-            fragmentList.add(newHomeFragment);
+//            fragmentList.add(newHomeFragment);
 //        }
+
+        if(getIntent().getIntExtra("isShow",0) == 0){
+            fragmentList.add(new NewPeopleHomeFragment());
+        }else {
+            fragmentList.add(newHomeFragment);
+        }
 
         fragmentList.add(walletFragment);
         fragmentList.add(findFragment);

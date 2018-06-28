@@ -324,7 +324,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
         map.put("app_id", "");
         map.put("card_no", App.cardNo);
         map.put("landing_date", "");
-        map.put("offline_date","");
+        map.put("offline_date", "");
         map.put("locate_province_now", "");
         map.put("locate_city_now", "");
         map.put("a_equipment ", android.os.Build.MODEL);//使用设备
@@ -439,50 +439,69 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
         Log.e("tag", "++++++++++");
         switch (App.is_group) {
             case "0"://分公司
-                if (App.stage > 1) {
+                if (App.ustart != 2 && App.ustart != 3 && App.ustart != 4) {
                     if (type == 2) {
-                        /**
-                         * 跳转顾问在职
-                         */ //
-                        startActivity(new Intent(this, BusinessMainHostActivity.class));
-                        finish();
+                        isShowDaTi(BusinessMainHostActivity.class);
                     } else if (type == 3) {
-                        //跳转温特斯 //主案
-                        startActivity(new Intent(this, NjjActivity.class));
+                        isShowDaTi(NjjActivity.class);
                     } else if (type == 4) {//项目监理
-                        //SupervisionMainActivity
-                        startActivity(new Intent(this, SupervisionMainActivity.class));
-                        finish();
+                        isShowDaTi(SupervisionMainActivity.class);
                     } else {
-//                if (data.getBody().getApp_stage() > 1) {//资料以及完善
-                        startActivity(new Intent(this, MainTabHostActivity.class));
-                        finish();
-                        Log.e("tag", "ccccccccccccc");
+                        isShowDaTi(MainTabHostActivity.class);
                     }
                 } else {
-                    App.stage = 2;
-                    mPresenter.getIsConsent(cardno, "2");//请求是否需要同意协议
-                    Log.e("tag", "ddddddddd");
-                }
+                    if (App.stage > 1) {
+                        if (type == 2) {
+                            /**
+                             * 跳转顾问在职
+                             */ //
+                            startActivity(new Intent(this, BusinessMainHostActivity.class));
+                            finish();
+                        } else if (type == 3) {
+                            //跳转温特斯 //主案
+                            startActivity(new Intent(this, NjjActivity.class));
+                        } else if (type == 4) {//项目监理
+                            //SupervisionMainActivity
+                            startActivity(new Intent(this, SupervisionMainActivity.class));
+                            finish();
+                        } else {
+//                if (data.getBody().getApp_stage() > 1) {//资料以及完善
+                            startActivity(new Intent(this, MainTabHostActivity.class));
+                            finish();
+                            Log.e("tag", "ccccccccccccc");
+                        }
+                    } else {
+                        App.stage = 2;
+                        mPresenter.getIsConsent(cardno, "2");//请求是否需要同意协议
+                        Log.e("tag", "ddddddddd");
+                    }
 
+                }
                 break;
             case "1"://集团
-                 if (App.stage > 1) {//资料以及完善
-//                if (data.getBody().getApp_stage() > 1) {//资料以及完善
-                     if (App.postName.equals("客服主管") || App.postName.equals("客服专员") || (App.postName.equals("客服经理") || App.postName.equals("平台客服"))) {
-                         App.busisnew = 1;
-                         startActivity(new Intent(this, BusinessMainHostActivity.class));
-                         finish();
-                     }else {
-                         startActivity(new Intent(this, MainTabHostActivity.class));
-                         finish();
-                         Log.e("tag", "ccccccccccccc");
-                     }
+                Log.e("部门---", "集团");
+                if (App.ustart != 2 && App.ustart != 3 && App.ustart != 4) {
+                    isShowDaTi(MainTabHostActivity.class);
                 } else {
-                    App.stage = 2;
-                    mPresenter.getIsConsent(cardno, "2");//请求是否需要同意协议
-                    Log.e("tag", "ddddddddd");
+                    Log.e("-----", "老员工");
+                    if (App.stage > 1) {//资料以及完善
+//                if (data.getBody().getApp_stage() > 1) {//资料以及完善
+                        if (App.postName.equals("客服主管") || App.postName.equals("客服专员") || (App.postName.equals("客服经理") || App.postName.equals("平台客服"))) {
+                            App.busisnew = 1;
+                            startActivity(new Intent(this, BusinessMainHostActivity.class));
+                            finish();
+                        } else {
+                            startActivity(new Intent(this, MainTabHostActivity.class));
+                            finish();
+                            Log.e("tag", "ccccccccccccc");
+                        }
+                    } else {
+                        App.stage = 2;
+                        mPresenter.getIsConsent(cardno, "2");//请求是否需要同意协议
+                        Log.e("tag", "ddddddddd");
+                    }
                 }
+
                 break;
             case "2"://招商
 
@@ -501,7 +520,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
                         //招商
                         startActivity(new Intent(this, JoininNjjActivity.class));
                         finish();
-                    }else {
+                    } else {
                         startActivity(new Intent(this, MainTabHostActivity.class));
                         finish();
                         Log.e("tag", "ccccccccccccc");
@@ -550,7 +569,6 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
     public void responseUserStatus(UserStatusBean data) {
         Log.e("tag", "11111111111");
         ToMain(departs, stage, cardno);
-
     }
 
     @Override
@@ -618,6 +636,42 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
                 }
             }
         }.start();
+    }
+
+    public void isShowDaTi(final Class cls) {
+        OkHttpClient okHttpClient = new OkHttpClient();
+        Request build = new Request.Builder().url("http://edu.rxjy.com/a/api/"+App.cardNo+"/isViewCurr").build();
+        okHttpClient.newCall(build).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                Log.e("tag_是否答题失败",e.getMessage().toString());
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                final String string = response.body().string();
+                Log.e("tag_是否答题",string);
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            JSONObject jsonObject = new JSONObject(string);
+                            int statusCode = jsonObject.getInt("StatusCode");
+                            Intent intent = new Intent(LoginActivity.this, cls);
+                            if(statusCode == 0){
+                                intent.putExtra("isShow",0);
+                            }else {
+                                intent.putExtra("isShow",1);
+                            }
+                            startActivity(intent);
+                            finish();
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+            }
+        });
     }
 
 

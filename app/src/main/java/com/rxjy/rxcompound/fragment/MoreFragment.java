@@ -702,7 +702,7 @@ public class MoreFragment extends BaseFragment<GetUserStatusPresenter> implement
                 intent.putExtra("url", "http://c.wenes.cn/#/Personnel/App/dianPu?card=1");
                 intent.putExtra("name", "店铺");
                 break;
-            case R.id.ly_zaishi://店铺
+            case R.id.ly_zaishi://在施
                 intent = new Intent(getActivity(), WebViewActivity.class);
                 intent.putExtra("url", "http://c.wenes.cn/#/Personnel/App/zaiShi?card=1");
                 intent.putExtra("name", "在施");
@@ -763,7 +763,8 @@ public class MoreFragment extends BaseFragment<GetUserStatusPresenter> implement
                 break;
             case R.id.ly_dianpu_guwen://顾问店铺
                 intent = new Intent(getActivity(), WebViewActivity.class);
-                intent.putExtra("url", "http://www.niujingji.cn/static/shop/index.html?CardNo=s0101010102");
+                intent.putExtra("url", "http://www.niujingji.cn/static/shop/index.html?CardNo="+App.cardNo);
+                intent.putExtra("type","顾问");
                 intent.putExtra("name", "店铺");
                 break;
             case R.id.ly_huiyuan://会员

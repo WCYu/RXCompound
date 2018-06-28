@@ -2,6 +2,7 @@ package com.rxjy.rxcompound.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -91,6 +92,8 @@ public class IdentityInfoNewActivity extends BaseActivity<IdentityInfoPresenter>
     RelativeLayout rlIsmarry;
     @Bind(R.id.tv_save)
     TextView tvSave;
+    @Bind(R.id.tv_tishi)
+    TextView tv_tishi;
 
     List<String> ismarrrylist;
     List<String> edubglist;
@@ -447,6 +450,10 @@ public class IdentityInfoNewActivity extends BaseActivity<IdentityInfoPresenter>
             idcardthreeimg = data.getBody().getImage();
             ivAddthree.setVisibility(View.GONE);
             Glide.with(this).load(data.getBody().getImage()).into(ivPersonicon);
+        }
+        String imageText = data.getBody().getImageText();
+        if(!TextUtils.isEmpty(imageText)){
+            tv_tishi.setText(imageText);
         }
     }
 

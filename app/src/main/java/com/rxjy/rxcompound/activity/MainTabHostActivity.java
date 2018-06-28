@@ -30,6 +30,7 @@ import com.rxjy.rxcompound.fragment.FindFrqagment;
 import com.rxjy.rxcompound.fragment.HomePageFragment;
 import com.rxjy.rxcompound.fragment.MainFragment;
 import com.rxjy.rxcompound.fragment.MoreFragment;
+import com.rxjy.rxcompound.fragment.NewPeopleHomeFragment;
 import com.rxjy.rxcompound.fragment.NewestHomeFragment;
 import com.rxjy.rxcompound.fragment.PersonalFragment;
 import com.rxjy.rxcompound.mvp.contract.MainContract;
@@ -90,7 +91,11 @@ public class MainTabHostActivity extends BaseActivity<MainPresenter> implements 
     TabHost.TabSpec tabSpec;
 
     private void init() {
-        tab_home = new Tabs("首页", null, R.drawable.selector_tabicon_home, HomePageFragment.class);
+        if(getIntent().getIntExtra("isShow",0) == 0){
+            tab_home = new Tabs("首页", null, R.drawable.selector_tabicon_home, NewPeopleHomeFragment.class);
+        }else {
+            tab_home = new Tabs("首页", null, R.drawable.selector_tabicon_home, HomePageFragment.class);
+        }
         tab_more = new Tabs("更多", null, R.drawable.selector_tabicon_more, MoreFragment.class);
         tab_find = new Tabs("发现", null, R.drawable.selector_tabicon_find, FindFrqagment.class);
         tab_main = new Tabs("我", null, R.drawable.selector_tabicon_main, MainFragment.class);

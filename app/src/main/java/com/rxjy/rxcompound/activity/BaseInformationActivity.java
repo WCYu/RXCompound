@@ -437,14 +437,7 @@ public class BaseInformationActivity extends BaseActivity<BaseInformPresenter> i
 //                        .start();
                 break;
             case R.id.rl_sex:
-                pickerViewsex = new OptionsPickerView.Builder(this, new OptionsPickerView.OnOptionsSelectListener() {
-                    @Override
-                    public void onOptionsSelect(int options1, int options2, int options3, View v) {
-                        tv_sex.setText(sexlist.get(options1));
-                    }
-                }).build();
-                pickerViewsex.setPicker(sexlist);
-                pickerViewsex.show();
+//                y
                 break;
             case R.id.rl_identity:
                 startActivity(new Intent(this, IdentityInfoNewActivity.class));
@@ -500,12 +493,12 @@ public class BaseInformationActivity extends BaseActivity<BaseInformPresenter> i
         int[] to = {R.id.iv_moreicon, R.id.tv_moretext};
         simpleAdapter = new SimpleAdapter(this, data_list, R.layout.item_moreitem, from, to);
         gv_tryinfor.setAdapter(simpleAdapter);
-        gv_tryinfor.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(BaseInformationActivity.this, cultureNames[i], Toast.LENGTH_SHORT).show();
-            }
-        });
+//        gv_tryinfor.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                Toast.makeText(BaseInformationActivity.this, cultureNames[i], Toast.LENGTH_SHORT).show();
+//            }
+//        });
     }
 
 

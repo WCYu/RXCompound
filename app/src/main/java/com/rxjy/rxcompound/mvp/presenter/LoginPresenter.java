@@ -84,6 +84,7 @@ public class LoginPresenter  extends LoginContract.Presenter {
 
                     @Override
                     public void onNext(String s) {
+                        Log.e("tag_获取验证码",s);
                         CheckIsBeingBean info = JSONUtils.toObject(s, CheckIsBeingBean.class);
                         mView.responseVerityCode(info);
 

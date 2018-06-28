@@ -28,6 +28,7 @@ import com.rxjy.rxcompound.entity.NumberPackets;
 import com.rxjy.rxcompound.fragment.FindFrqagment;
 import com.rxjy.rxcompound.fragment.MainFragment;
 import com.rxjy.rxcompound.fragment.MoreFragment;
+import com.rxjy.rxcompound.fragment.NewPeopleHomeFragment;
 import com.rxjy.rxcompound.joinin.fragment.JoininMoreFragment;
 import com.rxjy.rxcompound.joinin.fragment.OnTrialFragment;
 import com.rxjy.rxcompound.utils.OkhttpUtils;
@@ -185,7 +186,12 @@ public class NjjActivity extends BaseActivity<DestoryPresenter> implements Desto
         fragmentList = new ArrayList<>();
         //将碎片添加到集合中
 
-        fragmentList.add(homeFragment);
+//        fragmentList.add(homeFragment);
+        if(getIntent().getIntExtra("isShow",0) == 0){
+            fragmentList.add(new NewPeopleHomeFragment());
+        }else {
+            fragmentList.add(homeFragment);
+        }
         fragmentList.add(walletFragment);
         fragmentList.add(findFragment);
         fragmentList.add(mineFragment);

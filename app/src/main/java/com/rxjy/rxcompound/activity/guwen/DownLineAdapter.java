@@ -2,6 +2,7 @@ package com.rxjy.rxcompound.activity.guwen;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,14 +22,14 @@ import java.util.ArrayList;
  * Created by Administrator on 2018/5/30.
  */
 
-public class DownLineAdapter extends BaseAdapter{
+public class DownLineAdapter extends BaseAdapter {
 
     private Context context;
     private ArrayList<DownLineBean> DownLinelist;
 
     public DownLineAdapter(Context context, ArrayList<DownLineBean> DownLinelist) {
         this.context = context;
-        this.DownLinelist=DownLinelist;
+        this.DownLinelist = DownLinelist;
     }
 
     @Override
@@ -51,7 +52,7 @@ public class DownLineAdapter extends BaseAdapter{
         View view;
         ViewHolder viewHolder;
 
-        if(convertView==null){
+        if (convertView == null) {
 
             view = LayoutInflater.from(context).inflate(R.layout.downline_list_it, parent, false);
             AutoUtils.auto(view);
@@ -60,38 +61,38 @@ public class DownLineAdapter extends BaseAdapter{
             viewHolder.downlineItHead = (ImageView) view.findViewById(R.id.downline_it_Head);
             viewHolder.downlineItPhone = (TextView) view.findViewById(R.id.downline_it_phone);
             viewHolder.downlineItIdentity = (TextView) view.findViewById(R.id.downline_it_identity);
-            viewHolder.downlineItActivation= (TextView) view.findViewById(R.id.downline_it_activation);
+            viewHolder.downlineItActivation = (TextView) view.findViewById(R.id.downline_it_activation);
             view.setTag(viewHolder);
-        }else {
+        } else {
             view = convertView;
             viewHolder = (ViewHolder) view.getTag();
         }
         viewHolder.downlineItPhone.setText(DownLinelist.get(0).getBody().getTable().get(position).getPhone());
         viewHolder.downlineItIdentity.setText(DownLinelist.get(0).getBody().getTable().get(position).getName());
-        if(DownLinelist.get(0).getBody().getTable().get(position).getState().equals("已激活")){
+        if (DownLinelist.get(0).getBody().getTable().get(position).getState().equals("已激活")) {
             viewHolder.downlineItActivation.setTextColor(Color.parseColor("#33FF33"));
             viewHolder.downlineItActivation.setText(DownLinelist.get(0).getBody().getTable().get(position).getState());
-        }else{
+        } else {
             viewHolder.downlineItActivation.setTextColor(Color.parseColor("#e60012"));
             viewHolder.downlineItActivation.setText(DownLinelist.get(0).getBody().getTable().get(position).getState());
         }
-        if(DownLinelist.get(0).getBody().getTable().get(position).getImage()!=null){
+        if (DownLinelist.get(0).getBody().getTable().get(position).getImage() != null) {
             RequestOptions options = new RequestOptions();
             options.centerCrop().transform(new GlideCircleTransform(context));
-            Glide.with(context).load(DownLinelist.get(0).getBody().getTable().get(position).getImage()).apply(options).into(viewHolder.downlineItHead);
+            String image = DownLinelist.get(0).getBody().getTable().get(position).getImage();
+            if(!TextUtils.isEmpty(image)){
+                Glide.with(context).load(image).apply(options).into(viewHolder.downlineItHead);
+            }else {
+
+            }
+
         }
         return view;
     }
 
 
-
-
-
-
-
-
-    class ViewHolder{
-        TextView downlineItPhone,downlineItActivation,downlineItIdentity;
+    class ViewHolder {
+        TextView downlineItPhone, downlineItActivation, downlineItIdentity;
         ImageView downlineItHead;
     }
 

@@ -4,7 +4,53 @@
     android:orientation="vertical"
     android:layout_height="match_parent">
 
-    <include layout="@layout/include_header_layout" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:id="@+id/rl_titletop"
+        android:background="@color/color_orange">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="54px"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="24px"
+            android:gravity="center"
+            android:padding="10px"
+            android:src="@drawable/ic_backwrite" />
+
+        <TextView
+            android:id="@+id/iv_add"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:gravity="center"
+            android:text="更多"
+            android:textSize="@dimen/text_size_8"
+            android:textColor="@color/colorWhite"
+            android:visibility="invisible"/>
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_toLeftOf="@id/iv_add"
+            android:layout_toRightOf="@+id/iv_back"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="注册"
+            android:textColor="@color/colorWhite"
+            android:textSize="36px" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:background="@color/colorLine" />
+
+    </RelativeLayout>
 
     <ListView
         android:id="@+id/my_downline_list"

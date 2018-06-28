@@ -20,6 +20,7 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="8dp"
             android:padding="20px"
+            android:background="@color/transparent"
             android:src="@drawable/ic_backwrite" />
 
         <TextView
