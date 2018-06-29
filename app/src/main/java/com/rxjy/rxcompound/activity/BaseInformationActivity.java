@@ -202,12 +202,16 @@ public class BaseInformationActivity extends BaseActivity<BaseInformPresenter> i
         tv_name.setText(data.getBody().getName());
         tv_trydate.setText("试岗日期 " + data.getBody().getTryHillockTime());
         tv_name.setText(data.getBody().getName());
-        if (!StringUtils.isEmpty(App.icon)) {
-            RequestOptions options = new RequestOptions();
-            options.centerCrop().transform(new GlideCircleTransform(this));
-            Glide.with(this).load(App.icon).apply(options).into(ic_icon);
-            hasicon = 1;
-        }
+        String image = data.getBody().getImage();
+        RequestOptions options = new RequestOptions();
+        options.centerCrop().transform(new GlideCircleTransform(this));
+        Glide.with(this).load(image).apply(options).into(ic_icon);
+//        if (!StringUtils.isEmpty(App.icon)) {
+//            RequestOptions options = new RequestOptions();
+//            options.centerCrop().transform(new GlideCircleTransform(this));
+//            Glide.with(this).load(App.icon).apply(options).into(ic_icon);
+//            hasicon = 1;
+//        }
 
 //        if (!StringUtils.isEmpty(data.getBody().getPassport_photo())) {
 ////            Glide.with(this).load(data.getBody().getImage()).centerCrop().transform(new GlideCircleTransform(this)).into(ic_icon);

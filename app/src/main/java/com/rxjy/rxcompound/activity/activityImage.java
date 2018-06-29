@@ -37,22 +37,22 @@ public class activityImage extends BaseActivity {
         tvTitle.setText(title);
         switch (title) {
             case "财务":
-                pictureImage.setImageResource(R.mipmap.caiwuone);
+                pictureImage.setImageResource(R.mipmap.yuecaiwu);
                 break;
             case "资金":
-                pictureImage.setImageResource(R.mipmap.zijing);
+                pictureImage.setImageResource(R.mipmap.yuezijin);
                 break;
             case "商务":
-                pictureImage.setImageResource(R.mipmap.shangwuphoto);
+                pictureImage.setImageResource(R.mipmap.shangwu);
                 break;
             case "主案":
-                pictureImage.setImageResource(R.mipmap.shangwutwo);
+                pictureImage.setImageResource(R.mipmap.zhuan);
                 break;
             case "工程":
-                pictureImage.setImageResource(R.mipmap.gongshione);
+                pictureImage.setImageResource(R.mipmap.gongchengyue);
                 break;
             case "公司":
-                pictureImage.setImageResource(R.mipmap.gongcitwo);
+                pictureImage.setImageResource(R.mipmap.gongsi);
                 break;
         }
     }

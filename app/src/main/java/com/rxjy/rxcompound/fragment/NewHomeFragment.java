@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.JavascriptInterface;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -104,6 +105,7 @@ public class NewHomeFragment extends BaseFragment<HomePageFPresenter> implements
 
                 WebSettings settings = newWeb.getSettings();
                 settings.setJavaScriptEnabled(true);
+                newWeb.addJavascriptInterface(new WebViewJump(), "android");
                 //设置自适应屏幕，两者合用
                 settings.setUseWideViewPort(true); //将图片调整到适合webview的大小
                 settings.setLoadWithOverviewMode(true); // 缩放至屏幕的大小
@@ -152,6 +154,16 @@ public class NewHomeFragment extends BaseFragment<HomePageFPresenter> implements
                 });
 //        addSubscribe(subscribe);
 
+    }
+
+    class WebViewJump{
+        @JavascriptInterface
+        public void jump() {
+            Log.e("tag——","进入");
+            Intent intent = new Intent(getActivity(), getActivity().getClass());
+            startActivity(intent);
+            getActivity().finish();
+        }
     }
 
     private void ShowBanner(final ArrayList<BannerDataBean> datalist) {

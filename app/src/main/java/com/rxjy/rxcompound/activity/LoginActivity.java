@@ -145,6 +145,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
                     tv_prompt.setText("密码不少于6位");
                     return;
                 }
+                showLoading();
                 switch (logintype) {
                     case 1:
                         if (!phonenum.isEmpty() && !veritycode.isEmpty() && !pwdnum.isEmpty()) {
@@ -437,6 +438,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
 
     private void ToMain(int type, int stage, String cardno) {
         Log.e("tag", "++++++++++");
+        dismissLoading();
         switch (App.is_group) {
             case "0"://分公司
                 if (App.ustart != 2 && App.ustart != 3 && App.ustart != 4) {
@@ -601,6 +603,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
     @Override
     public void hideDialog() {
 //        tv_prompt.setText("连接失败");
+        dismissLoading();
     }
 
     @Override

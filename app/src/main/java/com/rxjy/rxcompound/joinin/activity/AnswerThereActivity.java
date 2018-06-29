@@ -97,7 +97,7 @@ public class AnswerThereActivity extends BaseActivity<AnswerPresenter> implement
         datas.add(new Person("发展", 32));
         datas.add(new Person("单源", 33));
         datas.add(new Person("资质", 34));
-        datatwo.add(new Person("人员目标", 35));
+        datatwo.add(new Person("人员管理", 35));
         datatwo.add(new Person("企业发展", 36));
         datatwo.add(new Person("投资收益", 37));
         datatwo.add(new Person("企业服务", 38));

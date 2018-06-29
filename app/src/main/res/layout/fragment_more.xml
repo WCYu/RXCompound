@@ -832,7 +832,7 @@
                             android:layout_marginBottom="15px"
                             android:layout_marginTop="40px"
                             android:layout_weight="1"
-                            android:background="@mipmap/gongcheng" />
+                            android:background="@mipmap/gongchengyue" />
 
                         <TextView
                             android:layout_width="match_parent"
@@ -993,7 +993,7 @@
                             android:layout_marginBottom="15px"
                             android:layout_marginTop="40px"
                             android:layout_weight="1"
-                            android:background="@mipmap/caiwu"/>
+                            android:background="@mipmap/yuecaiwu"/>
 
                         <TextView
                             android:layout_width="match_parent"

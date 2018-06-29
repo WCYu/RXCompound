@@ -153,17 +153,16 @@ public class MainFragment extends BaseFragment<BaseInformPresenter> implements B
         super.onResume();
         Glide.with(getActivity()).load(App.icon).into(iv_personicon);
         icon=App.icon;
-        if (iconischange.equals("1")) {
-            iconischange = "";
+//        if (iconischange.equals("1")) {
+//            iconischange = "";
             mPresenter.getMessage(cardno, "1");
-        }
+//        }
         mPresenter.getMsgnum(cardno);
 
         if(desdatachange==1){
             desdatachange=0;
             mPresenter.getDesMessage(App.cardNo);
         }
-
     }
 
     @Override
@@ -194,7 +193,6 @@ public class MainFragment extends BaseFragment<BaseInformPresenter> implements B
             case R.id.rl_wallet:
 
                 switch (App.apptype) {
-
                     case 34:
                         startActivity(new Intent(getActivity(), MoneyTzActivity.class));
                         break;
@@ -237,8 +235,8 @@ public class MainFragment extends BaseFragment<BaseInformPresenter> implements B
         name=data.getBody().getName();
         tv_pjob.setText(data.getBody().getSex() + "   " + data.getBody().getPostName());
         tv_paccount.setText("账号：" + data.getBody().getCardNo());
-//        Glide.with(getActivity()).load(App.icon).into(iv_personicon);
-//        icon=data.getBody().getImage();
+        Glide.with(getActivity()).load(data.getBody().getImage()).into(iv_personicon);
+        icon=data.getBody().getImage();
     }
 
     @Override

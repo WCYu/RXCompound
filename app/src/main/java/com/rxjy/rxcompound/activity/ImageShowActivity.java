@@ -1,12 +1,13 @@
 package com.rxjy.rxcompound.activity;
 
-import android.app.Activity;
+
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -16,42 +17,60 @@ import com.luck.picture.lib.config.PictureConfig;
 import com.luck.picture.lib.config.PictureMimeType;
 import com.luck.picture.lib.entity.LocalMedia;
 import com.rxjy.rxcompound.R;
+import com.rxjy.rxcompound.api.ApiEngine;
+import com.rxjy.rxcompound.commons.App;
 import com.rxjy.rxcompound.commons.base.BaseActivity;
-import com.rxjy.rxcompound.entity.BankBean;
-import com.rxjy.rxcompound.entity.DesBaseInfoBean;
-import com.rxjy.rxcompound.entity.IconBean;
-import com.rxjy.rxcompound.entity.ImgBean;
-import com.rxjy.rxcompound.entity.MsgNumBean;
-import com.rxjy.rxcompound.entity.PersonBean;
-import com.rxjy.rxcompound.entity.ResultBean;
-import com.rxjy.rxcompound.entity.UserStatusBean;
-import com.rxjy.rxcompound.fragment.MainFragment;
-import com.rxjy.rxcompound.mvp.contract.BaseInformContract;
-import com.rxjy.rxcompound.mvp.presenter.BaseInformPresenter;
-import com.yanzhenjie.album.Album;
+import com.rxjy.rxcompound.commons.base.BasePresenter;
+import com.rxjy.rxcompound.utils.OkhttpUtils;
+import com.rxjy.rxcompound.widget.PinchImageView;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 
 /**
  * Created by hjh on 2017/11/20.
  */
 
-public class ImageShowActivity extends BaseActivity<BaseInformPresenter> implements BaseInformContract.View {
+public class ImageShowActivity extends BaseActivity {
 
 
-    @Bind(R.id.tv_title)
-    TextView tvTitle;
     @Bind(R.id.iv_back)
     ImageView ivBack;
     @Bind(R.id.tv_right)
-    TextView tvRight;
-    @Bind(R.id.iv_img)
-    ImageView ivImg;
+    TextView tvText;
+    @Bind(R.id.tv_title)
+    TextView tvTitle;
+    @Bind(R.id.vp_imgs)
+    ViewPager vpImgs;
+
+    private String aid, uid, mid;
+    private String[] split;
+    private String path;
+    private String imgUrl;
+    private String imgName;
+    private StringBuffer urlBuffer;
+    private StringBuffer imgBuffer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,154 +83,95 @@ public class ImageShowActivity extends BaseActivity<BaseInformPresenter> impleme
         return R.layout.activity_imgshow;
     }
 
-    String type, cardno;
+    String title;
 
     @Override
     public void initData() {
-
-        SharedPreferences sp = getSharedPreferences("rxdy_userdatas", Activity.MODE_PRIVATE);
-        cardno = sp.getString("rxdy_cardno", null);
         Intent intent = getIntent();
-        String title = intent.getStringExtra("title");
-        type = intent.getStringExtra("type");
-        Log.e("TYPE==cardno===", type + "..." + cardno);
-        //：3学位证，4身份证，5银行卡，6离职证明，7证件照，8体检报告(健康证明) 13身份证反面)
-        // 1入职申请表，2简历表，3学位证，4身份证，5银行卡，6离职证明，7证件照，8体检报告，
-        // 9劳动合同，10背景调查，11保密协议，13身份证反面,17个人形象照
-        String img = intent.getStringExtra("img");
-        tvRight.setVisibility(View.VISIBLE);
+        title = intent.getStringExtra("title");
         tvTitle.setText(title);
-        Glide.with(this).load(img).into(ivImg);
-
+        urlBuffer = new StringBuffer();
+        imgBuffer = new StringBuffer();
+        tvText.setText("修改");
+        String image = getIntent().getStringExtra("img");
+        split = image.split(";");
+        views = new ArrayList<>();
+        initVpData(0);
     }
 
     @Override
-    protected BaseInformPresenter onCreatePresenter() {
-        return new BaseInformPresenter(this);
+    protected BasePresenter onCreatePresenter() {
+        return null;
     }
 
 
-    @Override
-    public void responsegetMessage(String s, PersonBean data) {
+    int positions = 0;
 
+    private void initVpData(int nowitem) {
+        tvTitle.setText(title + "(" + (nowitem + 1) + "/" + split.length + ")");
+        views.clear();
+        for (int i = 0; i < split.length; i++) {
+            PinchImageView piv = new PinchImageView(this);
+//                piv.setScaleType(ImageView.ScaleType.CENTER);
+            piv.setScaleType(ImageView.ScaleType.FIT_CENTER);
+            Glide.with(this).load(split[i]).into(piv);
+            views.add(piv);
+        }
+        myPagerAdapter = new MyPagerAdapter(views);
+        vpImgs.setAdapter(myPagerAdapter);
+        vpImgs.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                tvTitle.setText(title + "(" + (position + 1) + "/" + split.length + ")");
+                positions = position;
+//                if (imglist.get(position).getCheckState() == 2 || imglist.get(position).getCheckState() == 0) {//显示重新上传
+//                    tvText.setVisibility(View.VISIBLE);
+//                } else {
+//                    tvText.setVisibility(View.INVISIBLE);
+//                }
+//                aid = imglist.get(position).getAttrId();
+//                mid = imglist.get(position).getModelId() + "";
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
     }
 
-    @Override
-    public void responsegetMessageError(String msg) {
 
-    }
+    private void setImg(int code) {
+        PictureSelector.create(this)
+                .openGallery(PictureMimeType.ofImage())//全部.PictureMimeType.ofAll()、图片.ofImage()、视频.ofVideo()
+                .imageSpanCount(3)// 每行显示个数 int
+                .selectionMode(PictureConfig.SINGLE)// 多选 or 单选 PictureConfig.MULTIPLE or PictureConfig.SINGLE
+                .freeStyleCropEnabled(true)// 裁剪框是否可拖拽 true or false
+                .enableCrop(true)// 是否裁剪 true or false
+                .withAspectRatio(1, 1)// int 裁剪比例 如16:9 3:2 3:4 1:1 可自定义
+                .scaleEnabled(false)// 裁剪是否可放大缩小图片 true or false
+                .forResult(code);//结果回调onActivityResult code 
 
-    @Override
-    public void responseUpdateMessage(PersonBean data) {
-
-    }
-
-    @Override
-    public void responseUpdateMessageError(String msg) {
-
-    }
-
-    @Override
-    public void responseUpdateMessagebank(PersonBean data) {
-
-    }
-
-    @Override
-    public void responseUpdateMessagebankError(String msg) {
-
-    }
-
-    @Override
-    public void responseBankList(BankBean data) {
-
-    }
-
-    @Override
-    public void responseBankListError(String msg) {
-
-    }
-
-    @Override
-    public void responseImg(ImgBean data) {
-        //显示
-        Glide.with(this).load(imgone.get(0)).into(ivImg);
-        //修改上一页面图片
-        if (type.equals("4") || type.equals("13")||type.equals("17")) {
-            IdentityInfoNewActivity.instance.change = 1;
-//            if(type.equals("17")){
-//                BaseInformationActivity.aboutsend.iconischange="1";
-//                MainFragment.aboutsends.iconischange="1";
-//            }
-        } else {
-//            EnterJobActivity.instance.change = 1;
-            ZThreeActivity.instance.change = 1;
+        if (code == 106) {
+            PictureSelector.create(this)
+                    .openGallery(PictureMimeType.ofImage())//全部.PictureMimeType.ofAll()、图片.ofImage()、视频.ofVideo()
+                    .imageSpanCount(3)// 每行显示个数 int
+                    .maxSelectNum(9)// 最大图片选择数量 int
+                    .minSelectNum(0)// 最小选择数量 int
+                    .selectionMode(PictureConfig.MULTIPLE)// 多选 or 单选 PictureConfig.MULTIPLE or PictureConfig.SINGLE
+                    .compress(true)// 是否压缩 true or fals
+                    .isCamera(true)// 是否显示拍照按钮 true or false
+                    .forResult(code);//结果回调onActivityResult code 
         }
     }
 
-    @Override
-    public void responseImgError(String msg) {
-
-    }
-
-    @Override
-    public void responseIcon(IconBean data) {
-
-    }
-
-    @Override
-    public void responseIconError(String msg) {
-
-    }
-
-    @Override
-    public void responseUserStatus(UserStatusBean data) {
-
-    }
-
-    @Override
-    public void responseUserStatusError(String msg) {
-
-    }
-
-    @Override
-    public void responseMsgStatus(MsgNumBean data) {
-
-    }
-
-    @Override
-    public void responseMsgError(String msg) {
-
-    }
-
-    @Override
-    public void responseDesMessage(DesBaseInfoBean data) {
-
-    }
-
-    @Override
-    public void responseDesMessageError(String msg) {
-
-    }
-
-    @Override
-    public void responseIsConsent(ResultBean data) {
-
-    }
-
-    @Override
-    public void responseIsConsentError(String msg) {
-
-    }
-
-    @Override
-    public void showDialog() {
-        showLoading();
-    }
-
-    @Override
-    public void hideDialog() {
-        dismissLoading();
-    }
+    MyPagerAdapter myPagerAdapter;
+    ArrayList<View> views = new ArrayList<>();
 
 
     @OnClick({R.id.iv_back, R.id.tv_right})
@@ -222,47 +182,54 @@ public class ImageShowActivity extends BaseActivity<BaseInformPresenter> impleme
                 break;
             case R.id.tv_right:
 
-                PictureSelector.create(this)
-                        .openGallery(PictureMimeType.ofImage())//全部.PictureMimeType.ofAll()、图片.ofImage()、视频.ofVideo()
-                        .imageSpanCount(3)// 每行显示个数 int
-                        .selectionMode(PictureConfig.SINGLE)// 多选 or 单选 PictureConfig.MULTIPLE or PictureConfig.SINGLE
-                        .freeStyleCropEnabled(true)// 裁剪框是否可拖拽 true or false
-                        .enableCrop(true)// 是否裁剪 true or false
-                        .withAspectRatio(1, 1)// int 裁剪比例 如16:9 3:2 3:4 1:1 可自定义
-                        .scaleEnabled(false)// 裁剪是否可放大缩小图片 true or false
-                        .forResult(666);//结果回调onActivityResult code 
-//                Album.album(this)
-//                        .requestCode(666)
-//                        .toolBarColor(Color.BLACK)
-//                        .statusBarColor(Color.BLACK)
-//                        .navigationBarColor(Color.BLACK)
-//                        .title("选择图片")
-//                        .selectCount(1)
-//                        .columnCount(2)
-//                        .camera(true)
-//                        .start();
                 break;
         }
     }
 
+    private class MyPagerAdapter extends PagerAdapter {
 
-    ArrayList<String> imgone = new ArrayList<>();
+        private ArrayList<View> viewslists;
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        switch (requestCode) {
-            case 666:
-                imgone = new ArrayList<>();
-                if (resultCode == RESULT_OK) {
-                    List<LocalMedia> localMedias = PictureSelector.obtainMultipleResult(data);
-                    for (int i = 0; i < localMedias.size(); i++) {
-                        imgone.add(localMedias.get(i).getCutPath());
-                    }
-//                    imgone = Album.parseResult(data);
-                    mPresenter.upLoadImg(cardno, type, imgone);
-                }
-                break;
+        private int size;
+
+        public MyPagerAdapter(ArrayList<View> viewslists) {
+            this.viewslists = viewslists;
+            size = viewslists == null ? 0 : viewslists.size();
+        }
+
+        public void setViewslists(ArrayList<View> viewslists) {
+            this.viewslists = viewslists;
+            size = viewslists == null ? 0 : viewslists.size();
+        }
+
+        public void finishUpdate(View arg0) {
+        }
+
+        @Override
+        public int getItemPosition(Object object) {
+            // TODO Auto-generated method stub
+            return POSITION_NONE;
+        }
+
+        @Override
+        public int getCount() {
+            return size;
+        }
+
+        @Override
+        public boolean isViewFromObject(View view, Object object) {
+            return view == object;
+        }
+
+        @Override
+        public void destroyItem(ViewGroup container, int position, Object object) {
+            container.removeView(viewslists.get(position % size));
+        }
+
+        @Override
+        public Object instantiateItem(ViewGroup container, int position) {
+            container.addView(viewslists.get(position % size), 0);
+            return viewslists.get(position % size);
         }
     }
 }
