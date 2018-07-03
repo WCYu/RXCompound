@@ -25,8 +25,8 @@
 
             <ImageView
                 android:id="@+id/img_erweima"
-                android:layout_width="240dp"
-                android:layout_height="340dp"
+                android:layout_width="260dp"
+                android:layout_height="260dp"
                 android:scaleType="fitXY"
                 android:layout_centerInParent="true"
                 android:src="@mipmap/erweima"/>

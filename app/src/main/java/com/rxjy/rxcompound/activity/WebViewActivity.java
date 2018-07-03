@@ -22,6 +22,7 @@ import android.widget.TextView;
 
 import com.rxjy.rxcompound.R;
 import com.rxjy.rxcompound.api.ApiEngine;
+import com.rxjy.rxcompound.commons.App;
 import com.rxjy.rxcompound.commons.base.BaseActivity;
 import com.rxjy.rxcompound.commons.base.BasePresenter;
 
@@ -116,6 +117,9 @@ public class WebViewActivity extends BaseActivity {
                 return true;
             }
         });
+        if(App.is_group.equals("1")){
+            rlTool.setBackgroundColor(getResources().getColor(R.color.text_red));
+        }
     }
 
     @Override

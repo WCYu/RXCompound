@@ -63,9 +63,16 @@ public class HomeShejiAdapter extends SingleBaseAdapter<HomeBean.BodyBean.ListBe
         }else if(data.getType()==3){
             holder.llZero.setVisibility(View.GONE);
             holder.llThere.setVisibility(View.VISIBLE);
-            Glide.with(context).load(data.getContentPic().get(0)).into(holder.mvImgone);
-            Glide.with(context).load(data.getContentPic().get(1)).into(holder.mvImgtwo);
-            Glide.with(context).load(data.getContentPic().get(2)).into(holder.mvImgthere);
+            if(data.getContentPic().size()==3){
+                Glide.with(context).load(data.getContentPic().get(0)).into(holder.mvImgone);
+                Glide.with(context).load(data.getContentPic().get(1)).into(holder.mvImgtwo);
+                Glide.with(context).load(data.getContentPic().get(2)).into(holder.mvImgthere);
+            }else if(data.getContentPic().size()==2){
+                Glide.with(context).load(data.getContentPic().get(0)).into(holder.mvImgone);
+                Glide.with(context).load(data.getContentPic().get(1)).into(holder.mvImgtwo);
+            }else {
+                Glide.with(context).load(data.getContentPic().get(0)).into(holder.mvImgone);
+            }
             holder.llEdu.setVisibility(View.GONE);
 
         }

@@ -380,18 +380,18 @@ public class SplashActivity extends BaseActivity<LoginPresenter> implements Logi
                             /**
                              * 跳转顾问在职
                              */ //
-                            startActivity(new Intent(this, BusinessMainHostActivity.class).putExtra("isShow",1));
+                            startActivity(new Intent(this, BusinessMainHostActivity.class).putExtra("isShow", 1));
                             finish();
                         } else if (type == 3) {
                             //跳转温特斯 //主案
-                            startActivity(new Intent(this, NjjActivity.class).putExtra("isShow",1));
+                            startActivity(new Intent(this, NjjActivity.class).putExtra("isShow", 1));
                         } else if (type == 4) {//项目监理
                             //SupervisionMainActivity
-                            startActivity(new Intent(this, SupervisionMainActivity.class).putExtra("isShow",1));
+                            startActivity(new Intent(this, SupervisionMainActivity.class).putExtra("isShow", 1));
                             finish();
                         } else {
 //                if (data.getBody().getApp_stage() > 1) {//资料以及完善
-                            startActivity(new Intent(this, MainTabHostActivity.class).putExtra("isShow",1));
+                            startActivity(new Intent(this, MainTabHostActivity.class).putExtra("isShow", 1));
                             finish();
                             Log.e("tag", "ccccccccccccc");
                         }
@@ -413,10 +413,10 @@ public class SplashActivity extends BaseActivity<LoginPresenter> implements Logi
 //                if (data.getBody().getApp_stage() > 1) {//资料以及完善
                         if (App.postName.equals("客服主管") || App.postName.equals("客服专员") || (App.postName.equals("客服经理") || App.postName.equals("平台客服"))) {
                             App.busisnew = 1;
-                            startActivity(new Intent(this, BusinessMainHostActivity.class).putExtra("isShow",1));
+                            startActivity(new Intent(this, BusinessMainHostActivity.class).putExtra("isShow", 1));
                             finish();
                         } else {
-                            startActivity(new Intent(this, MainTabHostActivity.class).putExtra("isShow",1));
+                            startActivity(new Intent(this, MainTabHostActivity.class).putExtra("isShow", 1));
                             finish();
                             Log.e("tag", "ccccccccccccc");
                         }
@@ -435,18 +435,18 @@ public class SplashActivity extends BaseActivity<LoginPresenter> implements Logi
                     if (App.postid == 10000) {
                         //外部人事
                         if (App.is_exist == 0) {//未同意
-                            startActivity(new Intent(this, AgreeDesActivity.class).putExtra("isShow",1));
+                            startActivity(new Intent(this, AgreeDesActivity.class).putExtra("isShow", 1));
                             finish();
                         } else {//NjjActivity
-                            startActivity(new Intent(this, NjjActivity.class).putExtra("isShow",1));
+                            startActivity(new Intent(this, NjjActivity.class).putExtra("isShow", 1));
                             finish();
                         }
                     } else if (App.postid == 30001) {
                         //招商
-                        startActivity(new Intent(this, JoininNjjActivity.class).putExtra("isShow",1));
+                        startActivity(new Intent(this, JoininNjjActivity.class).putExtra("isShow", 1));
                         finish();
                     } else {
-                        startActivity(new Intent(this, MainTabHostActivity.class).putExtra("isShow",1));
+                        startActivity(new Intent(this, MainTabHostActivity.class).putExtra("isShow", 1));
                         finish();
                         Log.e("tag", "ccccccccccccc");
                     }
@@ -512,17 +512,21 @@ public class SplashActivity extends BaseActivity<LoginPresenter> implements Logi
 
     public void isShowDaTi(final Class cls) {
         OkHttpClient okHttpClient = new OkHttpClient();
-        Request build = new Request.Builder().url("http://edu.rxjy.com/a/api/"+App.cardNo+"/isViewCurr").build();
+        Request build = new Request.Builder().url("http://edu.rxjy.com/a/api/" + App.cardNo + "/isViewCurr").build();
         okHttpClient.newCall(build).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
-                Log.e("tag_是否答题失败",e.getMessage().toString());
+                Log.e("tag_是否答题失败", e.getMessage().toString());
+                Intent intent = new Intent(SplashActivity.this, cls);
+                intent.putExtra("isShow", 0);
+                startActivity(intent);
+                finish();
             }
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 final String string = response.body().string();
-                Log.e("tag_是否答题",string);
+                Log.e("tag_是否答题", string);
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
@@ -530,10 +534,10 @@ public class SplashActivity extends BaseActivity<LoginPresenter> implements Logi
                             JSONObject jsonObject = new JSONObject(string);
                             int statusCode = jsonObject.getInt("StatusCode");
                             Intent intent = new Intent(SplashActivity.this, cls);
-                            if(statusCode == 0){
-                                intent.putExtra("isShow",0);
-                            }else {
-                                intent.putExtra("isShow",1);
+                            if (statusCode == 0) {
+                                intent.putExtra("isShow", 0);
+                            } else {
+                                intent.putExtra("isShow", 1);
                             }
                             startActivity(intent);
                             finish();
@@ -596,7 +600,7 @@ public class SplashActivity extends BaseActivity<LoginPresenter> implements Logi
     @Override
     public void responseIsPrefectError(String msg) {
         showToast(msg);
-        Intent intent = new Intent(SplashActivity.this,LoginActivity.class);
+        Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
         startActivity(intent);
     }
 

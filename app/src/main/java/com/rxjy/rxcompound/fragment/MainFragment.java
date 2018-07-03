@@ -30,6 +30,7 @@ import com.rxjy.rxcompound.activity.MoneyTzActivity;
 import com.rxjy.rxcompound.activity.OfficeActivity;
 import com.rxjy.rxcompound.activity.SettingActivity;
 import com.rxjy.rxcompound.activity.WorkActivity;
+import com.rxjy.rxcompound.activity.more.KeHuActivity;
 import com.rxjy.rxcompound.activity.my.JiFenActivity;
 import com.rxjy.rxcompound.activity.my.UserInfoActivity;
 import com.rxjy.rxcompound.commons.App;
@@ -45,10 +46,15 @@ import com.rxjy.rxcompound.entity.MsgNumBean;
 import com.rxjy.rxcompound.entity.PersonBean;
 import com.rxjy.rxcompound.entity.ResultBean;
 import com.rxjy.rxcompound.entity.UserStatusBean;
+import com.rxjy.rxcompound.entity.more.KeHuTongJiBean;
 import com.rxjy.rxcompound.entity.my.UserInfoBean;
 import com.rxjy.rxcompound.mvp.contract.BaseInformContract;
 import com.rxjy.rxcompound.mvp.presenter.BaseInformPresenter;
 import com.rxjy.rxcompound.utils.OkhttpUtils;
+import com.rxjy.rxcompound.utils.ToastUtil;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -90,6 +96,9 @@ public class MainFragment extends BaseFragment<BaseInformPresenter> implements B
     RelativeLayout rlMaintop;
     @Bind(R.id.rl_wallet)
     RelativeLayout rlWallet;
+    @Bind(R.id.rl_chengjiu)
+    RelativeLayout rl_chengjiu;
+
     @Bind(R.id.tv_messagenum)
     TextView tvMessagenum;
     @Bind(R.id.rl_jifen)
@@ -162,8 +171,10 @@ public class MainFragment extends BaseFragment<BaseInformPresenter> implements B
         if (App.is_group.equals("2")) {
             getUserInfo();
             img_erweima.setVisibility(View.VISIBLE);
+            rl_chengjiu.setVisibility(View.GONE);
+            rlWallet.setEnabled(false);
+            rl_informmessage.setEnabled(false);
         }
-
     }
 
     public void getUserInfo() {
@@ -187,14 +198,31 @@ public class MainFragment extends BaseFragment<BaseInformPresenter> implements B
                 getActivity().runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        Gson gson = new Gson();
-                        UserInfoBean userInfoBean = gson.fromJson(string, UserInfoBean.class);
-                        UserInfoBean.BodyBean bodyBean = userInfoBean.getBody().get(0);
-                        tv_pname.setText(bodyBean.getU_name());
-                        tv_paccount.setText(bodyBean.getCard_no());
-                        if (!TextUtils.isEmpty(bodyBean.getImage())) {
-                            Glide.with(getActivity()).load(bodyBean.getImage()).apply(RequestOptions.circleCropTransform()).into(iv_personicon);
+                        try {
+                            JSONObject jsonObject = new JSONObject(string);
+                            int statusCode = jsonObject.getInt("StatusCode");
+                            String statusMsg = jsonObject.getString("StatusMsg");
+                            if(statusCode == 0){
+                                Gson gson = new Gson();
+                                UserInfoBean userInfoBean = gson.fromJson(string, UserInfoBean.class);
+                                UserInfoBean.BodyBean bodyBean = userInfoBean.getBody().get(0);
+                                tv_pname.setText(bodyBean.getU_name());
+                                if(App.postName.equals("投资招商")){
+                                    tv_paccount.setText(bodyBean.getPhone());
+                                    tv_pjob.setVisibility(View.GONE);
+                                }else {
+                                    tv_paccount.setText(bodyBean.getCard_no());
+                                }
+                                if (!TextUtils.isEmpty(bodyBean.getImage())) {
+                                    Glide.with(getActivity()).load(bodyBean.getImage()).apply(RequestOptions.circleCropTransform()).into(iv_personicon);
+                                }
+                            }else {
+                                ToastUtil.getInstance().toastCentent(statusMsg,getActivity());
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
                         }
+
                     }
                 });
             }
@@ -207,7 +235,7 @@ public class MainFragment extends BaseFragment<BaseInformPresenter> implements B
     public void onResume() {
         super.onResume();
         if (App.is_group.equals("2")) {
-
+            getUserInfo();
         } else {
             if (!TextUtils.isEmpty(App.icon)) {
                 Glide.with(getActivity()).load(App.icon).into(iv_personicon);

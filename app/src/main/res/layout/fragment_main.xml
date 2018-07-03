@@ -40,14 +40,14 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="20px"
             android:scaleType="fitXY"
-            android:src="@drawable/ic_mainicon" />
+            android:src="@mipmap/morenicon" />
 
         <TextView
             android:id="@+id/tv_pname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/iv_personicon"
-            android:layout_marginLeft="20px"
+            android:layout_marginLeft="40px"
             android:layout_marginTop="12px"
             android:layout_toRightOf="@+id/iv_personicon"
             android:text=""
@@ -82,7 +82,7 @@
             android:layout_centerVertical="true"
             android:layout_marginRight="68px"
             android:visibility="gone"
-            android:src="@drawable/erweima" />
+            android:src="@mipmap/saoma" />
 
         <ImageView
             android:id="@+id/imageView5"

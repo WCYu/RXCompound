@@ -8,6 +8,7 @@
     tools:context="com.rxjy.rxcompound.activity.my.SetEmiActivity">
 
     <RelativeLayout
+        android:id="@+id/rl_back"
         android:layout_width="fill_parent"
         android:layout_height="100px"
         android:background="@color/colorPrimaryDes">

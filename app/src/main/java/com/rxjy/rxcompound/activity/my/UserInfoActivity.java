@@ -33,6 +33,7 @@ import com.rxjy.rxcompound.commons.base.BaseActivity;
 import com.rxjy.rxcompound.commons.base.BasePresenter;
 import com.rxjy.rxcompound.entity.my.UserInfoBean;
 import com.rxjy.rxcompound.utils.OkhttpUtils;
+import com.rxjy.rxcompound.utils.ToastUtil;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -121,6 +122,7 @@ public class UserInfoActivity extends BaseActivity {
         initUpData();
         if(App.postName.equals("投资招商")){
             rl_back.setBackgroundColor(getResources().getColor(R.color.text_red));
+            rlTime.setVisibility(View.GONE);
         }
     }
 
@@ -367,17 +369,29 @@ public class UserInfoActivity extends BaseActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        Gson gson = new Gson();
-                        UserInfoBean userInfoBean = gson.fromJson(string, UserInfoBean.class);
-                        bodyBean = userInfoBean.getBody().get(0);
-                        tvName.setText(bodyBean.getU_name());
-                        tvGender.setText(bodyBean.getSex());
-                        tvBirthday.setText(bodyBean.getBirthday_txt());
-                        tvPhone.setText(bodyBean.getPhone());
-                        tvMailbox.setText(bodyBean.getEmail());
-                        if(!TextUtils.isEmpty(bodyBean.getImage())){
-                            Glide.with(UserInfoActivity.this).load(bodyBean.getImage()).apply(RequestOptions.circleCropTransform()).into(rivHeadPhoto);
+                        try {
+                            JSONObject jsonObject = new JSONObject(string);
+                            int statusCode = jsonObject.getInt("StatusCode");
+                            String statusMsg = jsonObject.getString("StatusMsg");
+                            if(statusCode == 0){
+                                Gson gson = new Gson();
+                                UserInfoBean userInfoBean = gson.fromJson(string, UserInfoBean.class);
+                                bodyBean = userInfoBean.getBody().get(0);
+                                tvName.setText(bodyBean.getU_name());
+                                tvGender.setText(bodyBean.getSex());
+                                tvBirthday.setText(bodyBean.getBirthday_txt());
+                                tvPhone.setText(bodyBean.getPhone());
+                                tvMailbox.setText(bodyBean.getEmail());
+                                if(!TextUtils.isEmpty(bodyBean.getImage())){
+                                    Glide.with(UserInfoActivity.this).load(bodyBean.getImage()).apply(RequestOptions.circleCropTransform()).into(rivHeadPhoto);
+                                }
+                            }else {
+                                ToastUtil.getInstance().toastCentent(statusMsg);
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
                         }
+
                     }
                 });
             }

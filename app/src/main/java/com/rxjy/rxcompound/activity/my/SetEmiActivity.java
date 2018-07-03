@@ -8,9 +8,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.rxjy.rxcompound.R;
+import com.rxjy.rxcompound.commons.App;
 import com.rxjy.rxcompound.commons.base.BaseActivity;
 import com.rxjy.rxcompound.commons.base.BasePresenter;
 import com.rxjy.rxcompound.utils.ToastUtil;
@@ -31,6 +33,8 @@ public class SetEmiActivity extends BaseActivity {
     LinearLayout rlName;
     @Bind(R.id.btn_commit)
     Button btnCommit;
+    @Bind(R.id.rl_back)
+    RelativeLayout rl_back;
 
     @Override
     public int getLayout() {
@@ -40,6 +44,10 @@ public class SetEmiActivity extends BaseActivity {
     @Override
     public void initData() {
         ButterKnife.bind(this);
+        if(App.postName.equals("投资招商")){
+            rl_back.setBackgroundColor(getResources().getColor(R.color.text_red));
+            btnCommit.setBackgroundColor(getResources().getColor(R.color.text_red));
+        }
     }
 
     @Override

@@ -313,7 +313,7 @@
                     android:layout_marginBottom="15px"
                     android:layout_marginTop="40px"
                     android:layout_weight="1"
-                    android:src="@mipmap/main_case" />
+                    android:src="@mipmap/zhaoshangzhuan" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -344,7 +344,7 @@
                     android:layout_marginBottom="15px"
                     android:layout_marginTop="40px"
                     android:layout_weight="1"
-                    android:src="@mipmap/engineering" />
+                    android:src="@mipmap/zhaoshanggongcheng" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -380,7 +380,7 @@
                     android:layout_marginBottom="15px"
                     android:layout_marginTop="40px"
                     android:layout_weight="1"
-                    android:src="@mipmap/company_image" />
+                    android:src="@mipmap/zhaoshanggongsi" />
 
                 <TextView
                     android:layout_width="match_parent"
