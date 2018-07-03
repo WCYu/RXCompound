@@ -11,27 +11,43 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bigkoo.pickerview.OptionsPickerView;
+import com.bumptech.glide.Glide;
+import com.google.gson.Gson;
 import com.luck.picture.lib.PictureSelector;
 import com.luck.picture.lib.config.PictureConfig;
 import com.luck.picture.lib.config.PictureMimeType;
 import com.luck.picture.lib.entity.LocalMedia;
 import com.rxjy.rxcompound.R;
+import com.rxjy.rxcompound.activity.more.KeHuActivity;
 import com.rxjy.rxcompound.adapter.ImageAddAdapter;
 import com.rxjy.rxcompound.commons.App;
 import com.rxjy.rxcompound.commons.base.BaseActivity;
 import com.rxjy.rxcompound.commons.utils.StringUtils;
 import com.rxjy.rxcompound.entity.FigureImgBean;
 import com.rxjy.rxcompound.entity.FigurePersonBean;
+import com.rxjy.rxcompound.entity.ImgDataBean;
+import com.rxjy.rxcompound.entity.more.KeHuTongJiBean;
 import com.rxjy.rxcompound.mvp.contract.FigureContract;
 import com.rxjy.rxcompound.mvp.presenter.FigurePresenter;
+import com.rxjy.rxcompound.utils.OkhttpUtils;
+import com.rxjy.rxcompound.utils.ToastUtil;
 import com.rxjy.rxcompound.widget.MyGridView;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Response;
 
 /**
  * Created by hjh on 2018/4/25.
@@ -54,7 +70,11 @@ public class FigureDetailsActivity extends BaseActivity<FigurePresenter> impleme
     RelativeLayout gvTop;
     @Bind(R.id.rl_viewimg)
     RelativeLayout rlViewimg;
+    @Bind(R.id.iv_picexample)
+    ImageView ivPicexample;
+    private String title;
 
+    ArrayList watchimglist ;
     @Override
     public int getLayout() {
         return R.layout.activity_figuredetails;
@@ -65,7 +85,7 @@ public class FigureDetailsActivity extends BaseActivity<FigurePresenter> impleme
     @Override
     public void initData() {
         Intent intent = getIntent();
-        String title = intent.getStringExtra("title");
+        title = intent.getStringExtra("title");
         type = intent.getStringExtra("type");
         id_dnum = intent.getStringExtra("id_dnum");
         tvTitle.setText(title);
@@ -76,8 +96,52 @@ public class FigureDetailsActivity extends BaseActivity<FigurePresenter> impleme
         list_imguplode = new ArrayList<>();
         list_img.add("");
         list_lm = new ArrayList<>();
-        rlViewimg.setVisibility(View.GONE);
+        watchimglist = new ArrayList();
+//        rlViewimg.setVisibility(View.GONE);
         ShowImageAdd();
+        showImg();
+    }
+
+    private void showImg() {
+        Map map = new HashMap();
+        switch (title){
+            case "商务部":
+                map.put("dept", 2);
+                break;
+            case "投资部":
+                map.put("dept", 1);
+                break;
+            case "工程部":
+                map.put("dept", 3);
+                break;
+            case "主案部":
+                map.put("dept", 4);
+                break;
+        }
+        map.put("region", App.regionid);
+        OkhttpUtils.doGet("http://edu.rxjy.com/a/xz/xzImage/getFormStandard", map, new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                Log.e("tag_获取默认图片失败",e.getMessage().toString());
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                String string = response.body().string();
+                Log.e("tag_默认图片",string);
+                Gson gson = new Gson();
+                final ImgDataBean imgDataBean = gson.fromJson(string, ImgDataBean.class);
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        String imgUrl = imgDataBean.getBody().getImgUrl();
+                        Glide.with(FigureDetailsActivity.this).load(imgUrl).into(ivPicexample);
+                        watchimglist.add(imgUrl);
+                    }
+                });
+            }
+        });
+
     }
 
     @Override
@@ -95,7 +159,8 @@ public class FigureDetailsActivity extends BaseActivity<FigurePresenter> impleme
 
     private OptionsPickerView pickerView;
     String name, namecard, idea;
-    @OnClick({R.id.iv_back, R.id.tv_submit, R.id.gv_top})
+
+    @OnClick({R.id.iv_back, R.id.tv_submit, R.id.gv_top,R.id.iv_picexample})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.iv_back:
@@ -130,6 +195,12 @@ public class FigureDetailsActivity extends BaseActivity<FigurePresenter> impleme
                     }).build();
                     pickerView.setPicker(list_txt);
                     pickerView.show();
+                }
+                break;
+            case R.id.iv_picexample:
+                if(watchimglist!=null&&watchimglist.size()>0){
+                    App.titletopcolor=1;
+                    watchLargerImage2("",watchimglist,0);
                 }
                 break;
         }
@@ -202,6 +273,7 @@ public class FigureDetailsActivity extends BaseActivity<FigurePresenter> impleme
     ArrayList<String> list_imguplode;
     List<LocalMedia> list_lm;
     ImageAddAdapter imageAddAdapter;
+
     private void ShowImageAdd() {
         imageAddAdapter = new ImageAddAdapter(this, list_img);
         gvImg.setAdapter(imageAddAdapter);

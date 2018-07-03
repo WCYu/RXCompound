@@ -491,26 +491,26 @@ public class ZThreeActivity extends BaseActivity<ZThreePresenter> implements ZTh
                 }
                 break;
             case R.id.tv_save:
-                if (picone != 1) {
-                    showToast("请上传银行卡正面！");
-                    break;
-                }
-                if (picfour != 1) {
-                    showToast("请上传一寸照！");
-                    break;
-                }
-                if (pictwo != 1) {
-                    showToast("请上传学历证明！");
-                    break;
-                }
-                if (picfive != 1) {
-                    showToast("请上传体检报告！");
-                    break;
-                }
-                if (picthree != 1) {
-                    showToast("请上传离职证明！");
-                    break;
-                }
+//                if (picone != 1) {
+//                    showToast("请上传银行卡正面！");
+//                    break;
+//                }
+//                if (picfour != 1) {
+//                    showToast("请上传一寸照！");
+//                    break;
+//                }
+//                if (pictwo != 1) {
+//                    showToast("请上传学历证明！");
+//                    break;
+//                }
+//                if (picfive != 1) {
+//                    showToast("请上传体检报告！");
+//                    break;
+//                }
+//                if (picthree != 1) {
+//                    showToast("请上传离职证明！");
+//                    break;
+//                }
                 String bankname = tvBank.getText().toString();
                 String bankusername = etBankname.getText().toString();
                 String banknum = etBanknum.getText().toString();

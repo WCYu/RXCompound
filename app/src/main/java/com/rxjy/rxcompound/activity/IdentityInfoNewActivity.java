@@ -263,18 +263,18 @@ public class IdentityInfoNewActivity extends BaseActivity<IdentityInfoPresenter>
                 pickerView.show();
                 break;
             case R.id.tv_save:
-                if (hasthree == 0) {
-                    showToast("请上传形象照！");
-                    return;
-                }
-                if (hasone == 0) {
-                    showToast("请上传身份证正面！");
-                    return;
-                }
-                if (hastwo == 0) {
-                    showToast("请上传身份证反面！");
-                    return;
-                }
+//                if (hasthree == 0) {
+//                    showToast("请上传形象照！");
+//                    return;
+//                }
+//                if (hasone == 0) {
+//                    showToast("请上传身份证正面！");
+//                    return;
+//                }
+//                if (hastwo == 0) {
+//                    showToast("请上传身份证反面！");
+//                    return;
+//                }
                 String name = etName.getText().toString();
                 String idcard = etIdcard.getText().toString();
                 String address = etOldaddress.getText().toString();

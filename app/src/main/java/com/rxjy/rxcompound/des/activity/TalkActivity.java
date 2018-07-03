@@ -379,7 +379,9 @@ List<GetHuiFang.Body> list = new ArrayList<>();
                 startActivity(new Intent(this, TalkContractActivity.class).putExtra("rwdid", info.getCi_RwdId()));
                 break;
             case R.id.ly_liangfang://量房
-                Intent intent = new Intent(TalkActivity.this, YiLiangFangActivity.class);
+//                Intent intent = new Intent(TalkActivity.this, YiLiangFangActivity.class);
+//                intent.putExtra(Constants.ACTION_TO_DAI_MEASURE_CLIENT_INFO, getIntent().getSerializableExtra(Constants.ACTION_TO_DAI_MEASURE_CLIENT_INFO));
+                Intent intent = new Intent(TalkActivity.this, DesDaiMeasureActivity.class);
                 intent.putExtra(Constants.ACTION_TO_DAI_MEASURE_CLIENT_INFO, getIntent().getSerializableExtra(Constants.ACTION_TO_DAI_MEASURE_CLIENT_INFO));
                 lfandyqbs = 0;
                 llLiangfangandyiqian.setVisibility(View.GONE);

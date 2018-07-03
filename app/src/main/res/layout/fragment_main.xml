@@ -25,6 +25,7 @@
         android:layout_height="0.1px"
         android:background="@color/line1"
         android:layout_marginTop="20px"/>
+
     <RelativeLayout
         android:id="@+id/rl_persondetails"
         android:layout_width="fill_parent"
@@ -47,21 +48,21 @@
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/iv_personicon"
             android:layout_marginLeft="20px"
-            android:layout_toRightOf="@+id/iv_personicon"
             android:layout_marginTop="12px"
-            android:textSize="@dimen/text_size_l"
+            android:layout_toRightOf="@+id/iv_personicon"
+            android:text=""
             android:textColor="@color/text_black"
-            android:text="" />
+            android:textSize="@dimen/text_size_l" />
 
         <TextView
             android:id="@+id/tv_pjob"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/tv_pname"
-            android:layout_toRightOf="@+id/tv_pname"
             android:layout_marginLeft="40px"
-            android:textSize="@dimen/text_size_8"
-            android:text="" />
+            android:layout_toRightOf="@+id/tv_pname"
+            android:text=""
+            android:textSize="@dimen/text_size_8" />
 
         <TextView
             android:id="@+id/tv_paccount"
@@ -70,8 +71,18 @@
             android:layout_alignLeft="@+id/tv_pname"
             android:layout_below="@+id/tv_pname"
             android:layout_marginTop="15px"
-            android:textSize="@dimen/text_size_m"
-            android:text="" />
+            android:text=""
+            android:textSize="@dimen/text_size_m" />
+
+        <ImageView
+            android:id="@+id/img_erweima"
+            android:layout_width="30px"
+            android:layout_height="30px"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="68px"
+            android:visibility="gone"
+            android:src="@drawable/erweima" />
 
         <ImageView
             android:id="@+id/imageView5"

@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -62,6 +63,8 @@ public class UserInfoActivity extends BaseActivity {
 
     @Bind(R.id.iv_back)
     ImageView ivBack;
+    @Bind(R.id.rl_back)
+    RelativeLayout rl_back;
     @Bind(R.id.tv_title)
     TextView tvTitle;
     @Bind(R.id.riv_head_photo)
@@ -103,6 +106,7 @@ public class UserInfoActivity extends BaseActivity {
     private String imgName;
     private String token;
     private PopupWindow popupWindow;
+    private UserInfoBean.BodyBean bodyBean;
 
     @Override
     public int getLayout() {
@@ -115,6 +119,9 @@ public class UserInfoActivity extends BaseActivity {
         getUserInfo();
         initSexData();
         initUpData();
+        if(App.postName.equals("投资招商")){
+            rl_back.setBackgroundColor(getResources().getColor(R.color.text_red));
+        }
     }
 
     @Override
@@ -208,6 +215,10 @@ public class UserInfoActivity extends BaseActivity {
 
         popupWindow = new PopupWindow(vicinityView, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         ImageView img_close = (ImageView) vicinityView.findViewById(R.id.img_close);
+        ImageView img_erweima = (ImageView) vicinityView.findViewById(R.id.img_erweima);
+        if(!TextUtils.isEmpty(bodyBean.getEwm())){
+            Glide.with(UserInfoActivity.this).load(bodyBean.getEwm()).into(img_erweima);
+        }
         WindowManager.LayoutParams attributes = getWindow().getAttributes();
         attributes.alpha=0.4f;
         getWindow().setAttributes(attributes);
@@ -358,13 +369,15 @@ public class UserInfoActivity extends BaseActivity {
                     public void run() {
                         Gson gson = new Gson();
                         UserInfoBean userInfoBean = gson.fromJson(string, UserInfoBean.class);
-                        UserInfoBean.BodyBean bodyBean = userInfoBean.getBody().get(0);
+                        bodyBean = userInfoBean.getBody().get(0);
                         tvName.setText(bodyBean.getU_name());
                         tvGender.setText(bodyBean.getSex());
                         tvBirthday.setText(bodyBean.getBirthday_txt());
                         tvPhone.setText(bodyBean.getPhone());
                         tvMailbox.setText(bodyBean.getEmail());
-                        Glide.with(UserInfoActivity.this).load(bodyBean.getImage()).apply(RequestOptions.circleCropTransform()).into(rivHeadPhoto);
+                        if(!TextUtils.isEmpty(bodyBean.getImage())){
+                            Glide.with(UserInfoActivity.this).load(bodyBean.getImage()).apply(RequestOptions.circleCropTransform()).into(rivHeadPhoto);
+                        }
                     }
                 });
             }

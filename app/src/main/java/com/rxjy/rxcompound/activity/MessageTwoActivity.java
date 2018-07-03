@@ -45,25 +45,33 @@ public class MessageTwoActivity extends BaseActivity<MessageTwoPresenter> implem
     @Override
     public void initData() {
         tvTitle.setText("消息");
-        Intent intent=getIntent();
-        String groupid=intent.getStringExtra("groupid");
-        Log.e("groupid",groupid);
-        Log.e("appcrdno",App.cardNo);
-        Log.e("appcrdno",App.regionid+"");
-        mPresenter.getInfoMessageTwoList(App.cardNo,groupid);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Intent intent = getIntent();
+        String groupid = intent.getStringExtra("groupid");
+        Log.e("groupid", groupid);
+        Log.e("appcrdno", App.cardNo);
+        Log.e("appcrdno", App.regionid + "");
+        mPresenter.getInfoMessageTwoList(App.cardNo, groupid);
 //        MessageTwoAdapter adapter=new MessageTwoAdapter(this,)
         ShowListview();
     }
+
+
     MessageTwoAdapter messageTwoAdapter;
     ArrayList<InfoMessageBodyBean> list;
-    private void ShowListview(){
-        list=new ArrayList<>();
-        messageTwoAdapter=new MessageTwoAdapter(this,list);
+
+    private void ShowListview() {
+        list = new ArrayList<>();
+        messageTwoAdapter = new MessageTwoAdapter(this, list);
         llMessage.setAdapter(messageTwoAdapter);
         llMessage.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                mPresenter.toSeeDetails(list.get(position).getId()+"");
+                mPresenter.toSeeDetails(list.get(position).getId() + "");
                 if (list.get(position).getType().equals("1") || list.get(position).getType().equals("2")) {
                     startActivity(new Intent(MessageTwoActivity.this, IdentityInfoNewActivity.class));
                 } else if (list.get(position).getType().equals("3")) {//入职资料
@@ -111,8 +119,6 @@ public class MessageTwoActivity extends BaseActivity<MessageTwoPresenter> implem
     public void hideDialog() {
         dismissLoading();
     }
-
-
 
 
     @OnClick(R.id.iv_back)

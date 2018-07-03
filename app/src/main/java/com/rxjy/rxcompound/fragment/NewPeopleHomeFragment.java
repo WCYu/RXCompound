@@ -134,6 +134,16 @@ public class NewPeopleHomeFragment extends BaseFragment {
                         ShowBanner(info.getBody());
                     }
                 });
+        switch (App.is_group){
+            case "0":
+                lyCheliang.setVisibility(View.GONE);
+                lyZhusu.setVisibility(View.GONE);
+                break;
+
+            case "1":
+
+                break;
+        }
 
     }
 

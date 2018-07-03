@@ -4,14 +4,14 @@
     android:layout_height="wrap_content">
 
     <RelativeLayout
-        android:layout_width="800px"
-        android:layout_height="1000px"
+        android:layout_width="400dp"
+        android:layout_height="500dp"
         android:layout_centerInParent="true">
 
         <ImageView
             android:id="@+id/img_close"
-            android:layout_width="60px"
-            android:layout_height="60px"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_alignParentRight="true"
             android:background="@mipmap/close"
             />
@@ -21,13 +21,15 @@
             android:layout_height="match_parent"
             android:background="@mipmap/back_writ"
             android:layout_centerInParent="true"
-            android:layout_margin="60px">
+            android:layout_margin="30dp">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:id="@+id/img_erweima"
+                android:layout_width="240dp"
+                android:layout_height="340dp"
+                android:scaleType="fitXY"
                 android:layout_centerInParent="true"
-                android:background="@mipmap/erweima"/>
+                android:src="@mipmap/erweima"/>
         </RelativeLayout>
     </RelativeLayout>
 </RelativeLayout>

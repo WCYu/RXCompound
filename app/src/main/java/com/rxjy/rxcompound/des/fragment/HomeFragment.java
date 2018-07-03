@@ -9,6 +9,7 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
@@ -67,6 +68,9 @@ import com.rxjy.rxcompound.entity.FloatedBean;
 import com.rxjy.rxcompound.widget.AutoTextView;
 import com.rxjy.rxcompound.widget.MyListview;
 import com.rxjy.rxcompound.widget.xlistview.XListView;
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -133,12 +137,14 @@ public class HomeFragment extends BaseFragment<GetALLClientInfoPresenter> implem
     LinearLayout ly_web;
     @Bind(R.id.home_view)
     WebView newWeb;
+    @Bind(R.id.smartRefresh)
+    SmartRefreshLayout smartRefresh;
     private Handler handler = new Handler();
     private int count = 0;
     private List<FloatedBean> list = new ArrayList<>();
     private AlertDialog alertDialog;
 
-    String url ="http://edu.rxjy.com/a/rs/curaInfo/"+App.cardNo+"01012167/tryPostApp";
+    String url = "http://edu.rxjy.com/a/rs/curaInfo/" + App.cardNo + "01012167/tryPostApp";
 
     @Override
     protected int getFragmentLayout() {
@@ -201,12 +207,39 @@ public class HomeFragment extends BaseFragment<GetALLClientInfoPresenter> implem
 //        });
 //        xlvHomeZaishi.setPullLoadEnable(false);
 
+        initListener();
     }
 
-    class WebViewJump{
+    private void initListener() {
+        smartRefresh.setOnRefreshListener(new OnRefreshListener() {
+            @Override
+            public void onRefresh(@NonNull RefreshLayout refreshLayout) {
+                refreshLayout.finishRefresh();
+                mPresenter.GetUCList(App.cardNo);
+                mPresenter.getALLClientInfoNew(phone);
+            }
+        });
+        smartRefresh.setEnableLoadMore(false);
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // TODO: inflate a fragment view
+        View rootView = super.onCreateView(inflater, container, savedInstanceState);
+        ButterKnife.bind(this, rootView);
+        return rootView;
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        ButterKnife.unbind(this);
+    }
+
+    class WebViewJump {
         @JavascriptInterface
         public void jump() {
-            Log.e("tag——","进入");
+            Log.e("tag——", "进入");
             Intent intent = new Intent(getActivity(), getActivity().getClass());
             startActivity(intent);
             getActivity().finish();
@@ -653,10 +686,9 @@ public class HomeFragment extends BaseFragment<GetALLClientInfoPresenter> implem
     }
 
 
-
     @OnClick(R.id.tv_huitokei)
     public void onViewClicked() {
-        AlertDialog.Builder dialog=new AlertDialog.Builder(getContext());
+        AlertDialog.Builder dialog = new AlertDialog.Builder(getContext());
         View inflate = getActivity().getLayoutInflater().inflate(R.layout.orcode_activity, null);
         AutoUtils.setSize(getActivity(), false, 720, 1280);
         AutoUtils.auto(inflate);

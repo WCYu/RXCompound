@@ -2102,7 +2102,7 @@ public interface ApiService {
     /**
      * 获取大院得薪酬
      */
-    @GET("api/HR/GetNewSalary")
+    @GET("actionapi/AppPort/GetNewSalary")
     Observable<String> getHospitaldata(
             @Query("card") String card
     );
