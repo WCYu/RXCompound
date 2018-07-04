@@ -305,6 +305,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
         App.dcid = data.getBody().getDepart();
         App.ustart = data.getBody().getU_start();
         App.is_group = data.getBody().getIs_group();
+        App.app_id = data.getBody().getApp_id();
         App.setContext(this);
         App.setAlias(data.getBody().getAccount());
         regionid = data.getBody().getRegion_id();

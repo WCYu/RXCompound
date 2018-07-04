@@ -46,6 +46,7 @@ public class App extends Application {
 
     public static String is_group;//项目监理
     public static String cardNo;//项目监理
+    public static String app_id;
     public static String token;
     public static String depart;//部门
     public static String regionid;//部门/地区id

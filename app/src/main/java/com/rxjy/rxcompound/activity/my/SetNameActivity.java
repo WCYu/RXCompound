@@ -44,7 +44,7 @@ public class SetNameActivity extends BaseActivity {
     @Override
     public void initData() {
         ButterKnife.bind(this);
-        if(App.postName.equals("投资招商")){
+        if (App.postName.equals("投资招商")) {
             rl_back.setBackgroundColor(getResources().getColor(R.color.text_red));
             btnCommit.setBackgroundColor(getResources().getColor(R.color.text_red));
         }
@@ -68,11 +68,11 @@ public class SetNameActivity extends BaseActivity {
                 finish();
                 break;
             case R.id.btn_commit:
-                if(!TextUtils.isEmpty(tvName.getText().toString())){
-                    setResult(1001,getIntent().putExtra("name",tvName.getText().toString()));
+                if (!TextUtils.isEmpty(tvName.getText().toString())) {
+                    setResult(1001, getIntent().putExtra("name", tvName.getText().toString()));
                     finish();
-                }else {
-                    ToastUtil.getInstance().toastCentent("请输入姓名",this);
+                } else {
+                    ToastUtil.getInstance().toastCentent("请输入姓名", this);
                 }
                 break;
         }

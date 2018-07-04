@@ -50,31 +50,29 @@ public class HomeShejiAdapter extends SingleBaseAdapter<HomeBean.BodyBean.ListBe
         String createTime = data.getCreateTime();
         String substring = createTime.substring(5, 10);
         holder.tvTimers.setText(substring);
-        if(data.getType()==0){
+        if (data.getType() == 0) {
             holder.llZero.setVisibility(View.VISIBLE);
             holder.llThere.setVisibility(View.GONE);
-
-            if(data.getCover().equals("")){
+            if (data.getCover().equals("")) {
                 Glide.with(context).load(R.mipmap.zanwei).into(holder.ivImg);
-            }else {
+            } else {
                 Glide.with(context).load(data.getCover()).into(holder.ivImg);
             }
             holder.llEdu.setVisibility(View.GONE);
-        }else if(data.getType()==3){
+        } else if (data.getType() == 3) {
             holder.llZero.setVisibility(View.GONE);
             holder.llThere.setVisibility(View.VISIBLE);
-            if(data.getContentPic().size()==3){
+            if (data.getContentPic().size() == 3) {
                 Glide.with(context).load(data.getContentPic().get(0)).into(holder.mvImgone);
                 Glide.with(context).load(data.getContentPic().get(1)).into(holder.mvImgtwo);
                 Glide.with(context).load(data.getContentPic().get(2)).into(holder.mvImgthere);
-            }else if(data.getContentPic().size()==2){
+            } else if (data.getContentPic().size() == 2) {
                 Glide.with(context).load(data.getContentPic().get(0)).into(holder.mvImgone);
                 Glide.with(context).load(data.getContentPic().get(1)).into(holder.mvImgtwo);
-            }else {
+            } else if (data.getContentPic().size() == 1) {
                 Glide.with(context).load(data.getContentPic().get(0)).into(holder.mvImgone);
             }
             holder.llEdu.setVisibility(View.GONE);
-
         }
     }
 
@@ -125,6 +123,7 @@ public class HomeShejiAdapter extends SingleBaseAdapter<HomeBean.BodyBean.ListBe
         TextView tvInto;
         @Bind(R.id.ll_edu)
         LinearLayout llEdu;
+
         @Override
         public void onInFlate(View v) {
             ButterKnife.bind(this, v);

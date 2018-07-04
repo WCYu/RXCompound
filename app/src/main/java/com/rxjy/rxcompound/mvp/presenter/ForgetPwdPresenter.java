@@ -83,8 +83,9 @@ public class ForgetPwdPresenter extends ForgetPwdContract.Presenter{
                     public void onNext(String s) {
                         Log.e("sss",s.toString());
                         BaseBean info = JSONUtils.toObject(s, BaseBean.class);
+                        String statusMsg = info.getStatusMsg();
                         if(info.getStatusCode()==0){
-                            mView.responsetoFixPwd();
+                            mView.responsetoFixPwd(statusMsg);
                         }else{
                             mView.responsetoFixPwdError(info.getStatusMsg());
                         }

@@ -19,7 +19,7 @@ public interface ForgetPwdContract {
 
         void responseVCodeError(String msg);
 
-        void responsetoFixPwd();
+        void responsetoFixPwd(String msg);
 
         void responsetoFixPwdError(String msg);
 

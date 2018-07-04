@@ -68,7 +68,7 @@ public class FindListActivity extends Activity{
         switch (type){
             case "0":
 //                wb_rxsongs.loadUrl("http://news.rx/front/app_details.html?id="+url_id+"&cardNo="+ App.cardNo);
-                wb_rxsongs.loadUrl("http://wpsnew.rxjy.com//front/app_details.html?id="+url_id+"&cardNo="+ App.cardNo);
+                wb_rxsongs.loadUrl("http://wpsnew.rxjy.com//front/app_details.html?id="+url_id+"&cardNo="+ App.cardNo+"&appId="+App.app_id+"&isAndroid=0");
 //                Log.e("h5url","http://news.rx/front/app_details.html?id="+url_id+"&cardNo"+App.cardNo);
                 break;
             case "1"://岗前答题
@@ -80,7 +80,7 @@ public class FindListActivity extends Activity{
                 wb_rxsongs.loadUrl("http://edu.rxjy.com/a/rs/cour/"+App.cardNo+"/GetTrainCurr");
                 break;
             case "3":
-                wb_rxsongs.loadUrl("http://wpsnew.rxjy.com//front/app_details.html?id="+url_id+"&cardNo="+ App.cardNo);
+                wb_rxsongs.loadUrl("http://wpsnew.rxjy.com//front/app_details.html?id="+url_id+"&cardNo="+ App.cardNo+"&appId="+App.app_id+"&isAndroid=0");
         }
 //        wb_rxsongs.loadUrl("http://news.rx/front/app_details.html?id="+url_id+"&cardNo"+ App.cardNo);
 //        Log.e("h5url","http://news.rx/front/app_details.html?id="+url_id+"&cardNo"+App.cardNo);

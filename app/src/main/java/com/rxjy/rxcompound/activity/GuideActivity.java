@@ -23,11 +23,11 @@ import butterknife.ButterKnife;
  * 引导页
  * Created by hjh on 2017/11/3.
  */
-public class GuideActivity extends BaseActivity{
+public class GuideActivity extends BaseActivity {
 
     private ViewPager guide_viewpager;
     private TextView guide_go;
-    private View view_guide1,view_guide2,view_guide3,view_guide4;
+    private View view_guide1, view_guide2, view_guide3, view_guide4;
     private List<View> viewlist;
 
     @Override
@@ -51,29 +51,29 @@ public class GuideActivity extends BaseActivity{
         return null;
     }
 
-    private void init(){
-        guide_go= (TextView) findViewById(R.id.guide_go);
-        guide_viewpager= (ViewPager) findViewById(R.id.guide_viewpager);
-        LayoutInflater inflater=getLayoutInflater();
-        view_guide1=inflater.inflate(R.layout.activity_guideone, null);
-        view_guide2=inflater.inflate(R.layout.activity_guidetwo, null);
-        view_guide3=inflater.inflate(R.layout.activity_guidethree, null);
-        view_guide4=inflater.inflate(R.layout.activity_guidefour, null);
+    private void init() {
+        guide_go = (TextView) findViewById(R.id.guide_go);
+        guide_viewpager = (ViewPager) findViewById(R.id.guide_viewpager);
+        LayoutInflater inflater = getLayoutInflater();
+        view_guide1 = inflater.inflate(R.layout.activity_guideone, null);
+        view_guide2 = inflater.inflate(R.layout.activity_guidetwo, null);
+        view_guide3 = inflater.inflate(R.layout.activity_guidethree, null);
+        view_guide4 = inflater.inflate(R.layout.activity_guidefour, null);
 
         guide_go.setVisibility(View.GONE);
 
-        viewlist=new ArrayList<View>();
+        viewlist = new ArrayList<View>();
         viewlist.add(view_guide1);
         viewlist.add(view_guide2);
         viewlist.add(view_guide3);
         viewlist.add(view_guide4);
 
-        PagerAdapter pageradapter=new PagerAdapter() {
+        PagerAdapter pageradapter = new PagerAdapter() {
 
             @Override
             public boolean isViewFromObject(View arg0, Object arg1) {
                 // TODO Auto-generated method stub
-                return arg0==arg1;
+                return arg0 == arg1;
             }
 
             @Override
@@ -106,7 +106,7 @@ public class GuideActivity extends BaseActivity{
             @Override
             public void onPageSelected(int arg0) {
                 // TODO Auto-generated method stub
-                switch(arg0){
+                switch (arg0) {
                     case 0:
                         guide_go.setVisibility(View.GONE);
                         break;
@@ -127,6 +127,7 @@ public class GuideActivity extends BaseActivity{
                 // TODO Auto-generated method stub
 
             }
+
             @Override
             public void onPageScrollStateChanged(int arg0) {
                 // TODO Auto-generated method stub
@@ -140,7 +141,7 @@ public class GuideActivity extends BaseActivity{
             @Override
             public void onClick(View arg0) {
                 // TODO Auto-generated method stub
-                Intent intent=new Intent(GuideActivity.this,LoginActivity.class);
+                Intent intent = new Intent(GuideActivity.this, LoginActivity.class);
                 startActivity(intent);
                 finish();
             }

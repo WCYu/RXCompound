@@ -54,7 +54,8 @@ public interface FigureContract {
                 String OperatorCardNo,
                 String OperatorName,
                 String RegionId,
-                String EduDepartId
+                String EduDepartId,
+                String img_type
         );
     }
 
@@ -76,7 +77,8 @@ public interface FigureContract {
                 String OperatorCardNo,
                 String OperatorName,
                 String RegionId,
-                String EduDepartId
+                String EduDepartId,
+                String img_type
         );
     }
 }

@@ -236,7 +236,7 @@ public class FigureDetailsActivity extends BaseActivity<FigurePresenter> impleme
         }
         upimgstr = upimgstr.substring(0, upimgstr.length() - 1);
         Log.e("图片合集", upimgstr);
-        mPresenter.upLoadData(namecard, name, idea, upimgstr, id_dnum, App.cardNo, App.name, App.regionid, type);
+        mPresenter.upLoadData(namecard, name, idea, upimgstr, id_dnum, App.cardNo, App.name, App.regionid, type,"1");
 
     }
 

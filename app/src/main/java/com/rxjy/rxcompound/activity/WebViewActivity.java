@@ -70,6 +70,8 @@ public class WebViewActivity extends BaseActivity {
         if(!TextUtils.isEmpty(type)){
             if(type.equals("顾问")){
                 rlTool.setBackgroundColor(getResources().getColor(R.color.textorange));
+            }else if(type.equals("投资加盟")){
+                rlTool.setBackgroundColor(getResources().getColor(R.color.colorRed));
             }
         }
 

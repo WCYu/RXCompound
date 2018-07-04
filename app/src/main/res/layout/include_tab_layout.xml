@@ -88,23 +88,38 @@
             android:clickable="true"
             android:gravity="center">
 
-            <ImageView
-                android:id="@+id/iv_tab_find"
-                android:layout_width="40px"
-                android:layout_height="40px"
-                android:layout_centerHorizontal="true"
-                android:src="@mipmap/ic_tab_find" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+                <ImageView
+                    android:id="@+id/iv_tab_find"
+                    android:layout_width="40px"
+                    android:layout_height="40px"
+                    android:layout_centerHorizontal="true"
+                    android:src="@mipmap/ic_tab_find" />
 
-            <TextView
-                android:id="@+id/tv_tab_find"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/iv_tab_find"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="6px"
-                android:text="发现"
-                android:textColor="@color/colorGrayDark"
-                android:textSize="20px" />
+                <TextView
+                    android:id="@+id/tv_tab_find"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/iv_tab_find"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="6px"
+                    android:text="发现"
+                    android:textColor="@color/colorGrayDark"
+                    android:textSize="20px" />
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/img_reddot"
+                android:layout_width="14px"
+                android:layout_height="14px"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="30px"
+                android:layout_marginTop="10px"
+                android:visibility="gone"
+                android:background="@drawable/shape_state_red"/>
 
         </RelativeLayout>
 

@@ -642,6 +642,7 @@ public class SplashActivity extends BaseActivity<LoginPresenter> implements Logi
         App.dcid = data.getBody().getDepart();
         App.ustart = data.getBody().getU_start();
         App.is_group = data.getBody().getIs_group() + "";
+        App.app_id = data.getBody().getApp_id();
         regionid = data.getBody().getRegion_id();
         startLogin();
         departs = data.getBody().getDepart();

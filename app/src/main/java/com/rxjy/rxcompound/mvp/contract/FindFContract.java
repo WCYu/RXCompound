@@ -36,11 +36,13 @@ public interface FindFContract {
     interface Model extends BaseModel {
         Observable<String> getFindList(
                 String cardNo,
+                String appId,
                 int pageIndex,
                 int pageSize
         );
         Observable<String> getFindListLoadmore(
                 String cardNo,
+                String appId,
                 int pageIndex,
                 int pageSize
         );
@@ -54,12 +56,14 @@ public interface FindFContract {
     abstract class Presenter extends BasePresenter<View, Model> {
         public abstract void getFindList(
                 String cardNo,
+                String appId,
                 int pageIndex,
                 int pageSize
         );
 
         public abstract void getFindListLoadmore(
                 String cardNo,
+                String appId,
                 int pageIndex,
                 int pageSize
         );

@@ -126,7 +126,7 @@ public interface ApiService {
             @Query("OperatorName") String OperatorName,
             @Query("RegionId") String RegionId,
             @Query("EduDepartId") String EduDepartId,
-            @Query("img_type") int img_type
+            @Query("img_type") String img_type
     );
 
     /**
@@ -337,6 +337,7 @@ public interface ApiService {
     @GET("a/sap/sapArticle/getAppArticleList")
     Observable<String> postFindData(
             @Query("cardNo") String cardNo,
+            @Query("appId") String appId,
             @Query("page") int page,
             @Query("rows") int rows
     );

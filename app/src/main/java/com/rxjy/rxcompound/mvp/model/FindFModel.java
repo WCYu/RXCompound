@@ -12,16 +12,16 @@ import rx.Observable;
 
 public class FindFModel implements FindFContract.Model{
     @Override
-    public Observable<String> getFindList(String cardNo, int pageIndex, int pageSize) {
+    public Observable<String> getFindList(String cardNo, String appId,int pageIndex, int pageSize) {
         return ApiEngine.getInstance().getfindApiService()
-                .postFindData(cardNo,pageIndex,pageSize)
+                .postFindData(cardNo,appId,pageIndex,pageSize)
                 .compose(RxSchedulers.<String>switchThread());
     }
 
     @Override
-    public Observable<String> getFindListLoadmore(String cardNo, int pageIndex, int pageSize) {
+    public Observable<String> getFindListLoadmore(String cardNo, String appId,int pageIndex, int pageSize) {
         return ApiEngine.getInstance().getfindApiService()
-                .postFindData(cardNo,pageIndex,pageSize)
+                .postFindData(cardNo,appId,pageIndex,pageSize)
                 .compose(RxSchedulers.<String>switchThread());
     }
 
