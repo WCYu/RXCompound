@@ -101,7 +101,7 @@ public class RedTaskActivity extends BaseActivity {
                 DownTime();
                 break;
         }
-       // DownTime();
+        // DownTime();
     }
 
     @Override
@@ -134,7 +134,7 @@ public class RedTaskActivity extends BaseActivity {
                 if (t_secound.length() == 1) {
                     t_secound = "0" + t_secound;
                 }
-                if(tvHour!=null){
+                if (tvHour != null) {
                     tvHour.setText(t_hour);
                     tvMin.setText(t_min);
                     tvTimesecound.setText(t_secound);
@@ -157,6 +157,7 @@ public class RedTaskActivity extends BaseActivity {
         };
         timers.start();
     }
+
     private void RightTime() {//正计时
         tvHour.setBackgroundResource(R.drawable.corner_red);
         tvMin.setBackgroundResource(R.drawable.corner_red);
@@ -171,6 +172,7 @@ public class RedTaskActivity extends BaseActivity {
     }
 
     Runnable runnable;
+
     @OnClick(R.id.iv_back)
     public void onViewClicked() {
         if (timers != null) {
@@ -181,6 +183,7 @@ public class RedTaskActivity extends BaseActivity {
         }
         finish();
     }
+
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {

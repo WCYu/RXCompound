@@ -90,16 +90,18 @@ public class WorkActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 // Toast.makeText(WorkActivity.this, "点击了"+App.ustart, Toast.LENGTH_SHORT).show();\
-                Log.e("tag_状态",App.ustart+"  "+App.is_group);
+                Log.e("tag_状态", App.ustart + "  " + App.is_group);
                 if (App.ustart == 2) {
-                    if(App.is_group.equals("0")){
+                    if (App.is_group.equals("0")) {
                         startActivity(new Intent(WorkActivity.this, BecomeWorkerActivity.class));
-                    }else if(App.is_group.equals("1")){
+                    } else if (App.is_group.equals("1")) {
                         startActivity(new Intent(WorkActivity.this, ZhuanZhengActivity.class));
                     }
-                }else if(App.ustart == 3){
+                } else if (App.ustart == 3) {
                     ToastUtil.getInstance().toastCentent("您已经是正式员工");
-                }else {
+                } else if (App.ustart == 100010) {
+                    ToastUtil.getInstance().toastCentent("您已经提交转正");
+                } else {
                     ToastUtil.getInstance().toastCentent("只有试用期人员才可以申请");
                 }
                 //  showToast("暂未开放");

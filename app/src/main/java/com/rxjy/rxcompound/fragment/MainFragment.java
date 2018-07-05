@@ -202,22 +202,22 @@ public class MainFragment extends BaseFragment<BaseInformPresenter> implements B
                             JSONObject jsonObject = new JSONObject(string);
                             int statusCode = jsonObject.getInt("StatusCode");
                             String statusMsg = jsonObject.getString("StatusMsg");
-                            if(statusCode == 0){
+                            if (statusCode == 0) {
                                 Gson gson = new Gson();
                                 UserInfoBean userInfoBean = gson.fromJson(string, UserInfoBean.class);
                                 UserInfoBean.BodyBean bodyBean = userInfoBean.getBody().get(0);
                                 tv_pname.setText(bodyBean.getU_name());
-                                if(App.postName.equals("投资招商")){
+                                if (App.postName.equals("投资招商")) {
                                     tv_paccount.setText(bodyBean.getPhone());
                                     tv_pjob.setVisibility(View.GONE);
-                                }else {
+                                } else {
                                     tv_paccount.setText(bodyBean.getCard_no());
                                 }
                                 if (!TextUtils.isEmpty(bodyBean.getImage())) {
                                     Glide.with(getActivity()).load(bodyBean.getImage()).apply(RequestOptions.circleCropTransform()).into(iv_personicon);
                                 }
-                            }else {
-                                ToastUtil.getInstance().toastCentent(statusMsg,getActivity());
+                            } else {
+                                ToastUtil.getInstance().toastCentent(statusMsg, getActivity());
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
