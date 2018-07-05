@@ -43,8 +43,8 @@ public class WebViewActivity extends BaseActivity {
     @Bind(R.id.rl_tool)
     RelativeLayout rlTool;
 
-    String url=null;
-    String name=null;
+    String url = null;
+    String name = null;
     private String type;
 
     private ValueCallback<Uri[]> uploadMessageAboveL;
@@ -63,20 +63,20 @@ public class WebViewActivity extends BaseActivity {
         name = getIntent().getStringExtra("name");
         type = getIntent().getStringExtra("type");
         tvTitle.setText(name);
-        if(name.equals("量房")||name.equals("量房")){
+        if (name.equals("量房") || name.equals("量房")) {
             rlTool.setBackgroundColor(getResources().getColor(R.color.textorange));
         }
 
-        if(!TextUtils.isEmpty(type)){
-            if(type.equals("顾问")){
+        if (!TextUtils.isEmpty(type)) {
+            if (type.equals("顾问")) {
                 rlTool.setBackgroundColor(getResources().getColor(R.color.textorange));
-            }else if(type.equals("投资加盟")){
-                rlTool.setBackgroundColor(getResources().getColor(R.color.colorRed));
+            } else if (type.equals("投资招商")) {
+                rlTool.setBackgroundColor(getResources().getColor(R.color.colorredbg));
             }
         }
 
         newWeb.loadUrl(url);
-        Log.e("webView————————",url);
+        Log.e("webView————————", url);
 
         WebSettings settings = newWeb.getSettings();
         settings.setJavaScriptEnabled(true);
@@ -85,14 +85,14 @@ public class WebViewActivity extends BaseActivity {
         settings.setLoadWithOverviewMode(true); // 缩放至屏幕的大小
         settings.setDomStorageEnabled(true);
 
-        newWeb.setWebViewClient(new WebViewClient(){
+        newWeb.setWebViewClient(new WebViewClient() {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 view.loadUrl(url);
                 return super.shouldOverrideUrlLoading(view, url);
             }
         });
-        newWeb.setWebChromeClient(new WebChromeClient(){
+        newWeb.setWebChromeClient(new WebChromeClient() {
             // For Android < 3.0
             public void openFileChooser(ValueCallback<Uri> valueCallback) {
                 uploadMessage = valueCallback;
@@ -119,7 +119,7 @@ public class WebViewActivity extends BaseActivity {
                 return true;
             }
         });
-        if(App.is_group.equals("1")){
+        if (App.is_group.equals("1")) {
             rlTool.setBackgroundColor(getResources().getColor(R.color.text_red));
         }
     }

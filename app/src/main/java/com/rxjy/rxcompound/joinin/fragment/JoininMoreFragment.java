@@ -117,38 +117,44 @@ public class JoininMoreFragment extends BaseFragment {
             case R.id.qingjia_line:
                 if (App.postName.equals("投资招商")) {
                     tvFuwu1.setText("加盟介绍");
-                    startActivity(new Intent(getContext(), WebViewActivity.class).putExtra("name", "加盟介绍").putExtra("url","http://jm.rxjy.com").putExtra("type","投资加盟"));
+                    startActivity(new Intent(getContext(), WebViewActivity.class).putExtra("name", "加盟介绍").putExtra("url","http://jm.rxjy.com").putExtra("type","投资招商"));
                 }
                 break;
             case R.id.zhuanzheng_line:
                 if (App.postName.equals("投资招商")) {
                     tvFuwu2.setText("企业官网");
-                    startActivity(new Intent(getContext(), WebViewActivity.class).putExtra("name", "企业官网").putExtra("url","http://www.rxjy.com").putExtra("type","投资加盟"));
+                    startActivity(new Intent(getContext(), WebViewActivity.class).putExtra("name", "企业官网").putExtra("url","http://www.rxjy.com").putExtra("type","投资招商"));
                 }
                 break;
             case R.id.jiameng_line:
                 if (App.postName.equals("投资招商")) {
                     tvFuwu3.setText("关于我们");
-                    startActivity(new Intent(getContext(), WebViewActivity.class).putExtra("name", "关于我们").putExtra("url","http://j.rxjy.com/Mobile/video.html").putExtra("type","投资加盟"));
+                    startActivity(new Intent(getContext(), WebViewActivity.class).putExtra("name", "关于我们").putExtra("url","http://j.rxjy.com/Mobile/video.html").putExtra("type","投资招商"));
                 }
                 break;
             case R.id.matters:
-                startActivity(new Intent(getContext(), PersonnelActivity.class));
+//                startActivity(new Intent(getContext(), PersonnelActivity.class));
+                startActivity(new Intent(getContext(), WebViewActivity.class).putExtra("name", "人事").putExtra("url","http://j.rxjy.com/Mobile/more/personnel.html").putExtra("type","投资招商"));
                 break;
             case R.id.finance:
-                startActivity(new Intent(getContext(), activityImage.class).putExtra("title", "财务"));
+//                startActivity(new Intent(getContext(), activityImage.class).putExtra("title", "财务"));
+                startActivity(new Intent(getContext(), WebViewActivity.class).putExtra("name", "财务").putExtra("url","http://j.rxjy.com/Mobile/more/Accounts.html").putExtra("type","投资招商"));
                 break;
             case R.id.capital:
-                startActivity(new Intent(getContext(), activityImage.class).putExtra("title", "资金"));
+//                startActivity(new Intent(getContext(), activityImage.class).putExtra("title", "资金"));
+                startActivity(new Intent(getContext(), WebViewActivity.class).putExtra("name", "资金").putExtra("url","http://j.rxjy.com/Mobile/more/capital.html").putExtra("type","投资招商"));
                 break;
             case R.id.affairs:
-                startActivity(new Intent(getContext(), activityImage.class).putExtra("title", "商务"));
+//                startActivity(new Intent(getContext(), activityImage.class).putExtra("title", "商务"));
+                startActivity(new Intent(getContext(), WebViewActivity.class).putExtra("name", "商务").putExtra("url","http://j.rxjy.com/Mobile/more/business.html").putExtra("type","投资招商"));
                 break;
             case R.id.main_case:
-                startActivity(new Intent(getContext(), activityImage.class).putExtra("title", "主案"));
+//                startActivity(new Intent(getContext(), activityImage.class).putExtra("title", "主案"));
+                startActivity(new Intent(getContext(), WebViewActivity.class).putExtra("name", "主案").putExtra("url","http://j.rxjy.com/Mobile/more/design.html").putExtra("type","投资招商"));
                 break;
             case R.id.engineering:
-                startActivity(new Intent(getContext(), activityImage.class).putExtra("title", "工程"));
+//                startActivity(new Intent(getContext(), activityImage.class).putExtra("title", "工程"));
+                startActivity(new Intent(getContext(), WebViewActivity.class).putExtra("name", "工程").putExtra("url","http://j.rxjy.com/Mobile/more/engineering.html\n").putExtra("type","投资招商"));
                 break;
             case R.id.Material_dealer:
 
@@ -156,7 +162,8 @@ public class JoininMoreFragment extends BaseFragment {
             case R.id.project_Manager:
                 break;
             case R.id.company:
-                startActivity(new Intent(getContext(), activityImage.class).putExtra("title", "公司"));
+//                startActivity(new Intent(getContext(), activityImage.class).putExtra("title", "公司"));
+                startActivity(new Intent(getContext(), WebViewActivity.class).putExtra("name", "公司").putExtra("url","http://j.rxjy.com/Mobile/more/company.html").putExtra("type","投资招商"));
                 break;
         }
     }

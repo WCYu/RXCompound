@@ -79,7 +79,7 @@ public class FindFrqagment extends BaseFragment<FindFPresenter> implements FindF
 
     @Override
     protected void FragmentInitData() {
-       if(App.postName.equals("投资加盟")){
+       if(App.postName.equals("投资招商")){
            JoininNjjActivity activity = (JoininNjjActivity) getActivity();
            activity.img_reddot.setVisibility(View.GONE);
        }

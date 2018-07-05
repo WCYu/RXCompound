@@ -120,10 +120,10 @@ public class JoininNjjActivity extends BaseActivity<HomeFindPresenter> implement
             R.mipmap.ic_tab_main
     };
     private int[] iconPressed = new int[]{
-            R.mipmap.ic_homenblue,
-            R.mipmap.ic_morenblue,
-            R.mipmap.ic_findnblue,
-            R.mipmap.ic_minenblue
+            R.drawable.ic_tab_hostpagered,
+            R.drawable.ic_tab_morered,
+            R.drawable.ic_tab_findred,
+            R.drawable.ic_tab_mainred
     };
 
     int type = 0;
@@ -151,6 +151,7 @@ public class JoininNjjActivity extends BaseActivity<HomeFindPresenter> implement
         initFragment();
         //加载默认显示碎片
         showFragment(fragmentList.get(HOME_FRAGMENT), HOME_FRAGMENT);
+        activity = this;
     }
 
 
@@ -299,7 +300,7 @@ public class JoininNjjActivity extends BaseActivity<HomeFindPresenter> implement
 
         }
         iconList.get(position).getImageView().setImageResource(iconPressed[position]);
-        iconList.get(position).getTextView().setTextColor(this.getResources().getColor(R.color.colorPrimaryDes));
+        iconList.get(position).getTextView().setTextColor(this.getResources().getColor(R.color.colorRedLight));
     }
 
     @OnClick({R.id.rl_tab_home, R.id.rl_tab_wallet, R.id.rl_tab_find, R.id.rl_tab_mine})
