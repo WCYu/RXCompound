@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical">
+    <View
+        android:layout_width="match_parent"
+        android:background="@color/appbg"
+        android:layout_height="20px"/>
+<RelativeLayout
+    android:layout_margin="15px"
+    android:layout_marginLeft="24px"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_centerVertical="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tv_type"
+            android:layout_marginTop="20px"
+            android:textColor="@color/textorange"
+            android:padding="10px"
+            android:background="@drawable/btn_style_k"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="其他"/>
+        <TextView
+            android:id="@+id/tv_gongsi"
+            android:text="公司"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="20px"
+            android:layout_alignLeft="@+id/tv_type"
+            android:layout_marginLeft="24px"
+            android:padding="10px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <ImageView
+        android:layout_marginTop="20px"
+        android:layout_marginRight="24px"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_go"/>
+</RelativeLayout>
+    <View
+        android:background="@color/appbg"
+        android:layout_width="match_parent"
+        android:layout_height="1px"/>
+    <TextView
+        android:layout_margin="15px"
+        android:text="回访内容"
+        android:layout_marginLeft="24px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_content"/>
+    <RelativeLayout
+        android:layout_margin="15px"
+        android:layout_marginLeft="24px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true">
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="name" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20px"
+                android:text="-" />
+
+            <TextView
+                android:id="@+id/tv_jibie"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20px"
+                android:text="倒计时" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        <TextView
+            android:text="倒计时"
+            android:layout_marginRight="15px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tv_daojishi"
+                android:layout_marginRight="23px"
+                android:text="100"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/root_main"
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:paddingTop="42px"
+        android:id="@+id/rl_tool"
+        android:layout_width="fill_parent"
+        android:layout_height="100px"
+        android:background="@color/textorange">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="客户"
+            android:textSize="@dimen/text_size_l6"
+            android:layout_marginRight="10px"
+            android:layout_marginLeft="100px"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:textColor="@color/colorwhite"/>
+
+        <ImageView
+            android:id="@+id/img_gengduo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/tv_title"
+            android:layout_marginLeft="-15px"
+            android:src="@mipmap/xiala"
+            android:padding="20px"/>
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:src="@drawable/ic_backwrite"
+            android:padding="10px"/>
+
+        <ImageView
+            android:id="@+id/tv_right"
+            android:layout_width="50px"
+            android:layout_height="46px"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="40px"
+            android:textSize="@dimen/text_size_l"
+            android:textColor="@color/colorwhite"
+            android:background="@mipmap/addyuan"
+            android:gravity="center" />
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/rl_back"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_centerInParent="true"
+                >
+
+                <ImageView
+                    android:id="@+id/img_back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@mipmap/wushuju"
+
+                    />
+                <TextView
+                    android:layout_marginTop="20px"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="28px"
+                    android:layout_gravity="center"
+                    android:text="没有更多数据"/>
+            </LinearLayout>
+        </RelativeLayout>
+        <com.scwang.smartrefresh.layout.SmartRefreshLayout
+            android:id="@+id/smartRefresh"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <com.scwang.smartrefresh.layout.header.ClassicsHeader
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <com.baoyz.swipemenulistview.SwipeMenuListView
+                android:id="@+id/lv_xinxiyuan"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <com.scwang.smartrefresh.layout.footer.ClassicsFooter
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+    </LinearLayout>
+</LinearLayout>

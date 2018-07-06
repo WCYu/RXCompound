@@ -70,4 +70,10 @@ public class RXlinesActivity extends BaseActivity{
         wb_rxsongs.loadUrl(Constants.WEBURL_ENTRYJOB + "CardNo=" + cardno + "&Type=" + "4");
 
     }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        wb_rxsongs.resumeTimers();
+        wb_rxsongs.destroy();
+    }
 }

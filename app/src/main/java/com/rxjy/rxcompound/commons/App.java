@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.rxjy.rxcompound.R;
+import com.rxjy.rxcompound.commons.base.BaseActivity;
 import com.rxjy.rxcompound.commons.utils.StringUtils;
 
 import java.util.ArrayList;
@@ -34,7 +35,7 @@ public class App extends Application {
     public List<Activity> activities;
 
     public static Context context;
-
+    public static BaseActivity baseActivity;
     public static void setContext(Context context) {
         App.context = context;
     }

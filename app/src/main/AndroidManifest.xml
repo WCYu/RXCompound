@@ -232,6 +232,10 @@
         <activity android:name=".activity.my.TestActivity" />
         <activity android:name=".activity.guwen.DownLineActivity" />
         <activity android:name=".activity.guwen.TiXianActivity"></activity>
+        <activity android:name=".activity.XinXiActivity"/>
+        <activity android:name=".activity.XinXiYuanDetialActivity"/>
+        <activity android:name=".activity.HuiFangActivity"/>
+        <activity android:name=".activity.XinXiYuanXinZengActivity"/>
     </application>
 
 </manifest>

@@ -28,6 +28,7 @@ import com.rxjy.rxcompound.activity.MoreBannerActivity;
 import com.rxjy.rxcompound.activity.RXSongsActivity;
 import com.rxjy.rxcompound.activity.RXlinesActivity;
 import com.rxjy.rxcompound.activity.WebViewActivity;
+import com.rxjy.rxcompound.activity.XinXiActivity;
 import com.rxjy.rxcompound.activity.ZThreeActivity;
 import com.rxjy.rxcompound.activity.guwen.DownLineActivity;
 import com.rxjy.rxcompound.activity.guwen.HuiShouActivity;
@@ -158,6 +159,8 @@ public class MoreFragment extends BaseFragment<GetUserStatusPresenter> implement
     LinearLayout lyHuishou;
     @Bind(R.id.ly_keshou)
     LinearLayout lyKeshou;
+    @Bind(R.id.ly_xinxiyuan)
+    LinearLayout lyXinxiyuan;
 
     private String TAG = "MoreFragment";
     @Bind(R.id.gv_rxculture)
@@ -696,7 +699,7 @@ public class MoreFragment extends BaseFragment<GetUserStatusPresenter> implement
         ButterKnife.unbind(this);
     }
 
-    @OnClick({R.id.iv_morebanner, R.id.ly_kehu, R.id.ly_dianpu, R.id.ly_anli, R.id.ly_bowen, R.id.ly_fuwu, R.id.ly_paidan, R.id.ly_caiwu, R.id.ly_jiameng, R.id.ly_xiaxian, R.id.ly_touzi, R.id.ly_zaishi, R.id.ly_dianpu_guwen, R.id.ly_huiyuan, R.id.ly_zhangben, R.id.ly_huishou, R.id.ly_keshou})
+    @OnClick({R.id.iv_morebanner, R.id.ly_kehu, R.id.ly_dianpu, R.id.ly_anli, R.id.ly_bowen, R.id.ly_fuwu, R.id.ly_paidan, R.id.ly_caiwu, R.id.ly_jiameng, R.id.ly_xiaxian, R.id.ly_touzi, R.id.ly_zaishi, R.id.ly_dianpu_guwen, R.id.ly_huiyuan, R.id.ly_zhangben, R.id.ly_huishou, R.id.ly_keshou,R.id.ly_xinxiyuan})
     public void onViewClicked(View view) {
         Intent intent = null;
 
@@ -785,6 +788,9 @@ public class MoreFragment extends BaseFragment<GetUserStatusPresenter> implement
                 break;
             case R.id.ly_keshou://客收
                 intent = new Intent(getActivity(), KeShouActivity.class);
+                break;
+            case R.id.ly_xinxiyuan:
+                intent = new Intent(getActivity(), XinXiActivity.class);
                 break;
 
         }

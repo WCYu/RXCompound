@@ -32,7 +32,7 @@ import butterknife.OnClick;
 
 public class WebViewActivity extends BaseActivity {
 
-    @Bind(R.id.new_web)
+    //    @Bind(R.id.new_web)
     WebView newWeb;
     @Bind(R.id.iv_back)
     ImageView ivBack;
@@ -59,6 +59,7 @@ public class WebViewActivity extends BaseActivity {
     @Override
     public void initData() {
         ButterKnife.bind(this);
+        newWeb = (WebView) findViewById(R.id.new_web);
         url = getIntent().getStringExtra("url");
         name = getIntent().getStringExtra("name");
         type = getIntent().getStringExtra("type");
@@ -127,6 +128,8 @@ public class WebViewActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        newWeb.resumeTimers();
+        newWeb.destroy();
         ButterKnife.unbind(this);
 //        webDianpu.destroy();
     }

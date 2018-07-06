@@ -7,8 +7,8 @@ android {
         applicationId "com.rxjy.rxcompound"
         minSdkVersion 15
         targetSdkVersion 25
-        versionCode 42
-        versionName "6.0.1"
+        versionCode 45
+        versionName "6.0.3"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
 

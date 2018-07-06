@@ -75,6 +75,7 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
         if (onCreatePresenter() != null) {
             mPresenter = onCreatePresenter();
         }
+        App.baseActivity = this;
         App.getApp().addActivity(this);
         initData();
         App.context = this;
