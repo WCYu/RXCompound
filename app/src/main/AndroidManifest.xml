@@ -43,7 +43,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         tools:replace="android:icon, android:theme">
-        <activity android:name=".activity.AnswerActivity">
+        <activity android:name=".activity.SplashActivity">
 
             <!-- <activity android:name=".activity.MainTabHostActivity"> -->
             <intent-filter>

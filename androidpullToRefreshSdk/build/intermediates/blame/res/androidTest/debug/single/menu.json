@@ -1,9 +1,5 @@
 [
     {
-        "merged": "E:\\Work\\RXCompound\\androidpullToRefreshSdk\\build\\intermediates\\res\\merged\\androidTest\\debug\\menu\\activity_main.xml",
-        "source": "E:\\Work\\RXCompound\\androidpullToRefreshSdk\\build\\intermediates\\bundles\\debug\\res\\menu\\activity_main.xml"
-    },
-    {
         "merged": "F:\\worker\\worker\\RXCompound\\androidpullToRefreshSdk\\build\\intermediates\\res\\merged\\androidTest\\debug\\menu\\activity_main.xml",
         "source": "F:\\worker\\worker\\RXCompound\\androidpullToRefreshSdk\\build\\intermediates\\bundles\\debug\\res\\menu\\activity_main.xml"
     }

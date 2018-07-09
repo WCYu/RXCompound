@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.handmark.pulltorefresh.library"
     android:versionCode="2110"
     android:versionName="2.1.1" >
 
     <uses-sdk
         android:minSdkVersion="15"
-        android:targetSdkVersion="25" />
+        android:targetSdkVersion="25"
+        tools:overrideLibrary="com.handmark.pulltorefresh.library" />
 
     <application />
 
