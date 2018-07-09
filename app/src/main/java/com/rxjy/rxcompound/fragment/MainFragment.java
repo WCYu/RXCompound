@@ -241,12 +241,11 @@ public class MainFragment extends BaseFragment<BaseInformPresenter> implements B
                 Glide.with(getActivity()).load(App.icon).into(iv_personicon);
             }
             icon = App.icon;
-//        if (iconischange.equals("1")) {
-//            iconischange = "";
+        if (iconischange.equals("1")) {
+            iconischange = "";
             mPresenter.getMessage(cardno, "1");
-//        }
+        }
             mPresenter.getMsgnum(cardno);
-
             if (desdatachange == 1) {
                 desdatachange = 0;
                 mPresenter.getDesMessage(App.cardNo);

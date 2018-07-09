@@ -6,6 +6,13 @@
     android:background="@color/colorBG"
     android:orientation="vertical">
 
+    <android.support.v4.view.ViewPager
+        android:id="@+id/pager"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </android.support.v4.view.ViewPager>
     <LinearLayout
         android:id="@+id/ly_web"
         android:layout_width="match_parent"
@@ -40,7 +47,6 @@
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content">
-
 
         <RelativeLayout
             android:id="@+id/rl_top"

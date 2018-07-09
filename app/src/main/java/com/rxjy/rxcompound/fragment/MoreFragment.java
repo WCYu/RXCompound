@@ -27,6 +27,7 @@ import com.rxjy.rxcompound.activity.IdentityInfoNewActivity;
 import com.rxjy.rxcompound.activity.MoreBannerActivity;
 import com.rxjy.rxcompound.activity.RXSongsActivity;
 import com.rxjy.rxcompound.activity.RXlinesActivity;
+import com.rxjy.rxcompound.activity.ShowImgActivity;
 import com.rxjy.rxcompound.activity.WebViewActivity;
 import com.rxjy.rxcompound.activity.XinXiActivity;
 import com.rxjy.rxcompound.activity.ZThreeActivity;
@@ -34,7 +35,14 @@ import com.rxjy.rxcompound.activity.guwen.DownLineActivity;
 import com.rxjy.rxcompound.activity.guwen.HuiShouActivity;
 import com.rxjy.rxcompound.activity.guwen.KeShouActivity;
 import com.rxjy.rxcompound.activity.guwen.ZhangBenActivity;
+import com.rxjy.rxcompound.activity.more.AnLiActivity;
+import com.rxjy.rxcompound.activity.more.BoWenActivity;
+import com.rxjy.rxcompound.activity.more.CaiWuActivity;
+import com.rxjy.rxcompound.activity.more.FuWuActivity;
+import com.rxjy.rxcompound.activity.more.JiaMengActivity;
 import com.rxjy.rxcompound.activity.more.KeHuActivity;
+import com.rxjy.rxcompound.activity.more.PaiDanActivity;
+import com.rxjy.rxcompound.activity.more.XiaXianActivity;
 import com.rxjy.rxcompound.activity.my.NewKeHuActivity;
 import com.rxjy.rxcompound.adapter.NattenDanceAdapter;
 import com.rxjy.rxcompound.commons.App;
@@ -679,9 +687,9 @@ public class MoreFragment extends BaseFragment<GetUserStatusPresenter> implement
                         break;
                     case 2:
                         Intent intent = new Intent(getActivity(), WebViewActivity.class);
-                        intent.putExtra("url","https://api.niujingji.cn:8183/static/develop/recommendApp.html?CardNo="+App.cardNo);
-                        intent.putExtra("name","加盟推荐");
-                        intent.putExtra("type","顾问");
+                        intent.putExtra("url", "https://api.niujingji.cn:8183/static/develop/recommendApp.html?CardNo=" + App.cardNo);
+                        intent.putExtra("name", "加盟推荐");
+                        intent.putExtra("type", "顾问");
                         startActivity(intent);
                         break;
                 }
@@ -699,7 +707,7 @@ public class MoreFragment extends BaseFragment<GetUserStatusPresenter> implement
         ButterKnife.unbind(this);
     }
 
-    @OnClick({R.id.iv_morebanner, R.id.ly_kehu, R.id.ly_dianpu, R.id.ly_anli, R.id.ly_bowen, R.id.ly_fuwu, R.id.ly_paidan, R.id.ly_caiwu, R.id.ly_jiameng, R.id.ly_xiaxian, R.id.ly_touzi, R.id.ly_zaishi, R.id.ly_dianpu_guwen, R.id.ly_huiyuan, R.id.ly_zhangben, R.id.ly_huishou, R.id.ly_keshou,R.id.ly_xinxiyuan})
+    @OnClick({R.id.iv_morebanner, R.id.ly_kehu, R.id.ly_dianpu, R.id.ly_anli, R.id.ly_bowen, R.id.ly_fuwu, R.id.ly_paidan, R.id.ly_caiwu, R.id.ly_jiameng, R.id.ly_xiaxian, R.id.ly_touzi, R.id.ly_zaishi, R.id.ly_dianpu_guwen, R.id.ly_huiyuan, R.id.ly_zhangben, R.id.ly_huishou, R.id.ly_keshou, R.id.ly_xinxiyuan})
     public void onViewClicked(View view) {
         Intent intent = null;
 
@@ -708,56 +716,74 @@ public class MoreFragment extends BaseFragment<GetUserStatusPresenter> implement
                 startActivity(new Intent(getActivity(), MoreBannerActivity.class));
                 break;
             case R.id.ly_dianpu://店铺
-                intent = new Intent(getActivity(), WebViewActivity.class);
+//                intent = new Intent(getActivity(), WebViewActivity.class);
                 intent.putExtra("url", "http://c.wenes.cn/#/Personnel/App/dianPu?card=1");
                 intent.putExtra("name", "店铺");
+//                intent = new Intent(getActivity(), ShowImgActivity.class);
+//                intent.putExtra("title", "店铺");
                 break;
             case R.id.ly_zaishi://在施
                 intent = new Intent(getActivity(), WebViewActivity.class);
                 intent.putExtra("url", "http://c.wenes.cn/#/Personnel/App/zaiShi?card=1");
                 intent.putExtra("name", "在施");
+//                intent = new Intent(getActivity(), ShowImgActivity.class);
+//                intent.putExtra("title", "施工");
                 break;
             case R.id.ly_anli://案例
 //                intent = new Intent(getActivity(), AnLiActivity.class);
                 intent = new Intent(getActivity(), WebViewActivity.class);
                 intent.putExtra("url", "http://c.wenes.cn/#/Personnel/App/anLi?card=1");
                 intent.putExtra("name", "案例");
+//                intent = new Intent(getActivity(), ShowImgActivity.class);
+//                intent.putExtra("title", "案例");
                 break;
             case R.id.ly_bowen://博文
 //                intent = new Intent(getActivity(), BoWenActivity.class);
                 intent = new Intent(getActivity(), WebViewActivity.class);
                 intent.putExtra("url", "http://c.wenes.cn/#/Personnel/App/boWen?card=1");
                 intent.putExtra("name", "博文");
+//                intent = new Intent(getActivity(), ShowImgActivity.class);
+//                intent.putExtra("title", "交流");
                 break;
             case R.id.ly_fuwu://服务
 //                intent = new Intent(getActivity(), FuWuActivity.class);
                 intent = new Intent(getActivity(), WebViewActivity.class);
                 intent.putExtra("url", "http://c.wenes.cn/#/Personnel/App/fuWu?card=1");
                 intent.putExtra("name", "服务");
+//                intent = new Intent(getActivity(), ShowImgActivity.class);
+//                intent.putExtra("title", "服务");
                 break;
             case R.id.ly_paidan://派单
 //                intent = new Intent(getActivity(), PaiDanActivity.class);
                 intent = new Intent(getActivity(), WebViewActivity.class);
                 intent.putExtra("url", "http://c.wenes.cn/#/Personnel/App/paiDan?card=1");
                 intent.putExtra("name", "派单");
+//                intent = new Intent(getActivity(), ShowImgActivity.class);
+//                intent.putExtra("title", "项目");
                 break;
             case R.id.ly_caiwu://财务
 //                intent = new Intent(getActivity(), CaiWuActivity.class);
                 intent = new Intent(getActivity(), WebViewActivity.class);
                 intent.putExtra("url", "http://c.wenes.cn/#/Personnel/App/caiWu?card=1");
                 intent.putExtra("name", "财务");
+//                intent = new Intent(getActivity(), ShowImgActivity.class);
+//                intent.putExtra("title", "财务");
                 break;
             case R.id.ly_jiameng://加盟
 //                intent = new Intent(getActivity(), JiaMengActivity.class);
                 intent = new Intent(getActivity(), WebViewActivity.class);
                 intent.putExtra("url", "http://c.wenes.cn/#/Personnel/App/jiaMeng?card=1");
                 intent.putExtra("name", "加盟");
+//                intent = new Intent(getActivity(), ShowImgActivity.class);
+//                intent.putExtra("title", "加盟");
                 break;
             case R.id.ly_xiaxian://下线
 //                intent = new Intent(getActivity(), XiaXianActivity.class);
-                intent = new Intent(getActivity(), WebViewActivity.class);
-                intent.putExtra("url", "http://c.wenes.cn/#/Personnel/App/xiaXian?card=1");
-                intent.putExtra("name", "下线");
+//                intent = new Intent(getActivity(), WebViewActivity.class);
+//                intent.putExtra("url", "http://c.wenes.cn/#/Personnel/App/xiaXian?card=1");
+//                intent.putExtra("name", "下线");
+//                intent = new Intent(getActivity(), ShowImgActivity.class);
+//                intent.putExtra("title", "下线");
                 break;
             case R.id.ly_touzi:
 //                intent = new Intent(getActivity(), WebViewActivity.class);

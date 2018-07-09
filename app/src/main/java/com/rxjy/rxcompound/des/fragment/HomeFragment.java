@@ -12,6 +12,8 @@ import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.text.Html;
 import android.util.Log;
@@ -33,6 +35,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.acker.simplezxing.activity.CaptureActivity;
+import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;
@@ -139,12 +142,16 @@ public class HomeFragment extends BaseFragment<GetALLClientInfoPresenter> implem
     WebView newWeb;
     @Bind(R.id.smartRefresh)
     SmartRefreshLayout smartRefresh;
+    @Bind(R.id.pager)
+    ViewPager pager;
     private Handler handler = new Handler();
     private int count = 0;
     private List<FloatedBean> list = new ArrayList<>();
     private AlertDialog alertDialog;
 
     String url = "http://edu.rxjy.com/a/rs/curaInfo/" + App.cardNo + "01012167/tryPostApp";
+    private int[] img;
+    private ArrayList<ImageView> arrayList;
 
     @Override
     protected int getFragmentLayout() {
@@ -154,6 +161,41 @@ public class HomeFragment extends BaseFragment<GetALLClientInfoPresenter> implem
     @Override
     protected void FragmentInitData() {
 
+//        img = new int[]{R.drawable.page1, R.drawable.page2, R.drawable.page3};
+//        arrayList = new ArrayList();
+//        for (int i = 0; i < img.length; i++) {
+//            ImageView imageView = new ImageView(getActivity());
+//            imageView.setBackgroundResource(img[i]);
+//            arrayList.add(imageView);
+//        }
+//        pager.setAdapter(new PagerAdapter() {
+//            @Override
+//            public int getCount() {
+//                return arrayList.size();
+//            }
+//
+//            @Override
+//            public boolean isViewFromObject(View view, Object object) {
+//                return view == object;
+//            }
+//
+//            @Override
+//            public void destroyItem(ViewGroup container, int position, Object object) {
+////                super.destroyItem(container, position, object);
+//                container.removeView(arrayList.get(position));
+//            }
+//
+//            @Override
+//            public int getItemPosition(Object object) {
+//                return super.getItemPosition(object);
+//            }
+//
+//            @Override
+//            public Object instantiateItem(ViewGroup container, int position) {
+//                container.addView(arrayList.get(position));
+//                return arrayList.get(position);
+//            }
+//        });
         if (App.is_group.equals("1") || App.is_group.equals("0")) {
             if (App.ustart != 2 && App.ustart != 3 && App.ustart != 4) {
                 ly_web.setVisibility(View.VISIBLE);
@@ -684,12 +726,13 @@ public class HomeFragment extends BaseFragment<GetALLClientInfoPresenter> implem
         }
         return null;
     }
-
-
+    
     @OnClick(R.id.tv_huitokei)
     public void onViewClicked() {
         AlertDialog.Builder dialog = new AlertDialog.Builder(getContext());
         View inflate = getActivity().getLayoutInflater().inflate(R.layout.orcode_activity, null);
+        ImageView erimg = (ImageView) inflate.findViewById(R.id.activity_image);
+        Glide.with(this).load("http://i.rxjy.com/Content/image/appEwm/rx_khpt.png").into(erimg);
         AutoUtils.setSize(getActivity(), false, 720, 1280);
         AutoUtils.auto(inflate);
         dialog.setView(inflate);
