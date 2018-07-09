@@ -85,6 +85,15 @@ public class IdentityInfoBean {
         private String IdCardImageHeadsState;
         private String IdCardImageTailsState;
         private String ImageState;
+        private String imageText;
+
+        public String getImageText() {
+            return imageText;
+        }
+
+        public void setImageText(String imageText) {
+            imageText = imageText;
+        }
 
         public String getIdCard() {
             return IdCard;

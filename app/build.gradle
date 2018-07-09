@@ -7,8 +7,8 @@ android {
         applicationId "com.rxjy.rxcompound"
         minSdkVersion 15
         targetSdkVersion 25
-        versionCode 39
-        versionName "5.7"
+        versionCode 40
+        versionName "5.8"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
 
@@ -50,27 +50,9 @@ android {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 dependencies {
 
+    implementation 'com.android.support:support-v4:25.4.0'
     compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'

@@ -31,6 +31,21 @@
             android:src="@mipmap/write"/>
     </RelativeLayout>
 
+    <LinearLayout
+        android:id="@+id/ly_web"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:orientation="vertical">
+
+        <WebView
+            android:id="@+id/home_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </WebView>
+    </LinearLayout>
+
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="400px"

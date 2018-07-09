@@ -20,6 +20,7 @@ import com.rxjy.rxcompound.entity.MoneySupBean;
 import com.rxjy.rxcompound.entity.MoneyTzBean;
 import com.rxjy.rxcompound.mvp.contract.MoneyContract;
 import com.rxjy.rxcompound.mvp.presenter.MoneyPresenter;
+import com.rxjy.rxcompound.widget.MoneyTzView;
 import com.rxjy.rxcompound.widget.MoneyView;
 import com.rxjy.rxcompound.widget.moneytext.RiseNumberTextView;
 
@@ -58,6 +59,10 @@ public class MoneyActivity extends BaseActivity<MoneyPresenter> implements Money
     MoneyView mvSix;
     @Bind(R.id.mv_seven)
     MoneyView mvSeven;
+    @Bind(R.id.mv_huiyuan)
+    MoneyTzView mvHuiyuan;
+//    @Bind(R.id.mv_huiyuan)
+//    MoneyView mvHuiYuan;
 
     @Override
     public int getLayout() {
@@ -80,6 +85,7 @@ public class MoneyActivity extends BaseActivity<MoneyPresenter> implements Money
     String cardno;
 
     private void show() {
+        mvHuiyuan.setTitleAndType("会员", "会收", "客收", "", "合计");
         Calendar c = Calendar.getInstance();
         year = c.get(Calendar.YEAR);
         month = c.get(Calendar.MONTH) + 1;
@@ -96,6 +102,7 @@ public class MoneyActivity extends BaseActivity<MoneyPresenter> implements Money
 //                mPresenter.getbusmoneydata(year + "", month + "", cardno);
 
                 //新页面
+                mvHuiyuan.setVisibility(View.VISIBLE);
                 mvOne.setTitleAndType("总收", "保底工资", "绩效收入", "取其高", "合计");
                 mvTwo.setTitleAndType("过程", "过程收入", "", "", "过程收入");
                 mvThree.setTitleAndType("结果", "结果收入", "", "", "结果收入");
@@ -161,9 +168,9 @@ public class MoneyActivity extends BaseActivity<MoneyPresenter> implements Money
                 mvThree.setTitleAndType("结果", "预收", "已收", "", "合计");
                 mvFour.setTitleAndType("奖罚", "奖金", "罚款", "考勤", "合计");
                 mvFive.setTitleAndType("提成", "提成收入", "", "", "合计");
-                mvSix.setTitleAndType("社保","社保","公积","个人所得税","合计");
+                mvSix.setTitleAndType("社保", "社保", "公积", "个人所得税", "合计");
                 mvSeven.setVisibility(View.VISIBLE);
-                mvSeven.setTitleAndType("历史","应发薪酬","未发薪酬","","");
+                mvSeven.setTitleAndType("历史", "应发薪酬", "未发薪酬", "", "");
                 mPresenter.getHospitaldata(cardno);
                 break;
         }
@@ -252,18 +259,19 @@ public class MoneyActivity extends BaseActivity<MoneyPresenter> implements Money
 
     @Override
     public void responsebusmoneynewdata(MoneyBusNewBean data) {
-        MoneyBusNewBean.BodyBean datas=data.getBody();
+        MoneyBusNewBean.BodyBean datas = data.getBody();
         moneyall = Float.valueOf(datas.getTotalIncome());
         tvMoney.withNumber(moneyall, false).start();
         busjfmoney = datas.getjFHeJi();
-        bushismoney=datas.getWeiFaXinChou();
-        mvOne.setContent(StringUtils.getPrettyNumber(datas.getSubsidymoney()), StringUtils.getPrettyNumber(datas.getPerformanceIncome()),  StringUtils.getPrettyNumber(datas.getQuqigao()),  StringUtils.getPrettyNumber(datas.getTotalIncome()));
-        mvTwo.setContent(StringUtils.getPrettyNumber(datas.getProcessIncome()), "",  "",  StringUtils.getPrettyNumber(datas.getProcessIncome()));
-        mvThree.setContent(StringUtils.getPrettyNumber(datas.getResultIncome()), "",  "",  StringUtils.getPrettyNumber(datas.getResultIncome()));
-        mvFour.setContent(StringUtils.getPrettyNumber(datas.getJiangJin()), StringUtils.getPrettyNumber(datas.getFaKuan()),  "",  StringUtils.getPrettyNumber(datas.getjFHeJi()));
-        mvFive.setContent(StringUtils.getPrettyNumber(datas.getsJTiCheng()), StringUtils.getPrettyNumber(datas.getsGTiCheng()),  "",  StringUtils.getPrettyNumber(datas.getTiCheng()));
-        mvSix.setContent(StringUtils.getPrettyNumber(datas.getSheBao()), StringUtils.getPrettyNumber(datas.getGongJiJin()), "",  StringUtils.getPrettyNumber(datas.getSheBaoGJHeJi()));
-        mvSeven.setContent("", "",  StringUtils.getPrettyNumber(datas.getYingFaXinChou()),  StringUtils.getPrettyNumber(datas.getWeiFaXinChou()));
+        bushismoney = datas.getWeiFaXinChou();
+        mvOne.setContent(StringUtils.getPrettyNumber(datas.getSubsidymoney()), StringUtils.getPrettyNumber(datas.getPerformanceIncome()), StringUtils.getPrettyNumber(datas.getQuqigao()), StringUtils.getPrettyNumber(datas.getTotalIncome()));
+        mvTwo.setContent(StringUtils.getPrettyNumber(datas.getProcessIncome()), "", "", StringUtils.getPrettyNumber(datas.getProcessIncome()));
+        mvThree.setContent(StringUtils.getPrettyNumber(datas.getResultIncome()), "", "", StringUtils.getPrettyNumber(datas.getResultIncome()));
+        mvFour.setContent(StringUtils.getPrettyNumber(datas.getJiangJin()), StringUtils.getPrettyNumber(datas.getFaKuan()), "", StringUtils.getPrettyNumber(datas.getjFHeJi()));
+        mvFive.setContent(StringUtils.getPrettyNumber(datas.getsJTiCheng()), StringUtils.getPrettyNumber(datas.getsGTiCheng()), "", StringUtils.getPrettyNumber(datas.getTiCheng()));
+        mvSix.setContent(StringUtils.getPrettyNumber(datas.getSheBao()), StringUtils.getPrettyNumber(datas.getGongJiJin()), "", StringUtils.getPrettyNumber(datas.getSheBaoGJHeJi()));
+        mvSeven.setContent("", "", StringUtils.getPrettyNumber(datas.getYingFaXinChou()), StringUtils.getPrettyNumber(datas.getWeiFaXinChou()));
+        mvHuiyuan.setContent(StringUtils.getPrettyNumber(data.getBody().getDHuiIncome()), StringUtils.getPrettyNumber(data.getBody().getDCusIncome()),"",StringUtils.getPrettyNumber(data.getBody().getDTotalIncome()));
     }
 
     @Override
@@ -462,42 +470,51 @@ public class MoneyActivity extends BaseActivity<MoneyPresenter> implements Money
 //                mvSeven.setTitleAndType("历史","应发薪酬","未发薪酬","","");
 //                mPresenter.getmoneydata(cardno);
         double salary = bean.getSalary();//实师工资      //实发
-        float f = (float)salary;
+        float f = (float) salary;
         tvMoney.withNumber(f, false).start();
         double basicSalary = bean.getBasicSalary();//基本工资
         double achievements = bean.getAchievements();//绩效工资
         double high = bean.getHigh();//取其高
-        mvOne.setContent(basicSalary+"",achievements+"",high+"",salary+"");
+        mvOne.setContent(basicSalary + "", achievements + "", high + "", salary + "");
         double advancemoney = bean.getAdvancemoney();//预收
         double sumkfmoney = bean.getSumkfmoney();//已收
         double v = advancemoney + sumkfmoney;//合计
-        Log.e("tag",v+"");
-        mvTwo.setContent(0+"","","",0+"");
-        mvThree.setContent(advancemoney+"",sumkfmoney+"","",v+"");
+        Log.e("tag", v + "");
+        mvTwo.setContent(0 + "", "", "", 0 + "");
+        mvThree.setContent(advancemoney + "", sumkfmoney + "", "", v + "");
         double reward = bean.getReward();//奖金
         double fine = bean.getFine();//罚款
         double kq = bean.getKq();//考勤
         double v1 = reward + fine + kq;//合计
-         mvFour.setContent(reward+"",fine+"",kq+"",v1+"");
+        mvFour.setContent(reward + "", fine + "", kq + "", v1 + "");
         double tiCheng = bean.getTiCheng();  // bean.get  //提成收入
-        mvFive.setContent(tiCheng+"","","",tiCheng+"");
+        mvFive.setContent(tiCheng + "", "", "", tiCheng + "");
         double social_security = bean.getSocial_security();//社保
         double accumulation_fund = bean.getAccumulation_fund();//公积
         double income_tax = bean.getIncome_tax();//个税
         double v3 = income_tax * (-1);//个税
 
         double v2 = social_security + accumulation_fund + v3;//合计
-        mvSix.setContent(social_security+"",accumulation_fund+"",v3+"",doubleToString(v2));
+        mvSix.setContent(social_security + "", accumulation_fund + "", v3 + "", doubleToString(v2));
         double historymoney = bean.getHistorymoney();
-        mvSeven.setContent(historymoney+"","0","","");
+        mvSeven.setContent(historymoney + "", "0", "", "");
     }
+
     /**
      * double转String,保留小数点后两位
+     *
      * @param num
      * @return
      */
-    public static String doubleToString(double num){
+    public static String doubleToString(double num) {
         //使用0.00不足位补0，#.##仅保留有效位
         return new DecimalFormat("0.00").format(num);
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // TODO: add setContentView(...) invocation
+        ButterKnife.bind(this);
     }
 }

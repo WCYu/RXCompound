@@ -2,6 +2,7 @@ package com.rxjy.rxcompound.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
@@ -35,6 +36,8 @@ public class WebViewActivity extends BaseActivity {
 
     String url=null;
     String name=null;
+    private String type;
+
     @Override
     public int getLayout() {
         return R.layout.activity_web_view;
@@ -45,10 +48,16 @@ public class WebViewActivity extends BaseActivity {
         ButterKnife.bind(this);
         url = getIntent().getStringExtra("url");
         name = getIntent().getStringExtra("name");
-
+        type = getIntent().getStringExtra("type");
         tvTitle.setText(name);
-        if(name.equals("量房")){
+        if(name.equals("量房")||name.equals("量房")){
             rlTool.setBackgroundColor(getResources().getColor(R.color.textorange));
+        }
+
+        if(!TextUtils.isEmpty(type)){
+            if(type.equals("顾问")){
+                rlTool.setBackgroundColor(getResources().getColor(R.color.textorange));
+            }
         }
 
         newWeb.loadUrl(url);

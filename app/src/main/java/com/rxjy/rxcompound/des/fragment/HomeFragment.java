@@ -21,6 +21,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -125,10 +128,17 @@ public class HomeFragment extends BaseFragment<GetALLClientInfoPresenter> implem
     AutoTextView autoTextView;
     @Bind(R.id.tv_huitokei)
     TextView tvHuitokei;
+    @Bind(R.id.ly_web)
+    LinearLayout ly_web;
+    @Bind(R.id.home_view)
+    WebView newWeb;
     private Handler handler = new Handler();
     private int count = 0;
     private List<FloatedBean> list = new ArrayList<>();
     private AlertDialog alertDialog;
+
+    String url ="http://edu.rxjy.com/a/rs/curaInfo/"+App.cardNo+"01012167/tryPostApp";
+
     @Override
     protected int getFragmentLayout() {
         return R.layout.fragment_home;
@@ -136,6 +146,33 @@ public class HomeFragment extends BaseFragment<GetALLClientInfoPresenter> implem
 
     @Override
     protected void FragmentInitData() {
+
+        if (App.is_group.equals("1") || App.is_group.equals("0")) {
+            if (App.ustart != 2 && App.ustart != 3 && App.ustart != 4) {
+                ly_web.setVisibility(View.VISIBLE);
+                newWeb.loadUrl(url);
+                Log.e("webView————————", url);
+
+                WebSettings settings = newWeb.getSettings();
+                settings.setJavaScriptEnabled(true);
+                //设置自适应屏幕，两者合用
+                settings.setUseWideViewPort(true); //将图片调整到适合webview的大小
+                settings.setLoadWithOverviewMode(true); // 缩放至屏幕的大小
+                settings.setDomStorageEnabled(true);
+                newWeb.setWebViewClient(new WebViewClient() {
+                    @Override
+                    public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                        view.loadUrl(url);
+                        return super.shouldOverrideUrlLoading(view, url);
+                    }
+                });
+            } else {
+                ly_web.setVisibility(View.GONE);
+            }
+        } else {
+            ly_web.setVisibility(View.GONE);
+        }
+
         if (App.dcid == 3) {
             mPresenter.getFloatedSheet("0");
             autoTextView.setVisibility(View.VISIBLE);

@@ -110,8 +110,18 @@
                     android:layout_marginLeft="10px"
                     android:layout_marginRight="20px"
                     android:layout_marginTop="20px"
+                    android:padding="40px"
                     android:layout_weight="1">
 
+                    <TextView
+                        android:id="@+id/tv_tishi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="28px"
+                        android:text=""
+                        android:lineSpacingExtra="8px"
+                        android:layout_centerInParent="true"
+                        android:textColor="@color/text_red"/>
                 </RelativeLayout>
 
             </LinearLayout>

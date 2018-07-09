@@ -40,6 +40,15 @@ public interface ApiService {
     );
 
     /**
+     * 获取下线
+     */
+    @GET("AppAgent/GetSubordinateList")
+    Observable<String> GetSubordinateList(
+            @Query("card") String card
+    );
+
+
+    /**
      * 登录
      */
 //    @GET("actionapi/AppCurrencyHome/GetAppLogin")
@@ -116,7 +125,8 @@ public interface ApiService {
             @Query("OperatorCardNo") String OperatorCardNo,
             @Query("OperatorName") String OperatorName,
             @Query("RegionId") String RegionId,
-            @Query("EduDepartId") String EduDepartId
+            @Query("EduDepartId") String EduDepartId,
+            @Query("img_type") int img_type
     );
 
     /**

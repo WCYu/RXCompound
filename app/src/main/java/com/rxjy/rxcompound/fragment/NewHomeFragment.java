@@ -12,7 +12,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -54,6 +58,12 @@ public class NewHomeFragment extends BaseFragment<HomePageFPresenter> implements
     RelativeLayout rlFindtop;
     @Bind(R.id.vp_banner)
     ViewPager vpBanner;
+    @Bind(R.id.ly_web)
+    LinearLayout ly_web;
+    @Bind(R.id.home_view)
+    WebView newWeb;
+
+    String url ="http://edu.rxjy.com/a/rs/curaInfo/"+App.cardNo+"/tryPostApp";
     int index = 0;
     int size = 0;
     String phonenum, cardno;
@@ -85,6 +95,33 @@ public class NewHomeFragment extends BaseFragment<HomePageFPresenter> implements
 
     @Override
     protected void FragmentInitData() {
+
+        if (App.is_group.equals("1") || App.is_group.equals("0")) {
+            if (App.ustart != 2 && App.ustart != 3 && App.ustart != 4) {
+                ly_web.setVisibility(View.VISIBLE);
+                newWeb.loadUrl(url);
+                Log.e("webView————————", url);
+
+                WebSettings settings = newWeb.getSettings();
+                settings.setJavaScriptEnabled(true);
+                //设置自适应屏幕，两者合用
+                settings.setUseWideViewPort(true); //将图片调整到适合webview的大小
+                settings.setLoadWithOverviewMode(true); // 缩放至屏幕的大小
+                settings.setDomStorageEnabled(true);
+                newWeb.setWebViewClient(new WebViewClient() {
+                    @Override
+                    public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                        view.loadUrl(url);
+                        return super.shouldOverrideUrlLoading(view, url);
+                    }
+                });
+            } else {
+                ly_web.setVisibility(View.GONE);
+            }
+        } else {
+            ly_web.setVisibility(View.GONE);
+        }
+
         cardno = "00001236";
         HomePageFModel mModel = new HomePageFModel();
         Subscription subscribe = mModel.getBannerList("00001236")

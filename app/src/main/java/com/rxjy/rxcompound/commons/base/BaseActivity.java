@@ -106,6 +106,7 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
 
     //子类可以同时重写这个方法实现Handler传输
     public void handlerMeaasg(Message msg) {
+
     }
 
     // 内存紧张时回收图片资源

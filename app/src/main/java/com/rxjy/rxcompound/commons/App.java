@@ -63,6 +63,7 @@ public class App extends Application {
     public static int dcid;
     public static int busisnew;//1为客服主管 客服专员
     public static  int ustart;
+    public static int stage;
     public static SharedPreferences sp;
 
 
@@ -200,6 +201,7 @@ public class App extends Application {
             }
         }
     };
+
     private static final int MSG_SET_ALIAS = 1001;
     public static Handler mHandler = new Handler() {
         @Override

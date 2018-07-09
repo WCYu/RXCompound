@@ -74,6 +74,7 @@ public class StringUtils {
     /**
      * 将获取到的时间与当前时间对比是否超时
      * 2超时或相同
+     *
      * @param time
      * @return
      */
@@ -87,8 +88,8 @@ public class StringUtils {
         long timenow = getStringTimestamp(dateNowStr);
         long timeget = getStringTimestamp(time);
 
-        if(timenow>=timeget){
-            isover=2;
+        if (timenow >= timeget) {
+            isover = 2;
         }
 
         return isover;
@@ -491,14 +492,13 @@ public class StringUtils {
             if (appProcess.processName.equals(context.getPackageName())) {
                 if (appProcess.importance == ActivityManager.RunningAppProcessInfo.IMPORTANCE_BACKGROUND) {
                     return true;
-                }else{
+                } else {
                     return false;
                 }
             }
         }
         return false;
     }
-
 
 
     //去掉相同的数据

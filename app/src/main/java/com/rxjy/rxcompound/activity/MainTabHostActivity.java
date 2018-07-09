@@ -22,6 +22,7 @@ import com.rxjy.rxcompound.commons.base.BaseActivity;
 import com.rxjy.rxcompound.commons.base.BasePresenter;
 import com.rxjy.rxcompound.commons.utils.DownLoadApk;
 import com.rxjy.rxcompound.commons.utils.StringUtils;
+import com.rxjy.rxcompound.des.fragment.HomeFragment;
 import com.rxjy.rxcompound.entity.Tabs;
 import com.rxjy.rxcompound.entity.VersionInfo;
 import com.rxjy.rxcompound.fragment.AdministrationMoreFragment;
@@ -29,12 +30,22 @@ import com.rxjy.rxcompound.fragment.FindFrqagment;
 import com.rxjy.rxcompound.fragment.HomePageFragment;
 import com.rxjy.rxcompound.fragment.MainFragment;
 import com.rxjy.rxcompound.fragment.MoreFragment;
+import com.rxjy.rxcompound.fragment.NewPeopleHomeFragment;
+import com.rxjy.rxcompound.fragment.NewestHomeFragment;
 import com.rxjy.rxcompound.fragment.PersonalFragment;
 import com.rxjy.rxcompound.mvp.contract.MainContract;
 import com.rxjy.rxcompound.mvp.presenter.MainPresenter;
+import com.rxjy.rxcompound.utils.OkhttpUtils;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Response;
 
 import static com.rxjy.rxcompound.receiver.MessageReceiver.MSG_NUM;
 import static com.rxjy.rxcompound.receiver.MessageReceiver.msgnum;
@@ -80,7 +91,11 @@ public class MainTabHostActivity extends BaseActivity<MainPresenter> implements 
     TabHost.TabSpec tabSpec;
 
     private void init() {
-        tab_home = new Tabs("首页", null, R.drawable.selector_tabicon_home, HomePageFragment.class);
+        if(getIntent().getIntExtra("isShow",0) == 0){
+            tab_home = new Tabs("首页", null, R.drawable.selector_tabicon_home, NewPeopleHomeFragment.class);
+        }else {
+            tab_home = new Tabs("首页", null, R.drawable.selector_tabicon_home, HomePageFragment.class);
+        }
         tab_more = new Tabs("更多", null, R.drawable.selector_tabicon_more, MoreFragment.class);
         tab_find = new Tabs("发现", null, R.drawable.selector_tabicon_find, FindFrqagment.class);
         tab_main = new Tabs("我", null, R.drawable.selector_tabicon_main, MainFragment.class);
@@ -123,6 +138,26 @@ public class MainTabHostActivity extends BaseActivity<MainPresenter> implements 
         if (num > 0) {
             SetMsgNum(num);
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.e("应用被杀死","应用死亡");
+        Map map = new HashMap();
+        map.put("cardNo",App.cardNo);
+        OkhttpUtils.doPost("https://api.dcwzg.com:9191/actionapi/AppHome/OfflineApp", map, new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                Log.e("下线",e.getMessage().toString());
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                String string = response.body().string();
+                Log.e("下线",string);
+            }
+        });
     }
 
     /**

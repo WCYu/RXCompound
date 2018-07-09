@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -23,16 +24,24 @@ import com.rxjy.rxcompound.fragment.FindFrqagment;
 import com.rxjy.rxcompound.fragment.HomeNewFragment;
 import com.rxjy.rxcompound.fragment.MainFragment;
 import com.rxjy.rxcompound.fragment.MoreFragment;
+import com.rxjy.rxcompound.fragment.NewPeopleHomeFragment;
 import com.rxjy.rxcompound.supervision.fragment.ProjectFragment;
 import com.rxjy.rxcompound.supervision.mvp.contract.MainContract;
 import com.rxjy.rxcompound.supervision.mvp.presenter.MainPresenter;
+import com.rxjy.rxcompound.utils.OkhttpUtils;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Response;
 
 import static com.rxjy.rxcompound.receiver.MessageReceiver.MSG_NUM;
 import static com.rxjy.rxcompound.receiver.MessageReceiver.msgnum;
@@ -147,7 +156,12 @@ public class SupervisionMainActivity extends BaseActivity<MainPresenter> impleme
         //初始化fragmentList数据集合
         fragmentList = new ArrayList<>();
         //将碎片添加到集合中
-        fragmentList.add(homeNewFragment);
+//        fragmentList.add(homeNewFragment);
+        if(getIntent().getIntExtra("isShow",0) == 0){
+            fragmentList.add(new NewPeopleHomeFragment());
+        }else {
+            fragmentList.add(homeNewFragment);
+        }
         fragmentList.add(moreFragment);
         fragmentList.add(findFragment);
         fragmentList.add(mineFragment);
@@ -274,4 +288,25 @@ public class SupervisionMainActivity extends BaseActivity<MainPresenter> impleme
     public void responseVersionDataError(String msg) {
         showToast(msg);
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.e("应用被杀死","应用死亡");
+        Map map = new HashMap();
+        map.put("cardNo",App.cardNo);
+        OkhttpUtils.doPost("https://api.dcwzg.com:9191/actionapi/AppHome/OfflineApp", map, new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                Log.e("下线",e.getMessage().toString());
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                String string = response.body().string();
+                Log.e("下线",string);
+            }
+        });
+    }
+
 }
