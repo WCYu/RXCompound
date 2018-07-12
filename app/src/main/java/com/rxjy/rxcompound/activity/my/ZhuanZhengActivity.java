@@ -366,10 +366,14 @@ public class ZhuanZhengActivity extends BaseActivity<BaseInformPresenter> implem
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-                String string = response.body().string();
-                Log.e("tag_获取转正状态",string);
-                Gson gson = new Gson();
-                zhuanZhengBean = gson.fromJson(string, ZhuanZhengBean.class);
+                try{
+                    String string = response.body().string();
+                    Log.e("tag_获取转正状态",string);
+                    Gson gson = new Gson();
+                    zhuanZhengBean = gson.fromJson(string, ZhuanZhengBean.class);
+                }catch (Exception e){
+
+                }
             }
         });
     }

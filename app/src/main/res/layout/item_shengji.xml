@@ -1,44 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:background="@mipmap/shengji"
-    >
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="300dp"
+        android:layout_centerInParent="true"
+        android:background="@mipmap/shengjiback"
         android:orientation="vertical">
+
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="发现新版本"
             android:padding="20dp"
-            android:textSize="24sp"
-            android:textColor="@color/white"/>
+            android:text="发现新版本"
+            android:textColor="@color/white"
+            android:textSize="24sp" />
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:paddingLeft="20dp"
             android:paddingRight="20dp">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:padding="20dp"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:padding="20dp">
 
                 <TextView
                     android:id="@+id/tv_content"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#000000"
-                    android:textSize="16sp"
                     android:lineSpacingExtra="10px"
-                    android:text="登陆优化" />
+                    android:text="登陆优化"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
 
             </LinearLayout>
         </RelativeLayout>
@@ -46,35 +48,37 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1px"
-            android:background="#cbcbcb"/>
+            android:background="#cbcbcb" />
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_height="50dp"
             android:gravity="center">
+
             <TextView
                 android:id="@+id/tv_quxiao"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:text="残忍拒绝"
                 android:textColor="#000000"
-                android:textSize="18sp"
-                android:gravity="center"/>
+                android:textSize="18sp" />
 
             <View
                 android:layout_width="1px"
                 android:layout_height="match_parent"
-                android:background="#cbcbcb"/>
+                android:background="#cbcbcb" />
+
             <TextView
                 android:id="@+id/tv_shengji"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:text="立即升级"
-                android:textSize="18sp"
                 android:textColor="#4F94f3"
-                android:gravity="center"/>
+                android:textSize="18sp" />
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

@@ -36,6 +36,7 @@ public class App extends Application {
 
     public static Context context;
     public static BaseActivity baseActivity;
+
     public static void setContext(Context context) {
         App.context = context;
     }
@@ -60,11 +61,11 @@ public class App extends Application {
     public static String name;//姓名
     public static String rwdId;//订单ID
     public static int is_exist;//已同意协议（温特斯会员）
-    public static String postName;//部门名称
+    public static String postName = "默认";//部门名称
     public static String icon;
     public static int dcid;
     public static int busisnew;//1为客服主管 客服专员
-    public static  int ustart;
+    public static int ustart;
     public static int stage;
     public static SharedPreferences sp;
 
@@ -96,6 +97,7 @@ public class App extends Application {
     public static Context getContext() {
         return getApp().getApplicationContext();
     }
+
     public void finishSingleActivity(Class<?> cls) {
         Activity tempActivity = null;
         for (Activity activity : activities) {
@@ -105,6 +107,7 @@ public class App extends Application {
         }
         killActivity(tempActivity);
     }
+
     //获取版本号
     public static String getVersionCode() {
         try {

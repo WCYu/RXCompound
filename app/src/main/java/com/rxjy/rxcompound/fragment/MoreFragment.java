@@ -716,7 +716,7 @@ public class MoreFragment extends BaseFragment<GetUserStatusPresenter> implement
                 startActivity(new Intent(getActivity(), MoreBannerActivity.class));
                 break;
             case R.id.ly_dianpu://店铺
-//                intent = new Intent(getActivity(), WebViewActivity.class);
+                intent = new Intent(getActivity(), WebViewActivity.class);
                 intent.putExtra("url", "http://c.wenes.cn/#/Personnel/App/dianPu?card=1");
                 intent.putExtra("name", "店铺");
 //                intent = new Intent(getActivity(), ShowImgActivity.class);

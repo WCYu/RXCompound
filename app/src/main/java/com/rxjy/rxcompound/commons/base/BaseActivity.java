@@ -172,9 +172,9 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        if(dialog!=null && dialog.isShowing()){
+                        if (dialog != null && dialog.isShowing()) {
                             dialog.dismiss();
-                            ToastUtil.getInstance().toastCentent("当前网络较差",BaseActivity.this);
+                            ToastUtil.getInstance().toastCentent("当前网络较差", BaseActivity.this);
                         }
                     }
                 });
@@ -206,9 +206,9 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
 
         //imgList.clear();
         Intent intent = new Intent(this, WpsImageActivity.class);
-        intent.putExtra("BaseUrl",baseurl);
+        intent.putExtra("BaseUrl", baseurl);
         intent.putStringArrayListExtra(Constants.IMAGE_URL_LIST, (ArrayList<String>) imgList);
-        intent.putExtra("camera_position",position);
+        intent.putExtra("camera_position", position);
         startActivity(intent);
     }
 
@@ -216,10 +216,10 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
 
         //imgList.clear();
         Intent intent = new Intent(this, WpsImage2Activity.class);
-        intent.putExtra("BaseUrl",baseurl);
+        intent.putExtra("BaseUrl", baseurl);
         intent.putStringArrayListExtra(Constants.IMAGE_URL_LIST, (ArrayList<String>) imgList);
-        intent.putExtra("camera_position",position);
-        Log.e("imglist",imgList.size()+"");
+        intent.putExtra("camera_position", position);
+        Log.e("imglist", imgList.size() + "");
         startActivity(intent);
     }
 

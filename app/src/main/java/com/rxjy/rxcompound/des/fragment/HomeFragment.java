@@ -303,6 +303,7 @@ public class HomeFragment extends BaseFragment<GetALLClientInfoPresenter> implem
          * todo
          */
         mPresenter.GetUCList(App.cardNo);
+        Log.e("卡号",App.cardNo);
         //initData();
 
         ivBiaoshu.setOnClickListener(new View.OnClickListener() {

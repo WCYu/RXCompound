@@ -99,9 +99,9 @@ public class ApiEngine {
     public static final String LISTURL = BASEURL + "AppAgent/CustomerProperty";
 
     //申请转正
-    public static final String ZHUANZHNEGURL = "http://api.p.rx/api/HR/ZhuanzhengBanli";
+    public static final String ZHUANZHNEGURL = RS_API_HOST  + "actionapi/KGManage/ZhuanzhengBanli";
     //获取转正状态
-    public static final String ZHUANZHNEDATAGURL = "http://api.p.rx/api/HR/GetAppZhuanzheng";
+    public static final String ZHUANZHNEDATAGURL = RS_API_HOST  +  "actionapi/KGManage/GetAppZhuanzheng";
 
     private Retrofit rxRetrofit;
     private Retrofit rsRetrofit;

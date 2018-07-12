@@ -108,7 +108,19 @@
                     android:layout_marginLeft="10px"
                     android:layout_marginRight="20px"
                     android:layout_marginTop="20px"
-                    android:layout_weight="1"></RelativeLayout>
+                    android:padding="40px"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="28px"
+                        android:text="正面垂直拍摄，不要有反光。"
+                        android:lineSpacingExtra="8px"
+                        android:layout_centerInParent="true"
+                        android:textColor="@color/text_red"/>
+
+                </RelativeLayout>
 
             </LinearLayout>
 
@@ -443,8 +455,16 @@
                     android:layout_marginBottom="20px"
                     android:layout_marginLeft="20px"
                     android:layout_marginRight="10px"
+                    android:padding="40px"
                     android:layout_weight="1">
-
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="28px"
+                        android:text="白底免冠证件照"
+                        android:lineSpacingExtra="8px"
+                        android:layout_centerInParent="true"
+                        android:textColor="@color/text_red"/>
 
                 </RelativeLayout>
 
@@ -532,8 +552,16 @@
                     android:layout_marginBottom="20px"
                     android:layout_marginLeft="20px"
                     android:layout_marginRight="10px"
+                    android:padding="40px"
                     android:layout_weight="1">
-
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="28px"
+                        android:text="最高学历证书正面垂直拍摄，不要有反光。"
+                        android:lineSpacingExtra="8px"
+                        android:layout_centerInParent="true"
+                        android:textColor="@color/text_red"/>
 
                 </RelativeLayout>
 
@@ -621,8 +649,16 @@
                     android:layout_marginBottom="20px"
                     android:layout_marginLeft="20px"
                     android:layout_marginRight="10px"
+                    android:padding="40px"
                     android:layout_weight="1">
-
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="28px"
+                        android:text="体检项目：肝功能、血常规、胸透、尿检，女性增加孕检"
+                        android:lineSpacingExtra="8px"
+                        android:layout_centerInParent="true"
+                        android:textColor="@color/text_red"/>
 
                 </RelativeLayout>
 
@@ -710,8 +746,16 @@
                     android:layout_marginBottom="20px"
                     android:layout_marginLeft="20px"
                     android:layout_marginRight="10px"
+                    android:padding="40px"
                     android:layout_weight="1">
-
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="28px"
+                        android:text="正面垂直拍摄，不要有反光。"
+                        android:lineSpacingExtra="8px"
+                        android:layout_centerInParent="true"
+                        android:textColor="@color/text_red"/>
 
                 </RelativeLayout>
 

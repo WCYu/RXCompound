@@ -87,7 +87,7 @@ public class GetALLClientInfoPresenter extends GetALLClientInfoContract.Presente
 
                     @Override
                     public void onNext(String s) {
-                        Log.e("---在施---", s);
+                        Log.e("---在谈---", s);
                         AllClientNewBean info = JSONUtils.toObject(s, AllClientNewBean.class);
                         if (info.getStatusCode() == 0) {
                             mView.pagehomelistnew(info);
@@ -120,7 +120,7 @@ public class GetALLClientInfoPresenter extends GetALLClientInfoContract.Presente
             @Override
             public void onNext(String s) {
                 Log.e(TAG, s);
-//                Log.e("---在施---", s);
+                Log.e("---在施---", s);
                 GetZaishiInfo info = JSONUtils.toObject(s, GetZaishiInfo.class);
                 if (info.getStatusCode() == 0) {
                     mView.pagehomelist2(info.getBody());

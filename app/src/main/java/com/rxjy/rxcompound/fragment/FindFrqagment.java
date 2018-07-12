@@ -8,6 +8,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -79,10 +80,12 @@ public class FindFrqagment extends BaseFragment<FindFPresenter> implements FindF
 
     @Override
     protected void FragmentInitData() {
-       if(App.postName.equals("投资招商")){
-           JoininNjjActivity activity = (JoininNjjActivity) getActivity();
-           activity.img_reddot.setVisibility(View.GONE);
-       }
+        if (!TextUtils.isEmpty(App.postName)) {
+            if (App.postName.equals("投资招商")) {
+                JoininNjjActivity activity = (JoininNjjActivity) getActivity();
+                activity.img_reddot.setVisibility(View.GONE);
+            }
+        }
         mPresenter.getFindObtainWhethe(App.cardNo);
         switch (App.apptype) {
             case 2:
@@ -113,7 +116,7 @@ public class FindFrqagment extends BaseFragment<FindFPresenter> implements FindF
     int isload = 0;//1:不可加载
 
     private void RequestDate(final String cardno) {
-        mPresenter.getFindList(cardno,App.app_id, pageIndex, pageSize);
+        mPresenter.getFindList(cardno, App.app_id, pageIndex, pageSize);
         Log.e("lrj", cardno + "==========" + pageIndex + "=======" + pageSize);
         pullsv_find.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<ScrollView>() {
             @Override
@@ -121,7 +124,7 @@ public class FindFrqagment extends BaseFragment<FindFPresenter> implements FindF
                 pageIndex = 1;
                 pageSize = 10;
                 ispulldown = 1;
-                mPresenter.getFindList(cardno,App.app_id, pageIndex, pageSize);
+                mPresenter.getFindList(cardno, App.app_id, pageIndex, pageSize);
             }
 
             @Override
@@ -130,7 +133,7 @@ public class FindFrqagment extends BaseFragment<FindFPresenter> implements FindF
                     Toast.makeText(getActivity(), "没有更多数据啦！", Toast.LENGTH_SHORT).show();
                 }
                 pageIndex = pageIndex + 1;
-                mPresenter.getFindListLoadmore(cardno, "",pageIndex, pageSize);
+                mPresenter.getFindListLoadmore(cardno, "", pageIndex, pageSize);
 
             }
         });
