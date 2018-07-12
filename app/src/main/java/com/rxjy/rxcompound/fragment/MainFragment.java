@@ -207,13 +207,15 @@ public class MainFragment extends BaseFragment<BaseInformPresenter> implements B
                                 UserInfoBean userInfoBean = gson.fromJson(string, UserInfoBean.class);
                                 UserInfoBean.BodyBean bodyBean = userInfoBean.getBody().get(0);
                                 tv_pname.setText(bodyBean.getU_name());
-                                if(!TextUtils.isEmpty(App.postName)){
+                                if (!TextUtils.isEmpty(App.postName)) {
                                     if (App.postName.equals("投资招商")) {
                                         tv_paccount.setText(bodyBean.getPhone());
                                         tv_pjob.setVisibility(View.GONE);
                                     } else {
                                         tv_paccount.setText(bodyBean.getCard_no());
                                     }
+                                } else {
+                                    tv_paccount.setText(bodyBean.getCard_no());
                                 }
                                 if (!TextUtils.isEmpty(bodyBean.getImage())) {
                                     Glide.with(getActivity()).load(bodyBean.getImage()).apply(RequestOptions.circleCropTransform()).into(iv_personicon);
@@ -243,10 +245,10 @@ public class MainFragment extends BaseFragment<BaseInformPresenter> implements B
                 Glide.with(getActivity()).load(App.icon).into(iv_personicon);
             }
             icon = App.icon;
-        if (iconischange.equals("1")) {
-            iconischange = "";
-            mPresenter.getMessage(cardno, "1");
-        }
+            if (iconischange.equals("1")) {
+                iconischange = "";
+                mPresenter.getMessage(cardno, "1");
+            }
             mPresenter.getMsgnum(cardno);
             if (desdatachange == 1) {
                 desdatachange = 0;
@@ -270,12 +272,14 @@ public class MainFragment extends BaseFragment<BaseInformPresenter> implements B
 //                    startActivity(new Intent(getActivity(), DesBaseInfoActivity.class));
                     startActivity(new Intent(getActivity(), UserInfoActivity.class));
                 } else {
-                    if(!TextUtils.isEmpty(App.postName)){
+                    if (!TextUtils.isEmpty(App.postName)) {
                         if (App.postName.equals("投资招商")) {
                             startActivity(new Intent(getActivity(), UserInfoActivity.class));
                         } else {
                             startActivity(new Intent(getActivity(), BaseInformationActivity.class).putExtra("isback", "1").putExtra("status", status + "").putExtra("ismain", "1"));
                         }
+                    } else {
+                        startActivity(new Intent(getActivity(), BaseInformationActivity.class).putExtra("isback", "1").putExtra("status", status + "").putExtra("ismain", "1"));
                     }
                 }
                 break;

@@ -80,16 +80,18 @@ public class JoininMoreFragment extends BaseFragment {
     protected void FragmentInitData() {
         tvTitle.setText("瑞祥装饰");
         ivBack.setVisibility(View.GONE);
-        if (App.postName.equals("投资招商")) {
-            tvFuwu1.setText("加盟介绍");
+        if(!TextUtils.isEmpty(App.postName)){
+            if (App.postName.equals("投资招商")) {
+                tvFuwu1.setText("加盟介绍");
 //            imgFuwu1.setBackgroundResource(R.mipmap.jiamengjieshao);
-            Glide.with(this).load(R.mipmap.jiamengjieshao).into(imgFuwu1);
-            tvFuwu2.setText("企业官网");
-            Glide.with(this).load(R.mipmap.qiyeguanwang).into(imgFuwu2);
+                Glide.with(this).load(R.mipmap.jiamengjieshao).into(imgFuwu1);
+                tvFuwu2.setText("企业官网");
+                Glide.with(this).load(R.mipmap.qiyeguanwang).into(imgFuwu2);
 //            imgFuwu2.setBackgroundResource(R.mipmap.qiyeguanwang);
-            tvFuwu3.setText("关于我们");
-            Glide.with(this).load(R.mipmap.guanyuwomen).into(imgFuwu3);
+                tvFuwu3.setText("关于我们");
+                Glide.with(this).load(R.mipmap.guanyuwomen).into(imgFuwu3);
 //            imgFuwu3.setBackgroundResource(R.mipmap.guanyuwomen);
+            }
         }
     }
 
