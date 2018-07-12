@@ -44,9 +44,11 @@ public class SetEmiActivity extends BaseActivity {
     @Override
     public void initData() {
         ButterKnife.bind(this);
-        if(App.postName.equals("投资招商")){
-            rl_back.setBackgroundColor(getResources().getColor(R.color.text_red));
-            btnCommit.setBackgroundColor(getResources().getColor(R.color.text_red));
+        if(!TextUtils.isEmpty(App.postName)){
+            if(App.postName.equals("投资招商")){
+                rl_back.setBackgroundColor(getResources().getColor(R.color.text_red));
+                btnCommit.setBackgroundColor(getResources().getColor(R.color.text_red));
+            }
         }
     }
 

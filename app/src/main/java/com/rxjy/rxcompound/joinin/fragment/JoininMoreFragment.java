@@ -3,6 +3,7 @@ package com.rxjy.rxcompound.joinin.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -115,21 +116,27 @@ public class JoininMoreFragment extends BaseFragment {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.qingjia_line:
-                if (App.postName.equals("投资招商")) {
-                    tvFuwu1.setText("加盟介绍");
-                    startActivity(new Intent(getContext(), WebViewActivity.class).putExtra("name", "加盟介绍").putExtra("url","http://jm.rxjy.com").putExtra("type","投资招商"));
+                if(!TextUtils.isEmpty(App.postName)){
+                    if (App.postName.equals("投资招商")) {
+                        tvFuwu1.setText("加盟介绍");
+                        startActivity(new Intent(getContext(), WebViewActivity.class).putExtra("name", "加盟介绍").putExtra("url","http://jm.rxjy.com").putExtra("type","投资招商"));
+                    }
                 }
                 break;
             case R.id.zhuanzheng_line:
-                if (App.postName.equals("投资招商")) {
-                    tvFuwu2.setText("企业官网");
-                    startActivity(new Intent(getContext(), WebViewActivity.class).putExtra("name", "企业官网").putExtra("url","http://www.rxjy.com").putExtra("type","投资招商"));
+                if(!TextUtils.isEmpty(App.postName)){
+                    if (App.postName.equals("投资招商")) {
+                        tvFuwu2.setText("企业官网");
+                        startActivity(new Intent(getContext(), WebViewActivity.class).putExtra("name", "企业官网").putExtra("url","http://www.rxjy.com").putExtra("type","投资招商"));
+                    }
                 }
                 break;
             case R.id.jiameng_line:
-                if (App.postName.equals("投资招商")) {
-                    tvFuwu3.setText("关于我们");
-                    startActivity(new Intent(getContext(), WebViewActivity.class).putExtra("name", "关于我们").putExtra("url","http://j.rxjy.com/Mobile/video.html").putExtra("type","投资招商"));
+                if(!TextUtils.isEmpty(App.postName)){
+                    if (App.postName.equals("投资招商")) {
+                        tvFuwu3.setText("关于我们");
+                        startActivity(new Intent(getContext(), WebViewActivity.class).putExtra("name", "关于我们").putExtra("url","http://j.rxjy.com/Mobile/video.html").putExtra("type","投资招商"));
+                    }
                 }
                 break;
             case R.id.matters:

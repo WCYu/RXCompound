@@ -12,6 +12,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.os.SystemClock;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
@@ -489,10 +490,16 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
                     Log.e("-----", "老员工");
                     if (App.stage > 1) {//资料以及完善
 //                if (data.getBody().getApp_stage() > 1) {//资料以及完善
-                        if (App.postName.equals("客服主管") || App.postName.equals("客服专员") || (App.postName.equals("客服经理") || App.postName.equals("平台客服"))) {
-                            App.busisnew = 1;
-                            startActivity(new Intent(this, BusinessMainHostActivity.class).putExtra("isShow", 1));
-                            finish();
+                        if (!TextUtils.isEmpty(App.postName)) {
+                            if (App.postName.equals("客服主管") || App.postName.equals("客服专员") || (App.postName.equals("客服经理") || App.postName.equals("平台客服"))) {
+                                App.busisnew = 1;
+                                startActivity(new Intent(this, BusinessMainHostActivity.class).putExtra("isShow", 1));
+                                finish();
+                            } else {
+                                startActivity(new Intent(this, MainTabHostActivity.class).putExtra("isShow", 1));
+                                finish();
+                                Log.e("tag", "ccccccccccccc");
+                            }
                         } else {
                             startActivity(new Intent(this, MainTabHostActivity.class).putExtra("isShow", 1));
                             finish();

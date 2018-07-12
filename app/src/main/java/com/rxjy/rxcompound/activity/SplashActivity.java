@@ -411,10 +411,16 @@ public class SplashActivity extends BaseActivity<LoginPresenter> implements Logi
                     Log.e("-----", "老员工");
                     if (App.stage > 1) {//资料以及完善
 //                if (data.getBody().getApp_stage() > 1) {//资料以及完善
-                        if (App.postName.equals("客服主管") || App.postName.equals("客服专员") || (App.postName.equals("客服经理") || App.postName.equals("平台客服"))) {
-                            App.busisnew = 1;
-                            startActivity(new Intent(this, BusinessMainHostActivity.class).putExtra("isShow", 1));
-                            finish();
+                        if (!TextUtils.isEmpty(App.postName)) {
+                            if (App.postName.equals("客服主管") || App.postName.equals("客服专员") || (App.postName.equals("客服经理") || App.postName.equals("平台客服"))) {
+                                App.busisnew = 1;
+                                startActivity(new Intent(this, BusinessMainHostActivity.class).putExtra("isShow", 1));
+                                finish();
+                            } else {
+                                startActivity(new Intent(this, MainTabHostActivity.class).putExtra("isShow", 1));
+                                finish();
+                                Log.e("tag", "ccccccccccccc");
+                            }
                         } else {
                             startActivity(new Intent(this, MainTabHostActivity.class).putExtra("isShow", 1));
                             finish();
