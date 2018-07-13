@@ -300,13 +300,14 @@ public class ZhuanZhengActivity extends BaseActivity<BaseInformPresenter> implem
                     return;
                 }
 
-                int hege = zhuanZhengBean.getHege();
+                int hege = zhuanZhengBean.getBody().getHege();
 
-                if(hege == 1){//允许转正
+//                if(hege == 1){//允许转正
                     commitData();
-                }else {
-                    ToastUtil.getInstance().toastCentent(zhuanZhengBean.getZhuanzhengTimeStr());
-                }
+//                }else {
+//                    Log.e("tag_申请转正",baoxian + hukou + duty.getText().toString());
+//                    ToastUtil.getInstance().toastCentent(zhuanZhengBean.getBody().getZhuanzhengTimeStr());
+//                }
 
                 break;
         }
@@ -318,7 +319,7 @@ public class ZhuanZhengActivity extends BaseActivity<BaseInformPresenter> implem
         map.put("shebao", baoxian);
         map.put("hukou", hukou);
         map.put("shuzhi", duty.getText().toString());
-        map.put("u_zhuanzhengtime", zhuanZhengBean.getZhuanzhengTime());
+        map.put("u_zhuanzhengtime", zhuanZhengBean.getBody().getZhuanzhengTime());
         map.put("reason", "App提交转正");
         map.put("KaHao", "");
         OkhttpUtils.doPost(ApiEngine.ZHUANZHNEGURL, map, new Callback() {
@@ -336,14 +337,14 @@ public class ZhuanZhengActivity extends BaseActivity<BaseInformPresenter> implem
                     public void run() {
                         try {
                             JSONObject jsonObject = new JSONObject(string);
-                            int status = jsonObject.getInt("status");
-                            String msg = jsonObject.getString("msg");
-                            if(status == 0){
-                                ToastUtil.getInstance().toastCentent(msg);
+                            int statusCode = jsonObject.getInt("StatusCode");
+                            String statusMsg = jsonObject.getString("StatusMsg");
+                            if(statusCode == 0){
+                                ToastUtil.getInstance().toastCentent(statusMsg);
                                 App.ustart = 100010;
                                 finish();
                             }else {
-                                ToastUtil.getInstance().toastCentent(msg);
+                                ToastUtil.getInstance().toastCentent(statusMsg);
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -366,13 +367,20 @@ public class ZhuanZhengActivity extends BaseActivity<BaseInformPresenter> implem
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-                try{
-                    String string = response.body().string();
-                    Log.e("tag_获取转正状态",string);
-                    Gson gson = new Gson();
-                    zhuanZhengBean = gson.fromJson(string, ZhuanZhengBean.class);
-                }catch (Exception e){
-
+                String string = response.body().string();
+                Log.e("tag_获取转正状态",string);
+                try {
+                    JSONObject jsonObject = new JSONObject(string);
+                    String statusMsg = jsonObject.getString("StatusMsg");
+                    int statusCode = jsonObject.getInt("StatusCode");
+                    if(statusCode == 0){
+                        Gson gson = new Gson();
+                        zhuanZhengBean = gson.fromJson(string, ZhuanZhengBean.class);
+                    }else {
+                        ToastUtil.getInstance().toastCentent(statusMsg);
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
             }
         });

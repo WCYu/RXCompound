@@ -66,7 +66,7 @@ public class ShigonghetongActivity extends BaseActivity {
     private List<Fragment> fragmentList;
 
     //new
-    private HetongFragment newOneFragment;
+    private HetongFragment  newOneFragment;
     private YusuanFragment newTwoFragment;
     private TuzhiFragment newThreeFragment;
 
@@ -82,7 +82,6 @@ public class ShigonghetongActivity extends BaseActivity {
     }
 
 
-
     @Override
     public void initData() {
         initTitle();
@@ -95,7 +94,7 @@ public class ShigonghetongActivity extends BaseActivity {
     }
 
     private void setRwdidToFragment() {
-        AllClientInfo.ClientTypeInfo.ClientInfo info= (AllClientInfo.ClientTypeInfo.ClientInfo) getIntent().getSerializableExtra(Constants.ACTION_TO_DAI_MEASURE_CLIENT_INFO);
+        AllClientInfo.ClientTypeInfo.ClientInfo info = (AllClientInfo.ClientTypeInfo.ClientInfo) getIntent().getSerializableExtra(Constants.ACTION_TO_DAI_MEASURE_CLIENT_INFO);
         newOneFragment.setClientInfo(info);
         newTwoFragment.setClientInfo(info);
         newThreeFragment.setClientInfo(info);
@@ -125,26 +124,29 @@ public class ShigonghetongActivity extends BaseActivity {
             newThreeFragment = new TuzhiFragment();
         }
 
-    //初始化fragmentList数据集合
-    fragmentList =new ArrayList<>();
-    //将碎片添加到集合中
+        //初始化fragmentList数据集合
+        fragmentList = new ArrayList<>();
+        //将碎片添加到集合中
         fragmentList.add(newOneFragment);
         fragmentList.add(newTwoFragment);
         fragmentList.add(newThreeFragment);
-}
+    }
+
     //Tab图标的集合
     private List<IconInfo> iconList;
+
     private void initIcon() {
         //初始化iconList数据集合
         iconList = new ArrayList<>();
         //将图标添加到集合中
-        iconList.add(new IconInfo(tvTabHetong,tvTabHetongLine));
-        iconList.add(new IconInfo(tvTabYusuan,tvTabYusuanLine));
-        iconList.add(new IconInfo(tvTabTuzhi,tvTabTuzhiLine));
+        iconList.add(new IconInfo(tvTabHetong, tvTabHetongLine));
+        iconList.add(new IconInfo(tvTabYusuan, tvTabYusuanLine));
+        iconList.add(new IconInfo(tvTabTuzhi, tvTabTuzhiLine));
     }
-    @OnClick({R.id.ll_tab_hetong,R.id.ll_tab_yusuan,R.id.ll_tab_tuzhi})
-    public void OnClick(View view){
-        switch (view.getId()){
+
+    @OnClick({R.id.ll_tab_hetong, R.id.ll_tab_yusuan, R.id.ll_tab_tuzhi})
+    public void OnClick(View view) {
+        switch (view.getId()) {
             case R.id.ll_tab_hetong:
                 showFragment(fragmentList.get(ONE_FRAGMENT), ONE_FRAGMENT);
                 break;
@@ -169,7 +171,9 @@ public class ShigonghetongActivity extends BaseActivity {
         //加载显示的标题
         //tvTitle.setText(titleArr[position]);
     }
+
     private Fragment currentFragment;
+
     /**
      * 加载指定Fragment的方法
      *
@@ -205,7 +209,6 @@ public class ShigonghetongActivity extends BaseActivity {
         iconList.get(position).getTextView().setTextColor(this.getResources().getColor(R.color.cor0068b7));
         iconList.get(position).getTextView2().setVisibility(View.VISIBLE);
     }
-
 
 
     @Override

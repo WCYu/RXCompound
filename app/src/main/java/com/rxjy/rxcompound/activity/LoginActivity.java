@@ -651,11 +651,11 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
 
     public void isShowDaTi(final Class cls) {
         OkHttpClient okHttpClient = new OkHttpClient();
-        Request build = new Request.Builder().url("http://edu.rxjy.com/a/api/" + App.cardNo + "/isViewCurr").build();
+        Request build = new Request.Builder().url("http://edu.rxjy.com/a/api/" + App.app_id + "/isViewQues").build();
         okHttpClient.newCall(build).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
-                Log.e("tag_是否答题失败", e.getMessage().toString());
+                Log.e("tag_是否显示答题失败", e.getMessage().toString());
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
@@ -670,7 +670,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 final String string = response.body().string();
-                Log.e("tag_是否答题", string);
+                Log.e("tag_是否显示答题", string);
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {

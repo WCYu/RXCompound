@@ -64,7 +64,7 @@ public class NewHomeFragment extends BaseFragment<HomePageFPresenter> implements
     @Bind(R.id.home_view)
     WebView newWeb;
 
-    String url ="http://edu.rxjy.com/a/rs/curaInfo/"+App.cardNo+"/tryPostApp";
+    String url ="http://edu.rxjy.com/a/rs/curaInfo/"+App.cardNo+"/tryPostApp?appId="+App.app_id;
     int index = 0;
     int size = 0;
     String phonenum, cardno;

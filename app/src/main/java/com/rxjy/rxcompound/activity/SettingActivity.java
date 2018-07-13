@@ -96,6 +96,7 @@ public class SettingActivity extends BaseActivity<SettingPresenter> implements S
                 edit.putString("rxdy_cardno", "");
                 edit.putString("rxdy_phone", "");
                 edit.putString("rxdy_pwd", "");
+                edit.putString("rx_persondata", "");
                 edit.commit();
                 jpush_edit.putString(jpushname, null);
                 jpush_edit.commit();

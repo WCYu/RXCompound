@@ -149,7 +149,7 @@ public class HomeFragment extends BaseFragment<GetALLClientInfoPresenter> implem
     private List<FloatedBean> list = new ArrayList<>();
     private AlertDialog alertDialog;
 
-    String url = "http://edu.rxjy.com/a/rs/curaInfo/" + App.cardNo + "01012167/tryPostApp";
+    String url = "http://edu.rxjy.com/a/rs/curaInfo/" + App.cardNo + "/tryPostApp?appId=" + App.app_id;
     private int[] img;
     private ArrayList<ImageView> arrayList;
 
@@ -257,6 +257,7 @@ public class HomeFragment extends BaseFragment<GetALLClientInfoPresenter> implem
             @Override
             public void onRefresh(@NonNull RefreshLayout refreshLayout) {
                 refreshLayout.finishRefresh();
+                Log.e("在谈电话", phone);
                 mPresenter.GetUCList(App.cardNo);
                 mPresenter.getALLClientInfoNew(phone);
             }
@@ -303,7 +304,7 @@ public class HomeFragment extends BaseFragment<GetALLClientInfoPresenter> implem
          * todo
          */
         mPresenter.GetUCList(App.cardNo);
-        Log.e("卡号",App.cardNo);
+        Log.e("卡号", App.cardNo);
         //initData();
 
         ivBiaoshu.setOnClickListener(new View.OnClickListener() {
@@ -457,7 +458,6 @@ public class HomeFragment extends BaseFragment<GetALLClientInfoPresenter> implem
 
     @Override
     public void pagehomelist(List<AllClientInfo.ClientTypeInfo.ClientInfo> list) {
-
 
         if (list.size() == 0) {
             llJiedan.setVisibility(View.GONE);
@@ -727,7 +727,7 @@ public class HomeFragment extends BaseFragment<GetALLClientInfoPresenter> implem
         }
         return null;
     }
-    
+
     @OnClick(R.id.tv_huitokei)
     public void onViewClicked() {
         AlertDialog.Builder dialog = new AlertDialog.Builder(getContext());

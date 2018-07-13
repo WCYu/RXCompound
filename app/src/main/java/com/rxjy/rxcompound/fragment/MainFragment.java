@@ -157,11 +157,13 @@ public class MainFragment extends BaseFragment<BaseInformPresenter> implements B
         } else {
             if (!StringUtils.isEmpty(persondata)) {
                 PersonBean info = JSONUtils.toObject(persondata, PersonBean.class);
-                tv_pname.setText(info.getBody().getName());
+                tv_pname.setText(App.name);
                 name = info.getBody().getName();
-                tv_pjob.setText(info.getBody().getSex() + "   " + info.getBody().getPostName());
-                tv_paccount.setText("账号 " + info.getBody().getCardNo());
-//                Glide.with(getActivity()).load(info.getBody().getImage()).into(iv_personicon);
+                if(!TextUtils.isEmpty(App.postName)){
+                    tv_pjob.setText(info.getBody().getSex() + "   " + App.postName);
+                }
+                tv_paccount.setText("账号 " + App.cardNo);
+                Glide.with(getActivity()).load(info.getBody().getImage()).into(iv_personicon);
 //                icon=info.getBody().getImage();
             } else {
                 mPresenter.getMessage(cardno, "1");
