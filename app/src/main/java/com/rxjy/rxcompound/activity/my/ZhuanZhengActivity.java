@@ -300,9 +300,9 @@ public class ZhuanZhengActivity extends BaseActivity<BaseInformPresenter> implem
                     return;
                 }
 
-                int hege = zhuanZhengBean.getBody().getHege();
+                String hege = zhuanZhengBean.getBody().getHege();
 
-//                if(hege == 1){//允许转正
+//                if(hege.equals("1")){//允许转正
                     commitData();
 //                }else {
 //                    Log.e("tag_申请转正",baoxian + hukou + duty.getText().toString());

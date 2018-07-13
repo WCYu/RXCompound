@@ -68,6 +68,7 @@ import com.rxjy.rxcompound.des.mvp.presenter.GetALLClientInfoPresenter;
 import com.rxjy.rxcompound.entity.ErCodeBean;
 import com.rxjy.rxcompound.entity.ErCodeTBean;
 import com.rxjy.rxcompound.entity.FloatedBean;
+import com.rxjy.rxcompound.utils.OkhttpUtils;
 import com.rxjy.rxcompound.widget.AutoTextView;
 import com.rxjy.rxcompound.widget.MyListview;
 import com.rxjy.rxcompound.widget.xlistview.XListView;
@@ -75,6 +76,7 @@ import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -83,6 +85,9 @@ import java.util.Map;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Response;
 
 import static android.app.Activity.RESULT_CANCELED;
 import static android.app.Activity.RESULT_OK;
@@ -703,6 +708,31 @@ public class HomeFragment extends BaseFragment<GetALLClientInfoPresenter> implem
          */
         Bitmap bitmap = generateBitmap(ercodestr, (int) (display.getWidth() * 0.8), (int) (display.getWidth() * 0.8));
         iv_ercode.setImageBitmap(bitmap);
+//        getErWeiMa(iv_ercode,orderid);
+    }
+
+    private void getErWeiMa(final ImageView iv_ercode, String orderid) {
+        Map map = new HashMap();
+        map.put("my_card",App.cardNo);
+        map.put("kh_card",orderid);
+        OkhttpUtils.doGet("https://api.dcwzg.com:9191/actionapi/AppPreUser/GetBuildNoLandingEWM", map, new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                Log.e("生成二维码失败",e.getMessage().toString());
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                String string = response.body().string();
+                Log.e("生成二维码",string);
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+//                        Glide.with(getActivity()).load().into(iv_ercode);
+                    }
+                });
+            }
+        });
     }
 
     private Bitmap generateBitmap(String content, int width, int height) {

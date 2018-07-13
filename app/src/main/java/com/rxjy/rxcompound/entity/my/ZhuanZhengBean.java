@@ -47,15 +47,15 @@ public class ZhuanZhengBean {
          * zhuanzhengTime : 2018-07-30
          */
 
-        private int hege;
+        private String hege;
         private String zhuanzhengTimeStr;
         private String zhuanzhengTime;
 
-        public int getHege() {
+        public String getHege() {
             return hege;
         }
 
-        public void setHege(int hege) {
+        public void setHege(String hege) {
             this.hege = hege;
         }
 
