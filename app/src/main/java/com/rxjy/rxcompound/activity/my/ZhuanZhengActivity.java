@@ -151,7 +151,7 @@ public class ZhuanZhengActivity extends BaseActivity<BaseInformPresenter> implem
 
     @Override
     public void responsegetMessage(String s, PersonBean data) {
-        if(data!=null){
+        if (data != null) {
             dismissLoading();
         }
         etName.setText(data.getBody().getName());
@@ -265,7 +265,7 @@ public class ZhuanZhengActivity extends BaseActivity<BaseInformPresenter> implem
 
     }
 
-    @OnClick({R.id.iv_back,R.id.et_hukou, R.id.et_baoxian, R.id.btn_commit})
+    @OnClick({R.id.iv_back, R.id.et_hukou, R.id.et_baoxian, R.id.btn_commit})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.iv_back:
@@ -280,22 +280,22 @@ public class ZhuanZhengActivity extends BaseActivity<BaseInformPresenter> implem
                 break;
             case R.id.btn_commit:
 
-                if(TextUtils.isEmpty(hukou)){
+                if (TextUtils.isEmpty(hukou)) {
                     ToastUtil.getInstance().toastCentent("请选择户口性质");
                     return;
                 }
 
-                if(TextUtils.isEmpty(baoxian)){
+                if (TextUtils.isEmpty(baoxian)) {
                     ToastUtil.getInstance().toastCentent("请选择保险情况");
                     return;
                 }
 
-                if(TextUtils.isEmpty(duty.getText().toString())){
+                if (TextUtils.isEmpty(duty.getText().toString())) {
                     ToastUtil.getInstance().toastCentent("请填写述职情况");
                     return;
                 }
 
-                if(zhuanZhengBean == null){
+                if (zhuanZhengBean == null) {
                     ToastUtil.getInstance().toastCentent("未获取到员工信息");
                     return;
                 }
@@ -303,7 +303,7 @@ public class ZhuanZhengActivity extends BaseActivity<BaseInformPresenter> implem
                 String hege = zhuanZhengBean.getBody().getHege();
 
 //                if(hege.equals("1")){//允许转正
-                    commitData();
+                commitData();
 //                }else {
 //                    Log.e("tag_申请转正",baoxian + hukou + duty.getText().toString());
 //                    ToastUtil.getInstance().toastCentent(zhuanZhengBean.getBody().getZhuanzhengTimeStr());
@@ -325,13 +325,13 @@ public class ZhuanZhengActivity extends BaseActivity<BaseInformPresenter> implem
         OkhttpUtils.doPost(ApiEngine.ZHUANZHNEGURL, map, new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
-                Log.e("tag_申请转正_失败",e.getMessage().toString());
+                Log.e("tag_申请转正_失败", e.getMessage().toString());
             }
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 final String string = response.body().string();
-                Log.e("tag_申请转正",string);
+                Log.e("tag_申请转正", string);
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
@@ -339,11 +339,11 @@ public class ZhuanZhengActivity extends BaseActivity<BaseInformPresenter> implem
                             JSONObject jsonObject = new JSONObject(string);
                             int statusCode = jsonObject.getInt("StatusCode");
                             String statusMsg = jsonObject.getString("StatusMsg");
-                            if(statusCode == 0){
+                            if (statusCode == 0) {
                                 ToastUtil.getInstance().toastCentent(statusMsg);
                                 App.ustart = 100010;
                                 finish();
-                            }else {
+                            } else {
                                 ToastUtil.getInstance().toastCentent(statusMsg);
                             }
                         } catch (JSONException e) {
@@ -358,25 +358,25 @@ public class ZhuanZhengActivity extends BaseActivity<BaseInformPresenter> implem
 
     public void getUserData(String card) {
         Map map = new HashMap();
-        map.put("u_kahao",card);
+        map.put("u_kahao", card);
         OkhttpUtils.doGet(ApiEngine.ZHUANZHNEDATAGURL, map, new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
-                Log.e("tag_获取转正状态失败",e.getMessage().toString());
+                Log.e("tag_获取转正状态失败", e.getMessage().toString());
             }
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 String string = response.body().string();
-                Log.e("tag_获取转正状态",string);
+                Log.e("tag_获取转正状态", string);
                 try {
                     JSONObject jsonObject = new JSONObject(string);
                     String statusMsg = jsonObject.getString("StatusMsg");
                     int statusCode = jsonObject.getInt("StatusCode");
-                    if(statusCode == 0){
+                    if (statusCode == 0) {
                         Gson gson = new Gson();
                         zhuanZhengBean = gson.fromJson(string, ZhuanZhengBean.class);
-                    }else {
+                    } else {
                         ToastUtil.getInstance().toastCentent(statusMsg);
                     }
                 } catch (JSONException e) {
