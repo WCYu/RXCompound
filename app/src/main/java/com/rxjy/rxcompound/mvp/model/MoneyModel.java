@@ -62,7 +62,7 @@ public class MoneyModel implements MoneyContract.Model{
 
     @Override
     public Observable<String> getHospitaldata(String cardNo) {
-        return ApiEngine.getInstance().getRsApiServicess()
+        return ApiEngine.getInstance().getRsApiService()
                 .getHospitaldata(cardNo)
                 .compose(RxSchedulers.<String>switchThread());
     }

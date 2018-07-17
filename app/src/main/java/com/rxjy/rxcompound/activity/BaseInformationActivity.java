@@ -41,6 +41,7 @@ import com.rxjy.rxcompound.entity.UserStatusBean;
 import com.rxjy.rxcompound.fragment.MainFragment;
 import com.rxjy.rxcompound.mvp.contract.BaseInformContract;
 import com.rxjy.rxcompound.mvp.presenter.BaseInformPresenter;
+import com.yanzhenjie.album.Album;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -127,6 +128,9 @@ public class BaseInformationActivity extends BaseActivity<BaseInformPresenter> i
         if (status != null) {
             statuss = Integer.parseInt(status);
         }
+        RequestOptions options = new RequestOptions();
+        options.centerCrop().transform(new GlideCircleTransform(this));
+        Glide.with(this).load(App.icon).apply(options).into(ic_icon);
         et_phone.setEnabled(false);
 //        if (!StringUtils.isEmpty(status)) {
 //            int sta = Integer.parseInt(status);
@@ -202,12 +206,16 @@ public class BaseInformationActivity extends BaseActivity<BaseInformPresenter> i
         tv_name.setText(data.getBody().getName());
         tv_trydate.setText("试岗日期 " + data.getBody().getTryHillockTime());
         tv_name.setText(data.getBody().getName());
-        if (!StringUtils.isEmpty(App.icon)) {
-            RequestOptions options = new RequestOptions();
-            options.centerCrop().transform(new GlideCircleTransform(this));
-            Glide.with(this).load(App.icon).apply(options).into(ic_icon);
-            hasicon = 1;
-        }
+        String image = data.getBody().getImage();
+        RequestOptions options = new RequestOptions();
+        options.centerCrop().transform(new GlideCircleTransform(this));
+//        Glide.with(this).load(image).apply(options).into(ic_icon);
+//        if (!StringUtils.isEmpty(App.icon)) {
+//            RequestOptions options = new RequestOptions();
+//            options.centerCrop().transform(new GlideCircleTransform(this));
+//            Glide.with(this).load(App.icon).apply(options).into(ic_icon);
+//            hasicon = 1;
+//        }
 
 //        if (!StringUtils.isEmpty(data.getBody().getPassport_photo())) {
 ////            Glide.with(this).load(data.getBody().getImage()).centerCrop().transform(new GlideCircleTransform(this)).into(ic_icon);
@@ -463,9 +471,9 @@ public class BaseInformationActivity extends BaseActivity<BaseInformPresenter> i
                     for (int i = 0; i < localMedias.size(); i++) {
                         imgone.add(localMedias.get(i).getCutPath());
                     }
+                    Log.e("图片：", imgone.get(0));
 //                    imgone = Album.parseResult(data);
                     //上传。。。。
-                    Log.e("图片：", imgone.get(0));
                     mPresenter.upLoadIcon(cardno, imgone.get(0));
                 }
                 break;

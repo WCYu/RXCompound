@@ -9,8 +9,11 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.text.Html;
 import android.util.Log;
@@ -21,6 +24,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.webkit.JavascriptInterface;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -31,6 +35,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.acker.simplezxing.activity.CaptureActivity;
+import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;
@@ -66,6 +71,9 @@ import com.rxjy.rxcompound.entity.FloatedBean;
 import com.rxjy.rxcompound.widget.AutoTextView;
 import com.rxjy.rxcompound.widget.MyListview;
 import com.rxjy.rxcompound.widget.xlistview.XListView;
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -132,12 +140,18 @@ public class HomeFragment extends BaseFragment<GetALLClientInfoPresenter> implem
     LinearLayout ly_web;
     @Bind(R.id.home_view)
     WebView newWeb;
+    @Bind(R.id.smartRefresh)
+    SmartRefreshLayout smartRefresh;
+    @Bind(R.id.pager)
+    ViewPager pager;
     private Handler handler = new Handler();
     private int count = 0;
     private List<FloatedBean> list = new ArrayList<>();
     private AlertDialog alertDialog;
 
-    String url ="http://edu.rxjy.com/a/rs/curaInfo/"+App.cardNo+"01012167/tryPostApp";
+    String url = "http://edu.rxjy.com/a/rs/curaInfo/" + App.cardNo + "01012167/tryPostApp";
+    private int[] img;
+    private ArrayList<ImageView> arrayList;
 
     @Override
     protected int getFragmentLayout() {
@@ -147,6 +161,41 @@ public class HomeFragment extends BaseFragment<GetALLClientInfoPresenter> implem
     @Override
     protected void FragmentInitData() {
 
+//        img = new int[]{R.drawable.page1, R.drawable.page2, R.drawable.page3};
+//        arrayList = new ArrayList();
+//        for (int i = 0; i < img.length; i++) {
+//            ImageView imageView = new ImageView(getActivity());
+//            imageView.setBackgroundResource(img[i]);
+//            arrayList.add(imageView);
+//        }
+//        pager.setAdapter(new PagerAdapter() {
+//            @Override
+//            public int getCount() {
+//                return arrayList.size();
+//            }
+//
+//            @Override
+//            public boolean isViewFromObject(View view, Object object) {
+//                return view == object;
+//            }
+//
+//            @Override
+//            public void destroyItem(ViewGroup container, int position, Object object) {
+////                super.destroyItem(container, position, object);
+//                container.removeView(arrayList.get(position));
+//            }
+//
+//            @Override
+//            public int getItemPosition(Object object) {
+//                return super.getItemPosition(object);
+//            }
+//
+//            @Override
+//            public Object instantiateItem(ViewGroup container, int position) {
+//                container.addView(arrayList.get(position));
+//                return arrayList.get(position);
+//            }
+//        });
         if (App.is_group.equals("1") || App.is_group.equals("0")) {
             if (App.ustart != 2 && App.ustart != 3 && App.ustart != 4) {
                 ly_web.setVisibility(View.VISIBLE);
@@ -155,6 +204,7 @@ public class HomeFragment extends BaseFragment<GetALLClientInfoPresenter> implem
 
                 WebSettings settings = newWeb.getSettings();
                 settings.setJavaScriptEnabled(true);
+                newWeb.addJavascriptInterface(new WebViewJump(), "android");
                 //设置自适应屏幕，两者合用
                 settings.setUseWideViewPort(true); //将图片调整到适合webview的大小
                 settings.setLoadWithOverviewMode(true); // 缩放至屏幕的大小
@@ -199,6 +249,43 @@ public class HomeFragment extends BaseFragment<GetALLClientInfoPresenter> implem
 //        });
 //        xlvHomeZaishi.setPullLoadEnable(false);
 
+        initListener();
+    }
+
+    private void initListener() {
+        smartRefresh.setOnRefreshListener(new OnRefreshListener() {
+            @Override
+            public void onRefresh(@NonNull RefreshLayout refreshLayout) {
+                refreshLayout.finishRefresh();
+                mPresenter.GetUCList(App.cardNo);
+                mPresenter.getALLClientInfoNew(phone);
+            }
+        });
+        smartRefresh.setEnableLoadMore(false);
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // TODO: inflate a fragment view
+        View rootView = super.onCreateView(inflater, container, savedInstanceState);
+        ButterKnife.bind(this, rootView);
+        return rootView;
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        ButterKnife.unbind(this);
+    }
+
+    class WebViewJump {
+        @JavascriptInterface
+        public void jump() {
+            Log.e("tag——", "进入");
+            Intent intent = new Intent(getActivity(), getActivity().getClass());
+            startActivity(intent);
+            getActivity().finish();
+        }
     }
 
     private void initTitle() {
@@ -639,13 +726,13 @@ public class HomeFragment extends BaseFragment<GetALLClientInfoPresenter> implem
         }
         return null;
     }
-
-
-
+    
     @OnClick(R.id.tv_huitokei)
     public void onViewClicked() {
-        AlertDialog.Builder dialog=new AlertDialog.Builder(getContext());
+        AlertDialog.Builder dialog = new AlertDialog.Builder(getContext());
         View inflate = getActivity().getLayoutInflater().inflate(R.layout.orcode_activity, null);
+        ImageView erimg = (ImageView) inflate.findViewById(R.id.activity_image);
+        Glide.with(this).load("http://i.rxjy.com/Content/image/appEwm/rx_khpt.png").into(erimg);
         AutoUtils.setSize(getActivity(), false, 720, 1280);
         AutoUtils.auto(inflate);
         dialog.setView(inflate);

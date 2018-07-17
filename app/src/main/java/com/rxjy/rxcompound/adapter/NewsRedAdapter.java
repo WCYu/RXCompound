@@ -42,15 +42,15 @@ public class NewsRedAdapter extends SingleBaseAdapter<InfoMessageBodyBean, NewsR
     public void onBindView(int position, InfoMessageBodyBean data, ViewHolder holder) {
         holder.tvTasktitle.setText(data.getTitle());
         holder.tvTime.setText(data.getCreate_date());
-        holder.tvPerson.setText("内容 : "+data.getTxt());
-        Log.e("tag",data.getReward_money());
+        holder.tvPerson.setText("内容 : " + data.getTxt());
+        Log.e("tag", data.getReward_money());
 
 
-        if(App.regionid.equals("39")){
+        if (App.regionid.equals("39")) {
 
             String[] split = data.getReward_money().split(" ");
             holder.tvReward.setText(split[0]);
-        }else {
+        } else {
             holder.zongliang.setText(data.getTask_num());
             holder.allowance.setText(data.getTask_balance());
             holder.tvReward.setText(data.getReward_money());
@@ -75,6 +75,7 @@ public class NewsRedAdapter extends SingleBaseAdapter<InfoMessageBodyBean, NewsR
         LinearLayout llView;
         @Bind(R.id.zongliang)
         TextView zongliang;
+
         @Override
         public void onInFlate(View v) {
             ButterKnife.bind(this, v);

@@ -469,7 +469,7 @@ public class MoneyActivity extends BaseActivity<MoneyPresenter> implements Money
 //                mvSeven.setVisibility(View.VISIBLE);
 //                mvSeven.setTitleAndType("历史","应发薪酬","未发薪酬","","");
 //                mPresenter.getmoneydata(cardno);
-        double salary = bean.getSalary();//实师工资      //实发
+        double salary = bean.getFinalpaying();//实师工资      //实发
         float f = (float) salary;
         tvMoney.withNumber(f, false).start();
         double basicSalary = bean.getBasicSalary();//基本工资

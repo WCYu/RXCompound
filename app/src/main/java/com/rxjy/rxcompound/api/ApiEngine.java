@@ -31,9 +31,9 @@ public class ApiEngine {
     private static final String DES_API_LH = "https://api.niujingji.cn:8183/";//温特斯量房单号获取
 
     // private static final String DES_API_LHSUBMIT = "http://192.168.1.192:8867/";//温特斯量房单号提交 测试
-    private static final String DES_API_LHSUBMIT = "http://app.wenes.cn:8859/";//温特斯量房单号提交 线上
+    private static final String DES_API_LHSUBMIT = "http://app.wenes.cn/";//温特斯量房单号提交 线上
 
-    private static final String DES_API_ERLOGIN = "http://192.168.1.192:8616/";//温特斯二维码登录
+    private static final String DES_API_ERLOGIN = "http://app.wenes.cn/";//温特斯二维码登录
 
     //private static final String GC_API_HOST = "http://api.gc.rxjy.com:/";//线上
       private static final String GC_API_HOST = "http://api.gc.cs/";//测试
@@ -57,10 +57,9 @@ public class ApiEngine {
     public static final String RXBUSI_API_HOST = "http://swb.api.rx/";//商务
     public static final String RX_APIWPS_HOST = "http://www.rxjy.com/";//WPS登录
     private static final String DES_APIPIC_GET = "http://192.168.1.60:9998/";
-//    private static final String SW_API_HOST = "https://api.dcwzg.com:8182/";
-    private static final String SW_API_HOST =  "https://api.niujingji.cn:8183/";
-    private static final String TYPE_API_HOST = "http://10.10.3.167:10030//"
-            ;//项目类型
+    //    private static final String SW_API_HOST = "https://api.dcwzg.com:8182/";
+    private static final String SW_API_HOST = "https://api.niujingji.cn:8183/";
+    private static final String TYPE_API_HOST = "http://10.10.3.167:10030//";//项目类型
     public static final String ZA_API_HOST = "http://192.168.1.60:23456/";
 //    public static final String RX_API_HOST = "http://wpsnew.rxjy.com:9090/a/sap/sapArticle/getAppArticleList";
 //    //private static final String RX_API_HOST = "http://news.rx:9090/";

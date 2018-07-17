@@ -106,7 +106,7 @@ public class DownLoadApk {
         Intent intent = new Intent();
         intent.setAction(Intent.ACTION_VIEW);
         if (Build.VERSION.SDK_INT >= 24) {
-            //参数1 上下文, 参数2 Provider主机地址 和配置文件中保持一致   参数3  共享的文件
+            //参数1 上下文, 参数2  和配Provider主机地址置文件中保持一致   参数3  共享的文件
             Uri apkUri = FileProvider.getUriForFile(context, "com.rxjy.rxcompound.provider", file);
             //添加这一句表示对目标应用临时授权该Uri所代表的文件
             intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);

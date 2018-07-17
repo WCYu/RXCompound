@@ -83,8 +83,10 @@ public class RXSongsActivity extends BaseActivity{
         wb_rxsongs.loadUrl(Constants.WEBURL_ENTRYJOB + "CardNo=" + cardno + "&Type=" + "5");
     }
 
-
-
-
-
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        wb_rxsongs.resumeTimers();
+        wb_rxsongs.destroy();
+    }
 }

@@ -157,10 +157,10 @@ public class SupervisionMainActivity extends BaseActivity<MainPresenter> impleme
         fragmentList = new ArrayList<>();
         //将碎片添加到集合中
 //        fragmentList.add(homeNewFragment);
-        if(getIntent().getIntExtra("isShow",0) == 0){
-            fragmentList.add(new NewPeopleHomeFragment());
-        }else {
+        if(getIntent().getIntExtra("isShow",0) == 1){
             fragmentList.add(homeNewFragment);
+        }else {
+            fragmentList.add(new NewPeopleHomeFragment());
         }
         fragmentList.add(moreFragment);
         fragmentList.add(findFragment);

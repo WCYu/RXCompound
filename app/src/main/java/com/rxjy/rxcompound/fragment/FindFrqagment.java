@@ -31,6 +31,7 @@ import com.rxjy.rxcompound.commons.App;
 import com.rxjy.rxcompound.commons.base.BaseFragment;
 import com.rxjy.rxcompound.entity.FindBean;
 import com.rxjy.rxcompound.entity.FindDataBean;
+import com.rxjy.rxcompound.joinin.activity.JoininNjjActivity;
 import com.rxjy.rxcompound.mvp.contract.FindFContract;
 import com.rxjy.rxcompound.mvp.presenter.FindFPresenter;
 
@@ -78,7 +79,10 @@ public class FindFrqagment extends BaseFragment<FindFPresenter> implements FindF
 
     @Override
     protected void FragmentInitData() {
-
+       if(App.postName.equals("投资招商")){
+           JoininNjjActivity activity = (JoininNjjActivity) getActivity();
+           activity.img_reddot.setVisibility(View.GONE);
+       }
         mPresenter.getFindObtainWhethe(App.cardNo);
         switch (App.apptype) {
             case 2:
@@ -109,7 +113,7 @@ public class FindFrqagment extends BaseFragment<FindFPresenter> implements FindF
     int isload = 0;//1:不可加载
 
     private void RequestDate(final String cardno) {
-        mPresenter.getFindList(cardno, pageIndex, pageSize);
+        mPresenter.getFindList(cardno,App.app_id, pageIndex, pageSize);
         Log.e("lrj", cardno + "==========" + pageIndex + "=======" + pageSize);
         pullsv_find.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<ScrollView>() {
             @Override
@@ -117,7 +121,7 @@ public class FindFrqagment extends BaseFragment<FindFPresenter> implements FindF
                 pageIndex = 1;
                 pageSize = 10;
                 ispulldown = 1;
-                mPresenter.getFindList(cardno, pageIndex, pageSize);
+                mPresenter.getFindList(cardno,App.app_id, pageIndex, pageSize);
             }
 
             @Override
@@ -126,7 +130,7 @@ public class FindFrqagment extends BaseFragment<FindFPresenter> implements FindF
                     Toast.makeText(getActivity(), "没有更多数据啦！", Toast.LENGTH_SHORT).show();
                 }
                 pageIndex = pageIndex + 1;
-                mPresenter.getFindListLoadmore(cardno, pageIndex, pageSize);
+                mPresenter.getFindListLoadmore(cardno, "",pageIndex, pageSize);
 
             }
         });

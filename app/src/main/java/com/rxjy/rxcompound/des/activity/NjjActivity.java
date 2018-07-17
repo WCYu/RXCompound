@@ -187,10 +187,10 @@ public class NjjActivity extends BaseActivity<DestoryPresenter> implements Desto
         //将碎片添加到集合中
 
 //        fragmentList.add(homeFragment);
-        if(getIntent().getIntExtra("isShow",0) == 0){
-            fragmentList.add(new NewPeopleHomeFragment());
-        }else {
+        if(getIntent().getIntExtra("isShow",0) == 1){
             fragmentList.add(homeFragment);
+        }else {
+            fragmentList.add(new NewPeopleHomeFragment());
         }
         fragmentList.add(walletFragment);
         fragmentList.add(findFragment);

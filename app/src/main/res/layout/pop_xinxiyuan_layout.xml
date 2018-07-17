@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3px"
+            android:background="#f7f5f5" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingTop="15dp">
+
+            <LinearLayout
+                android:id="@+id/ly_xinxiyuan"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingBottom="10px">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/img_zaigen"
+                        android:layout_width="76px"
+                        android:layout_height="76px"
+                        android:layout_centerHorizontal="true"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="15px"
+                        android:layout_marginTop="30px"
+                        android:src="@mipmap/xinxiyuan" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="130px"
+                        android:layout_marginTop="20px"
+                        android:background="@drawable/shape_tip"
+                        android:gravity="center"
+                        android:text="12"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="16px"
+                        android:visibility="invisible" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/tv_xinxiyuan"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="40px"
+                    android:gravity="center"
+                    android:paddingTop="10px"
+                    android:text="信息员"
+                    android:textSize="30px" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="3px"
+                android:layout_height="match_parent"
+                android:background="#f7f5f5" />
+
+            <LinearLayout
+                android:id="@+id/ly_jingjiren"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingBottom="10px">
+
+                <ImageView
+                    android:layout_width="76px"
+                    android:layout_height="76px"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="15px"
+                    android:layout_marginTop="30px"
+                    android:layout_weight="1"
+                    android:background="@mipmap/jingjiren" />
+
+                <TextView
+                    android:id="@+id/tv_jingjiren"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="40px"
+                    android:gravity="center"
+                    android:paddingTop="10px"
+                    android:text="经纪人"
+                    android:textSize="25px" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="3px"
+                android:layout_height="match_parent"
+                android:background="#f7f5f5" />
+
+            <LinearLayout
+                android:id="@+id/ly_zhuangji"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingBottom="10px">
+
+                <ImageView
+                    android:layout_width="76px"
+                    android:layout_height="76px"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="15px"
+                    android:layout_marginTop="30px"
+                    android:layout_weight="1"
+                    android:src="@mipmap/zhuangji" />
+
+                <TextView
+                    android:id="@+id/tv_zhuangji"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="40px"
+                    android:gravity="center"
+                    android:paddingTop="10px"
+                    android:text="装机"
+                    android:textSize="30px" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:background="#f7f5f5" />
+    </LinearLayout>
+</RelativeLayout>

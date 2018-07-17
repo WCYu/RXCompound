@@ -70,14 +70,14 @@ public class LeaveActivity extends BaseActivity<LeavePresenter> implements Leave
     @Override
     public void initData() {
         tvTitle.setText("请假");
-        mlist=new ArrayList<>();
-        leaveAdapter=new LeaveAdapter(this,mlist);
+        mlist = new ArrayList<>();
+        leaveAdapter = new LeaveAdapter(this, mlist);
         leaveLsit.setAdapter(leaveAdapter);
         tvHeader.setText("添加");
         tvHeader.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(LeaveActivity.this,LeavePageActivirt.class));
+                startActivity(new Intent(LeaveActivity.this, LeavePageActivirt.class));
             }
         });
 
@@ -96,7 +96,7 @@ public class LeaveActivity extends BaseActivity<LeavePresenter> implements Leave
 //年
         int year = calendar.get(Calendar.YEAR);
 //月
-        int month = calendar.get(Calendar.MONTH)+1;
+        int month = calendar.get(Calendar.MONTH) + 1;
 //日
         int day = calendar.get(Calendar.DAY_OF_MONTH);
 //获取系统时间
@@ -107,8 +107,8 @@ public class LeaveActivity extends BaseActivity<LeavePresenter> implements Leave
 //秒
         int second = calendar.get(Calendar.SECOND);
 
-        Log.e("tag",year+"==========="+month);
-        mPresenter.getLeaveData(App.cardNo,year,month);
+        Log.e("tag", year + "===========" + month);
+        mPresenter.getLeaveData(App.cardNo, year, month);
     }
 
     @OnClick(R.id.iv_back)

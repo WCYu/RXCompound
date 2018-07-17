@@ -48,6 +48,7 @@ public class IdentityInfoPresenter extends IdentityInfoContract.Presenter{
 
                     @Override
                     public void onNext(String s) {
+                        Log.e("---身份信息---",s);
                         IdentityInfoBean info = JSONUtils.toObject(s, IdentityInfoBean.class);
                         if (info.getStatusCode() == 0) {
                             mView.responseMessage(info);
@@ -83,6 +84,7 @@ public class IdentityInfoPresenter extends IdentityInfoContract.Presenter{
                     public void onNext(String s) {
                         ResultBean info = JSONUtils.toObject(s, ResultBean.class);
                         if (info.getStatusCode() == 0) {
+                            Log.e("提交用户信息",s);
                             mView.updateMessage();
                         } else {
                             mView.updateMessageError(info.getStatusMsg());

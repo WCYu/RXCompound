@@ -13,8 +13,7 @@ import com.rxjy.rxcompound.commons.Constants;
 
 import uk.co.senab.photoview.PhotoView;
 
-public class WpsImageFragment extends Fragment
-{
+public class WpsImageFragment extends Fragment {
 
 
     PhotoView image;

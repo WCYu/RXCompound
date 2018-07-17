@@ -10,7 +10,7 @@
     <RelativeLayout
         android:id="@+id/rl_tool"
         android:layout_width="match_parent"
-        android:layout_height="88px"
+        android:layout_height="100px"
         android:background="@color/colorPrimaryDes">
         <ImageView
             android:id="@+id/iv_back"

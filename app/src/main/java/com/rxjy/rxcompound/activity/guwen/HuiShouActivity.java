@@ -99,7 +99,7 @@ public class HuiShouActivity extends BaseActivity implements View.OnClickListene
                         Gson gson1 = new Gson();
                         huiShouInfo = gson1.fromJson(string, HuiShouInfo.class);
                         table = huiShouInfo.getBody().getTable();
-                        tvSum.setText(huiShouInfo.getBody().getTotal().getBalance() + "");
+                        tvSum.setText(huiShouInfo.getBody().getTotal().getARMoney() + "");
                         initAdapter();
                     }
                 });

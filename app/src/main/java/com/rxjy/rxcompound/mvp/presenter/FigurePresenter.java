@@ -95,8 +95,8 @@ public class FigurePresenter extends FigureContract.Presenter{
     }
 
     @Override
-    public void upLoadData(String CardNo, String Name, String EvaluateTxt, String Urls, String Id, String OperatorCardNo, String OperatorName, String RegionId, String EduDepartId) {
-        Subscription subscribe = mModel.upLoadData(CardNo, Name, EvaluateTxt, Urls, Id, OperatorCardNo, OperatorName, RegionId, EduDepartId)
+    public void upLoadData(String CardNo, String Name, String EvaluateTxt, String Urls, String Id, String OperatorCardNo, String OperatorName, String RegionId, String EduDepartId,String img_type) {
+        Subscription subscribe = mModel.upLoadData(CardNo, Name, EvaluateTxt, Urls, Id, OperatorCardNo, OperatorName, RegionId, EduDepartId,img_type)
                 .subscribe(new Subscriber<String>() {
 
                     @Override
@@ -111,12 +111,13 @@ public class FigurePresenter extends FigureContract.Presenter{
 
                     @Override
                     public void onError(Throwable e) {
-                        Log.e("", "获取检查是否存在失败 = " + e.toString());
+                        Log.e("", "提交形象照片 = " + e.toString());
                         onCompleted();
                     }
 
                     @Override
                     public void onNext(String s) {
+                        Log.e("提交形象照片", s);
                         ResultBean info = JSONUtils.toObject(s, ResultBean.class);
                         if(info.getStatusCode()==0){
                             mView.responseData();

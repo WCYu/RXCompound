@@ -231,7 +231,12 @@
         <activity android:name=".activity.my.NewKeHuActivity" />
         <activity android:name=".activity.my.TestActivity" />
         <activity android:name=".activity.guwen.DownLineActivity" />
-        <activity android:name=".activity.guwen.TiXianActivity"></activity>
+        <activity android:name=".activity.guwen.TiXianActivity" />
+        <activity android:name=".activity.XinXiActivity" />
+        <activity android:name=".activity.XinXiYuanDetialActivity" />
+        <activity android:name=".activity.HuiFangActivity" />
+        <activity android:name=".activity.XinXiYuanXinZengActivity" />
+        <activity android:name=".activity.ShowImgActivity"></activity>
     </application>
 
 </manifest>

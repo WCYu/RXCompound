@@ -1,0 +1,76 @@
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:padding="8dp"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:background="@color/colorwhite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+        <Button
+            android:id="@+id/zhiliang"
+            android:background="@color/colorwhite"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:gravity="center"
+            android:text="1 无质量（冷藏）"/>
+        <View android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/appbg"
+            />
+        <Button
+            android:id="@+id/hezuo"
+            android:background="@color/colorwhite"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:gravity="center"
+            android:text="2 无法合作（公共池）"/>
+        <View android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/appbg"
+            />
+        <Button
+            android:id="@+id/konghao"
+            android:background="@color/colorwhite"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:gravity="center"
+            android:text="3 空号（黑名单）"/>
+        <View android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/appbg"
+            />
+        <Button
+            android:id="@+id/zhuanhang"
+            android:background="@color/colorwhite"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:gravity="center"
+            android:text="4 转行（冷藏）"/>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:padding="1dp">
+        <Button
+            android:background="@color/colorwhite"
+            android:id="@+id/btn_cancle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="取消" />
+    </RelativeLayout>
+</LinearLayout>

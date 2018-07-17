@@ -21,8 +21,8 @@ public class FindFPresenter extends FindFContract.Presenter{
         mModel = new FindFModel();
     }
     @Override
-    public void getFindList(String cardNo, int pageIndex, int pageSize) {
-        Subscription subscribe = mModel.getFindList(cardNo,pageIndex,pageSize)
+    public void getFindList(String cardNo, String appId, int pageIndex, int pageSize) {
+        Subscription subscribe = mModel.getFindList(cardNo,appId,pageIndex,pageSize)
                 .subscribe(new Subscriber<String>() {
 
                     @Override
@@ -52,8 +52,8 @@ public class FindFPresenter extends FindFContract.Presenter{
     }
 
     @Override
-    public void getFindListLoadmore(String cardNo, int pageIndex, int pageSize) {
-        Subscription subscribe = mModel.getFindList(cardNo,pageIndex,pageSize)
+    public void getFindListLoadmore(String cardNo, String appId,int pageIndex, int pageSize) {
+        Subscription subscribe = mModel.getFindList(cardNo,appId,pageIndex,pageSize)
                 .subscribe(new Subscriber<String>() {
 
                     @Override

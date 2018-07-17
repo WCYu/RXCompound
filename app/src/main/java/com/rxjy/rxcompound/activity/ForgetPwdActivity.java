@@ -166,8 +166,8 @@ public class ForgetPwdActivity extends BaseActivity<ForgetPwdPresenter> implemen
     }
 
     @Override
-    public void responsetoFixPwd() {
-        showToast("修改成功！此密码已经与您的WPS密码同时修改！！");
+    public void responsetoFixPwd(String mes) {
+        showToast(mes);
         finish();
     }
 

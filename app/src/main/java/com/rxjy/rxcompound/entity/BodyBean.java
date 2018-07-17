@@ -40,6 +40,15 @@ public class BodyBean {
     private String passport_photo;
     private String sex;
     private int is_exist;
+    private String app_id;
+
+    public String getApp_id() {
+        return app_id;
+    }
+
+    public void setApp_id(String app_id) {
+        this.app_id = app_id;
+    }
 
     public int getIs_exist() {
         return is_exist;

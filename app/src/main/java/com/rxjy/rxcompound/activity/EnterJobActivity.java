@@ -401,7 +401,7 @@ public class EnterJobActivity extends BaseActivity<BaseInformPresenter> implemen
                 if (picone == 1) {
                     startActivity(new Intent(this, ImageShowActivity.class).putExtra("title", "银行卡正面")
                             .putExtra("type", "5")
-                            .putExtra("img", img1));
+                            .putExtra("img", img1).putExtra("status",status));
                 } else {
                     PictureSelector.create(this)
                             .openGallery(PictureMimeType.ofImage())//全部.PictureMimeType.ofAll()、图片.ofImage()、视频.ofVideo()
@@ -419,7 +419,7 @@ public class EnterJobActivity extends BaseActivity<BaseInformPresenter> implemen
                 if (pictwo == 1) {
                     startActivity(new Intent(this, ImageShowActivity.class).putExtra("title", "学历证明")
                             .putExtra("type", "3")
-                            .putExtra("img", img2));
+                            .putExtra("img", img2).putExtra("status",status));
 
                 } else {
                     PictureSelector.create(this)
@@ -448,7 +448,7 @@ public class EnterJobActivity extends BaseActivity<BaseInformPresenter> implemen
                 if (picthree == 1) {
                     startActivity(new Intent(this, ImageShowActivity.class).putExtra("title", "离职证明")
                             .putExtra("type", "6")
-                            .putExtra("img", img3));
+                            .putExtra("img", img3).putExtra("status",status));
                 } else {
                     PictureSelector.create(this)
                             .openGallery(PictureMimeType.ofImage())//全部.PictureMimeType.ofAll()、图片.ofImage()、视频.ofVideo()
@@ -476,7 +476,7 @@ public class EnterJobActivity extends BaseActivity<BaseInformPresenter> implemen
                 if (picfour == 1) {
                     startActivity(new Intent(this, ImageShowActivity.class).putExtra("title", "证件照")
                             .putExtra("type", "7")
-                            .putExtra("img", img4));
+                            .putExtra("img", img4).putExtra("status",status));
 
                 } else {
                     PictureSelector.create(this)

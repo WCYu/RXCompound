@@ -167,7 +167,7 @@ public class AnswerTwoActivity extends BaseActivity {
                     datathere.get(position).setChecked(true);
                     currentNum = position;
                 } else if (currentNum != position) { //不是同一个item选中当前的，去除上一个选中的
-                    for (Person person : datas) {
+                    for (Person person : datathere) {
                         person.setChecked(false);
                     }
                     datathere.get(position).setChecked(true);

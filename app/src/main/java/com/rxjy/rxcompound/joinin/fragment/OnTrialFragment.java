@@ -70,7 +70,8 @@ public class OnTrialFragment extends BaseFragment<HomeFindPresenter> implements 
     int size = 0;
     HomeShejiAdapter findListAdapter;
     ArrayList<HomeBean.BodyBean.ListBean> showlist;
-    String url ="http://edu.rxjy.com/a/rs/curaInfo/"+App.cardNo+"01012167/tryPostApp";
+    String url = "http://edu.rxjy.com/a/rs/curaInfo/" + App.cardNo + "01012167/tryPostApp";
+
     @Override
     protected int getFragmentLayout() {
         return R.layout.activity_home_shiji;
@@ -130,6 +131,7 @@ public class OnTrialFragment extends BaseFragment<HomeFindPresenter> implements 
 
     @Override
     public void responseFindData(HomeBean data) {
+        size = data.getBody().getTopList().size();
         ShowList(data.getBody().getList());
         ShowBanner(data.getBody().getTopList());
     }
@@ -228,14 +230,18 @@ public class OnTrialFragment extends BaseFragment<HomeFindPresenter> implements 
             }
         });
         handler.sendEmptyMessageDelayed(5, 3000);
+//        Log.e("轮播图", "开始");
     }
 
     private Handler handler = new Handler() {
         public void handleMessage(Message msg) {
             if (msg.what == 5) {
-                if (index >= size) index = 0;
+                if (index >= size) {
+                    index = 0;
+                }
                 if (vp_findbanner != null) {
                     vp_findbanner.setCurrentItem(index++);
+//                    Log.e("轮播图","轮播"+index);
                     handler.sendEmptyMessageDelayed(5, 3000);
                 } else {
                     handler.removeMessages(5);

@@ -126,7 +126,7 @@ public interface ApiService {
             @Query("OperatorName") String OperatorName,
             @Query("RegionId") String RegionId,
             @Query("EduDepartId") String EduDepartId,
-            @Query("img_type") int img_type
+            @Query("img_type") String img_type
     );
 
     /**
@@ -303,7 +303,7 @@ public interface ApiService {
     );
 
     /**
-     * 忘记密码修改密码
+     * 忘记密码修改密a
      */
     @FormUrlEncoded
     @POST("actionapi/AppHome/UpdatePassword_Vcode")
@@ -337,6 +337,7 @@ public interface ApiService {
     @GET("a/sap/sapArticle/getAppArticleList")
     Observable<String> postFindData(
             @Query("cardNo") String cardNo,
+            @Query("appId") String appId,
             @Query("page") int page,
             @Query("rows") int rows
     );
@@ -2102,7 +2103,7 @@ public interface ApiService {
     /**
      * 获取大院得薪酬
      */
-    @GET("api/HR/GetNewSalary")
+    @GET("actionapi/AppPort/GetNewSalary")
     Observable<String> getHospitaldata(
             @Query("card") String card
     );

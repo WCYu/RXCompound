@@ -49,6 +49,7 @@ public class ZThreePresenter extends ZThreeContract.Presenter{
 
                     @Override
                     public void onNext(String s) {
+                        Log.e("---入职资料---",s);
                         ZthreeBean info = JSONUtils.toObject(s, ZthreeBean.class);
                         if (info.getStatusCode() == 0) {
                             mView.responseMessage(info);

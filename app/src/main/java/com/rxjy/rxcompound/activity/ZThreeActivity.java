@@ -91,7 +91,8 @@ public class ZThreeActivity extends BaseActivity<ZThreePresenter> implements ZTh
     RelativeLayout rlLeaveoffice;
     @Bind(R.id.tv_save)
     TextView tvSave;
-    private int  id;
+    private int id;
+
     @Override
     public int getLayout() {
         return R.layout.activity_zthree;
@@ -99,14 +100,16 @@ public class ZThreeActivity extends BaseActivity<ZThreePresenter> implements ZTh
 
     public static ZThreeActivity instance = null;
     public int change;
+    String status = null;
 
     @Override
     public void initData() {
+        showLoading();
         instance = this;
         tvTitle.setText("入职资料");
         mPresenter.getMessage(App.cardNo, "3");
         mPresenter.getBankList();
-
+        setProgressDialog(4000);
     }
 
     int txtnochange = 0;
@@ -132,54 +135,70 @@ public class ZThreeActivity extends BaseActivity<ZThreePresenter> implements ZTh
     @Override
     public void responseMessage(ZthreeBean data) {
 
-        if(data.getBody().getIsFinsh() == 1 ){
+        status = data.getBody().getIsFinsh() + "";
+        if (data.getBody().getIsFinsh() == 1) {
             tvSave.setVisibility(View.GONE);
         }
 
         try {
             if (data.getBody().getIsFinsh() == 1 || data.getBody().getBankImageState().equals("1") || data.getBody().getBankImageState().equals("4")) {
                 rlBankone.setEnabled(false);
+                picone = 1;
             } else {
                 rlBankone.setEnabled(true);
+                picone = 0;
             }
         } catch (Exception e) {
             rlBankone.setEnabled(true);
+            picone = 0;
         }
         try {
             if (data.getBody().getIsFinsh() == 1 || data.getBody().getPassportPhotoState().equals("1") || data.getBody().getPassportPhotoState().equals("4")) {
-                rlPhoto.setEnabled(false);
+//                rlPhoto.setEnabled(false);
+                picfour = 1;
             } else {
-                rlPhoto.setEnabled(true);
+//                rlPhoto.setEnabled(true);
+                picfour = 0;
             }
         } catch (Exception e) {
-            rlPhoto.setEnabled(true);
+//            rlPhoto.setEnabled(true);
+            picfour = 0;
         }
         try {
             if (data.getBody().getIsFinsh() == 1 || data.getBody().getDegreeCertificateState().equals("1") || data.getBody().getDegreeCertificateState().equals("4")) {
-                rlDegree.setEnabled(false);
+//                rlDegree.setEnabled(false);
+                pictwo = 1;
             } else {
-                rlDegree.setEnabled(true);
+//                rlDegree.setEnabled(true);
+                pictwo = 0;
             }
         } catch (Exception e) {
             rlDegree.setEnabled(true);
+            pictwo = 0;
         }
         try {
             if (data.getBody().getIsFinsh() == 1 || data.getBody().getHealthCertificateState().equals("1") || data.getBody().getHealthCertificateState().equals("4")) {
-                rlBodycheck.setEnabled(false);
+//                rlBodycheck.setEnabled(false);
+                picfive = 1;
             } else {
-                rlBodycheck.setEnabled(true);
+//                rlBodycheck.setEnabled(true);
+                picfive = 0;
             }
         } catch (Exception e) {
-            rlBodycheck.setEnabled(true);
+//            rlBodycheck.setEnabled(true);
+            picfive = 0;
         }
         try {
             if (data.getBody().getIsFinsh() == 1 || data.getBody().getResignationCertificateState().equals("1") || data.getBody().getResignationCertificateState().equals("4")) {
-                rlLeaveoffice.setEnabled(false);
+//                rlLeaveoffice.setEnabled(false);
+                picthree = 1;
             } else {
-                rlLeaveoffice.setEnabled(true);
+//                rlLeaveoffice.setEnabled(true);
+                picthree = 0;
             }
         } catch (Exception e) {
-            rlLeaveoffice.setEnabled(true);
+//            rlLeaveoffice.setEnabled(true);
+            picthree = 0;
         }
         try {
             if (data.getBody().getIsFinsh() == 1 || data.getBody().getYinHangDataState().equals("1") || data.getBody().getYinHangDataState().equals("4")) {
@@ -237,34 +256,35 @@ public class ZThreeActivity extends BaseActivity<ZThreePresenter> implements ZTh
 
         if (!StringUtils.isEmpty(data.getBody().getBankImage())) {
             Glide.with(this).load(data.getBody().getBankImage()).into(ivBankone);
-            picone = 1;
+//            picone = 1;
             ivAddone.setVisibility(View.GONE);
             img1 = data.getBody().getBankImage();
         }
         if (!StringUtils.isEmpty(data.getBody().getPassportPhoto())) {
             Glide.with(this).load(data.getBody().getPassportPhoto()).into(ivPhoto);
-            picfour = 1;
+//            picfour = 1;
             ivAddfour.setVisibility(View.GONE);
             img4 = data.getBody().getPassportPhoto();
         }
         if (!StringUtils.isEmpty(data.getBody().getDegreeCertificate())) {
             Glide.with(this).load(data.getBody().getDegreeCertificate()).into(ivDegree);
-            pictwo = 1;
+//            pictwo = 1;
             ivAddtwo.setVisibility(View.GONE);
             img2 = data.getBody().getDegreeCertificate();
         }
         if (!StringUtils.isEmpty(data.getBody().getHealthCertificate())) {
             Glide.with(this).load(data.getBody().getHealthCertificate()).into(ivBodycheck);
-            picfive = 1;
+//            picfive = 1;
             ivAddfive.setVisibility(View.GONE);
             img5 = data.getBody().getHealthCertificate();
         }
         if (!StringUtils.isEmpty(data.getBody().getResignationCertificate())) {
             Glide.with(this).load(data.getBody().getResignationCertificate()).into(ivLeaveoffice);
-            picthree = 1;
+//            picthree = 1;
             ivAddthree.setVisibility(View.GONE);
             img3 = data.getBody().getResignationCertificate();
         }
+        dismissLoading();
     }
 
     @Override
@@ -275,7 +295,7 @@ public class ZThreeActivity extends BaseActivity<ZThreePresenter> implements ZTh
     @Override
     public void updateMessage() {
         //更新成功后清除掉缓存
-        switch (subtype){
+        switch (subtype) {
             case 3:
                 showToast("保存成功！");
                 finish();
@@ -285,7 +305,7 @@ public class ZThreeActivity extends BaseActivity<ZThreePresenter> implements ZTh
 
     @Override
     public void updateMessageError(String msg) {
-        switch (subtype){
+        switch (subtype) {
             case 3:
                 showToast(msg);
                 break;
@@ -297,27 +317,27 @@ public class ZThreeActivity extends BaseActivity<ZThreePresenter> implements ZTh
     public void responseImg(ImgBean data) {
         switch (show) {
             case 1:
-                picone = 1;
+//                picone = 1;
                 ivAddone.setVisibility(View.GONE);
                 Glide.with(this).load(imgone.get(0)).into(ivBankone);
                 break;
             case 2:
-                pictwo = 1;
+//                pictwo = 1;
                 ivAddtwo.setVisibility(View.GONE);
                 Glide.with(this).load(imgtwo.get(0)).into(ivDegree);
                 break;
             case 3:
-                picthree = 1;
+//                picthree = 1;
                 ivAddthree.setVisibility(View.GONE);
                 Glide.with(this).load(imgthree.get(0)).into(ivLeaveoffice);
                 break;
             case 4:
-                picfour = 1;
+//                picfour = 1;
                 ivAddfour.setVisibility(View.GONE);
                 Glide.with(this).load(imgfour.get(0)).into(ivPhoto);
                 break;
             case 5:
-                picfive = 1;
+//                picfive = 1;
                 ivAddfive.setVisibility(View.GONE);
                 Glide.with(this).load(imgfive.get(0)).into(ivBodycheck);
                 break;
@@ -332,10 +352,11 @@ public class ZThreeActivity extends BaseActivity<ZThreePresenter> implements ZTh
 
     List<String> banklist;
     List<Integer> branchlist;
+
     @Override
     public void responseBankList(BankBean data) {
         banklist = new ArrayList<>();
-        branchlist=new ArrayList<>();
+        branchlist = new ArrayList<>();
         for (int i = 0; i < data.getBody().size(); i++) {
             banklist.add(data.getBody().get(i).getBank_name());
             branchlist.add(data.getBody().get(i).getId());
@@ -377,7 +398,7 @@ public class ZThreeActivity extends BaseActivity<ZThreePresenter> implements ZTh
                 if (picone == 1) {
                     startActivity(new Intent(this, ImageShowActivity.class).putExtra("title", "银行卡正面")
                             .putExtra("type", "5")
-                            .putExtra("img", img1));
+                            .putExtra("img", img1).putExtra("status", status));
                 } else {
                     PictureSelector.create(this)
                             .openGallery(PictureMimeType.ofImage())//全部.PictureMimeType.ofAll()、图片.ofImage()、视频.ofVideo()
@@ -395,7 +416,7 @@ public class ZThreeActivity extends BaseActivity<ZThreePresenter> implements ZTh
                     @Override
                     public void onOptionsSelect(int options1, int options2, int options3, View v) {
                         tvBank.setText(banklist.get(options1));
-                        id=branchlist.get(options1);
+                        id = branchlist.get(options1);
                     }
                 }).build();
                 pickerView.setPicker(banklist);
@@ -405,7 +426,7 @@ public class ZThreeActivity extends BaseActivity<ZThreePresenter> implements ZTh
                 if (picfour == 1) {
                     startActivity(new Intent(this, ImageShowActivity.class).putExtra("title", "一寸照")
                             .putExtra("type", "7")
-                            .putExtra("img", img4));
+                            .putExtra("img", img4).putExtra("status", status));
                 } else {
                     PictureSelector.create(this)
                             .openGallery(PictureMimeType.ofImage())//全部.PictureMimeType.ofAll()、图片.ofImage()、视频.ofVideo()
@@ -422,7 +443,7 @@ public class ZThreeActivity extends BaseActivity<ZThreePresenter> implements ZTh
                 if (pictwo == 1) {
                     startActivity(new Intent(this, ImageShowActivity.class).putExtra("title", "学历证明")
                             .putExtra("type", "3")
-                            .putExtra("img", img2));
+                            .putExtra("img", img2).putExtra("status", status));
 
                 } else {
                     PictureSelector.create(this)
@@ -456,7 +477,7 @@ public class ZThreeActivity extends BaseActivity<ZThreePresenter> implements ZTh
                 if (picthree == 1) {
                     startActivity(new Intent(this, ImageShowActivity.class).putExtra("title", "离职证明")
                             .putExtra("type", "6")
-                            .putExtra("img", img3));
+                            .putExtra("img", img3).putExtra("status", status));
                 } else {
                     PictureSelector.create(this)
                             .openGallery(PictureMimeType.ofImage())//全部.PictureMimeType.ofAll()、图片.ofImage()、视频.ofVideo()
@@ -470,26 +491,26 @@ public class ZThreeActivity extends BaseActivity<ZThreePresenter> implements ZTh
                 }
                 break;
             case R.id.tv_save:
-                if (picone != 1) {
-                    showToast("请上传银行卡正面！");
-                    break;
-                }
-                if (picfour != 1) {
-                    showToast("请上传一寸照！");
-                    break;
-                }
-                if (pictwo != 1) {
-                    showToast("请上传学历证明！");
-                    break;
-                }
-                if (picfive != 1) {
-                    showToast("请上传体检报告！");
-                    break;
-                }
-                if (picthree != 1) {
-                    showToast("请上传离职证明！");
-                    break;
-                }
+//                if (picone != 1) {
+//                    showToast("请上传银行卡正面！");
+//                    break;
+//                }
+//                if (picfour != 1) {
+//                    showToast("请上传一寸照！");
+//                    break;
+//                }
+//                if (pictwo != 1) {
+//                    showToast("请上传学历证明！");
+//                    break;
+//                }
+//                if (picfive != 1) {
+//                    showToast("请上传体检报告！");
+//                    break;
+//                }
+//                if (picthree != 1) {
+//                    showToast("请上传离职证明！");
+//                    break;
+//                }
                 String bankname = tvBank.getText().toString();
                 String bankusername = etBankname.getText().toString();
                 String banknum = etBanknum.getText().toString();
@@ -520,12 +541,11 @@ public class ZThreeActivity extends BaseActivity<ZThreePresenter> implements ZTh
                     showToast("请输入联系人电话！");
                     return;
                 }
-                subtype=3;
-                mPresenter.upDataMessage(App.cardNo, "3", banknum, bankname, bankusername, personname, personphone, personcotact,id);
+                subtype = 3;
+                mPresenter.upDataMessage(App.cardNo, "3", banknum, bankname, bankusername, personname, personphone, personcotact, id);
                 break;
         }
     }
-
 
 
     @Override
@@ -614,22 +634,23 @@ public class ZThreeActivity extends BaseActivity<ZThreePresenter> implements ZTh
      * 提交数据到服务器
      */
     int subtype;
-    private void SubmitData(){
+
+    private void SubmitData() {
         String bankname = tvBank.getText().toString();
         String bankusername = etBankname.getText().toString();
         String banknum = etBanknum.getText().toString();
         String personname = etPerson.getText().toString();
         String personcotact = etRelation.getText().toString();
         String personphone = etPhone.getText().toString();
-        if ((!StringUtils.isEmpty(bankname)&&!bankname.equals("请选择"))&&(!StringUtils.isEmpty(bankusername)&&! bankusername.equals("请输入"))
-                &&(!StringUtils.isEmpty(banknum)&&! banknum.equals("请输入"))) {
-            subtype=4;
-            mPresenter.upDataMessage(App.cardNo, "4", banknum, bankname, bankusername, null, null, null,id);
+        if ((!StringUtils.isEmpty(bankname) && !bankname.equals("请选择")) && (!StringUtils.isEmpty(bankusername) && !bankusername.equals("请输入"))
+                && (!StringUtils.isEmpty(banknum) && !banknum.equals("请输入"))) {
+            subtype = 4;
+            mPresenter.upDataMessage(App.cardNo, "4", banknum, bankname, bankusername, null, null, null, id);
         }
-        if ((!StringUtils.isEmpty(personname) &&! personname.equals("请输入"))&&(!StringUtils.isEmpty(personcotact)&&!personcotact.equals("请输入"))
-                &&(!StringUtils.isEmpty(personphone) &&!personphone.equals("请输入"))){
-            subtype=5;
-            mPresenter.upDataMessage(App.cardNo, "5", null, null, null, personname, personphone, personcotact,id);
+        if ((!StringUtils.isEmpty(personname) && !personname.equals("请输入")) && (!StringUtils.isEmpty(personcotact) && !personcotact.equals("请输入"))
+                && (!StringUtils.isEmpty(personphone) && !personphone.equals("请输入"))) {
+            subtype = 5;
+            mPresenter.upDataMessage(App.cardNo, "5", null, null, null, personname, personphone, personcotact, id);
         }
         finish();
     }

@@ -54,7 +54,7 @@ public class BaseInformPresenter extends BaseInformContract.Presenter{
 
                     @Override
                     public void onNext(String s) {
-                        Log.e("用户ssss信息：：：",s.toString());
+                        Log.e("----用户信息----",s.toString());
                         PersonBean info = JSONUtils.toObject(s, PersonBean.class);
                         if (info.getStatusCode() == 0) {
                             mView.responsegetMessage(s,info);

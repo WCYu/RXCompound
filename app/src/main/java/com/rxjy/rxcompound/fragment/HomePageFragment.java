@@ -16,6 +16,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.JavascriptInterface;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -35,6 +36,7 @@ import com.rxjy.rxcompound.activity.BannerDetailsActivity;
 import com.rxjy.rxcompound.activity.EnvironmentActivity;
 import com.rxjy.rxcompound.activity.FigureActivity;
 import com.rxjy.rxcompound.activity.JobTryAnswer;
+import com.rxjy.rxcompound.activity.LoginActivity;
 import com.rxjy.rxcompound.activity.QRLoginSureActivity;
 import com.rxjy.rxcompound.activity.TaskActivity;
 import com.rxjy.rxcompound.activity.TaskNewActivity;
@@ -52,6 +54,7 @@ import com.rxjy.rxcompound.entity.QRResultBean;
 import com.rxjy.rxcompound.entity.TaskListBean;
 import com.rxjy.rxcompound.mvp.contract.HomePageFContract;
 import com.rxjy.rxcompound.mvp.presenter.HomePageFPresenter;
+import com.rxjy.rxcompound.utils.CallWebView;
 import com.rxjy.rxcompound.widget.CircleProgressView;
 
 import java.text.DateFormat;
@@ -153,6 +156,7 @@ public class HomePageFragment extends BaseFragment<HomePageFPresenter> implement
 
                 WebSettings settings = newWeb.getSettings();
                 settings.setJavaScriptEnabled(true);
+                newWeb.addJavascriptInterface(new WebViewJump(), "android");
                 //设置自适应屏幕，两者合用
                 settings.setUseWideViewPort(true); //将图片调整到适合webview的大小
                 settings.setLoadWithOverviewMode(true); // 缩放至屏幕的大小
@@ -193,11 +197,22 @@ public class HomePageFragment extends BaseFragment<HomePageFPresenter> implement
         Test();
     }
 
+    class WebViewJump{
+        @JavascriptInterface
+        public void jump() {
+            Log.e("tag——","进入");
+            Intent intent = new Intent(getActivity(), getActivity().getClass());
+            startActivity(intent);
+            getActivity().finish();
+        }
+    }
+
 
     /**
      * 测试时间
      */
     private void Test() {
+
     }
 
 

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +16,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
+import com.google.gson.Gson;
 import com.rxjy.rxcompound.R;
 import com.rxjy.rxcompound.activity.BaseInformationActivity;
 import com.rxjy.rxcompound.activity.BecomeWorkerActivity;
@@ -27,6 +30,7 @@ import com.rxjy.rxcompound.activity.MoneyTzActivity;
 import com.rxjy.rxcompound.activity.OfficeActivity;
 import com.rxjy.rxcompound.activity.SettingActivity;
 import com.rxjy.rxcompound.activity.WorkActivity;
+import com.rxjy.rxcompound.activity.more.KeHuActivity;
 import com.rxjy.rxcompound.activity.my.JiFenActivity;
 import com.rxjy.rxcompound.activity.my.UserInfoActivity;
 import com.rxjy.rxcompound.commons.App;
@@ -42,12 +46,26 @@ import com.rxjy.rxcompound.entity.MsgNumBean;
 import com.rxjy.rxcompound.entity.PersonBean;
 import com.rxjy.rxcompound.entity.ResultBean;
 import com.rxjy.rxcompound.entity.UserStatusBean;
+import com.rxjy.rxcompound.entity.more.KeHuTongJiBean;
+import com.rxjy.rxcompound.entity.my.UserInfoBean;
 import com.rxjy.rxcompound.mvp.contract.BaseInformContract;
 import com.rxjy.rxcompound.mvp.presenter.BaseInformPresenter;
+import com.rxjy.rxcompound.utils.OkhttpUtils;
+import com.rxjy.rxcompound.utils.ToastUtil;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Response;
 
 /**
  * 我的
@@ -65,6 +83,8 @@ public class MainFragment extends BaseFragment<BaseInformPresenter> implements B
     TextView tv_paccount;
     @Bind(R.id.iv_personicon)
     ImageView iv_personicon;
+    @Bind(R.id.img_erweima)
+    ImageView img_erweima;
     @Bind(R.id.rl_setting)
     RelativeLayout rl_setting;
     @Bind(R.id.rl_informmessage)
@@ -76,12 +96,16 @@ public class MainFragment extends BaseFragment<BaseInformPresenter> implements B
     RelativeLayout rlMaintop;
     @Bind(R.id.rl_wallet)
     RelativeLayout rlWallet;
+    @Bind(R.id.rl_chengjiu)
+    RelativeLayout rl_chengjiu;
+
     @Bind(R.id.tv_messagenum)
     TextView tvMessagenum;
     @Bind(R.id.rl_jifen)
     RelativeLayout rlJifen;
     @Bind(R.id.rl_office)
     RelativeLayout rl_office;
+    private String token;
 
     @Nullable
     @Override
@@ -97,7 +121,7 @@ public class MainFragment extends BaseFragment<BaseInformPresenter> implements B
     }
 
     String cardno;
-    String icon,name;//头像
+    String icon, name;//头像
 
     @Override
     protected void FragmentInitData() {
@@ -114,9 +138,9 @@ public class MainFragment extends BaseFragment<BaseInformPresenter> implements B
             default:
                 break;
         }
-   if(App.postid==30001){
-       rl_office.setVisibility(View.GONE);
-   }
+        if (App.postid == 30001) {
+            rl_office.setVisibility(View.GONE);
+        }
         aboutsends = this;
         //获取缓存数据，否则网络请求
         SharedPreferences sp = getActivity().getSharedPreferences("rxdy_userdatas", Activity.MODE_PRIVATE);
@@ -128,13 +152,13 @@ public class MainFragment extends BaseFragment<BaseInformPresenter> implements B
         cardno = App.cardNo;
 
         mPresenter.getUserStatus(cardno);
-        if (App.depart.equals("3")&&App.postid==10000){
-                mPresenter.getDesMessage(App.cardNo);
-        }else{
+        if (App.depart.equals("3") && App.postid == 10000) {
+            mPresenter.getDesMessage(App.cardNo);
+        } else {
             if (!StringUtils.isEmpty(persondata)) {
                 PersonBean info = JSONUtils.toObject(persondata, PersonBean.class);
                 tv_pname.setText(info.getBody().getName());
-                name=info.getBody().getName();
+                name = info.getBody().getName();
                 tv_pjob.setText(info.getBody().getSex() + "   " + info.getBody().getPostName());
                 tv_paccount.setText("账号 " + info.getBody().getCardNo());
 //                Glide.with(getActivity()).load(info.getBody().getImage()).into(iv_personicon);
@@ -144,6 +168,65 @@ public class MainFragment extends BaseFragment<BaseInformPresenter> implements B
             }
         }
 
+        if (App.is_group.equals("2")) {
+            getUserInfo();
+            img_erweima.setVisibility(View.VISIBLE);
+            rl_chengjiu.setVisibility(View.GONE);
+            rlWallet.setEnabled(false);
+            rl_informmessage.setEnabled(false);
+        }
+    }
+
+    public void getUserInfo() {
+        SharedPreferences sp = getActivity().getSharedPreferences("rxdy_userdatas", Activity.MODE_PRIVATE);
+        token = sp.getString("rxdy_token", null);
+        Map map = new HashMap();
+        map.put("cardNo", App.cardNo);
+        map.put("token", token);
+        Log.e("tag_用户信息_App.token", App.cardNo);
+        Log.e("tag_用户信息_App.token", token);
+        OkhttpUtils.doPost("https://api.dcwzg.com:9191/actionapi/AN_Home/ShowMyInfo", map, new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                Log.e("tag_用户信息_失败", e.getMessage().toString());
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                final String string = response.body().string();
+                Log.e("tag_用户信息_成功", string);
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            JSONObject jsonObject = new JSONObject(string);
+                            int statusCode = jsonObject.getInt("StatusCode");
+                            String statusMsg = jsonObject.getString("StatusMsg");
+                            if (statusCode == 0) {
+                                Gson gson = new Gson();
+                                UserInfoBean userInfoBean = gson.fromJson(string, UserInfoBean.class);
+                                UserInfoBean.BodyBean bodyBean = userInfoBean.getBody().get(0);
+                                tv_pname.setText(bodyBean.getU_name());
+                                if (App.postName.equals("投资招商")) {
+                                    tv_paccount.setText(bodyBean.getPhone());
+                                    tv_pjob.setVisibility(View.GONE);
+                                } else {
+                                    tv_paccount.setText(bodyBean.getCard_no());
+                                }
+                                if (!TextUtils.isEmpty(bodyBean.getImage())) {
+                                    Glide.with(getActivity()).load(bodyBean.getImage()).apply(RequestOptions.circleCropTransform()).into(iv_personicon);
+                                }
+                            } else {
+                                ToastUtil.getInstance().toastCentent(statusMsg, getActivity());
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                });
+            }
+        });
     }
 
     public int desdatachange;
@@ -151,19 +234,23 @@ public class MainFragment extends BaseFragment<BaseInformPresenter> implements B
     @Override
     public void onResume() {
         super.onResume();
-        Glide.with(getActivity()).load(App.icon).into(iv_personicon);
-        icon=App.icon;
+        if (App.is_group.equals("2")) {
+            getUserInfo();
+        } else {
+            if (!TextUtils.isEmpty(App.icon)) {
+                Glide.with(getActivity()).load(App.icon).into(iv_personicon);
+            }
+            icon = App.icon;
         if (iconischange.equals("1")) {
             iconischange = "";
             mPresenter.getMessage(cardno, "1");
         }
-        mPresenter.getMsgnum(cardno);
-
-        if(desdatachange==1){
-            desdatachange=0;
-            mPresenter.getDesMessage(App.cardNo);
+            mPresenter.getMsgnum(cardno);
+            if (desdatachange == 1) {
+                desdatachange = 0;
+                mPresenter.getDesMessage(App.cardNo);
+            }
         }
-
     }
 
     @Override
@@ -171,18 +258,21 @@ public class MainFragment extends BaseFragment<BaseInformPresenter> implements B
         return new BaseInformPresenter(this);
     }
 
-    @OnClick({R.id.rl_persondetails, R.id.rl_setting, R.id.rl_informmessage, R.id.rl_wallet,R.id.rl_jifen,R.id.rl_office})
+    @OnClick({R.id.rl_persondetails, R.id.rl_setting, R.id.rl_informmessage, R.id.rl_wallet, R.id.rl_jifen, R.id.rl_office})
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.rl_persondetails:
 
-                Log.e("tag___信息",App.depart  +  "  "  +App.postid);
-                if(App.depart.equals("3")&&App.postid==10000){//设计师会员
+                Log.e("tag___信息", App.depart + "  " + App.postid);
+                if (App.depart.equals("3") && App.postid == 10000) {//设计师会员
 //                    startActivity(new Intent(getActivity(), DesBaseInfoActivity.class));
                     startActivity(new Intent(getActivity(), UserInfoActivity.class));
-                }else{
-                    startActivity(new Intent(getActivity(), BaseInformationActivity.class).putExtra("isback", "1").putExtra("status", status + "").putExtra("ismain", "1"));
-
+                } else {
+                    if (App.postName.equals("投资招商")) {
+                        startActivity(new Intent(getActivity(), UserInfoActivity.class));
+                    } else {
+                        startActivity(new Intent(getActivity(), BaseInformationActivity.class).putExtra("isback", "1").putExtra("status", status + "").putExtra("ismain", "1"));
+                    }
                 }
                 break;
             case R.id.rl_setting:
@@ -194,7 +284,6 @@ public class MainFragment extends BaseFragment<BaseInformPresenter> implements B
             case R.id.rl_wallet:
 
                 switch (App.apptype) {
-
                     case 34:
                         startActivity(new Intent(getActivity(), MoneyTzActivity.class));
                         break;
@@ -204,7 +293,7 @@ public class MainFragment extends BaseFragment<BaseInformPresenter> implements B
                 }
                 break;
             case R.id.rl_jifen:
-                switch (App.apptype){
+                switch (App.apptype) {
                     case 3:
 //                        startActivity(new Intent(getActivity(), JifenZAActivity.class).putExtra("icon",icon).putExtra("name",name));
                         startActivity(new Intent(getActivity(), JiFenActivity.class));
@@ -220,8 +309,8 @@ public class MainFragment extends BaseFragment<BaseInformPresenter> implements B
 //                    case 34:
 //                        startActivity(new Intent(getActivity(), OfficeActivity.class));
 //                        break;
-                   default:
-                       //startActivity(new Intent(getActivity(), LeaveActivity.class));
+                    default:
+                        //startActivity(new Intent(getActivity(), LeaveActivity.class));
                         startActivity(new Intent(getActivity(), WorkActivity.class));
                         break;
                 }
@@ -234,11 +323,13 @@ public class MainFragment extends BaseFragment<BaseInformPresenter> implements B
     public void responsegetMessage(String s, PersonBean data) {
         aCache.put("rx_persondata", s);
         tv_pname.setText(data.getBody().getName());
-        name=data.getBody().getName();
+        name = data.getBody().getName();
         tv_pjob.setText(data.getBody().getSex() + "   " + data.getBody().getPostName());
         tv_paccount.setText("账号：" + data.getBody().getCardNo());
-//        Glide.with(getActivity()).load(App.icon).into(iv_personicon);
-//        icon=data.getBody().getImage();
+        if (!TextUtils.isEmpty(data.getBody().getImage())) {
+            Glide.with(getActivity()).load(data.getBody().getImage()).into(iv_personicon);
+        }
+        icon = data.getBody().getImage();
     }
 
     @Override
@@ -328,17 +419,17 @@ public class MainFragment extends BaseFragment<BaseInformPresenter> implements B
     public void responseDesMessage(DesBaseInfoBean data) {
 //        Glide.with(getActivity()).load(data.getBody().getImage()).into(iv_personicon);
         tv_pname.setText(data.getBody().getName());
-        String sex=data.getBody().getSex();
-        String postname=data.getBody().getPostName();
-        if(StringUtils.isEmpty(data.getBody().getSex())){
-            sex="";
+        String sex = data.getBody().getSex();
+        String postname = data.getBody().getPostName();
+        if (StringUtils.isEmpty(data.getBody().getSex())) {
+            sex = "";
         }
-        if(StringUtils.isEmpty(data.getBody().getPostName())){
-            postname="";
+        if (StringUtils.isEmpty(data.getBody().getPostName())) {
+            postname = "";
         }
         tv_pjob.setText(sex + "   " + postname);
         tv_paccount.setText("账号：" + data.getBody().getCardNo());
-        icon=data.getBody().getImage();
+        icon = data.getBody().getImage();
 
     }
 

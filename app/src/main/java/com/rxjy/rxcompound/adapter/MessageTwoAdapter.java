@@ -2,6 +2,7 @@ package com.rxjy.rxcompound.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -47,6 +48,16 @@ public class MessageTwoAdapter extends SingleBaseAdapter<InfoMessageBodyBean, Me
         if (!StringUtils.isEmpty(time) ) {
             holder.lvTime.setText(time);
         }
+        String state = data.getState();
+        switch (state){
+            case "0":
+                holder.lvTime.setTextColor(Color.parseColor("#e60012"));
+                break;
+            case "1":
+                holder.lvTime.setTextColor(Color.parseColor("#33cd66"));
+                break;
+        }
+//        state // 0 weidu 1 yidu
         holder.tvTitle.setText(data.getTitle());
         holder.tvContent.setText(data.getTxt());
       // holder.lvDate.setText(data.);

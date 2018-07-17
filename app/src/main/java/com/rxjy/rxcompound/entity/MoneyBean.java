@@ -64,9 +64,18 @@ public class MoneyBean {
         private int bjLeave;//病假
         private String SocialFund;//社保公积金
         private String LeaveMoney;//出勤合计
+        private String finalpaying;
 
         public BodyBean() {
             super();
+        }
+
+        public String getFinalpaying() {
+            return finalpaying;
+        }
+
+        public void setFinalpaying(String finalpaying) {
+            finalpaying = finalpaying;
         }
 
         @Override

@@ -99,9 +99,10 @@ public class ZhangBenDetailsActivity extends BaseActivity implements View.OnClic
     }
 
     private void initAdapter() {
-
-        ZhangBenDetailsAdapter adapter = new ZhangBenDetailsAdapter(table1, this);
-        lvZhangbenDetails.setAdapter(adapter);
+       if(table!=null){
+           ZhangBenDetailsAdapter adapter = new ZhangBenDetailsAdapter(table1, this,table.getLaiYuan());
+           lvZhangbenDetails.setAdapter(adapter);
+       }
     }
 
     @Override

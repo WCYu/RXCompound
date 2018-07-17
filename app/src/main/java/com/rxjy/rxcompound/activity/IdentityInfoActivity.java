@@ -340,7 +340,7 @@ public class IdentityInfoActivity extends BaseActivity<BaseInformPresenter> impl
                 if (idcardone == 1) {//跳转
                     startActivity(new Intent(this, ImageShowActivity.class).putExtra("title", "身份证正面")
                             .putExtra("type", "4")
-                            .putExtra("img", idcardoneimg));
+                            .putExtra("img", idcardoneimg).putExtra("status",status));
                 } else {
                     PictureSelector.create(this)
                             .openGallery(PictureMimeType.ofImage())//全部.PictureMimeType.ofAll()、图片.ofImage()、视频.ofVideo()
@@ -358,7 +358,7 @@ public class IdentityInfoActivity extends BaseActivity<BaseInformPresenter> impl
                 if (idcardtwo == 1) {//跳转
                     startActivity(new Intent(this, ImageShowActivity.class).putExtra("title", "身份证反面")
                             .putExtra("type", "13")
-                            .putExtra("img", idcardtwoimg));
+                            .putExtra("img", idcardtwoimg).putExtra("status",status));
                 } else {
                     PictureSelector.create(this)
                             .openGallery(PictureMimeType.ofImage())//全部.PictureMimeType.ofAll()、图片.ofImage()、视频.ofVideo()
@@ -427,7 +427,7 @@ public class IdentityInfoActivity extends BaseActivity<BaseInformPresenter> impl
                 if (idcardthree == 1) {//跳转
                     startActivity(new Intent(this, ImageShowActivity.class).putExtra("title", "个人形象照")
                             .putExtra("type", "17")
-                            .putExtra("img", idcardthreeimg));
+                            .putExtra("img", idcardthreeimg).putExtra("status",status));
 
                 } else {
                     PictureSelector.create(this)

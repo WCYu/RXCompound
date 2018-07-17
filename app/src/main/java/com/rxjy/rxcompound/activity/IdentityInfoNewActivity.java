@@ -108,6 +108,7 @@ public class IdentityInfoNewActivity extends BaseActivity<IdentityInfoPresenter>
 
     @Override
     public void initData() {
+        showLoading();
         instance = this;
         tvTitle.setText("身份信息");
         mPresenter.getMessage(App.cardNo, "2");
@@ -122,6 +123,7 @@ public class IdentityInfoNewActivity extends BaseActivity<IdentityInfoPresenter>
         edubglist.add("大专");
         edubglist.add("本科");
         edubglist.add("本科以上");
+        setProgressDialog(4000);
     }
 
     @Override
@@ -261,18 +263,18 @@ public class IdentityInfoNewActivity extends BaseActivity<IdentityInfoPresenter>
                 pickerView.show();
                 break;
             case R.id.tv_save:
-                if (hasthree == 0) {
-                    showToast("请上传形象照！");
-                    return;
-                }
-                if (hasone == 0) {
-                    showToast("请上传身份证正面！");
-                    return;
-                }
-                if (hastwo == 0) {
-                    showToast("请上传身份证反面！");
-                    return;
-                }
+//                if (hasthree == 0) {
+//                    showToast("请上传形象照！");
+//                    return;
+//                }
+//                if (hasone == 0) {
+//                    showToast("请上传身份证正面！");
+//                    return;
+//                }
+//                if (hastwo == 0) {
+//                    showToast("请上传身份证反面！");
+//                    return;
+//                }
                 String name = etName.getText().toString();
                 String idcard = etIdcard.getText().toString();
                 String address = etOldaddress.getText().toString();
@@ -308,7 +310,7 @@ public class IdentityInfoNewActivity extends BaseActivity<IdentityInfoPresenter>
                     showToast("请选择婚否！");
                     return;
                 }
-                subtype=2;
+                subtype = 2;
                 mPresenter.upDataMessage(App.cardNo, "2", idcard, name, birth, address, nowaddress, marrary, edu);
                 break;
         }
@@ -318,9 +320,12 @@ public class IdentityInfoNewActivity extends BaseActivity<IdentityInfoPresenter>
     public void responseMessage(IdentityInfoBean data) {
         //设置点击
         if (data.getBody().getIsFinsh() == 1) {
-            rlIdcardthree.setEnabled(false);
-            rlIdcardone.setEnabled(false);
-            rlIdcardtwo.setEnabled(false);
+//            rlIdcardthree.setEnabled(false);
+            hasthree = 1;
+//            rlIdcardone.setEnabled(false);
+            hasone=1;
+//            rlIdcardtwo.setEnabled(false);
+            hastwo=1;
             etName.setEnabled(false);
             etIdcard.setEnabled(false);
             etOldaddress.setEnabled(false);
@@ -330,38 +335,53 @@ public class IdentityInfoNewActivity extends BaseActivity<IdentityInfoPresenter>
             rlIsmarry.setEnabled(false);
             tvSave.setVisibility(View.GONE);
         } else {
-            if (!StringUtils.isEmpty(data.getBody().getImageState())) {
-                if (data.getBody().getImageState().equals("1") || data.getBody().getImageState().equals("4")) {
-                    rlIdcardthree.setEnabled(false);
+            //判断图片状态
+            String imageState = data.getBody().getImageState();
+            if (!StringUtils.isEmpty(imageState)) {
+                if (imageState.equals("1") || imageState.equals("4")) {
+//                    rlIdcardthree.setEnabled(false);
+                    hasthree=1;
                 } else {
-                    rlIdcardthree.setEnabled(true);
+//                    rlIdcardthree.setEnabled(true);
+                    hasthree = 0;
                 }
             } else {
-                rlIdcardthree.setEnabled(true);
+//                rlIdcardthree.setEnabled(true);
+                hasthree = 0;
             }
-            if (!StringUtils.isEmpty(data.getBody().getShenFenDataState())) {
-                if (data.getBody().getShenFenDataState().equals("1") || data.getBody().getShenFenDataState().equals("4")) {
-                    rlIdcardone.setEnabled(false);
-                    rlIdcardtwo.setEnabled(false);
+//判断身份证状态
+            String shenFenDataState = data.getBody().getShenFenDataState();
+            if (!StringUtils.isEmpty(shenFenDataState)) {
+                if (shenFenDataState.equals("1") || shenFenDataState.equals("4")) {
+//                    rlIdcardone.setEnabled(false);
+                    hasone = 1;
+                    hastwo = 1;
+//                    rlIdcardtwo.setEnabled(false);
                     etName.setEnabled(false);
                     etIdcard.setEnabled(false);
                     etOldaddress.setEnabled(false);
                 } else {
-                    rlIdcardone.setEnabled(true);
-                    rlIdcardtwo.setEnabled(true);
+//                    rlIdcardone.setEnabled(true);
+//                    rlIdcardtwo.setEnabled(true);
+                    hasone = 0;
+                    hastwo = 0;
                     etName.setEnabled(true);
                     etIdcard.setEnabled(true);
                     etOldaddress.setEnabled(true);
                 }
             } else {
-                rlIdcardone.setEnabled(true);
-                rlIdcardtwo.setEnabled(true);
+//                rlIdcardone.setEnabled(true);
+//                rlIdcardtwo.setEnabled(true);
+                hasone = 0;
+                hastwo = 0;
                 etName.setEnabled(true);
                 etIdcard.setEnabled(true);
                 etOldaddress.setEnabled(true);
             }
-            if (!StringUtils.isEmpty(data.getBody().getXianZhuZhiDataState())) {
-                if (data.getBody().getXianZhuZhiDataState().equals("1") || data.getBody().getXianZhuZhiDataState().equals("4")) {
+//判断现住地址状态状态
+            String xianZhuZhiDataState = data.getBody().getXianZhuZhiDataState();
+            if (!StringUtils.isEmpty(xianZhuZhiDataState)) {
+                if (xianZhuZhiDataState.equals("1") || xianZhuZhiDataState.equals("4")) {
                     etNowaddress.setEnabled(false);
                 } else {
                     etNowaddress.setEnabled(true);
@@ -369,8 +389,10 @@ public class IdentityInfoNewActivity extends BaseActivity<IdentityInfoPresenter>
             } else {
                 etNowaddress.setEnabled(true);
             }
-            if (!StringUtils.isEmpty(data.getBody().getShengRiDataState())) {
-                if (data.getBody().getShengRiDataState().equals("1") || data.getBody().getShengRiDataState().equals("4")) {
+//判断生日状态
+            String shengRiDataState = data.getBody().getShengRiDataState();
+            if (!StringUtils.isEmpty(shengRiDataState)) {
+                if (shengRiDataState.equals("1") || shengRiDataState.equals("4")) {
                     rlBirth.setEnabled(false);
                 } else {
                     rlBirth.setEnabled(true);
@@ -378,8 +400,10 @@ public class IdentityInfoNewActivity extends BaseActivity<IdentityInfoPresenter>
             } else {
                 rlBirth.setEnabled(true);
             }
-            if (!StringUtils.isEmpty(data.getBody().getXueLiDataState())) {
-                if (data.getBody().getXueLiDataState().equals("1") || data.getBody().getXueLiDataState().equals("4")) {
+//判断学历状态
+            String xueLiDataState = data.getBody().getXueLiDataState();
+            if (!StringUtils.isEmpty(xueLiDataState)) {
+                if (xueLiDataState.equals("1") || xueLiDataState.equals("4")) {
                     rlEdu.setEnabled(false);
                 } else {
                     rlEdu.setEnabled(true);
@@ -387,8 +411,10 @@ public class IdentityInfoNewActivity extends BaseActivity<IdentityInfoPresenter>
             } else {
                 rlEdu.setEnabled(true);
             }
-            if (!StringUtils.isEmpty(data.getBody().getHunFouDataState())) {
-                if (data.getBody().getHunFouDataState().equals("1") || data.getBody().getHunFouDataState().equals("4")) {
+//判断婚否状态
+            String hunFouDataState = data.getBody().getHunFouDataState();
+            if (!StringUtils.isEmpty(hunFouDataState)) {
+                if (hunFouDataState.equals("1") || hunFouDataState.equals("4")) {
                     rlEdu.setEnabled(false);
                 } else {
                     rlEdu.setEnabled(true);
@@ -397,7 +423,6 @@ public class IdentityInfoNewActivity extends BaseActivity<IdentityInfoPresenter>
                 rlEdu.setEnabled(true);
             }
         }
-
 
         //设置内容
         if (txtnochange == 0) {
@@ -432,29 +457,33 @@ public class IdentityInfoNewActivity extends BaseActivity<IdentityInfoPresenter>
 
         if (!StringUtils.isEmpty(data.getBody().getIdCardImageHeads())) {
             idcardone = 1;
-            hasone = 1;
+//            hasone = 1;
             idcardoneimg = data.getBody().getIdCardImageHeads();
             ivAddone.setVisibility(View.GONE);
             Glide.with(this).load(data.getBody().getIdCardImageHeads()).into(ivIdcardone);
         }
         if (!StringUtils.isEmpty(data.getBody().getIdCardImageTails())) {
             idcardtwo = 1;
-            hastwo = 1;
+//            hastwo = 1;
             idcardtwoimg = data.getBody().getIdCardImageTails();
             ivAddtwo.setVisibility(View.GONE);
             Glide.with(this).load(data.getBody().getIdCardImageTails()).into(ivIdcardtwo);
         }
         if (!StringUtils.isEmpty(data.getBody().getImage())) {
             idcardthree = 1;
-            hasthree = 1;
+//            hasthree = 1;
             idcardthreeimg = data.getBody().getImage();
             ivAddthree.setVisibility(View.GONE);
             Glide.with(this).load(data.getBody().getImage()).into(ivPersonicon);
+            if (data != null) {
+                dismissLoading();
+            }
         }
         String imageText = data.getBody().getImageText();
-        if(!TextUtils.isEmpty(imageText)){
+        if (!TextUtils.isEmpty(imageText)) {
             tv_tishi.setText(imageText);
         }
+        setProgressDialog(5000);
     }
 
     @Override
@@ -473,7 +502,7 @@ public class IdentityInfoNewActivity extends BaseActivity<IdentityInfoPresenter>
 
     @Override
     public void updateMessage() {
-        switch (subtype){
+        switch (subtype) {
             case 2:
                 showToast("保存成功！");
                 finish();
@@ -484,7 +513,7 @@ public class IdentityInfoNewActivity extends BaseActivity<IdentityInfoPresenter>
 
     @Override
     public void updateMessageError(String msg) {
-        switch (subtype){
+        switch (subtype) {
             case 2:
                 showToast(msg);
                 break;
@@ -496,19 +525,19 @@ public class IdentityInfoNewActivity extends BaseActivity<IdentityInfoPresenter>
     public void responseImg(ImgBean data) {
         switch (show) {
             case 4:
-                hasone = 1;
+//                hasone = 1;
                 ivAddone.setVisibility(View.GONE);
                 idcardoneimg = imgone.get(0);
                 Glide.with(this).load(imgone.get(0)).into(ivIdcardone);
                 break;
             case 13:
-                hastwo = 1;
+//                hastwo = 1;
                 ivAddtwo.setVisibility(View.GONE);
                 idcardtwoimg = imgtwo.get(0);
                 Glide.with(this).load(imgtwo.get(0)).into(ivIdcardtwo);
                 break;
             case 17:
-                hasthree = 1;
+//                hasthree = 1;
                 ivAddthree.setVisibility(View.GONE);
                 idcardthreeimg = imgtwo.get(0);
                 Glide.with(this).load(imgthree.get(0)).into(ivPersonicon);
@@ -580,6 +609,7 @@ public class IdentityInfoNewActivity extends BaseActivity<IdentityInfoPresenter>
      * 提交当前的数据到服务器
      */
     int subtype;
+
     private void SubmitData() {
         String name = etName.getText().toString();
         String idcard = etIdcard.getText().toString();
@@ -588,25 +618,25 @@ public class IdentityInfoNewActivity extends BaseActivity<IdentityInfoPresenter>
         String birth = birthup;
         String edu = tvEdu.getText().toString();
         String marrary = tvMarrary.getText().toString();
-        if ((!StringUtils.isEmpty(name) && !name.equals("请输入")) && (!StringUtils.isEmpty(idcard) && !idcard.equals("请输入")) &&(!StringUtils.isEmpty(address) && !address.equals("请输入"))) {
-            subtype=6;
+        if ((!StringUtils.isEmpty(name) && !name.equals("请输入")) && (!StringUtils.isEmpty(idcard) && !idcard.equals("请输入")) && (!StringUtils.isEmpty(address) && !address.equals("请输入"))) {
+            subtype = 6;
             mPresenter.upDataMessage(App.cardNo, "6", idcard, name, null, address, null, null, null);
         }
-        if (!StringUtils.isEmpty(nowaddress)&&!nowaddress.equals("请输入")) {
-            subtype=7;
-            mPresenter.upDataMessage(App.cardNo, "7",null,null,null,null,nowaddress,null,null);
+        if (!StringUtils.isEmpty(nowaddress) && !nowaddress.equals("请输入")) {
+            subtype = 7;
+            mPresenter.upDataMessage(App.cardNo, "7", null, null, null, null, nowaddress, null, null);
         }
         if (!StringUtils.isEmpty(birth)) {
-            subtype=8;
-            mPresenter.upDataMessage(App.cardNo, "8",null,null,birth,null,null,null,null);
+            subtype = 8;
+            mPresenter.upDataMessage(App.cardNo, "8", null, null, birth, null, null, null, null);
         }
         if (!StringUtils.isEmpty(edu)) {
-            subtype=9;
-            mPresenter.upDataMessage(App.cardNo, "9",null,null,null,null,null,null,edu);
+            subtype = 9;
+            mPresenter.upDataMessage(App.cardNo, "9", null, null, null, null, null, null, edu);
         }
-        if (!StringUtils.isEmpty(marrary)&&!marrary.equals("请输入")) {
-            subtype=10;
-            mPresenter.upDataMessage(App.cardNo, "10",null,null,null,null,null,marrary,null);
+        if (!StringUtils.isEmpty(marrary) && !marrary.equals("请输入")) {
+            subtype = 10;
+            mPresenter.upDataMessage(App.cardNo, "10", null, null, null, null, null, marrary, null);
         }
         finish();
     }

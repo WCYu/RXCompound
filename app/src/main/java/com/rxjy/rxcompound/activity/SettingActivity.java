@@ -20,6 +20,7 @@ import com.rxjy.rxcompound.commons.utils.ShowUtils;
 import com.rxjy.rxcompound.commons.utils.StringUtils;
 import com.rxjy.rxcompound.des.activity.NjjActivity;
 import com.rxjy.rxcompound.entity.CheckIsBeingBean;
+import com.rxjy.rxcompound.joinin.activity.JoininNjjActivity;
 import com.rxjy.rxcompound.mvp.contract.SettingContract;
 import com.rxjy.rxcompound.mvp.presenter.SettingPresenter;
 import com.rxjy.rxcompound.supervision.activity.SupervisionMainActivity;
@@ -110,6 +111,9 @@ public class SettingActivity extends BaseActivity<SettingPresenter> implements S
                 }
                 if (SupervisionMainActivity.activity != null) {
                     SupervisionMainActivity.activity.finish();
+                }
+                if (JoininNjjActivity.activity != null) {
+                    JoininNjjActivity.activity.finish();
                 }
                 App.busisnew = 0;
                 finish();

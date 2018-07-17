@@ -92,7 +92,7 @@ public class KeShouActivity extends BaseActivity implements View.OnClickListener
                         Gson gson1 = new Gson();
                         huiShouInfo = gson1.fromJson(string, HuiShouInfo.class);
                         table = huiShouInfo.getBody().getTable();
-                        tvSum.setText(huiShouInfo.getBody().getTotal().getBalance() + "");
+                        tvSum.setText(huiShouInfo.getBody().getTotal().getARMoney() + "");
                         initAdapter();
                     }
                 });

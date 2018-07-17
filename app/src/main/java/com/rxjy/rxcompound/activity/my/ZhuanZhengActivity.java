@@ -340,6 +340,7 @@ public class ZhuanZhengActivity extends BaseActivity<BaseInformPresenter> implem
                             String msg = jsonObject.getString("msg");
                             if(status == 0){
                                 ToastUtil.getInstance().toastCentent(msg);
+                                App.ustart = 100010;
                                 finish();
                             }else {
                                 ToastUtil.getInstance().toastCentent(msg);
