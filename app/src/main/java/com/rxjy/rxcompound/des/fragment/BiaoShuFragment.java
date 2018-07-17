@@ -1,6 +1,7 @@
 package com.rxjy.rxcompound.des.fragment;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageView;
 
 
@@ -50,6 +51,7 @@ public class BiaoShuFragment extends BaseFragment {
 
     @Override
     protected void FragmentInitData() {
+        Log.e("position",position+"");
         iv_biaoshu.setImageResource(picsz[position]);
     }
 

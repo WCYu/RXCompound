@@ -203,7 +203,6 @@ List<GetHuiFang.Body> list = new ArrayList<>();
             public void onClick(View v) {
                 Intent intent = new Intent(TalkActivity.this, ShigonghetongActivity.class);
                 intent.putExtra(Constants.ACTION_TO_DAI_MEASURE_CLIENT_INFO, info);
-
                 lfandyqbs = 0;
                 llLiangfangandyiqian.setVisibility(View.GONE);
 

@@ -87,7 +87,7 @@ public class WpsLocalPhotoActivityh extends BaseActivity<WpsLocalPhotoPresenter>
         if (hasSelector.size() != 0) {
             imgSelector.addAll(hasSelector);
             mWpsLocalPhotoAdapter.setHasSelector(imgSelector);
-            tvSelectorCount.setText(imgSelector.size()+"张");
+            tvSelectorCount.setText(imgSelector.size() + "张");
         }
     }
 

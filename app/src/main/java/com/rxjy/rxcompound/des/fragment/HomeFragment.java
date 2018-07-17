@@ -16,6 +16,7 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.text.Html;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.Display;
 import android.view.Gravity;
@@ -68,6 +69,9 @@ import com.rxjy.rxcompound.des.mvp.presenter.GetALLClientInfoPresenter;
 import com.rxjy.rxcompound.entity.ErCodeBean;
 import com.rxjy.rxcompound.entity.ErCodeTBean;
 import com.rxjy.rxcompound.entity.FloatedBean;
+import com.rxjy.rxcompound.entity.PersonBean;
+import com.rxjy.rxcompound.utils.OkhttpUtils;
+import com.rxjy.rxcompound.utils.ToastUtil;
 import com.rxjy.rxcompound.widget.AutoTextView;
 import com.rxjy.rxcompound.widget.MyListview;
 import com.rxjy.rxcompound.widget.xlistview.XListView;
@@ -75,6 +79,10 @@ import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -83,6 +91,9 @@ import java.util.Map;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Response;
 
 import static android.app.Activity.RESULT_CANCELED;
 import static android.app.Activity.RESULT_OK;
@@ -149,7 +160,7 @@ public class HomeFragment extends BaseFragment<GetALLClientInfoPresenter> implem
     private List<FloatedBean> list = new ArrayList<>();
     private AlertDialog alertDialog;
 
-    String url = "http://edu.rxjy.com/a/rs/curaInfo/" + App.cardNo + "01012167/tryPostApp";
+    String url = "http://edu.rxjy.com/a/rs/curaInfo/" + App.cardNo + "/tryPostApp?appId=" + App.app_id;
     private int[] img;
     private ArrayList<ImageView> arrayList;
 
@@ -257,6 +268,7 @@ public class HomeFragment extends BaseFragment<GetALLClientInfoPresenter> implem
             @Override
             public void onRefresh(@NonNull RefreshLayout refreshLayout) {
                 refreshLayout.finishRefresh();
+                Log.e("在谈电话", phone);
                 mPresenter.GetUCList(App.cardNo);
                 mPresenter.getALLClientInfoNew(phone);
             }
@@ -303,6 +315,7 @@ public class HomeFragment extends BaseFragment<GetALLClientInfoPresenter> implem
          * todo
          */
         mPresenter.GetUCList(App.cardNo);
+        Log.e("卡号", App.cardNo);
         //initData();
 
         ivBiaoshu.setOnClickListener(new View.OnClickListener() {
@@ -456,7 +469,6 @@ public class HomeFragment extends BaseFragment<GetALLClientInfoPresenter> implem
 
     @Override
     public void pagehomelist(List<AllClientInfo.ClientTypeInfo.ClientInfo> list) {
-
 
         if (list.size() == 0) {
             llJiedan.setVisibility(View.GONE);
@@ -688,20 +700,66 @@ public class HomeFragment extends BaseFragment<GetALLClientInfoPresenter> implem
                 dialog.dismiss();
             }
         });
-        Gson gson = new Gson();
-        ErCodeTBean erCodeTBean = new ErCodeTBean();
-        erCodeTBean.setOrderNo(orderid);
-        ErCodeBean erCodeBean = new ErCodeBean();
-        erCodeBean.setEvent("CustomerRegister");
-        erCodeBean.setParameter(erCodeTBean);
-        String ercodestr = gson.toJson(erCodeBean);
-        Log.e("jsondata", ercodestr);
-        /**
-         * 生成二维码
-         * "{"event":"CustomerRegister","parameter":{"orderNo":"xx-xxxxxx"}}"
-         */
-        Bitmap bitmap = generateBitmap(ercodestr, (int) (display.getWidth() * 0.8), (int) (display.getWidth() * 0.8));
-        iv_ercode.setImageBitmap(bitmap);
+//        Gson gson = new Gson();
+//        ErCodeTBean erCodeTBean = new ErCodeTBean();
+//        erCodeTBean.setOrderNo(orderid);
+//        ErCodeBean erCodeBean = new ErCodeBean();
+//        erCodeBean.setEvent("CustomerRegister");
+//        erCodeBean.setParameter(erCodeTBean);
+//        String ercodestr = gson.toJson(erCodeBean);
+//        Log.e("jsondata", ercodestr);
+//        /**
+//         * 生成二维码
+//         * "{"event":"CustomerRegister","parameter":{"orderNo":"xx-xxxxxx"}}"
+//         */
+//        Bitmap bitmap = generateBitmap(ercodestr, (int) (display.getWidth() * 0.8), (int) (display.getWidth() * 0.8));
+//        iv_ercode.setImageBitmap(bitmap);
+        getErWeiMa(iv_ercode, orderid);
+    }
+
+    private void getErWeiMa(final ImageView iv_ercode, String orderid) {
+        Map map = new HashMap();
+        map.put("my_card", App.cardNo);
+        if (!TextUtils.isEmpty(orderid)) {
+            map.put("kh_id", orderid);
+        }
+        OkhttpUtils.doGet("https://api.dcwzg.com:9191/actionapi/AppPreUser/GetBuildNoLandingEWM", map, new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                Log.e("生成二维码失败", e.getMessage().toString());
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                final String string = response.body().string();
+                Log.e("生成二维码", string);
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            JSONObject jsonObject = new JSONObject(string);
+                            String statusMsg = jsonObject.getString("StatusMsg");
+                            int statusCode = jsonObject.getInt("StatusCode");
+                            if (statusCode == 0) {
+                                JSONObject body = jsonObject.getJSONObject("Body");
+                                String url = body.getString("Url");
+                                if (!TextUtils.isEmpty(url)) {
+                                    Glide.with(getActivity()).load(url).into(iv_ercode);
+                                } else {
+                                    ToastUtil.getInstance().toastCentent(statusMsg);
+                                }
+                            } else {
+                                Log.e("返回信息", statusMsg);
+                                ToastUtil.getInstance().toastCentent(statusMsg);
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            Log.e("返回信息", e.getMessage().toString());
+                        }
+                    }
+                });
+            }
+        });
     }
 
     private Bitmap generateBitmap(String content, int width, int height) {
@@ -726,7 +784,7 @@ public class HomeFragment extends BaseFragment<GetALLClientInfoPresenter> implem
         }
         return null;
     }
-    
+
     @OnClick(R.id.tv_huitokei)
     public void onViewClicked() {
         AlertDialog.Builder dialog = new AlertDialog.Builder(getContext());

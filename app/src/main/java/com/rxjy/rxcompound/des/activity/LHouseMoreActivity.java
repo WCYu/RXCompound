@@ -139,7 +139,8 @@ public class LHouseMoreActivity extends BaseActivity<LHouseMPresenter> implement
      * 添加数据
      */
     ArrayList<String> housefromlist, houselist, transtypelist, attributelist;
-//    ArrayList<String> housefromlist, houselist, transtypelist, attributelist, progremtypelist;
+
+    //    ArrayList<String> housefromlist, houselist, transtypelist, attributelist, progremtypelist;
     private void addData() {
         housefromlist = new ArrayList<>();//房源状态
         housefromlist.add("请选择房源状态");
@@ -186,7 +187,7 @@ public class LHouseMoreActivity extends BaseActivity<LHouseMPresenter> implement
         return new LHouseMPresenter(this);
     }
 
-    private void initLine(){
+    private void initLine() {
         edCname.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
@@ -272,25 +273,26 @@ public class LHouseMoreActivity extends BaseActivity<LHouseMPresenter> implement
     private LHouseSubmitBean.clientInfos subdataone;
     private LHouseSubmitBean.clientAuxiliarys subdatatwo;
 
-    int ptypec=0,ptypetwoc=0,pshuxingc=0,hstatec=0,hfromsc=0,chengjiaoc=0;
-    private OptionsPickerView ptypePV,pattrPV,hstatePV,hsingstatePV,cjtypePV;
-    String clientAuxiliary,clientInfo;
-    String zhuangxiutime,liangfangtime;
-    @OnClick({R.id.iv_back,R.id.ll_ptype, R.id.ll_pshuxing, R.id.ll_fixtime, R.id.ll_hstatue, R.id.ll_housestatue, R.id.ll_chengjiaotype, R.id.ll_lhousetime,R.id.tv_submit})
+    int ptypec = 0, ptypetwoc = 0, pshuxingc = 0, hstatec = 0, hfromsc = 0, chengjiaoc = 0;
+    private OptionsPickerView ptypePV, pattrPV, hstatePV, hsingstatePV, cjtypePV;
+    String clientAuxiliary, clientInfo;
+    String zhuangxiutime, liangfangtime;
+
+    @OnClick({R.id.iv_back, R.id.ll_ptype, R.id.ll_pshuxing, R.id.ll_fixtime, R.id.ll_hstatue, R.id.ll_housestatue, R.id.ll_chengjiaotype, R.id.ll_lhousetime, R.id.tv_submit})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.iv_back:
                 finish();
                 break;
             case R.id.ll_ptype:
-                if(protypefulist!=null&&protypezilist!=null){
+                if (protypefulist != null && protypezilist != null) {
                     ptypePV = new OptionsPickerView.Builder(this, new OptionsPickerView.OnOptionsSelectListener() {
                         @Override
                         public void onOptionsSelect(int options1, int options2, int options3, View v) {
                             tvPtype.setText(protypelist.get(options1).getMingCheng() + "-" + protypelist.get(options1).getZiji().get(options2).getMingCheng());
                             tvPtype.setTextColor(LHouseMoreActivity.this.getResources().getColor(R.color.textblack));
-                            ptypec= Integer.parseInt(protypelist.get(options1).getID());
-                            ptypetwoc= Integer.parseInt(protypelist.get(options1).getZiji().get(options2).getID());
+                            ptypec = Integer.parseInt(protypelist.get(options1).getID());
+                            ptypetwoc = Integer.parseInt(protypelist.get(options1).getZiji().get(options2).getID());
                         }
                     }).build();
                     ptypePV.setPicker(protypefulist, protypezilist);
@@ -303,7 +305,7 @@ public class LHouseMoreActivity extends BaseActivity<LHouseMPresenter> implement
                     public void onOptionsSelect(int options1, int options2, int options3, View v) {
                         tvPshuxing.setText(attributelist.get(options1));
                         tvPshuxing.setTextColor(LHouseMoreActivity.this.getResources().getColor(R.color.textblack));
-                        pshuxingc=options1;
+                        pshuxingc = options1;
                     }
                 }).build();
                 pattrPV.setPicker(attributelist);
@@ -316,7 +318,7 @@ public class LHouseMoreActivity extends BaseActivity<LHouseMPresenter> implement
                         String lhousetime = getDateToString(date, "yyyy/MM/dd");
                         tvFixtime.setText(lhousetime);
                         tvFixtime.setTextColor(LHouseMoreActivity.this.getResources().getColor(R.color.textblack));
-                        zhuangxiutime=lhousetime;
+                        zhuangxiutime = lhousetime;
 
                     }
                 }).setType(new boolean[]{true, true, true, false, false, false})
@@ -339,7 +341,7 @@ public class LHouseMoreActivity extends BaseActivity<LHouseMPresenter> implement
                     public void onOptionsSelect(int options1, int options2, int options3, View v) {
                         tvHstatue.setText(houselist.get(options1));
                         tvHstatue.setTextColor(LHouseMoreActivity.this.getResources().getColor(R.color.textblack));
-                        hstatec=options1;
+                        hstatec = options1;
                     }
                 }).build();
                 hstatePV.setPicker(houselist);
@@ -351,7 +353,7 @@ public class LHouseMoreActivity extends BaseActivity<LHouseMPresenter> implement
                     public void onOptionsSelect(int options1, int options2, int options3, View v) {
                         tvHousestatue.setText(housefromlist.get(options1));
                         tvHousestatue.setTextColor(LHouseMoreActivity.this.getResources().getColor(R.color.textblack));
-                        hfromsc=options1;
+                        hfromsc = options1;
                     }
                 }).build();
                 hsingstatePV.setPicker(housefromlist);
@@ -363,7 +365,7 @@ public class LHouseMoreActivity extends BaseActivity<LHouseMPresenter> implement
                     public void onOptionsSelect(int options1, int options2, int options3, View v) {
                         tvChengjiaotype.setText(transtypelist.get(options1));
                         tvChengjiaotype.setTextColor(LHouseMoreActivity.this.getResources().getColor(R.color.textblack));
-                        chengjiaoc=options1;
+                        chengjiaoc = options1;
                     }
                 }).build();
                 cjtypePV.setPicker(transtypelist);
@@ -376,7 +378,7 @@ public class LHouseMoreActivity extends BaseActivity<LHouseMPresenter> implement
                         String lhousetimes = getDateToString(date, "yyyy/MM/dd");
                         tvLhousetime.setText(lhousetimes);
                         tvLhousetime.setTextColor(LHouseMoreActivity.this.getResources().getColor(R.color.textblack));
-                        liangfangtime=lhousetimes;
+                        liangfangtime = lhousetimes;
 
                     }
                 }).setType(new boolean[]{true, true, true, false, false, false})
@@ -394,94 +396,94 @@ public class LHouseMoreActivity extends BaseActivity<LHouseMPresenter> implement
                 lhousetimePickerView.show();
                 break;
             case R.id.tv_submit:
-                subdataone=new LHouseSubmitBean.clientInfos();
-                subdatatwo=new LHouseSubmitBean.clientAuxiliarys();
-                String cname=edCname.getText().toString();
-                String phone=edPhone.getText().toString();
-                String pname=edPname.getText().toString();
-                String area=edArea.getText().toString();
-                String yumoney=edYumoney.getText().toString();
-                String lhaddress=edHaddress.getText().toString();
-                if(StringUtils.isEmpty(cname)){
+                subdataone = new LHouseSubmitBean.clientInfos();
+                subdatatwo = new LHouseSubmitBean.clientAuxiliarys();
+                String cname = edCname.getText().toString();
+                String phone = edPhone.getText().toString();
+                String pname = edPname.getText().toString();
+                String area = edArea.getText().toString();
+                String yumoney = edYumoney.getText().toString();
+                String lhaddress = edHaddress.getText().toString();
+                if (StringUtils.isEmpty(cname)) {
                     showToast("请输入客户姓名！");
                     break;
                 }
-                if(StringUtils.isEmpty(phone)){
+                if (StringUtils.isEmpty(phone)) {
                     showToast("请输入电话！");
                     break;
                 }
-                if(phone.length()!=11){
+                if (phone.length() != 11) {
                     showToast("请输入正确电话！");
                     break;
                 }
-                if(StringUtils.isEmpty(pname)){
+                if (StringUtils.isEmpty(pname)) {
                     showToast("请输入项目名称！");
                     break;
                 }
-                if(ptypec==0){
+                if (ptypec == 0) {
                     showToast("请输入项目类型！");
                     break;
                 }
-                if(pshuxingc==0){
+                if (pshuxingc == 0) {
                     showToast("请输入项目属性！");
                     break;
                 }
-                if(StringUtils.isEmpty(zhuangxiutime)){
+                if (StringUtils.isEmpty(zhuangxiutime)) {
                     showToast("请输入装修时间！");
                     break;
                 }
 
-                if(StringUtils.isEmpty(area)){
+                if (StringUtils.isEmpty(area)) {
                     showToast("请输入面积！");
                     break;
                 }
-                if(StringUtils.isEmpty(yumoney)){
+                if (StringUtils.isEmpty(yumoney)) {
                     showToast("请输入客户预算！");
                     break;
                 }
-                if(StringUtils.isEmpty(lhaddress)){
+                if (StringUtils.isEmpty(lhaddress)) {
                     showToast("请输入量房地址！");
                     break;
                 }
 
-                if(hstatec==0){
+                if (hstatec == 0) {
                     showToast("请输入房屋状况！");
                     break;
                 }
-                if(hfromsc==0){
+                if (hfromsc == 0) {
                     showToast("请输入房源状态！");
                     break;
                 }
-                if(chengjiaoc==0){
+                if (chengjiaoc == 0) {
                     showToast("请输入成交类型！");
                     break;
                 }
 
-                if(StringUtils.isEmpty(liangfangtime)){
+                if (StringUtils.isEmpty(liangfangtime)) {
                     showToast("请输入量房时间！");
                     break;
                 }
                 subdataone.setCi_proHead(cname);
                 subdataone.setCi_proHeadTel(phone);
                 subdataone.setCi_ClientName(pname);
-                subdataone.setCi_Type(ptypec+"");
+                subdataone.setCi_Type(ptypec + "");
                 subdataone.setCi_Area(area);
                 subdataone.setCi_DecorationAddress(lhaddress);
                 subdataone.setCi_DesignerCard(App.cardNo);
-                clientInfo= JSONUtils.toString(subdataone);
-                Log.e("clientInfo",clientInfo);
+                clientInfo = JSONUtils.toString(subdataone);
+                Log.e("clientInfo", clientInfo);
 
-                subdatatwo.setCa_proAttribute(pshuxingc+"");
+                subdatatwo.setCa_proAttribute(pshuxingc + "");
                 subdatatwo.setCa_DecorationDate(zhuangxiutime);
                 subdatatwo.setCa_DecBudgetPrice(yumoney);
-                subdatatwo.setCa_HousingType(hstatec+"");
-                subdatatwo.setCa_AvailabilityStatus(hfromsc+"");
-                subdatatwo.setCa_TransactionType(chengjiaoc+"");
+                subdatatwo.setCa_HousingType(hstatec + "");
+                subdatatwo.setCa_AvailabilityStatus(hfromsc + "");
+                subdatatwo.setCa_TransactionType(chengjiaoc + "");
                 subdatatwo.setCa_MeasureDate(liangfangtime);
-                subdatatwo.setCa_SWIndustryTypeID(ptypetwoc+"");
-                clientAuxiliary= JSONUtils.toString(subdatatwo);
-                Log.e("clientAuxiliary",clientAuxiliary);
-                mPresenter.GetData(App.regionid,phone);
+                subdatatwo.setCa_SWIndustryTypeID(ptypetwoc + "");
+                clientAuxiliary = JSONUtils.toString(subdatatwo);
+                Log.e("clientAuxiliary", clientAuxiliary);
+                mPresenter.GetData(App.regionid, phone);
                 tvSubmit.setEnabled(false);
 //                mPresenter.submitData(ordernum,clientInfo,clientAuxiliary);
 
@@ -496,10 +498,11 @@ public class LHouseMoreActivity extends BaseActivity<LHouseMPresenter> implement
 
 
     String ordernum;
+
     @Override
     public void responsedata(LHouseNumBean data) {
-        ordernum=data.getBody().getOrderNumber();
-        mPresenter.submitData(ordernum,clientInfo,clientAuxiliary);
+        ordernum = data.getBody().getOrderNumber();
+        mPresenter.submitData(ordernum, clientInfo, clientAuxiliary);
     }
 
     @Override
@@ -524,6 +527,7 @@ public class LHouseMoreActivity extends BaseActivity<LHouseMPresenter> implement
     List<String> protypefulist;
     List<List<String>> protypezilist;
     List<ProjectTypeBean.FatherDataBean> protypelist;
+
     @Override
     public void responseProjecttype(ProjectTypeBean data) {
         protypefulist = new ArrayList<>();

@@ -26,7 +26,6 @@ public class BiaoShuActivity extends BaseActivity {
     private MyPagerAdapter2 adapter;
     int jiaochengbs;
 
-
     private void initViewData() {
         adapter = new MyPagerAdapter2(getSupportFragmentManager());
         lv_biaoshu.setAdapter(adapter);
@@ -38,9 +37,6 @@ public class BiaoShuActivity extends BaseActivity {
         });
 
     }
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +60,6 @@ public class BiaoShuActivity extends BaseActivity {
     protected BasePresenter onCreatePresenter() {
         return null;
     }
-
 
     private int[] pics = new int[]{
             R.mipmap.page01,
@@ -120,39 +115,34 @@ public class BiaoShuActivity extends BaseActivity {
 
     };
 
-
     public class MyPagerAdapter2 extends FragmentStatePagerAdapter {
 
-       // private final List<String> catalogs = new ArrayList<String>();
+        // private final List<String> catalogs = new ArrayList<String>();
 
         public MyPagerAdapter2(FragmentManager fm) {
             super(fm);
 
-
         }
-
 
         @Override
         public int getCount() {
-            return pics.length;
+            jiaochengbs = getIntent().getIntExtra(Constants.JIAOCHENG, -1);
+            if (jiaochengbs == 1) {
+                return pics.length;
+            } else {
+                return pics2.length;
+            }
         }
 
         @Override
         public Fragment getItem(int position) {
-           jiaochengbs=getIntent().getIntExtra(Constants.JIAOCHENG,-1);
-           if (jiaochengbs==1){
-               return BiaoShuFragment.newInstance(pics,position);
-           }else{
-               return BiaoShuFragment.newInstance(pics2,position);
-           }
-
-
+            jiaochengbs = getIntent().getIntExtra(Constants.JIAOCHENG, -1);
+            if (jiaochengbs == 1) {
+                return BiaoShuFragment.newInstance(pics, position);
+            } else {
+                return BiaoShuFragment.newInstance(pics2, position);
+            }
         }
-
     }
-
-
-
-
 
 }

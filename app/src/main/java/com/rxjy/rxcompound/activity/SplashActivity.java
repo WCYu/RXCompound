@@ -409,10 +409,16 @@ public class SplashActivity extends BaseActivity<LoginPresenter> implements Logi
                     Log.e("-----", "老员工");
                     if (App.stage > 1) {//资料以及完善
 //                if (data.getBody().getApp_stage() > 1) {//资料以及完善
-                        if (App.postName.equals("客服主管") || App.postName.equals("客服专员") || (App.postName.equals("客服经理") || App.postName.equals("平台客服"))) {
-                            App.busisnew = 1;
-                            startActivity(new Intent(this, BusinessMainHostActivity.class).putExtra("isShow", 1));
-                            finish();
+                        if (!TextUtils.isEmpty(App.postName)) {
+                            if (App.postName.equals("客服主管") || App.postName.equals("客服专员") || (App.postName.equals("客服经理") || App.postName.equals("平台客服"))) {
+                                App.busisnew = 1;
+                                startActivity(new Intent(this, BusinessMainHostActivity.class).putExtra("isShow", 1));
+                                finish();
+                            } else {
+                                startActivity(new Intent(this, MainTabHostActivity.class).putExtra("isShow", 1));
+                                finish();
+                                Log.e("tag", "ccccccccccccc");
+                            }
                         } else {
                             startActivity(new Intent(this, MainTabHostActivity.class).putExtra("isShow", 1));
                             finish();
@@ -510,11 +516,11 @@ public class SplashActivity extends BaseActivity<LoginPresenter> implements Logi
 
     public void isShowDaTi(final Class cls) {
         OkHttpClient okHttpClient = new OkHttpClient();
-        Request build = new Request.Builder().url("http://edu.rxjy.com/a/api/" + App.cardNo + "/isViewCurr").build();
+        Request build = new Request.Builder().url("http://edu.rxjy.com/a/api/" + App.app_id + "/isViewQues").build();
         okHttpClient.newCall(build).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
-                Log.e("tag_是否答题失败", e.getMessage().toString());
+                Log.e("tag_是否显示答题失败", e.getMessage().toString());
                 Intent intent = new Intent(SplashActivity.this, cls);
                 intent.putExtra("isShow", 0);
                 startActivity(intent);
@@ -524,7 +530,7 @@ public class SplashActivity extends BaseActivity<LoginPresenter> implements Logi
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 final String string = response.body().string();
-                Log.e("tag_是否答题", string);
+                Log.e("tag_是否显示答题", string);
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {

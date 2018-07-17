@@ -156,11 +156,13 @@ public class MainFragment extends BaseFragment<BaseInformPresenter> implements B
         } else {
             if (!StringUtils.isEmpty(persondata)) {
                 PersonBean info = JSONUtils.toObject(persondata, PersonBean.class);
-                tv_pname.setText(info.getBody().getName());
+                tv_pname.setText(App.name);
                 name = info.getBody().getName();
-                tv_pjob.setText(info.getBody().getSex() + "   " + info.getBody().getPostName());
-                tv_paccount.setText("账号 " + info.getBody().getCardNo());
-//                Glide.with(getActivity()).load(info.getBody().getImage()).into(iv_personicon);
+                if(!TextUtils.isEmpty(App.postName)){
+                    tv_pjob.setText(info.getBody().getSex() + "   " + App.postName);
+                }
+                tv_paccount.setText("账号 " + App.cardNo);
+                Glide.with(getActivity()).load(info.getBody().getImage()).into(iv_personicon);
 //                icon=info.getBody().getImage();
             } else {
                 mPresenter.getMessage(cardno, "1");
@@ -206,9 +208,13 @@ public class MainFragment extends BaseFragment<BaseInformPresenter> implements B
                                 UserInfoBean userInfoBean = gson.fromJson(string, UserInfoBean.class);
                                 UserInfoBean.BodyBean bodyBean = userInfoBean.getBody().get(0);
                                 tv_pname.setText(bodyBean.getU_name());
-                                if (App.postName.equals("投资招商")) {
-                                    tv_paccount.setText(bodyBean.getPhone());
-                                    tv_pjob.setVisibility(View.GONE);
+                                if (!TextUtils.isEmpty(App.postName)) {
+                                    if (App.postName.equals("投资招商")) {
+                                        tv_paccount.setText(bodyBean.getPhone());
+                                        tv_pjob.setVisibility(View.GONE);
+                                    } else {
+                                        tv_paccount.setText(bodyBean.getCard_no());
+                                    }
                                 } else {
                                     tv_paccount.setText(bodyBean.getCard_no());
                                 }
@@ -240,10 +246,10 @@ public class MainFragment extends BaseFragment<BaseInformPresenter> implements B
                 Glide.with(getActivity()).load(App.icon).into(iv_personicon);
             }
             icon = App.icon;
-        if (iconischange.equals("1")) {
-            iconischange = "";
-            mPresenter.getMessage(cardno, "1");
-        }
+            if (iconischange.equals("1")) {
+                iconischange = "";
+                mPresenter.getMessage(cardno, "1");
+            }
             mPresenter.getMsgnum(cardno);
             if (desdatachange == 1) {
                 desdatachange = 0;
@@ -267,8 +273,12 @@ public class MainFragment extends BaseFragment<BaseInformPresenter> implements B
 //                    startActivity(new Intent(getActivity(), DesBaseInfoActivity.class));
                     startActivity(new Intent(getActivity(), UserInfoActivity.class));
                 } else {
-                    if (App.postName.equals("投资招商")) {
-                        startActivity(new Intent(getActivity(), UserInfoActivity.class));
+                    if (!TextUtils.isEmpty(App.postName)) {
+                        if (App.postName.equals("投资招商")) {
+                            startActivity(new Intent(getActivity(), UserInfoActivity.class));
+                        } else {
+                            startActivity(new Intent(getActivity(), BaseInformationActivity.class).putExtra("isback", "1").putExtra("status", status + "").putExtra("ismain", "1"));
+                        }
                     } else {
                         startActivity(new Intent(getActivity(), BaseInformationActivity.class).putExtra("isback", "1").putExtra("status", status + "").putExtra("ismain", "1"));
                     }

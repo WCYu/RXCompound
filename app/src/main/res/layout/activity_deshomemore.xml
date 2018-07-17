@@ -8,9 +8,9 @@
 
     <ScrollView
         android:layout_width="fill_parent"
+        android:layout_height="0dip"
         android:layout_marginTop="20px"
-        android:layout_weight="1"
-        android:layout_height="0dip">
+        android:layout_weight="1">
 
         <LinearLayout
             android:layout_width="fill_parent"
@@ -28,6 +28,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
+
                 <LinearLayout
                     android:layout_width="fill_parent"
                     android:layout_height="70px"
@@ -58,6 +59,7 @@
                         android:textSize="@dimen/text_size_m" />
 
                 </LinearLayout>
+
                 <TextView
                     android:id="@+id/v_cname"
                     android:layout_width="match_parent"
@@ -65,6 +67,7 @@
                     android:layout_alignParentBottom="true"
                     android:background="@drawable/line_blue"
                     android:enabled="false" />
+
                 <LinearLayout
                     android:layout_width="fill_parent"
                     android:layout_height="70px"
@@ -97,6 +100,7 @@
                         android:textSize="@dimen/text_size_m" />
 
                 </LinearLayout>
+
                 <TextView
                     android:id="@+id/v_phone"
                     android:layout_width="match_parent"
@@ -104,6 +108,7 @@
                     android:layout_alignParentBottom="true"
                     android:background="@drawable/line_blue"
                     android:enabled="false" />
+
                 <RelativeLayout
                     android:layout_width="fill_parent"
                     android:layout_height="70px"
@@ -120,9 +125,8 @@
                         android:layout_alignBottom="@+id/ed_pname"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentStart="true"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginStart="10dp"
                         android:text="项目名称"
+                        android:layout_marginLeft="20px"
                         android:textColor="@color/textblack"
                         android:textSize="@dimen/text_size_m" />
 
@@ -142,6 +146,7 @@
 
 
                 </RelativeLayout>
+
                 <TextView
                     android:id="@+id/v_pname"
                     android:layout_width="match_parent"
@@ -185,6 +190,7 @@
                     android:layout_width="fill_parent"
                     android:layout_height="1px"
                     android:background="@color/appbg" />
+
                 <LinearLayout
                     android:id="@+id/ll_pshuxing"
                     android:layout_width="fill_parent"
@@ -214,6 +220,7 @@
                         android:textSize="@dimen/text_size_m" />
 
                 </LinearLayout>
+
                 <TextView
                     android:id="@+id/v_shuxing"
                     android:layout_width="match_parent"
@@ -249,6 +256,7 @@
                         android:textSize="@dimen/text_size_m" />
 
                 </LinearLayout>
+
                 <TextView
                     android:id="@+id/v_fixtime"
                     android:layout_width="match_parent"
@@ -256,6 +264,7 @@
                     android:layout_alignParentBottom="true"
                     android:background="@drawable/line_blue"
                     android:enabled="false" />
+
                 <RelativeLayout
                     android:layout_width="fill_parent"
                     android:layout_height="70px"
@@ -272,8 +281,7 @@
                         android:layout_alignBottom="@+id/ed_area"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentStart="true"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="20px"
                         android:text="面       积"
                         android:textColor="@color/textblack"
                         android:textSize="@dimen/text_size_m" />
@@ -304,12 +312,13 @@
                         android:layout_alignBottom="@+id/ed_area"
                         android:layout_alignParentEnd="true"
                         android:layout_alignParentRight="true"
-                        android:layout_marginRight="10px"
+                        android:layout_marginRight="20px"
                         android:text="m²"
                         android:textColor="@color/textblack"
                         android:textSize="@dimen/text_size_m" />
 
                 </RelativeLayout>
+
                 <TextView
                     android:id="@+id/v_area"
                     android:layout_width="match_parent"
@@ -317,6 +326,7 @@
                     android:layout_alignParentBottom="true"
                     android:background="@drawable/line_blue"
                     android:enabled="false" />
+
                 <RelativeLayout
                     android:layout_width="fill_parent"
                     android:layout_height="70px"
@@ -333,8 +343,7 @@
                         android:layout_alignBottom="@+id/ed_yumoney"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentStart="true"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="20px"
                         android:text="客户预算"
                         android:textColor="@color/textblack"
                         android:textSize="@dimen/text_size_m" />
@@ -365,12 +374,13 @@
                         android:layout_alignBottom="@+id/ed_yumoney"
                         android:layout_alignParentEnd="true"
                         android:layout_alignParentRight="true"
-                        android:layout_marginRight="10px"
+                        android:layout_marginRight="20px"
                         android:text="W"
                         android:textColor="@color/textblack"
                         android:textSize="@dimen/text_size_m" />
 
                 </RelativeLayout>
+
                 <TextView
                     android:id="@+id/v_yumoney"
                     android:layout_width="match_parent"
@@ -407,6 +417,7 @@
                         android:textSize="@dimen/text_size_m" />
 
                 </LinearLayout>
+
                 <TextView
                     android:id="@+id/v_haddress"
                     android:layout_width="match_parent"
@@ -442,6 +453,7 @@
                         android:textSize="@dimen/text_size_m" />
 
                 </LinearLayout>
+
                 <TextView
                     android:id="@+id/v_hstatue"
                     android:layout_width="match_parent"
@@ -449,6 +461,7 @@
                     android:layout_alignParentBottom="true"
                     android:background="@drawable/line_blue"
                     android:enabled="false" />
+
                 <LinearLayout
                     android:id="@+id/ll_housestatue"
                     android:layout_width="fill_parent"
@@ -476,6 +489,7 @@
                         android:textSize="@dimen/text_size_m" />
 
                 </LinearLayout>
+
                 <TextView
                     android:id="@+id/v_housestatue"
                     android:layout_width="match_parent"
@@ -483,6 +497,7 @@
                     android:layout_alignParentBottom="true"
                     android:background="@drawable/line_blue"
                     android:enabled="false" />
+
                 <LinearLayout
                     android:id="@+id/ll_chengjiaotype"
                     android:layout_width="fill_parent"
@@ -510,6 +525,7 @@
                         android:textSize="@dimen/text_size_m" />
 
                 </LinearLayout>
+
                 <TextView
                     android:id="@+id/v_chengjiaotype"
                     android:layout_width="match_parent"
@@ -517,6 +533,7 @@
                     android:layout_alignParentBottom="true"
                     android:background="@drawable/line_blue"
                     android:enabled="false" />
+
                 <LinearLayout
                     android:id="@+id/ll_lhousetime"
                     android:layout_width="fill_parent"
@@ -544,6 +561,7 @@
                         android:textSize="@dimen/text_size_m" />
 
                 </LinearLayout>
+
                 <TextView
                     android:id="@+id/v_lhousetime"
                     android:layout_width="match_parent"
@@ -554,6 +572,7 @@
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
+
     <TextView
         android:id="@+id/tv_submit"
         android:layout_width="fill_parent"

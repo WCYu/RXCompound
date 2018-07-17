@@ -59,7 +59,6 @@ public class AdministrationRedActivity extends BaseActivity<RedTaskPresenter> im
             }
         });
 
-
     }
 
     @Override

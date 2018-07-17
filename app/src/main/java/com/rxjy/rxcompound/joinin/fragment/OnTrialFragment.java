@@ -70,7 +70,7 @@ public class OnTrialFragment extends BaseFragment<HomeFindPresenter> implements 
     int size = 0;
     HomeShejiAdapter findListAdapter;
     ArrayList<HomeBean.BodyBean.ListBean> showlist;
-    String url = "http://edu.rxjy.com/a/rs/curaInfo/" + App.cardNo + "01012167/tryPostApp";
+    String url ="http://edu.rxjy.com/a/rs/curaInfo/"+App.cardNo+"/tryPostApp?appId="+App.app_id;
 
     @Override
     protected int getFragmentLayout() {

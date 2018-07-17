@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="12px"
+        android:background="@color/appbg" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10px"
+        android:layout_marginLeft="24px">
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="姓名" />
+
+        <TextView
+            android:id="@+id/tv_shenfen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/tv_name"
+            android:layout_toRightOf="@+id/tv_name"
+            android:text=" - 身份" />
+
+        <TextView
+            android:ellipsize="end"
+            android:gravity="right"
+            android:maxLines="1"
+            android:id="@+id/tv_yuanyin"
+            android:layout_width="200px"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="23px"
+            android:text="量房" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3px"
+        android:background="@color/appbg" />
+
+    <TextView
+        android:id="@+id/dizhi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10px"
+        android:layout_marginLeft="24px"
+        android:text="address" />
+    <TextView
+        android:id="@+id/waichu_yuanyin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10px"
+        android:layout_marginLeft="24px"
+        android:text="address" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10px"
+        android:layout_marginLeft="24px">
+
+        <TextView
+            android:id="@+id/tv_starttime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="起始时间" />
+
+        <TextView
+            android:id="@+id/tv_endtime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/tv_starttime"
+            android:layout_toRightOf="@+id/tv_starttime"
+            android:text=" - 结束时间" />
+
+    </RelativeLayout>
+
+
+</LinearLayout>

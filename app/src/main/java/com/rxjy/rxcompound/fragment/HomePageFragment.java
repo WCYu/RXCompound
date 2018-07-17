@@ -118,7 +118,7 @@ public class HomePageFragment extends BaseFragment<HomePageFPresenter> implement
     int day;
     String part;
 
-    String url = "http://edu.rxjy.com/a/rs/curaInfo/"+App.cardNo+"/tryPostApp";
+    String url = "http://edu.rxjy.com/a/rs/curaInfo/" + App.cardNo + "/tryPostApp?appId=" + App.app_id;
 
     @Override
     protected HomePageFPresenter onCreatePresenter() {
@@ -197,10 +197,10 @@ public class HomePageFragment extends BaseFragment<HomePageFPresenter> implement
         Test();
     }
 
-    class WebViewJump{
+    class WebViewJump {
         @JavascriptInterface
         public void jump() {
-            Log.e("tag——","进入");
+            Log.e("tag——", "进入");
             Intent intent = new Intent(getActivity(), getActivity().getClass());
             startActivity(intent);
             getActivity().finish();

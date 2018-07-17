@@ -34,6 +34,7 @@ import com.rxjy.rxcompound.activity.ZThreeActivity;
 import com.rxjy.rxcompound.activity.guwen.DownLineActivity;
 import com.rxjy.rxcompound.activity.guwen.HuiShouActivity;
 import com.rxjy.rxcompound.activity.guwen.KeShouActivity;
+import com.rxjy.rxcompound.activity.guwen.WaiChuActivity;
 import com.rxjy.rxcompound.activity.guwen.ZhangBenActivity;
 import com.rxjy.rxcompound.activity.more.AnLiActivity;
 import com.rxjy.rxcompound.activity.more.BoWenActivity;
@@ -169,6 +170,8 @@ public class MoreFragment extends BaseFragment<GetUserStatusPresenter> implement
     LinearLayout lyKeshou;
     @Bind(R.id.ly_xinxiyuan)
     LinearLayout lyXinxiyuan;
+    @Bind(R.id.ly_waichu)
+    LinearLayout ly_waichu;
 
     private String TAG = "MoreFragment";
     @Bind(R.id.gv_rxculture)
@@ -707,7 +710,7 @@ public class MoreFragment extends BaseFragment<GetUserStatusPresenter> implement
         ButterKnife.unbind(this);
     }
 
-    @OnClick({R.id.iv_morebanner, R.id.ly_kehu, R.id.ly_dianpu, R.id.ly_anli, R.id.ly_bowen, R.id.ly_fuwu, R.id.ly_paidan, R.id.ly_caiwu, R.id.ly_jiameng, R.id.ly_xiaxian, R.id.ly_touzi, R.id.ly_zaishi, R.id.ly_dianpu_guwen, R.id.ly_huiyuan, R.id.ly_zhangben, R.id.ly_huishou, R.id.ly_keshou, R.id.ly_xinxiyuan})
+    @OnClick({R.id.iv_morebanner, R.id.ly_kehu, R.id.ly_dianpu, R.id.ly_anli, R.id.ly_bowen, R.id.ly_fuwu, R.id.ly_paidan, R.id.ly_caiwu, R.id.ly_jiameng, R.id.ly_xiaxian, R.id.ly_touzi, R.id.ly_zaishi, R.id.ly_dianpu_guwen, R.id.ly_huiyuan, R.id.ly_zhangben, R.id.ly_huishou, R.id.ly_keshou, R.id.ly_xinxiyuan,R.id.ly_waichu})
     public void onViewClicked(View view) {
         Intent intent = null;
 
@@ -716,7 +719,7 @@ public class MoreFragment extends BaseFragment<GetUserStatusPresenter> implement
                 startActivity(new Intent(getActivity(), MoreBannerActivity.class));
                 break;
             case R.id.ly_dianpu://店铺
-//                intent = new Intent(getActivity(), WebViewActivity.class);
+                intent = new Intent(getActivity(), WebViewActivity.class);
                 intent.putExtra("url", "http://c.wenes.cn/#/Personnel/App/dianPu?card=1");
                 intent.putExtra("name", "店铺");
 //                intent = new Intent(getActivity(), ShowImgActivity.class);
@@ -817,6 +820,9 @@ public class MoreFragment extends BaseFragment<GetUserStatusPresenter> implement
                 break;
             case R.id.ly_xinxiyuan:
                 intent = new Intent(getActivity(), XinXiActivity.class);
+                break;
+            case R.id.ly_waichu:
+                intent = new Intent(getActivity(), WaiChuActivity.class);
                 break;
 
         }

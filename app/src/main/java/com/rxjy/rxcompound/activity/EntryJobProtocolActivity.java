@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.webkit.WebView;
@@ -55,6 +56,7 @@ public class EntryJobProtocolActivity extends BaseActivity<EntryJobPresenter> im
     }
 
     String isfrom, cardno;
+
     @Override
     public void responseConsent(CheckIsBeingBean data) {
         ToMain(App.apptype, App.appstage, cardno);
@@ -71,11 +73,48 @@ public class EntryJobProtocolActivity extends BaseActivity<EntryJobPresenter> im
 
 
     private void ToMain(int type, int stage, String cardno) {
-        if(App.postName.equals("客服主管")||App.postName.equals("客服专员")){
-            App.busisnew=1;
-            startActivity(new Intent(this, BusinessMainHostActivity.class));
-            finish();
-        }else {
+        if (TextUtils.isEmpty(App.postName)) {
+            if (App.postName.equals("客服主管") || App.postName.equals("客服专员")) {
+                App.busisnew = 1;
+                startActivity(new Intent(this, BusinessMainHostActivity.class));
+                finish();
+            } else {
+                switch (type) {
+                    case 2://商务
+                        /**
+                         * 跳转商务在职
+                         */
+                        startActivity(new Intent(this, BusinessMainHostActivity.class));
+                        finish();
+                        break;
+                    case 3://温特斯
+                        /**
+                         * 跳转温特斯
+                         */
+                        if (App.postid == 10000) {//会员
+                            if (App.is_exist == 0) {//未同意
+                                startActivity(new Intent(this, AgreeDesActivity.class));
+                                finish();
+                            } else {
+                                startActivity(new Intent(this, NjjActivity.class));
+                                finish();
+                            }
+                        } else {
+                            startActivity(new Intent(this, NjjActivity.class));
+                            finish();
+                        }
+                        break;
+                    case 4://项目监理
+                        startActivity(new Intent(this, SupervisionMainActivity.class));
+                        finish();
+                        break;
+                    default://瑞祥平台
+                        startActivity(new Intent(this, MainTabHostActivity.class));
+                        finish();
+                        break;
+                }
+            }
+        } else {
             switch (type) {
                 case 2://商务
                     /**

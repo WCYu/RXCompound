@@ -120,9 +120,11 @@ public class UserInfoActivity extends BaseActivity {
         getUserInfo();
         initSexData();
         initUpData();
-        if(App.postName.equals("投资招商")){
-            rl_back.setBackgroundColor(getResources().getColor(R.color.text_red));
-            rlTime.setVisibility(View.GONE);
+        if (!TextUtils.isEmpty(App.postName)) {
+            if (App.postName.equals("投资招商")) {
+                rl_back.setBackgroundColor(getResources().getColor(R.color.text_red));
+                rlTime.setVisibility(View.GONE);
+            }
         }
     }
 
@@ -152,7 +154,7 @@ public class UserInfoActivity extends BaseActivity {
                         .forResult(PictureConfig.CHOOSE_REQUEST);//结果回调onActivityResult code 
                 break;
             case R.id.rl_name://修改名字
-                startActivityForResult(new Intent(UserInfoActivity.this,SetNameActivity.class),1001);
+                startActivityForResult(new Intent(UserInfoActivity.this, SetNameActivity.class), 1001);
                 break;
             case R.id.rl_sex://修改性别
                 sexPicker.show();
@@ -164,17 +166,17 @@ public class UserInfoActivity extends BaseActivity {
                         key = "birthday";
                         time = year + "-" + month + "-" + day;
                         tvBirthday.setText(time);
-                        setUserInfo("birthday",time);
+                        setUserInfo("birthday", time);
                     }
                 });
                 picker.show();
                 break;
             case R.id.rl_youxiang://修改邮箱
-                startActivityForResult(new Intent(UserInfoActivity.this,SetEmiActivity.class),1002);
+                startActivityForResult(new Intent(UserInfoActivity.this, SetEmiActivity.class), 1002);
                 break;
             case R.id.rl_erweima://二维码
                 View inflate = LayoutInflater.from(this).inflate(R.layout.popu_item_erweima, null);
-                popupWindow(inflate,rlErweima);
+                popupWindow(inflate, rlErweima);
                 break;
             case R.id.iv_back:
                 finish();
@@ -182,7 +184,7 @@ public class UserInfoActivity extends BaseActivity {
         }
     }
 
-    private void setUserInfo(String key,String value) {
+    private void setUserInfo(String key, String value) {
         SharedPreferences sp = getSharedPreferences("rxdy_userdatas", Activity.MODE_PRIVATE);
         token = sp.getString("rxdy_token", null);
         Map map = new HashMap();
@@ -190,7 +192,7 @@ public class UserInfoActivity extends BaseActivity {
         map.put("token", token);
         map.put("key", key);
         map.put("value", value);
-        Log.e("tag_修改信息", key +"  " +value);
+        Log.e("tag_修改信息", key + "  " + value);
         Log.e("tag_用户信息_App.token", App.cardNo);
         Log.e("tag_用户信息_App.token", token);
         OkhttpUtils.doPost("https://api.dcwzg.com:9191/actionapi/AN_Home/UpdateMyInfo", map, new Callback() {
@@ -213,22 +215,22 @@ public class UserInfoActivity extends BaseActivity {
         });
     }
 
-    private void popupWindow(View vicinityView,View view) {
+    private void popupWindow(View vicinityView, View view) {
 
         popupWindow = new PopupWindow(vicinityView, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         ImageView img_close = (ImageView) vicinityView.findViewById(R.id.img_close);
         ImageView img_erweima = (ImageView) vicinityView.findViewById(R.id.img_erweima);
-        if(!TextUtils.isEmpty(bodyBean.getEwm())){
+        if (!TextUtils.isEmpty(bodyBean.getEwm())) {
             Glide.with(UserInfoActivity.this).load(bodyBean.getEwm()).into(img_erweima);
         }
         WindowManager.LayoutParams attributes = getWindow().getAttributes();
-        attributes.alpha=0.4f;
+        attributes.alpha = 0.4f;
         getWindow().setAttributes(attributes);
         img_close.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 WindowManager.LayoutParams attributes = getWindow().getAttributes();
-                attributes.alpha=1;
+                attributes.alpha = 1;
                 getWindow().setAttributes(attributes);
                 popupWindow.dismiss();
             }
@@ -238,12 +240,12 @@ public class UserInfoActivity extends BaseActivity {
         popupWindow.setWidth(ViewGroup.LayoutParams.FILL_PARENT);
         popupWindow.setHeight(ViewGroup.LayoutParams.FILL_PARENT);
         popupWindow.setBackgroundDrawable(new BitmapDrawable());
-        popupWindow.showAtLocation(view, Gravity.CENTER,0,0);
+        popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
         popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
             @Override
             public void onDismiss() {
                 WindowManager.LayoutParams attributes = getWindow().getAttributes();
-                attributes.alpha=1;
+                attributes.alpha = 1;
                 getWindow().setAttributes(attributes);
             }
         });
@@ -262,20 +264,20 @@ public class UserInfoActivity extends BaseActivity {
                     Glide.with(UserInfoActivity.this).load(path).apply(RequestOptions.circleCropTransform()).into(rivHeadPhoto);
                     break;
             }
-        }else {
-            switch (requestCode){
+        } else {
+            switch (requestCode) {
                 case 1001:
-                    if(data!=null){
+                    if (data != null) {
                         String name = data.getStringExtra("name");
-                        Log.e("tag_name",name);
-                        setUserInfo("u_name",name);
+                        Log.e("tag_name", name);
+                        setUserInfo("u_name", name);
                     }
                     break;
                 case 1002:
-                    if(data!=null){
+                    if (data != null) {
                         String emi = data.getStringExtra("emi");
-                        Log.e("tag_emi",emi);
-                        setUserInfo("email",emi);
+                        Log.e("tag_emi", emi);
+                        setUserInfo("email", emi);
                     }
                     break;
             }
@@ -308,7 +310,7 @@ public class UserInfoActivity extends BaseActivity {
                     try {
                         JSONObject jsonObject = new JSONObject(string);
                         int statusCode = jsonObject.getInt("StatusCode");
-                        if (statusCode==0) {
+                        if (statusCode == 0) {
                             JSONObject object = jsonObject.getJSONObject("Body");
                             String url = object.getString("url");
                             Log.e("tag_图片上传成功", url);
@@ -334,7 +336,7 @@ public class UserInfoActivity extends BaseActivity {
                 key = "sex";
                 tvGender.setText(sexList.get(options1).toString());
                 mSex = sexList.get(options1).toString();
-                setUserInfo("sex",mSex);
+                setUserInfo("sex", mSex);
             }
         }).build();
 
@@ -373,7 +375,7 @@ public class UserInfoActivity extends BaseActivity {
                             JSONObject jsonObject = new JSONObject(string);
                             int statusCode = jsonObject.getInt("StatusCode");
                             String statusMsg = jsonObject.getString("StatusMsg");
-                            if(statusCode == 0){
+                            if (statusCode == 0) {
                                 Gson gson = new Gson();
                                 UserInfoBean userInfoBean = gson.fromJson(string, UserInfoBean.class);
                                 bodyBean = userInfoBean.getBody().get(0);
@@ -382,10 +384,10 @@ public class UserInfoActivity extends BaseActivity {
                                 tvBirthday.setText(bodyBean.getBirthday_txt());
                                 tvPhone.setText(bodyBean.getPhone());
                                 tvMailbox.setText(bodyBean.getEmail());
-                                if(!TextUtils.isEmpty(bodyBean.getImage())){
+                                if (!TextUtils.isEmpty(bodyBean.getImage())) {
                                     Glide.with(UserInfoActivity.this).load(bodyBean.getImage()).apply(RequestOptions.circleCropTransform()).into(rivHeadPhoto);
                                 }
-                            }else {
+                            } else {
                                 ToastUtil.getInstance().toastCentent(statusMsg);
                             }
                         } catch (JSONException e) {
