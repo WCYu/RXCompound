@@ -99,7 +99,6 @@ public class DesAlbumActivity extends BaseActivity<DesAlbumPresenter> implements
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
         ButterKnife.bind(this);
     }
 

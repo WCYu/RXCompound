@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!--<LinearLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:background="@color/white"-->
+    <!--android:orientation="vertical">-->
+    <!--<include layout="@layout/public_title_layout" />-->
+    <RelativeLayout
+        android:layout_alignParentTop="true"
+        android:id="@+id/rl_tool"
+        android:layout_width="match_parent"
+        android:layout_height="88px"
+        android:background="@color/textorange">
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="54px"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="24px"
+            android:gravity="center"
+            android:paddingRight="20px"
+            android:src="@drawable/ic_backwrite" />
+
+        <ImageView
+            android:id="@+id/iv_add"
+            android:layout_width="54px"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:gravity="center"
+            android:paddingRight="20px"
+            android:src="@mipmap/addwhite"
+            android:visibility="invisible" />
+        <TextView
+            android:visibility="invisible"
+            android:text="提交"
+            android:id="@+id/iv_save"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:gravity="center"
+            android:paddingRight="20px"
+            android:src="@mipmap/add_icon"
+            android:textColor="@color/colorWhite"
+            android:textSize="36px"
+            />
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_toLeftOf="@id/iv_add"
+            android:layout_toRightOf="@+id/iv_back"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="title"
+            android:textColor="@color/colorWhite"
+            android:textSize="36px" />
+    </RelativeLayout>
+    <ScrollView
+        android:fillViewport="true"
+        android:layout_below="@+id/rl_tool"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60px"
+            android:layout_margin="10px"
+            android:layout_marginLeft="23px"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="类        型"
+                android:textColor="@color/textblack"
+                android:textSize="30px" />
+
+            <TextView
+                android:id="@+id/leixing"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="24px"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="请选择类型"
+                android:textSize="26px" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:background="@color/appbg" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60px"
+            android:layout_margin="10px"
+            android:layout_marginLeft="23px">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="项目编号"
+                android:textColor="@color/textblack"
+                android:textSize="30px" />
+
+            <EditText
+                android:id="@+id/bianhao"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="24px"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="请输入项目编号"
+                android:textSize="26px" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:background="@color/appbg" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60px"
+            android:layout_margin="10px"
+            android:layout_marginLeft="23px">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="起始时间"
+                android:textColor="@color/textblack"
+                android:textSize="30px" />
+
+            <TextView
+                android:id="@+id/start_time"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="24px"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="请选择出行时间"
+                android:textSize="26px" />
+        </LinearLayout>
+
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:background="@color/appbg" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60px"
+            android:layout_margin="10px"
+            android:layout_marginLeft="23px">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="见面地点"
+                android:textColor="@color/textblack"
+                android:textSize="30px" />
+
+            <EditText
+                android:id="@+id/didian"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="24px"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="请输入地址"
+                android:textSize="26px" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:background="@color/appbg" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60px"
+            android:layout_margin="10px"
+            android:layout_marginLeft="23px">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="外出原因"
+                android:textColor="@color/textblack"
+                android:textSize="30px" />
+
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/yuanyin"
+            android:layout_width="match_parent"
+            android:layout_height="200px"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="20px"
+            android:layout_marginLeft="24px"
+            android:layout_marginRight="23px"
+            android:background="@drawable/btn_style_k"
+            android:gravity="top"
+            android:hint="请输入外出原因"
+            android:padding="20px"
+            android:textSize="26px" />
+    </LinearLayout>
+
+    </ScrollView>
+
+    <!--</LinearLayout>-->
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1">
+    <Button
+        android:id="@+id/tv_save"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/textorange"
+        android:text="提  交"
+        android:textColor="@color/white"
+        android:textSize="36px" />
+</RelativeLayout>
+
+</LinearLayout>

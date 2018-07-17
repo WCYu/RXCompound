@@ -31,6 +31,9 @@ public class ApiEngine {
     private static final String DES_API_LH = "https://api.niujingji.cn:8183/";//温特斯量房单号获取
 
     // private static final String DES_API_LHSUBMIT = "http://192.168.1.192:8867/";//温特斯量房单号提交 测试
+
+//     private static final String DES_API_LHSUBMIT ="http://java.wenes.cs/";
+
     private static final String DES_API_LHSUBMIT = "http://app.wenes.cn/";//温特斯量房单号提交 线上
 
     private static final String DES_API_ERLOGIN = "http://app.wenes.cn/";//温特斯二维码登录
@@ -99,9 +102,9 @@ public class ApiEngine {
     public static final String LISTURL = BASEURL + "AppAgent/CustomerProperty";
 
     //申请转正
-    public static final String ZHUANZHNEGURL = RS_API_HOST  + "actionapi/KGManage/ZhuanzhengBanli";
+    public static final String ZHUANZHNEGURL = RS_API_HOST + "actionapi/KGManage/ZhuanzhengBanli";
     //获取转正状态
-    public static final String ZHUANZHNEDATAGURL = RS_API_HOST  +  "actionapi/KGManage/GetAppZhuanzheng";
+    public static final String ZHUANZHNEDATAGURL = RS_API_HOST + "actionapi/KGManage/GetAppZhuanzheng";
 
     private Retrofit rxRetrofit;
     private Retrofit rsRetrofit;

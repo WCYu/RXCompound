@@ -81,7 +81,8 @@ public class HomeAdapter extends SingleBaseAdapter<AllClientNewBean.ClientNewBea
         holder.ivImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showercode.toshowercode(data.getCi_RwdId());
+//                showercode.toshowercode(data.getCi_RwdId());
+                showercode.toshowercode(data.getAppId());
             }
         });
 

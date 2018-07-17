@@ -235,7 +235,14 @@
         <activity android:name=".activity.XinXiYuanDetialActivity" />
         <activity android:name=".activity.HuiFangActivity" />
         <activity android:name=".activity.XinXiYuanXinZengActivity" />
+        <activity android:name=".activity.guwen.WaiChuActivity" />
+        <activity android:name=".activity.guwen.WaiChuDetialActivity" />
+        <activity
+            android:name=".activity.guwen.XinZengWaiChuActivity"
+            android:windowSoftInputMode="stateVisible|adjustResize"></activity>
+        <activity android:name=".activity.guwen.NewWaiChuDetialActivity" />
         <activity android:name=".activity.ShowImgActivity"></activity>
+
     </application>
 
 </manifest>

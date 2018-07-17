@@ -72,6 +72,7 @@ public class AllClientNewBean implements Serializable{
         private int CustomerID;
         private int Total;
         private int WorksID;
+        private String appId;
 
         public ClientNewBean() {
             super();
@@ -91,6 +92,14 @@ public class AllClientNewBean implements Serializable{
                     ", Total=" + Total +
                     ", WorksID=" + WorksID +
                     '}';
+        }
+
+        public String getAppId() {
+            return appId;
+        }
+
+        public void setAppId(String appId) {
+            this.appId = appId;
         }
 
         public String getCi_ClientName() {
