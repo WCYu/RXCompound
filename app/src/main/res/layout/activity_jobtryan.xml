@@ -44,7 +44,6 @@
                 android:textColor="@color/textblack"/>
 
             <TextView
-                android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
@@ -67,7 +66,6 @@
                 android:layout_width="80px"
                 android:layout_height="80px" />
             <TextView
-                android:id="@+id/tv_learn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="已学习"

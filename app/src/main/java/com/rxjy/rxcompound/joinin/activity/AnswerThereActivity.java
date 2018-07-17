@@ -220,7 +220,7 @@ public class AnswerThereActivity extends BaseActivity<AnswerPresenter> implement
             }
         }
         if (string.toString().equals("123")) {
-            Log.e("tag", stringbuffer.toString());
+            Log.e("tag", stringbuffer.toString() +App.cardNo);
             mPresenter.getAgreeYes(App.cardNo, stringbuffer.toString());
         } else {
             showToast("请答完全部题");

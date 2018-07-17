@@ -332,7 +332,6 @@
             android:background="@color/colorwhite">
 
             <TextView
-                android:id="@+id/textView22"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
@@ -372,7 +371,6 @@
             android:background="@color/colorwhite">
 
             <TextView
-                android:id="@+id/textView23"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"

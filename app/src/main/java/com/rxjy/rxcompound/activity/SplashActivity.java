@@ -65,8 +65,6 @@ import okhttp3.Response;
 import rx.Subscriber;
 import rx.Subscription;
 
-import static com.rxjy.rxcompound.receiver.MessageReceiver.MSG_NUM;
-import static com.rxjy.rxcompound.receiver.MessageReceiver.msgnum;
 
 /**
  * 启动页

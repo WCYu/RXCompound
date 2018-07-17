@@ -63,7 +63,7 @@ public class AnswerActivity extends BaseActivity {
     private AnswerAdapter thereAdapter;
 
     @Override
-    public int getLayout() {
+    public int getLayout()  {
         return R.layout.answer_activity;
     }
 

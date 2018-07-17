@@ -704,7 +704,6 @@
                     android:orientation="horizontal">
 
                     <LinearLayout
-                        android:id="@+id/ly_yuliu2"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -765,7 +764,6 @@
                         android:background="#f7f5f5" />
 
                     <LinearLayout
-                        android:id="@+id/ly_yuliu"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"

@@ -143,7 +143,7 @@ public class MainTabHostActivity extends BaseActivity<MainPresenter> implements 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Log.e("应用被杀死","应用死亡");
+        Log.e(" 应用被杀死","应用死亡");
         Map map = new HashMap();
         map.put("cardNo",App.cardNo);
         OkhttpUtils.doPost("https://api.dcwzg.com:9191/actionapi/AppHome/OfflineApp", map, new Callback() {

@@ -47,7 +47,6 @@
                 android:orientation="horizontal">
 
                 <RelativeLayout
-                    android:id="@+id/rl_msg_incident"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1">
@@ -61,7 +60,6 @@
                         android:src="@mipmap/msg_incident_normal_icon" />
 
                     <TextView
-                        android:id="@+id/tv_msg_incident"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/iv_msg_incident"
@@ -72,7 +70,6 @@
                         android:textSize="@dimen/text_size_s" />
 
                     <TextView
-                        android:id="@+id/tv_msg_incident_state"
                         android:layout_width="16px"
                         android:layout_height="16px"
                         android:layout_marginLeft="88px"
@@ -83,7 +80,6 @@
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:id="@+id/rl_msg_train"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1">
@@ -97,7 +93,6 @@
                         android:src="@mipmap/msg_train_normal_icon" />
 
                     <TextView
-                        android:id="@+id/tv_msg_train"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/iv_msg_train"
@@ -108,7 +103,6 @@
                         android:textSize="@dimen/text_size_s" />
 
                     <TextView
-                        android:id="@+id/tv_msg_train_state"
                         android:layout_width="16px"
                         android:layout_height="16px"
                         android:layout_marginLeft="88px"
@@ -119,7 +113,6 @@
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:id="@+id/rl_msg_festival"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1">
@@ -133,7 +126,6 @@
                         android:src="@mipmap/msg_festival_normal_icon" />
 
                     <TextView
-                        android:id="@+id/tv_msg_festival"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/iv_msg_festival"
@@ -144,7 +136,6 @@
                         android:textSize="@dimen/text_size_s" />
 
                     <TextView
-                        android:id="@+id/tv_msg_festival_state"
                         android:layout_width="16px"
                         android:layout_height="16px"
                         android:layout_marginLeft="88px"
@@ -155,7 +146,6 @@
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:id="@+id/rl_msg_activity"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1">
@@ -169,7 +159,6 @@
                         android:src="@mipmap/msg_activity_normal_icon" />
 
                     <TextView
-                        android:id="@+id/tv_msg_activity"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/iv_msg_activity"
@@ -180,7 +169,6 @@
                         android:textSize="@dimen/text_size_s" />
 
                     <TextView
-                        android:id="@+id/tv_msg_activity_state"
                         android:layout_width="16px"
                         android:layout_height="16px"
                         android:layout_marginLeft="88px"
@@ -191,7 +179,6 @@
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:id="@+id/rl_msg_other"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1">
@@ -205,7 +192,6 @@
                         android:src="@mipmap/msg_other_normal_icon" />
 
                     <TextView
-                        android:id="@+id/tv_msg_other"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/iv_msg_other"
@@ -216,7 +202,6 @@
                         android:textSize="@dimen/text_size_s" />
 
                     <TextView
-                        android:id="@+id/tv_msg_other_state"
                         android:layout_width="16px"
                         android:layout_height="16px"
                         android:layout_marginLeft="88px"
@@ -245,14 +230,12 @@
                 android:padding="20px">
 
                 <ListView
-                    android:id="@+id/lv_msg"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:divider="@null"
                     android:scrollbars="none"></ListView>
 
                 <ImageView
-                    android:id="@+id/iv_msg_without_data"
                     android:layout_width="410px"
                     android:layout_height="366px"
                     android:layout_centerInParent="true"

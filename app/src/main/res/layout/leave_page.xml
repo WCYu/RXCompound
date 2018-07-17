@@ -72,7 +72,6 @@
             android:textSize="@dimen/text_size_l" />
 
         <TextView
-            android:id="@+id/tv_kaishi_line"
             android:layout_width="match_parent"
             android:layout_height="1px"
             android:layout_alignParentBottom="true"
@@ -109,7 +108,6 @@
             android:textSize="@dimen/text_size_l" />
 
         <TextView
-            android:id="@+id/tv_jieshu_line"
             android:layout_width="match_parent"
             android:layout_height="1px"
             android:layout_alignParentBottom="true"
@@ -149,7 +147,6 @@
             android:textSize="@dimen/text_size_l" />
 
         <TextView
-            android:id="@+id/tv_zongshichang_line"
             android:layout_width="match_parent"
             android:layout_height="1px"
             android:layout_alignParentBottom="true"

@@ -106,7 +106,6 @@
                 android:src="@drawable/ic_homeenvir" />
 
             <TextView
-                android:id="@+id/textView31"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
@@ -116,7 +115,6 @@
                 android:textSize="@dimen/text_size_m" />
 
             <ImageView
-                android:id="@+id/imageView25"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
@@ -144,7 +142,6 @@
                 android:src="@drawable/ic_homefigure" />
 
             <TextView
-                android:id="@+id/textView31xx"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
@@ -154,7 +151,6 @@
                 android:textSize="@dimen/text_size_m" />
 
             <ImageView
-                android:id="@+id/imageView25xx"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
@@ -251,7 +247,6 @@
                         android:visibility="gone" />
 
                     <TextView
-                        android:id="@+id/tv_dayone"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8px"
@@ -284,7 +279,6 @@
                         android:visibility="gone" />
 
                     <TextView
-                        android:id="@+id/tv_daytwo"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8px"
@@ -316,7 +310,6 @@
                         android:visibility="gone" />
 
                     <TextView
-                        android:id="@+id/tv_daythree"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8px"

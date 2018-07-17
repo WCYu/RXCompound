@@ -22,8 +22,6 @@
     <color name="line">#9fa0a0</color>
     <color name="line1">#c9c9c9</color>
     <color name="appbg">#E2E2E2</color>
-    <color name="bgtrsblack">#40000000</color>
-    <color name="bgtrsblackm">#80000000</color>
     <color name="bgtrsblackl">#90000000</color>
     <color name="bgtblue">#00b7f0</color>
     <color name="bgtbluetheme">#4990f9</color>
@@ -36,8 +34,6 @@
 
 
     <color name="txtjf_yellows">#fadf4b</color>
-    <color name="txtjf_grey">#abb2bc</color>
-
 
 
     <color name="iv_selector">#66000000</color>
@@ -62,8 +58,6 @@
 
     <color name="colorBlackLight">#595757</color>
 
-    <color name="colorBlueLight">#67bbef</color>
-
     <color name="colorGreen">#39d27f</color>
 
     <color name="colorOrange">#ffb951</color>
@@ -72,15 +66,7 @@
 
     <color name="white">#fff</color>
 
-    <color name="corf0eff5">#f0eff5</color>
-
-    <color name="corfafafa">#fafafa</color>
-
     <color name="cordee1e1">#dee1e1</color>
-
-    <color name="corddd">#ddd</color>
-
-    <color name="cora9a9a9">#a9a9a9</color>
 
     <color name="cor666">#898989</color>
 
@@ -90,15 +76,9 @@
 
     <color name="cor888">#888</color>
 
-    <color name="cor898989">#898989</color>
-
     <color name="cor333">#333</color>
 
     <color name="action_bar_bg">#232426</color>
-
-    <color name="coreaeef9">#eaeef9</color>
-
-    <color name="cora4c5f5">#a4c5f5</color>
 
     <color name="cor00a0ea">#00a0ea</color>
 
@@ -106,39 +86,17 @@
 
     <color name="cor2196f3">#2196f3</color>
 
-    <color name="cor0186b7">#0186b7</color>
-
     <color name="core60012">#e60012</color>
 
     <color name="cor4d5f7e">#4d5f7e</color>
 
-    <color name="cor33c5a5">#33c5a5</color>
-
     <color name="cor09bb07">#09bb07</color>
-
-    <color name="corfff67f">#fff67f</color>
-
-    <color name="corffb907">#ffb907</color>
 
     <color name="corf39800">#ffb907</color>
 
-    <color name="corf7b93f">#f7b93f</color>
-
-    <color name="corfe7e00">#fe7e00</color>
-
-    <color name="corff6a23">#ff6a23</color>
-
-    <color name="corf43530">#f43530</color>
-
     <!--<color name="line">#c9c9c9</color>-->
 
-    <color name="corf29700">#f29700</color>
-
     <color name="cor0068b7">#0068b7</color>
-
-    <color name="category_tab_highlight_bg">#ffd43d3d</color>
-    <color name="category_tab_text">#ff707070</color>
-    <color name="category_tab_highlight_text">#fffafafa</color>
 
     <color name="text_red">#e60012</color>
     <color name="text_black">#000000</color>
@@ -154,7 +112,6 @@
     <color name="text_txtgreytwo">#c9caca</color>
 
 
-    <color name="transblack80">#80000000</color>
     <color name="lineorange">#f8701c</color>
     <color name="colorRed">#f00</color>
 
@@ -175,8 +132,6 @@
     <color name="txt_pink_bg">#15FF40FF</color>
     <color name="timepicker_line">#e8e8e8</color>
     <color name="colorThe_dark">#9fa0a0</color>
-    <color name="colorbackground">#f2f2f2</color>
-    <color name="colorbackline">#f7f5f5</color>
     <color name="colordark_the">#888888</color>
 
 </resources>

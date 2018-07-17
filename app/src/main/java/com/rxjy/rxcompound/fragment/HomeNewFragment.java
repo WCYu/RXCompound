@@ -76,7 +76,6 @@ public class HomeNewFragment extends BaseFragment {
                 ly_web.setVisibility(View.VISIBLE);
                 newWeb.loadUrl(url);
                 Log.e("webView————————", url);
-
                 WebSettings settings = newWeb.getSettings();
                 settings.setJavaScriptEnabled(true);
                 newWeb.addJavascriptInterface(new WebViewJump(), "android");
@@ -110,7 +109,6 @@ public class HomeNewFragment extends BaseFragment {
         fragmentList.add(customerFragment);
         manager = getChildFragmentManager();
         showFragment(fragmentList.get(HOME_FRAGMENT), HOME_FRAGMENT);
-
         //showFragment(fragmentList.get(HOME_FRAGMENT), HOME_FRAGMENT);
         rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -177,7 +175,6 @@ public class HomeNewFragment extends BaseFragment {
         JumpFragment(fragment);
 
     }
-
     /**
      * 加载指定Fragment的方法
      *
@@ -196,8 +193,6 @@ public class HomeNewFragment extends BaseFragment {
         action.commit();
         currentFragment = fragment;
     }
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // TODO: inflate a fragment view
@@ -211,7 +206,6 @@ public class HomeNewFragment extends BaseFragment {
         super.onDestroyView();
         ButterKnife.unbind(this);
     }
-
     @OnClick(R.id.lv_add)
     public void onViewClicked() {
         Intent intent=new Intent(getContext(), CustomerActivity.class);

@@ -229,7 +229,6 @@
         <activity android:name=".activity.more.XiaXianActivity" />
         <activity android:name=".activity.my.ZhuanZhengActivity" />
         <activity android:name=".activity.my.NewKeHuActivity" />
-        <activity android:name=".activity.my.TestActivity" />
         <activity android:name=".activity.guwen.DownLineActivity" />
         <activity android:name=".activity.guwen.TiXianActivity" />
         <activity android:name=".activity.XinXiActivity" />

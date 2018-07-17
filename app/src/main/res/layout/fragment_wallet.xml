@@ -127,7 +127,6 @@
             android:src="@drawable/ic_rxbi" />
 
         <TextView
-            android:id="@+id/tv_rxbi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"

@@ -98,7 +98,6 @@ public class MainFragment extends BaseFragment<BaseInformPresenter> implements B
     RelativeLayout rlWallet;
     @Bind(R.id.rl_chengjiu)
     RelativeLayout rl_chengjiu;
-
     @Bind(R.id.tv_messagenum)
     TextView tvMessagenum;
     @Bind(R.id.rl_jifen)

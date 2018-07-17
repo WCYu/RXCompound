@@ -48,6 +48,7 @@ public class InfoMessagePresenter extends InfoMessageContract.Presenter{
                         Log.e("通知数据sss",s.toString());
                         InfoMessageBean info = JSONUtils.toObject(s, InfoMessageBean.class);
                         if (info.getStatusCode() == 0) {
+
                             if(!StringUtils.isEmpty(info.getBody())){
                                 mView.responseInfoMessage(info);
                             }else{

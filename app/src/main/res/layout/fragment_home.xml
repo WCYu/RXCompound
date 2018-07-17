@@ -54,7 +54,6 @@
             android:layout_height="wrap_content">
 
             <include
-                android:id="@+id/include_home"
                 layout="@layout/include_header_layout"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"

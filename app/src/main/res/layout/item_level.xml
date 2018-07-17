@@ -12,7 +12,6 @@
         android:orientation="vertical">
 
         <RelativeLayout
-            android:id="@+id/rl_leveltop"
             android:layout_width="70px"
             android:layout_height="60px">
 
