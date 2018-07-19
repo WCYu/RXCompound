@@ -19,6 +19,7 @@ import com.rxjy.rxcompound.commons.base.BaseActivity;
 import com.rxjy.rxcompound.entity.CheckInfo;
 import com.rxjy.rxcompound.mvp.contract.QrLoginContract;
 import com.rxjy.rxcompound.mvp.presenter.QrLoginPresenter;
+import com.rxjy.rxcompound.utils.GlideCircleTransform;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -55,6 +56,10 @@ public class QrLoginActivity extends BaseActivity<QrLoginPresenter> implements Q
 
 
         qrRwdid.setText(App.name);
+        RequestOptions options = new RequestOptions();
+        options.centerCrop().transform(new GlideCircleTransform(this));
+        options.error(R.mipmap.userimage);
+        options.placeholder(R.mipmap.userimage);
         Glide.with(this).load(App.icon).apply(RequestOptions.circleCropTransform()).into(qrPhoto);
         tvTitle.setOnClickListener(new View.OnClickListener() {
             @Override
