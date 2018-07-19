@@ -8,11 +8,12 @@
 
     <android.support.v4.view.ViewPager
         android:id="@+id/pager"
-        android:visibility="gone"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:visibility="gone">
 
     </android.support.v4.view.ViewPager>
+
     <LinearLayout
         android:id="@+id/ly_web"
         android:layout_width="match_parent"
@@ -89,6 +90,7 @@
             android:src="@mipmap/ic_hometop" />
 
         <LinearLayout
+            android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@+id/iv_biaoshu">
@@ -278,12 +280,11 @@
 
         <LinearLayout
             android:id="@+id/ll_topmore"
-            android:layout_width="150px"
-            android:layout_height="200px"
+            android:layout_width="wrap_content"
+            android:layout_height="240px"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:layout_alignTop="@+id/iv_biaoshu"
-            android:layout_marginRight="10px"
+            android:layout_below="@+id/rl_top"
             android:layout_marginTop="-15px"
             android:background="@mipmap/tanchubeijing"
             android:orientation="vertical"
@@ -292,9 +293,15 @@
             <TextView
                 android:id="@+id/tv_moreperson"
                 android:layout_width="wrap_content"
+
                 android:layout_height="0px"
                 android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="40px"
+                android:layout_marginRight="60px"
+                android:layout_marginTop="10px"
                 android:layout_weight="1"
+                android:drawableLeft="@mipmap/guest"
+                android:drawablePadding="25px"
                 android:gravity="center"
                 android:text="回头客"
                 android:textColor="@color/colorWhite"
@@ -312,7 +319,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="0px"
                 android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="40px"
+                android:layout_marginRight="60px"
                 android:layout_weight="1"
+                android:drawableLeft="@mipmap/software_customer"
+                android:drawablePadding="25px"
                 android:gravity="center"
                 android:text="客户App"
                 android:textColor="@color/colorWhite"
@@ -330,7 +341,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="0px"
                 android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="40px"
+                android:layout_marginRight="60px"
                 android:layout_weight="1"
+                android:drawableLeft="@mipmap/scan_mc"
+                android:drawablePadding="25px"
                 android:gravity="center"
                 android:text="扫一扫"
                 android:textColor="@color/colorWhite"

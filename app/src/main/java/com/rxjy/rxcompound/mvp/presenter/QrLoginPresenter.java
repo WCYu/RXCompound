@@ -1,14 +1,12 @@
-package com.example.asus.customer.mvp.presenter;
+package com.rxjy.rxcompound.mvp.presenter;
 
 import android.util.Log;
 
-import com.example.asus.customer.commons.utils.JSONUtils;
-import com.example.asus.customer.entity.CheckInfo;
-import com.example.asus.customer.entity.RecommendBean;
-import com.example.asus.customer.mvp.contract.NjjContract;
-import com.example.asus.customer.mvp.contract.QrLoginContract;
-import com.example.asus.customer.mvp.model.NjjModel;
-import com.example.asus.customer.mvp.model.QrLoginModel;
+
+import com.rxjy.rxcompound.commons.utils.JSONUtils;
+import com.rxjy.rxcompound.entity.CheckInfo;
+import com.rxjy.rxcompound.mvp.contract.QrLoginContract;
+import com.rxjy.rxcompound.mvp.model.QrLoginModel;
 
 import rx.Subscriber;
 import rx.Subscription;

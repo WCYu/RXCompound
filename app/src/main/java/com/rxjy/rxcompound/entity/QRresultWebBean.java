@@ -1,10 +1,10 @@
-package com.example.asus.customer.entity;
+package com.rxjy.rxcompound.entity;
 
 /**
  * Created by asus on 2018/5/30.
  */
 
-public class QRresultBean {
+public class QRresultWebBean {
 
     /**
      * event : 登陆web

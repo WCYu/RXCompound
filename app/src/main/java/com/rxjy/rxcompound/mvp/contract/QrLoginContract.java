@@ -1,10 +1,10 @@
-package com.example.asus.customer.mvp.contract;
+package com.rxjy.rxcompound.mvp.contract;
 
-import com.example.asus.customer.commons.base.BaseModel;
-import com.example.asus.customer.commons.base.BasePresenter;
-import com.example.asus.customer.commons.base.BaseView;
-import com.example.asus.customer.entity.CheckInfo;
-import com.example.asus.customer.entity.ProjectBean;
+
+import com.rxjy.rxcompound.commons.base.BaseModel;
+import com.rxjy.rxcompound.commons.base.BasePresenter;
+import com.rxjy.rxcompound.commons.base.BaseView;
+import com.rxjy.rxcompound.entity.CheckInfo;
 
 import rx.Observable;
 
@@ -35,7 +35,7 @@ public interface QrLoginContract {
         );
 
     }
-    abstract class Presenter extends BasePresenter<QrLoginContract.View, QrLoginContract.Model> {
+    abstract class Presenter extends BasePresenter<View, Model> {
         public abstract void getRrLogin(
                 String cardNo,
                 String password,

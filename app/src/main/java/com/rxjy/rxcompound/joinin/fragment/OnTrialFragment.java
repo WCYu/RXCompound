@@ -1,9 +1,13 @@
 package com.rxjy.rxcompound.joinin.fragment;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
@@ -20,16 +24,22 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.acker.simplezxing.activity.CaptureActivity;
 import com.bumptech.glide.Glide;
 import com.rxjy.rxcompound.R;
+import com.rxjy.rxcompound.activity.QrLoginActivity;
 import com.rxjy.rxcompound.commons.App;
 import com.rxjy.rxcompound.commons.base.BaseFragment;
+import com.rxjy.rxcompound.commons.utils.JSONUtils;
+import com.rxjy.rxcompound.commons.utils.StringUtils;
 import com.rxjy.rxcompound.des.activity.WebActivity;
 import com.rxjy.rxcompound.des.adapter.HomeShejiAdapter;
 import com.rxjy.rxcompound.des.entity.HomeBean;
 import com.rxjy.rxcompound.des.mvp.contract.OnTriaHomeContract;
 import com.rxjy.rxcompound.des.mvp.presenter.HomeFindPresenter;
+import com.rxjy.rxcompound.entity.QRresultWebBean;
 import com.rxjy.rxcompound.joinin.entity.HuanYingBean;
 
 import java.util.ArrayList;
@@ -37,6 +47,9 @@ import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+
+import static android.app.Activity.RESULT_CANCELED;
+import static android.app.Activity.RESULT_OK;
 
 /**
  * Created by asus on 2018/5/23.
@@ -106,7 +119,12 @@ public class OnTrialFragment extends BaseFragment<HomeFindPresenter> implements 
         }
 
         mPresenter.getFindList(App.cardNo);
-
+        publish.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                QRCodeScan();
+            }
+        });
     }
 
     @Override
@@ -262,5 +280,74 @@ public class OnTrialFragment extends BaseFragment<HomeFindPresenter> implements 
     public void onDestroyView() {
         super.onDestroyView();
         ButterKnife.unbind(this);
+    }
+    /**
+     * 扫描二维码
+     */
+    private static final int REQ_CODE_PERMISSION = 0x1111;
+    private void QRCodeScan() {//6.0以上的手机需要处理权限
+        if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            // Do not have the permission of camera, request it.
+            ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.CAMERA}, REQ_CODE_PERMISSION);
+        } else {
+            // Have gotten the permission
+            startActivityForResult(new Intent(getActivity(), CaptureActivity.class), CaptureActivity.REQ_CODE);
+        }
+    }
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        switch (requestCode) {
+            case REQ_CODE_PERMISSION: {
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    // User agree the permission
+                    startActivityForResult(new Intent(getActivity(), CaptureActivity.class), CaptureActivity.REQ_CODE);
+                } else {
+                    // User disagree the permission
+                    Toast.makeText(getActivity(), "You must agree the camera permission request before you use the code scan function", Toast.LENGTH_LONG).show();
+                }
+            }
+            break;
+        }
+    }
+
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode) {
+            case CaptureActivity.REQ_CODE:
+                switch (resultCode) {
+                    case RESULT_OK:
+                        if (data != null) {
+//                            192.168.1.192:8616/bloc/cduan/PhoneLoginController?cardno=&password=
+                            Log.e("RESULT_OK=====", data.getStringExtra(CaptureActivity.EXTRA_SCAN_RESULT));
+                            String result = data.getStringExtra(CaptureActivity.EXTRA_SCAN_RESULT);
+                            if (!StringUtils.isEmpty(result)) {
+                                if (result.contains("event")) {
+                                    QRresultWebBean info = JSONUtils.toObject(result, QRresultWebBean.class);
+                                    String biaoshi = info.getParameter().getLogin_id();
+                                    if (biaoshi != null||info.getParameter().getApp_id()==3) {
+                                        startActivity(new Intent(getActivity(), QrLoginActivity.class).putExtra("appid", biaoshi));
+                                    } else {
+                                        showToast("请扫描正确的二维码！");
+                                    }
+                                } else {
+                                    showToast("本平台暂不支持其他二维码扫描！");
+                                }
+
+                            } else {
+                                showToast("请扫描正确的二维码！");
+                            }
+                        }
+                        break;
+                    case RESULT_CANCELED:
+                        if (data != null) {
+                            Log.e("RESULT_CANCELED=====", data.getStringExtra(CaptureActivity.EXTRA_SCAN_RESULT));
+                        }
+                        break;
+                }
+                break;
+        }
     }
 }

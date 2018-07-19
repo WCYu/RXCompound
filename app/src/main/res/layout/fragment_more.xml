@@ -413,7 +413,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:visibility="gone">
+                >
 
                 <RelativeLayout
                     android:layout_width="fill_parent"
@@ -704,28 +704,29 @@
                     android:orientation="horizontal">
 
                     <LinearLayout
-                        android:id="@+id/ly_yuliu2"
+                        android:id="@+id/ly_waichu"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:orientation="vertical"
-                        android:visibility="invisible">
+                        android:visibility="visible">
 
                         <ImageView
+                            android:id="@+id/waichu_fankui"
                             android:layout_width="56px"
                             android:layout_height="56px"
                             android:layout_gravity="center"
                             android:layout_marginBottom="15px"
                             android:layout_marginTop="40px"
                             android:layout_weight="1"
-                            android:src="@mipmap/zhangben" />
+                            android:src="@mipmap/waichu" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_marginBottom="40px"
                             android:gravity="center"
-                            android:text="预留"
+                            android:text="外出"
                             android:textSize="25px" />
                     </LinearLayout>
 

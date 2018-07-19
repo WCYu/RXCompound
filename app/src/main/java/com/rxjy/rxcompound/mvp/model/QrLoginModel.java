@@ -1,8 +1,10 @@
-package com.example.asus.customer.mvp.model;
+package com.rxjy.rxcompound.mvp.model;
 
-import com.example.asus.customer.api.ApiEngine;
-import com.example.asus.customer.mvp.contract.QrLoginContract;
-import com.example.asus.customer.rx.RxSchedulers;
+
+
+import com.rxjy.rxcompound.api.ApiEngine;
+import com.rxjy.rxcompound.mvp.contract.QrLoginContract;
+import com.rxjy.rxcompound.rx.RxSchedulers;
 
 import rx.Observable;
 

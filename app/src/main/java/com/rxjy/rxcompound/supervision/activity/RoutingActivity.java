@@ -104,12 +104,7 @@ public class RoutingActivity extends BaseActivity<RoutingPresenter> implements R
         return new RoutingPresenter(this);
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
-    }
+
 
     @Override
     protected void onResume() {

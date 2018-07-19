@@ -1,4 +1,4 @@
-package com.example.asus.customer.entity;
+package com.rxjy.rxcompound.entity;
 
 /**
  * Created by asus on 2018/5/29.

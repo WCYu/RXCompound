@@ -42,14 +42,16 @@
                 android:orientation="vertical">
 
                 <ImageView
+              android:layout_gravity="center_horizontal"
                     android:id="@+id/qr_photo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="100px"
+                    android:layout_height="100px"
                     android:layout_marginLeft="265px"
                     android:layout_marginRight="265px"
                     android:layout_marginTop="109px"
+                    android:src="@mipmap/ic_launcher"
 
-                    android:src="@mipmap/house" />
+ />
 
                 <TextView
                     android:id="@+id/qrRwdid"
@@ -58,10 +60,9 @@
                     android:layout_marginTop="30px"
                     android:gravity="center"
                     android:lineSpacingMultiplier="2"
-                    android:text=""
+
                     android:textColor="@color/clogin"
                     android:textSize="32px" />
-
                 <TextView
                     android:id="@+id/qrRwdid_two"
                     android:layout_width="match_parent"
@@ -80,7 +81,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="180px"
             android:gravity="center"
-            android:text="欢迎登陆客户端"
+            android:text="欢迎登陆"
             android:textColor="@color/clogin"
             android:textSize="34px" />
 

@@ -42,8 +42,6 @@ import com.rxjy.rxcompound.joinin.activity.JoininNjjActivity;
 import com.rxjy.rxcompound.mvp.contract.LoginContract;
 import com.rxjy.rxcompound.mvp.presenter.LoginPresenter;
 import com.rxjy.rxcompound.supervision.activity.SupervisionMainActivity;
-import com.rxjy.rxcompound.utils.OkhttpUtils;
-import com.rxjy.rxcompound.utils.ToastUtil;
 import com.rxjy.rxcompound.utils.ZJson;
 
 import org.json.JSONException;

@@ -1,20 +1,24 @@
-package com.example.asus.customer.activity;
+package com.rxjy.rxcompound.activity;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.asus.customer.R;
-import com.example.asus.customer.commons.App;
-import com.example.asus.customer.commons.Constants;
-import com.example.asus.customer.commons.base.BaseActivity;
-import com.example.asus.customer.commons.utils.PrefUtils;
-import com.example.asus.customer.entity.CheckInfo;
-import com.example.asus.customer.mvp.contract.QrLoginContract;
-import com.example.asus.customer.mvp.presenter.QrLoginPresenter;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
+import com.rxjy.rxcompound.R;
+import com.rxjy.rxcompound.commons.App;
+import com.rxjy.rxcompound.commons.Constants;
+import com.rxjy.rxcompound.commons.base.BaseActivity;
+import com.rxjy.rxcompound.entity.CheckInfo;
+import com.rxjy.rxcompound.mvp.contract.QrLoginContract;
+import com.rxjy.rxcompound.mvp.presenter.QrLoginPresenter;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -50,16 +54,8 @@ public class QrLoginActivity extends BaseActivity<QrLoginPresenter> implements Q
     public void initData() {
 
 
-        if (App.projectName.length() > 6) {
-            String substring = App.projectName.substring(0, 6);
-            String substring1 = App.projectName.substring(5, substring.length());
-            qrRwdid.setText(substring);
-            qrRwdidTwo.setText(substring1);
-            qrRwdidTwo.setVisibility(View.VISIBLE);
-        } else {
-            qrRwdid.setText(App.projectName);
-            qrRwdidTwo.setVisibility(View.INVISIBLE);
-        }
+        qrRwdid.setText(App.name);
+        Glide.with(this).load(App.icon).apply(RequestOptions.circleCropTransform()).into(qrPhoto);
         tvTitle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -77,10 +73,11 @@ public class QrLoginActivity extends BaseActivity<QrLoginPresenter> implements Q
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.qr_login:
-            String appid=  getIntent().getStringExtra("appid");
-                String pawwword = PrefUtils.getValue(QrLoginActivity.this, Constants.PASSWORD);
-                Log.e("lrj",App.tokenInfo.getCardNo()+"======="+pawwword);
-                mPresenter.getRrLogin(App.tokenInfo.getCardNo(), pawwword, appid);
+                String appid = getIntent().getStringExtra("appid");
+                SharedPreferences msp = getSharedPreferences("rxdy_userdatas", Activity.MODE_PRIVATE);
+                String rxdy_pwd = msp.getString("rxdy_pwd", "");
+                Log.e("lrj", App.cardNo + "=======" + rxdy_pwd);
+                mPresenter.getRrLogin(App.cardNo, rxdy_pwd, appid);
                 break;
         }
     }
@@ -103,8 +100,6 @@ public class QrLoginActivity extends BaseActivity<QrLoginPresenter> implements Q
     @Override
     public void getRrLoginData(CheckInfo checkInfo) {
         if (checkInfo.getStatusCode() == 0) {
-            App.getApp().finishSingleActivity(NjjActivity.class);
-            startActivity(new Intent(QrLoginActivity.this, NjjActivity.class));
             finish();
         } else {
             showToast(checkInfo.getStatusMsg());

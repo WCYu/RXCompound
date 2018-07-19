@@ -2107,4 +2107,15 @@ public interface ApiService {
     Observable<String> getHospitaldata(
             @Query("card") String card
     );
+
+    /**
+     * 扫码登陆
+     */
+    @FormUrlEncoded
+    @POST("actionapi/AppLogin/EWMLogin")
+    Observable<String> getEWMLogin(
+            @Field("cardNo") String cardNo,
+            @Field("password") String password,
+            @Field("loginId") String loginId
+    );
 }

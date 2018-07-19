@@ -48,7 +48,7 @@ public class CustomerPresenter extends CustomerContract.Presenter {
                         if (info.getStatusCode().equals("0")) {
                             mView.responseCustomerData(info.getBody());
                         } else {
-                            mView.showMessage(info.getStatusMsg());
+                         //   mView.showMessage(info.getStatusMsg());
                         }
                     }
                 });

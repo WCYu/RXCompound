@@ -242,6 +242,7 @@
             android:windowSoftInputMode="stateVisible|adjustResize"></activity>
         <activity android:name=".activity.guwen.NewWaiChuDetialActivity" />
         <activity android:name=".activity.ShowImgActivity"></activity>
+        <activity android:name=".activity.QrLoginActivity"></activity>
 
     </application>
 

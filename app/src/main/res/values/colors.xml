@@ -133,5 +133,15 @@
     <color name="timepicker_line">#e8e8e8</color>
     <color name="colorThe_dark">#9fa0a0</color>
     <color name="colordark_the">#888888</color>
+    <color name="clogin">#2C487D</color>
+    <color name="colorlogin">#DFE6ED</color>
 
+
+    <color name="colorblue">#4F94F3</color>
+    <color name="colortextcolor">#595757</color>
+    <color name="colorback">#E5E5E5</color>
+
+    <color name="calca">#0044C4</color>
+
+    <color name="colorBlack">#00a0ea</color>
 </resources>

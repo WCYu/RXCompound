@@ -61,18 +61,15 @@
                     android:textColor="@color/colorwhite"
                     android:textSize="@dimen/text_size_l6" />
 
-                <TextView
+                <ImageView
                     android:id="@+id/tv_qrscan"
-                    android:layout_width="130px"
-                    android:layout_height="fill_parent"
-                    android:layout_alignParentEnd="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginRight="20px"
                     android:gravity="center"
-                    android:text="扫一扫"
-                    android:textColor="@color/colorwhite"
-                    android:textSize="@dimen/text_size_8" />
+                    android:paddingRight="30px"
+                    android:src="@mipmap/scan_pc"
+                    android:layout_centerVertical="true" />
             </RelativeLayout>
 
             <RelativeLayout
