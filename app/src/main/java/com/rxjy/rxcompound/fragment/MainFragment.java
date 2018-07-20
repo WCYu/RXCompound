@@ -159,11 +159,12 @@ public class MainFragment extends BaseFragment<BaseInformPresenter> implements B
                 PersonBean info = JSONUtils.toObject(persondata, PersonBean.class);
                 tv_pname.setText(App.name);
                 name = info.getBody().getName();
-                if(!TextUtils.isEmpty(App.postName)){
+                if (!TextUtils.isEmpty(App.postName)) {
                     tv_pjob.setText(info.getBody().getSex() + "   " + App.postName);
                 }
                 tv_paccount.setText("账号 " + App.cardNo);
                 Glide.with(getActivity()).load(info.getBody().getImage()).into(iv_personicon);
+                Log.e("头像1", info.getBody().getImage());
 //                icon=info.getBody().getImage();
             } else {
                 mPresenter.getMessage(cardno, "1");
@@ -221,6 +222,7 @@ public class MainFragment extends BaseFragment<BaseInformPresenter> implements B
                                 }
                                 if (!TextUtils.isEmpty(bodyBean.getImage())) {
                                     Glide.with(getActivity()).load(bodyBean.getImage()).apply(RequestOptions.circleCropTransform()).into(iv_personicon);
+                                    Log.e("头像2", bodyBean.getImage());
                                 }
                             } else {
                                 ToastUtil.getInstance().toastCentent(statusMsg, getActivity());
@@ -245,6 +247,7 @@ public class MainFragment extends BaseFragment<BaseInformPresenter> implements B
         } else {
             if (!TextUtils.isEmpty(App.icon)) {
                 Glide.with(getActivity()).load(App.icon).into(iv_personicon);
+                Log.e("头像3", App.icon);
             }
             icon = App.icon;
             if (iconischange.equals("1")) {
@@ -305,8 +308,8 @@ public class MainFragment extends BaseFragment<BaseInformPresenter> implements B
             case R.id.rl_jifen:
                 switch (App.apptype) {
                     case 3:
-//                        startActivity(new Intent(getActivity(), JifenZAActivity.class).putExtra("icon",icon).putExtra("name",name));
-                        startActivity(new Intent(getActivity(), JiFenActivity.class));
+                        startActivity(new Intent(getActivity(), JifenZAActivity.class).putExtra("icon",icon).putExtra("name",name));
+//                        startActivity(new Intent(getActivity(), JiFenActivity.class));
                         break;
                     case 2:
 //                        startActivity(new Intent(getActivity(), JifenZAActivity.class).putExtra("icon",icon).putExtra("name",name));
@@ -337,7 +340,8 @@ public class MainFragment extends BaseFragment<BaseInformPresenter> implements B
         tv_pjob.setText(data.getBody().getSex() + "   " + data.getBody().getPostName());
         tv_paccount.setText("账号：" + data.getBody().getCardNo());
         if (!TextUtils.isEmpty(data.getBody().getImage())) {
-            Glide.with(getActivity()).load(data.getBody().getImage()).into(iv_personicon);
+//            Glide.with(getActivity()).load(data.getBody().getImage()).into(iv_personicon);
+//            Log.e("头像4",data.getBody().getImage());
         }
         icon = data.getBody().getImage();
     }

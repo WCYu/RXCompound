@@ -111,7 +111,8 @@ public class JifenZAActivity extends BaseActivity<JiFenZAPresenter> implements J
     }
 
     JifenZAAdapter jifenZAAdapter;
-ArrayList<String> jidianlist;
+    ArrayList<String> jidianlist;
+
     @Override
     public void responsegetMessage(final JiFenBean data) {
         if (!StringUtils.isEmpty(data.getBody())) {
@@ -127,16 +128,16 @@ ArrayList<String> jidianlist;
             list.add("8");
             list.add("9");
             list.add("10");
-            jidianlist.add(StringUtils.getPrettyNumber(data.getBody().get(0).getOneRemind()+""));
-            jidianlist.add(StringUtils.getPrettyNumber(data.getBody().get(0).getTwoRemind()+""));
-            jidianlist.add(StringUtils.getPrettyNumber(data.getBody().get(0).getThreeRemind()+""));
-            jidianlist.add(StringUtils.getPrettyNumber(data.getBody().get(0).getFourRemind()+""));
-            jidianlist.add(StringUtils.getPrettyNumber(data.getBody().get(0).getFiveRemind()+""));
-            jidianlist.add(StringUtils.getPrettyNumber(data.getBody().get(0).getSixRemind()+""));
-            jidianlist.add(StringUtils.getPrettyNumber(data.getBody().get(0).getSevenRemind()+""));
-            jidianlist.add(StringUtils.getPrettyNumber(data.getBody().get(0).getEightRemind()+""));
-            jidianlist.add(StringUtils.getPrettyNumber(data.getBody().get(0).getNineRemind()+""));
-            jidianlist.add(StringUtils.getPrettyNumber(data.getBody().get(0).getTenRemind()+""));
+            jidianlist.add(StringUtils.getPrettyNumber(data.getBody().get(0).getOneRemind() + ""));
+            jidianlist.add(StringUtils.getPrettyNumber(data.getBody().get(0).getTwoRemind() + ""));
+            jidianlist.add(StringUtils.getPrettyNumber(data.getBody().get(0).getThreeRemind() + ""));
+            jidianlist.add(StringUtils.getPrettyNumber(data.getBody().get(0).getFourRemind() + ""));
+            jidianlist.add(StringUtils.getPrettyNumber(data.getBody().get(0).getFiveRemind() + ""));
+            jidianlist.add(StringUtils.getPrettyNumber(data.getBody().get(0).getSixRemind() + ""));
+            jidianlist.add(StringUtils.getPrettyNumber(data.getBody().get(0).getSevenRemind() + ""));
+            jidianlist.add(StringUtils.getPrettyNumber(data.getBody().get(0).getEightRemind() + ""));
+            jidianlist.add(StringUtils.getPrettyNumber(data.getBody().get(0).getNineRemind() + ""));
+            jidianlist.add(StringUtils.getPrettyNumber(data.getBody().get(0).getTenRemind() + ""));
             tvDetails.setText(data.getBody().get(0).getDdeclaration());
             setStar(data.getBody().get(0).getAchievementGrade());
             tvMoneyone.setText("￥" + StringUtils.getPrettyNumber(data.getBody().get(0).getLessThenTwo() + ""));
@@ -148,11 +149,11 @@ ArrayList<String> jidianlist;
             gvLevel.setAdapter(jifenZAAdapter);
             jifenZAAdapter.setNum(data.getBody().get(0).getGrade());
             jifenZAAdapter.setList(jidianlist);
-            if(data.getBody().get(0).getGrade()>3){
+            if (data.getBody().get(0).getGrade() > 3) {
                 new Handler().postDelayed((new Runnable() {
                     @Override
                     public void run() {
-                        hsvSsv.scrollTo(300* data.getBody().get(0).getGrade()-600, 0);
+                        hsvSsv.scrollTo(300 * data.getBody().get(0).getGrade() - 600, 0);
                     }
                 }), 3);
             }

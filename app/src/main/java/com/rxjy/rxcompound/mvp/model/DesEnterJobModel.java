@@ -3,6 +3,7 @@ package com.rxjy.rxcompound.mvp.model;
 import android.util.Log;
 
 import com.rxjy.rxcompound.api.ApiEngine;
+import com.rxjy.rxcompound.commons.App;
 import com.rxjy.rxcompound.mvp.contract.DesEnterJobContract;
 import com.rxjy.rxcompound.rx.RxSchedulers;
 
@@ -19,21 +20,20 @@ import rx.Observable;
  * Created by hjh on 2018/4/21.
  */
 
-public class DesEnterJobModel implements DesEnterJobContract.Model{
+public class DesEnterJobModel implements DesEnterJobContract.Model {
     @Override
     public Observable<String> updateDesJobMessage(String card_no, String Type, String bank_name, String bank_card, String bank_user_name, int bank_user_branch) {
         return ApiEngine.getInstance().getRsApiService()
-                .getUpdateDesJobMessage(card_no, Type, bank_name, bank_card, bank_user_name,bank_user_branch)
+                .getUpdateDesJobMessage(card_no, Type, bank_name, bank_card, bank_user_name, bank_user_branch)
                 .compose(RxSchedulers.<String>switchThread());
     }
 
     @Override
     public Observable<String> upLoadDesIdentityImg(String cardNo, String type, List<String> imglist) {
         List<MultipartBody.Part> list = new ArrayList<>();
-        Log.e("用来上传的图片：",imglist.toString());
+        Log.e("用来上传的图片：", imglist.toString());
 
-        for (String url : imglist)
-        {
+        for (String url : imglist) {
             //将照片路径转换为File对象
             File file = new File(url);
             //创建RequestBody ,用于Retrofit2.0上传照片
@@ -45,14 +45,14 @@ public class DesEnterJobModel implements DesEnterJobContract.Model{
         }
 
         return ApiEngine.getInstance().getRsApiService()
-                .subDesImage(cardNo,type,list)
+                .subDesImage(cardNo, type, list)
                 .compose(RxSchedulers.<String>switchThread());
     }
 
     @Override
     public Observable<String> getBankList() {
-        return  ApiEngine.getInstance().getRsApiService()
-                .getBankList()
+        return ApiEngine.getInstance().getRsApiService()
+                .getBankList(App.cardNo)
                 .compose(RxSchedulers.<String>switchThread());
     }
 }

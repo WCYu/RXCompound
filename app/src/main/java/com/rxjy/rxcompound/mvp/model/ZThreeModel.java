@@ -3,6 +3,7 @@ package com.rxjy.rxcompound.mvp.model;
 import android.util.Log;
 
 import com.rxjy.rxcompound.api.ApiEngine;
+import com.rxjy.rxcompound.commons.App;
 import com.rxjy.rxcompound.mvp.contract.ZThreeContract;
 import com.rxjy.rxcompound.rx.RxSchedulers;
 
@@ -58,7 +59,7 @@ public class ZThreeModel implements ZThreeContract.Model{
     @Override
     public Observable<String> getBankList() {
         return  ApiEngine.getInstance().getRsApiService()
-                .getBankList()
+                .getBankList(App.cardNo)
                 .compose(RxSchedulers.<String>switchThread());
     }
 }

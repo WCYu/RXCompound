@@ -549,6 +549,7 @@ public class SplashActivity extends BaseActivity<LoginPresenter> implements Logi
                             finish();
                         } catch (JSONException e) {
                             e.printStackTrace();
+                            startActivity(new Intent(SplashActivity.this, LoginActivity.class));
                         }
                     }
                 });

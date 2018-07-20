@@ -134,7 +134,7 @@ public class NewPeopleHomeFragment extends BaseFragment {
                         ShowBanner(info.getBody());
                     }
                 });
-        switch (App.is_group){
+        switch (App.is_group) {
             case "0":
                 lyCheliang.setVisibility(View.GONE);
                 lyZhusu.setVisibility(View.GONE);
@@ -239,15 +239,15 @@ public class NewPeopleHomeFragment extends BaseFragment {
                 break;
             case R.id.ly_cheliang:
                 intent = new Intent(getActivity(), WebViewActivity.class);
-                intent.putExtra("url","http://i.rxjy.com/AppGroup/APPIndex/CarMessage?card="+App.cardNo);
-                intent.putExtra("name","车辆信息");
-                intent.putExtra("type","新人");
+                intent.putExtra("url", "http://i.rxjy.com/AppGroup/APPIndex/CarMessage?card=" + App.cardNo);
+                intent.putExtra("name", "车辆信息");
+                intent.putExtra("type", "新人");
                 break;
             case R.id.ly_zhusu:
                 intent = new Intent(getActivity(), WebViewActivity.class);
-                intent.putExtra("url","http://i.rxjy.com/AppGroup/APPIndex/StayMessage?card="+App.cardNo);
-                intent.putExtra("name","住宿信息");
-                intent.putExtra("type","新人");
+                intent.putExtra("url", "http://i.rxjy.com/AppGroup/APPIndex/StayMessage?card=" + App.cardNo);
+                intent.putExtra("name", "住宿信息");
+                intent.putExtra("type", "新人");
                 break;
         }
         if (intent != null) {
@@ -276,15 +276,15 @@ public class NewPeopleHomeFragment extends BaseFragment {
                         int statusCode = dataBean.getStatusCode();
                         String statusMsg = dataBean.getStatusMsg();
                         NewUserDataBean.BodyBean body = dataBean.getBody();
-                        if(statusCode == 0){
+                        if (statusCode == 0) {
                             String carstate = body.getCarstate();
                             String staystate = body.getStaystate();
                             String z2state = body.getZ2state();
-                            jugdeText(carstate,tvCheliang);
-                            jugdeText(staystate,tvZhusu);
-                            jugdeText(z2state,tvZiliao);
-                        }else {
-                            ToastUtil.getInstance().toastCentent(statusMsg,getActivity());
+                            jugdeText(carstate, tvCheliang);
+                            jugdeText(staystate, tvZhusu);
+                            jugdeText(z2state, tvZiliao);
+                        } else {
+                            ToastUtil.getInstance().toastCentent(statusMsg, getActivity());
                         }
                     }
                 });
@@ -292,9 +292,9 @@ public class NewPeopleHomeFragment extends BaseFragment {
         });
     }
 
-    private void jugdeText(String data,TextView view) {
-        if(data!=null&&view!=null){
-            switch (data){
+    private void jugdeText(String data, TextView view) {
+        if (data != null && view != null) {
+            switch (data) {
                 case "未":
                     view.setText("未");
                     view.setTextColor(Color.parseColor("#e60012"));

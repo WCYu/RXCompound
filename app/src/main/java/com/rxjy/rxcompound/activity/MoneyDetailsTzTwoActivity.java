@@ -78,7 +78,7 @@ public class MoneyDetailsTzTwoActivity extends BaseActivity<MoneyDTzTwoPresenter
         month = c.get(Calendar.MONTH) + 1;
         Intent intent = getIntent();
         String type = intent.getStringExtra("type");
-        String money=intent.getStringExtra("money");
+        String money = intent.getStringExtra("money");
         tvMoney.setText(money);
         titlelist = new ArrayList<>();
         fenhongdata = new ArrayList<>();
@@ -129,7 +129,7 @@ public class MoneyDetailsTzTwoActivity extends BaseActivity<MoneyDTzTwoPresenter
                 titlelist.add("综合");
                 titlelist.add("剩余");
                 ShowTitle();
-                mPresenter.getbusmhisdata(App.regionid+"", cardno);
+                mPresenter.getbusmhisdata(App.regionid + "", cardno);
                 break;
         }
     }
@@ -186,6 +186,7 @@ public class MoneyDetailsTzTwoActivity extends BaseActivity<MoneyDTzTwoPresenter
     }
 
     MoneyDZaRewardAdapter moneyDZaRewardAdapter;
+
     @Override
     public void responsezarewarddata(final MoneyDZaRewardBean data) {
         moneyDZaRewardAdapter = new MoneyDZaRewardAdapter(this, data.getBody());
@@ -204,6 +205,7 @@ public class MoneyDetailsTzTwoActivity extends BaseActivity<MoneyDTzTwoPresenter
     }
 
     MoneyDBusAdapter moneyDBusAdapter;
+
     @Override
     public void responsebusmoneydata(final BusMoneyBean data) {
         moneyDBusAdapter = new MoneyDBusAdapter(this, data.getBody());
@@ -222,9 +224,10 @@ public class MoneyDetailsTzTwoActivity extends BaseActivity<MoneyDTzTwoPresenter
     }
 
     MoneyDBusHisAdapter moneyDBusHisAdapter;
+
     @Override
     public void responsebushisdata(MoneyBusHisBean data) {
-        moneyDBusHisAdapter=new MoneyDBusHisAdapter(this,data.getBody());
+        moneyDBusHisAdapter = new MoneyDBusHisAdapter(this, data.getBody());
         lvOne.setAdapter(moneyDBusHisAdapter);
     }
 

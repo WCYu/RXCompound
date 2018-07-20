@@ -52,21 +52,21 @@ public class MessageReceiver extends BroadcastReceiver {
         } else if (JPushInterface.ACTION_NOTIFICATION_RECEIVED.equals(intent.getAction())) {
             Log.e(TAG, "[MyReceiver] 接收到推送下来的通知");
             int notifactionId = bundle.getInt(JPushInterface.EXTRA_NOTIFICATION_ID);
-            String contentstr=bundle.getString(JPushInterface.EXTRA_ALERT);
-            String extras=bundle.getString(JPushInterface.EXTRA_EXTRA);
-            Log.e(TAG+"接收到的推送数据是：：",contentstr);
-            Log.e(TAG+"接收到的推送数据是：：",extras);
+            String contentstr = bundle.getString(JPushInterface.EXTRA_ALERT);
+            String extras = bundle.getString(JPushInterface.EXTRA_EXTRA);
+            Log.e(TAG + "接收到的推送数据是：：", contentstr);
+            Log.e(TAG + "接收到的推送数据是：：", extras);
             Log.e(TAG, "[MyReceiver] 接收到推送下来的通知的ID: " + notifactionId);
             //接受到推送就底部icon加一
             SetIconMsgNum(context);
 
         } else if (JPushInterface.ACTION_NOTIFICATION_OPENED.equals(intent.getAction())) {
             Log.e(TAG, "[MyReceiver] 用户点击打开了通知");
-            String extras=bundle.getString(JPushInterface.EXTRA_EXTRA);
+            String extras = bundle.getString(JPushInterface.EXTRA_EXTRA);
             NoticBean info = JSONUtils.toObject(extras, NoticBean.class);
-            int type= Integer.parseInt(info.getType());
+            int type = Integer.parseInt(info.getType());
 
-            switch (type){
+            switch (type) {
                 case 1:
                     context.startActivity(new Intent(context, IdentityInfoNewActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
                     break;
@@ -111,7 +111,7 @@ public class MessageReceiver extends BroadcastReceiver {
         int num = preferences.getInt(msgnum, 0);
         num = num + 1;
         preferences.edit().putInt(msgnum, num).commit();
-        switch (App.apptype){
+        switch (App.apptype) {
             case 2://商务
                 /**
                  * 跳转商务在职

@@ -30,11 +30,12 @@ public class WpsImageActivity extends BaseActivity implements View.OnClickListen
     HackyViewPager hvpImage;
     @Bind(R.id.tv_image_num)
     TextView tvNum;
-   private int position;
+    private int position;
     private WpsImageViewPagerAdapter adapter;
     private String baseurl;
     private ArrayList<String> imgUrls;
     private List<String> imgQUrl;
+
     @Override
     public int getLayout() {
         return R.layout.activity_wps_image;
@@ -42,21 +43,21 @@ public class WpsImageActivity extends BaseActivity implements View.OnClickListen
 
     @Override
     public void initData() {
-        baseurl=getIntent().getStringExtra("BaseUrl");
+        baseurl = getIntent().getStringExtra("BaseUrl");
         imgUrls = getIntent().getStringArrayListExtra(Constants.IMAGE_URL_LIST);
-        position=getIntent().getIntExtra("camera_position",-1);
-        imgQUrl=new ArrayList<>();
+        position = getIntent().getIntExtra("camera_position", -1);
+        imgQUrl = new ArrayList<>();
 
-        int size=imgUrls.size();
-        for (int i=0;i<size-1;i++){
-            imgQUrl.add(baseurl+imgUrls.get(i));
+        int size = imgUrls.size();
+        for (int i = 0; i < size - 1; i++) {
+            imgQUrl.add(baseurl + imgUrls.get(i));
         }
 
-        adapter = new WpsImageViewPagerAdapter(getSupportFragmentManager(),imgQUrl);
+        adapter = new WpsImageViewPagerAdapter(getSupportFragmentManager(), imgQUrl);
 
         hvpImage.setAdapter(adapter);
 
-        tvNum.setText(position+1 + " / " +imgQUrl.size());
+        tvNum.setText(position + 1 + " / " + imgQUrl.size());
         hvpImage.setCurrentItem(position);
         hvpImage.setOnPageChangeListener(this);
 

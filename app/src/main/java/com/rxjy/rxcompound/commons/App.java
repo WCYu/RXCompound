@@ -45,7 +45,6 @@ public class App extends Application {
 //    public static String cardNo="01100165";//项目监理
     public static int titletopcolor;//1:红色
 
-
     public static String is_group;//项目监理
     public static String cardNo;//项目监理
     public static String app_id;

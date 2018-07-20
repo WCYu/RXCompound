@@ -365,9 +365,9 @@ public interface ApiService {
     /**
      * 获取银行卡列表
      */
-    @GET("/actionapi/AppCurrencyHome/Getbanklist")
+    @GET("/actionapi/AppCurrencyHome/GetBanklist")
     Observable<String> getBankList(
-
+            @Query("Card") String cardno
     );
 
     /**
