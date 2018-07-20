@@ -1,11 +1,17 @@
 package com.rxjy.rxcompound.fragment;
 
 
+import android.Manifest;
+import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
@@ -20,23 +26,32 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.acker.simplezxing.activity.CaptureActivity;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.rxjy.rxcompound.R;
 import com.rxjy.rxcompound.activity.BannerDetailsActivity;
+import com.rxjy.rxcompound.activity.QrLoginActivity;
 import com.rxjy.rxcompound.commons.App;
 import com.rxjy.rxcompound.commons.base.BaseFragment;
 import com.rxjy.rxcompound.commons.base.BasePresenter;
 import com.rxjy.rxcompound.commons.utils.GlideRoundTransform;
 import com.rxjy.rxcompound.commons.utils.JSONUtils;
+import com.rxjy.rxcompound.commons.utils.StringUtils;
+import com.rxjy.rxcompound.des.entity.DesERLoginBean;
 import com.rxjy.rxcompound.entity.BannerBean;
 import com.rxjy.rxcompound.entity.BannerDataBean;
 import com.rxjy.rxcompound.entity.EduDataBean;
+import com.rxjy.rxcompound.entity.QRresultWebBean;
 import com.rxjy.rxcompound.entity.TaskListBean;
 import com.rxjy.rxcompound.mvp.contract.HomePageFContract;
 import com.rxjy.rxcompound.mvp.model.HomePageFModel;
 import com.rxjy.rxcompound.mvp.presenter.HomePageFPresenter;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -44,6 +59,9 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import rx.Subscriber;
 import rx.Subscription;
+
+import static android.app.Activity.RESULT_CANCELED;
+import static android.app.Activity.RESULT_OK;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -64,7 +82,7 @@ public class NewHomeFragment extends BaseFragment<HomePageFPresenter> implements
     @Bind(R.id.home_view)
     WebView newWeb;
 
-    String url ="http://edu.rxjy.com/a/rs/curaInfo/"+App.cardNo+"/tryPostApp?appId="+App.app_id;
+    String url = "http://edu.rxjy.com/a/rs/curaInfo/" + App.cardNo + "/tryPostApp?appId=" + App.app_id;
     int index = 0;
     int size = 0;
     String phonenum, cardno;
@@ -147,19 +165,102 @@ public class NewHomeFragment extends BaseFragment<HomePageFPresenter> implements
 
                     @Override
                     public void onNext(String s) {
-                        Log.e("banner数据显示。。。。",s.toString());
+                        Log.e("banner数据显示。。。。", s.toString());
                         BannerBean info = JSONUtils.toObject(s, BannerBean.class);
                         ShowBanner(info.getBody());
                     }
                 });
 //        addSubscribe(subscribe);
-
+        publish.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                QRCodeScan();
+            }
+        });
     }
 
-    class WebViewJump{
+    /**
+     * 扫描二维码
+     */
+    private static final int REQ_CODE_PERMISSION = 0x1111;
+
+    private void QRCodeScan() {//6.0以上的手机需要处理权限
+        if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            // Do not have the permission of camera, request it.
+            ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.CAMERA}, REQ_CODE_PERMISSION);
+        } else {
+            // Have gotten the permission
+            startActivityForResult(new Intent(getActivity(), CaptureActivity.class), CaptureActivity.REQ_CODE);
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        switch (requestCode) {
+            case REQ_CODE_PERMISSION: {
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    // User agree the permission
+                    startActivityForResult(new Intent(getActivity(), CaptureActivity.class), CaptureActivity.REQ_CODE);
+                } else {
+                    // User disagree the permission
+                    Toast.makeText(getActivity(), "You must agree the camera permission request before you use the code scan function", Toast.LENGTH_LONG).show();
+                }
+            }
+            break;
+        }
+    }
+
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode) {
+            case CaptureActivity.REQ_CODE:
+                switch (resultCode) {
+                    case RESULT_OK:
+                        if (data != null) {
+//                            192.168.1.192:8616/bloc/cduan/PhoneLoginController?cardno=&password=
+                            Log.e("RESULT_OK=====", data.getStringExtra(CaptureActivity.EXTRA_SCAN_RESULT));
+                            try {
+                                String result = data.getStringExtra(CaptureActivity.EXTRA_SCAN_RESULT);
+                                if (!StringUtils.isEmpty(result)) {
+                                    if (result.contains("event")) {
+                                        QRresultWebBean info = JSONUtils.toObject(result, QRresultWebBean.class);
+                                        String biaoshi = info.getParameter().getLogin_id();
+                                        if (biaoshi != null || info.getParameter().getApp_id() == 3) {
+                                            startActivity(new Intent(getActivity(), QrLoginActivity.class).putExtra("appid", biaoshi));
+                                        } else {
+                                            showToast("请扫描正确的二维码！");
+                                        }
+                                    } else {
+                                        showToast("本平台暂不支持其他二维码扫描！");
+                                    }
+
+                                } else {
+                                    showToast("请扫描正确的二维码！");
+                                }
+                            } catch (Exception e) {
+                                showToast("本平台暂不支持其他二维码扫描！");
+                                e.printStackTrace();
+                            }
+
+                        }
+                        break;
+                    case RESULT_CANCELED:
+                        if (data != null) {
+                            Log.e("RESULT_CANCELED=====", data.getStringExtra(CaptureActivity.EXTRA_SCAN_RESULT));
+                        }
+                        break;
+                }
+                break;
+        }
+    }
+
+    class WebViewJump {
         @JavascriptInterface
         public void jump() {
-            Log.e("tag——","进入");
+            Log.e("tag——", "进入");
             Intent intent = new Intent(getActivity(), getActivity().getClass());
             startActivity(intent);
             getActivity().finish();

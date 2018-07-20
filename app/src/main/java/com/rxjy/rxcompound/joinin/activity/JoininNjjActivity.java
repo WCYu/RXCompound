@@ -389,4 +389,5 @@ public class JoininNjjActivity extends BaseActivity<HomeFindPresenter> implement
             }
         });
     }
+
 }

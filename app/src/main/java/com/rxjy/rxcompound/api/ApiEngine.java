@@ -20,29 +20,29 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 public class ApiEngine {
 
     public static final String RS_API_HOST = "https://api.dcwzg.com:9191/";//线上
-    // public static final String RS_API_HOST = "http://api.dcwzg.cs:9191/";//测试
+     //public static final String RS_API_HOST = "http://api.dcwzg.cs:9191/";//测试
 
     public static final String RXBUSIC_API_HOST = "https://api.niujingji.cn:8183/";//商务客户
-    //   public static final String RXBUSIC_API_HOST_TEST = "https://api.niujingji.cn:8183/";//商务客户测试（获取地址）
-    private static final String DES_API_GET = "http://api.wenes.cn/";//线上温特斯
-//     private static final String DES_API_GET = "http://10.10.3.167:10030/";//测试温特斯
+       public static final String RXBUSIC_API_HOST_TEST = "https://api.niujingji.cn:8183/";//商务客户测试（获取地址）
+   private static final String DES_API_GET = "http://api.wenes.cn/";//线上温特斯
+  // private static final String DES_API_GET = "http://10.10.3.167:10030/";//测试温特斯
 
     // private static final String DES_API_LH="http://swb.idc.rx/";//温特斯量房单号获取
     private static final String DES_API_LH = "https://api.niujingji.cn:8183/";//温特斯量房单号获取
 
-    // private static final String DES_API_LHSUBMIT = "http://192.168.1.192:8867/";//温特斯量房单号提交 测试
+     private static final String DES_API_LHSUBMIT = "http://192.168.1.192:8867/";//温特斯量房单号提交 测试
 
-//     private static final String DES_API_LHSUBMIT ="http://java.wenes.cs/";
+   // private static final String DES_API_LHSUBMIT ="http://java.wenes.cs/";
 
-    private static final String DES_API_LHSUBMIT = "http://app.wenes.cn/";//温特斯量房单号提交 线上
+   // private static final String DES_API_LHSUBMIT = "http://app.wenes.cn/";//温特斯量房单号提交 线上
 
     private static final String DES_API_ERLOGIN = "http://app.wenes.cn/";//温特斯二维码登录
 
-    private static final String GC_API_HOST = "http://api.gc.rxjy.com:/";//线上
+   private static final String GC_API_HOST = "http://api.gc.rxjy.com:/";//线上
     //  private static final String GC_API_HOST = "http://api.gc.cs/";//测试
 
     private static final String BAPI_HOSTMONEY = "http://idc.dcwzg.com:13207/";//线上钱包
-    // private static final String BAPI_HOSTMONEY = "http://idc.dcwzg.com/";//测试
+  //  private static final String BAPI_HOSTMONEY = "http://idc.dcwzg.com/";//测试
 
     public static final String RS_API_HOSTssssss = "http://api.p.rx/";//线上
     public static final String RX_API_HOST = "http://wpsnew.rxjy.com:9090/";
@@ -71,19 +71,19 @@ public class ApiEngine {
 //    private static final String DES_API_GET="https://api.wenes.cn/";
 ////    private static final String DES_API_GET="https://csapi.wenes.cn/";
 
-    // public static final String TJ_API_HOST="http://192.168.1.192:8867/";//测试
-    public static final String TJ_API_HOST = "http://192.168.1.192:8859/";//线上
+  //  public static final String TJ_API_HOST="http://192.168.1.192:8867/";//测试
+   public static final String TJ_API_HOST = "http://192.168.1.192:8859/";//线上
     //http://192.168.1.192:8867/order/OrderArrayByCardNo?cardNo=01013688&type=4
     public static final String PD_API_HOST = "http://na.wenes.com/API/Contract/";
 
-    public static final String FB_API_HOST = "http://wpsnew.rxjy.com/";//线上
-    //public static final String FB_API_HOST= "http://wpsnew.rxjy.com/";//测试
+   public static final String FB_API_HOST = "http://wpsnew.rxjy.com/";//线上
+  //  public static final String FB_API_HOST= "http://wpsnew.rxjy.com/";//测试
     //http://api.p.rx/api/Join/GetNewsList?card=01012480
     public static final String NO_API_HOST = "http://nf.wenes.cn/";
     public static final String ZT_API_HOST = "http://apitz.rxjy.com:9192";
 
     //新增接口
-//    public static final String BASEURL = "http://swb.api.cs/"; // 测试
+  //public static final String BASEURL = "http://swb.api.cs/"; // 测试
     public static final String BASEURL = "https://api.niujingji.cn:8183/"; //线上
     public static final String NEWYUANGONGURL = RS_API_HOST + "actionapi/GroupManage/GetAppState";
     //积分数据

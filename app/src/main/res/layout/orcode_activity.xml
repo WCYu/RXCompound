@@ -8,5 +8,6 @@
        android:id="@+id/activity_image"
        android:layout_width="500px"
        android:layout_height="500px"
+       android:layout_gravity="center"
        android:src="@mipmap/erweima" />
 </RelativeLayout>

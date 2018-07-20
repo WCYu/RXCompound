@@ -63,7 +63,7 @@ public class AnswerActivity extends BaseActivity {
     private AnswerAdapter thereAdapter;
 
     @Override
-    public int getLayout() {
+    public int getLayout()  {
         return R.layout.answer_activity;
     }
 
@@ -180,7 +180,6 @@ public class AnswerActivity extends BaseActivity {
     public void onViewClicked() {
         StringBuffer stringbuffer = new StringBuffer();
         StringBuffer string = new StringBuffer();
-
         for (Person pos : datas) {
             boolean checked = pos.isChecked();
             if (checked) {
@@ -202,6 +201,7 @@ public class AnswerActivity extends BaseActivity {
                 string.append("3");
             }
         }
+    Log.e("tag",string.toString());
         if (string.toString().equals("123")) {
             startActivity(new Intent(this, AnswerTwoActivity.class).putExtra("answer", stringbuffer.toString()));
             Log.e("tag", "tag");

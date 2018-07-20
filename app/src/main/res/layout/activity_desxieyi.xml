@@ -32,7 +32,6 @@
                 android:src="@mipmap/choice_icon"/>
 
             <TextView
-                android:id="@+id/textView29"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="我同意设计师《用户协议》"

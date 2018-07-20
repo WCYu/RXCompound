@@ -36,14 +36,16 @@
             android:textSize="@dimen/text_size_l6" />
 
         <ImageView
+
             android:id="@+id/publish"
-            android:layout_width="54px"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:gravity="center"
-            android:paddingRight="20px"
-            android:src="@mipmap/write"
-            android:visibility="invisible" />
+            android:paddingRight="30px"
+            android:src="@mipmap/scan_pc"
+            android:layout_centerVertical="true"
+            />
     </RelativeLayout>
 
     <LinearLayout

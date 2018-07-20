@@ -21,14 +21,16 @@
             android:textColor="@color/colorwhite"
             android:textSize="@dimen/text_size_l6"/>
         <ImageView
-            android:visibility="invisible"
+
             android:id="@+id/publish"
-            android:layout_width="54px"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:gravity="center"
-            android:paddingRight="20px"
-            android:src="@mipmap/write"/>
+            android:paddingRight="30px"
+            android:src="@mipmap/scan_pc"
+            android:layout_centerVertical="true"
+            />
     </RelativeLayout>
 
     <LinearLayout

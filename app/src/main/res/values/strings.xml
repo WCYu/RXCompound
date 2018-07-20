@@ -1,7 +1,6 @@
 <resources>
     <string name="app_name">瑞祥平台</string>
     <string name="loading">加载中...</string>
-    <string name="action_settings">Settings</string>
 
 
     //登录模块
@@ -14,124 +13,32 @@
     <string name="login_pwdhint">请输入密码</string>
 
 
-    <string name="xlistview_header_hint_normal">下拉刷新</string>
-    <string name="xlistview_header_hint_ready">松开刷新数据</string>
-    <string name="xlistview_header_hint_loading">正在加载...</string>
-    <string name="xlistview_header_last_time">上次更新时间：</string>
-    <string name="xlistview_footer_hint_normal">查看更多</string>
-    <string name="xlistview_footer_hint_ready">松开载入更多</string>
-
-
-    <string name="setting">设置</string>
-    <string name="inform">通知</string>
-
-    <string name="exit">退出登录</string>
-
-    <string name="add">添加</string>
-
-    <string name="upd_password">修改密码</string>
-    <string name="version">版本</string>
-
-    <string name="please_input_search_content">请输入搜索内容</string>
     <string name="phone_num">手机号</string>
     <string name="please_input_phone_num">请输入手机号</string>
     <string name="verification_code">验证码</string>
     <string name="please_input_verification_code">请输入验证码</string>
     <string name="get_verification_code">获取验证码</string>
-    <string name="old_password">原始密码</string>
-    <string name="please_input_old_password">请输入原始密码</string>
-    <string name="password">密码</string>
-    <string name="please_input_password">请输入密码</string>
     <string name="new_password">新密码</string>
     <string name="please_input_password_again">请再次输入密码</string>
     <string name="confirm_password">确认密码</string>
-    <string name="verification_code_login">验证码登录</string>
-    <string name="forget_password">忘记密码？</string>
-    <string name="login">登录</string>
-    <string name="new_user_register">新用户注册</string>
-    <string name="referral_code">推荐码</string>
-    <string name="please_input_referral_code">请输入推荐码</string>
-    <string name="read_and_agree">我同意</string>
-    <string name="user_agreement">《用户协议》</string>
     <string name="confirm">确定</string>
     <string name="submit">提交</string>
-
-    <string name="client">客户</string>
-    <string name="business">商务</string>
-    <string name="wallet">钱包</string>
-    <string name="find">发现</string>
-    <string name="mine">我</string>
-
-    <string name="serial_number">编号：</string>
 
     <string name="head_photo">头像</string>
     <string name="name">姓名</string>
     <string name="gender">性别</string>
-    <string name="age">年龄</string>
     <string name="birthday">生日</string>
     <string name="phone">电话</string>
     <string name="mailbox">邮箱</string>
     <string name="area">地区</string>
     <string name="erweima">二维码</string>
 
-    <string name="has_withdraw">已提现</string>
-    <string name="balance">余额</string>
-
-    <string name="this_month">本月</string>
-    <string name="month_income">累计</string>
-
-    <string name="bank_card">银行卡</string>
-    <string name="please_bind_yourself_bank_card">请绑定持卡人本人的银行卡</string>
-    <string name="please_input_name">请输入姓名</string>
-    <string name="please_input_name_importance">请输入姓名(必填)</string>
-    <string name="please_input_phone_num_importance">请输入手机号(必填)</string>
-    <string name="please_input_bank_card_num">请输入银行卡号</string>
-    <string name="please_choice_bank">请选择开户行</string>
-    <string name="bank_name">开户行</string>
     <string name="sub">提交</string>
-    <string name="tip_one">• 请认真填写本人银行卡号</string>
-    <string name="tip_two">• 如有错误后果由自己承担</string>
-    <string name="my_balance">我的余额</string>
-    <string name="withdraw_deposit">提现</string>
-    <string name="first_withdraw_deposit_set_pwd">首次提现设置体现密码</string>
-    <string name="please_set_bank_pwd">请慎重设置密码</string>
-    <string name="withdraw_deposit_pwd">提现密码</string>
-    <string name="set_pwd">设置密码</string>
-    <string name="confirm_pwd">确认密码</string>
-    <string name="to_bank_card">到账银行卡</string>
-    <string name="withdraw_deposit_price">提现金额</string>
-    <string name="please_input_withdraw_deposit_price">请输入提现金额</string>
-    <string name="please_input_withdraw_deposit_pwd">请输入提现密码</string>
-
-    <string name="client_name">客户姓名</string>
-    <string name="phone_number">手机号码</string>
-    <string name="company_name">公司名称</string>
-    <string name="acreage">面积(㎡)</string>
-    <string name="measure_location">量房地址</string>
-    <string name="client_type">客户类型</string>
-    <string name="wx_number">微信号</string>
-    <string name="tc_type">套餐选择</string>
-
-    <string name="please_input_company_name">请输入公司名称</string>
-    <string name="please_input_acreage">请输入面积</string>
-    <string name="please_input_measure_location">请输入量房地址</string>
-    <string name="please_input_wx_number">请输入微信号</string>
 
     <string name="ca_intentional_style">意向风格：</string>
     <string name="ca_soft_furniture">家具软装：</string>
     <string name="ca_intelligent_weak_current">智能弱电：</string>
     <string name="ca_fengshui_requirements">风水要求：</string>
-
-
-    <string name="daytime">白天</string>
-    <string name="night">晚上</string>
-    <string name="both_are_ok">均可</string>
-
-    <string name="yes">是</string>
-    <string name="no">否</string>
-
-    <string name="have">有</string>
-    <string name="without">无</string>
 
 
     <!--量房字段-->
@@ -141,8 +48,6 @@
     <string name="ca_DecBudgetPrice">装修预算：</string>
     <string name="ca_Rental">租金单价：</string>
     <string name="ca_RentFreeDate">免租期：</string>
-    <string name="ca_LeaseTermStart">租期开始：</string>
-    <string name="ca_LeaseTermEnd">租期结束：</string>
     <string name="ca_ca_HousingSituation">房屋现状：</string>
     <string name="ca_HouseOrientation">房屋朝向：</string>
     <string name="ca_OccupyPublicCorridor">占用公共过道：</string>
@@ -172,99 +77,12 @@
     <string name="ca_windowsillHight">窗台高：</string>
     <string name="ca_WindowWidth">窗户宽：</string>
     <string name="ca_WindowHight">窗户高：</string>
-    <string name="ca_DecBudgetPriceUnit">装修预算（万）：</string>
-    <string name="ca_RentalUnit">租金单价（元/平）：</string>
 
     <!--量房字段-->
-    <string name="proHead">客户姓名</string>
-    <string name="DecorationAddress">量房地址</string>
-    <string name="LeaseTerm">租期</string>
-    <string name="DecBudgetPrice">装修预算</string>
-    <string name="Rental">租金单价</string>
-    <string name="RentFreeDate">免租期</string>
-    <string name="LeaseTermStart">租期开始</string>
-    <string name="LeaseTermEnd">租期结束</string>
-    <string name="HousingSituation">房屋现状</string>
-    <string name="HouseOrientation">房屋朝向</string>
-    <string name="OccupyPublicCorridor">占用公共过道</string>
     <string name="CargoDoorHight">货梯门高度</string>
     <string name="CargoDoorWide">货梯门宽度</string>
-    <string name="OriginalGround">原地面保存</string>
-    <string name="isGroundSmooth">原地面平整</string>
-    <string name="OriginalGroundMaterial">原地面材质</string>
-    <string name="OriginalWallMaterial">原墙面材质</string>
-    <string name="OriginalTopMaterial">原顶面材质</string>
-    <string name="GroundElevation">地面高度差</string>
-    <string name="SpaceMaxHeight">空间最高点</string>
-    <string name="SpaceMinHeight">空间最低点</string>
-    <string name="mainBeamHeight">主梁下高</string>
-    <string name="SecondaryHeight">次梁下高</string>
-    <string name="MinimumSprayHeight">喷淋最低点</string>
-    <string name="AirConditionerNum">空调设备</string>
-    <string name="TuyereMinimumHeight">风口最低点</string>
-    <string name="StrongBoxNum">强电箱</string>
-    <string name="WeakBoxNum">弱电箱</string>
-    <string name="WaterPath">上下水路径</string>
-    <string name="UpWaterSpot">上水点</string>
-    <string name="DownWaterSpot">下水点</string>
-    <string name="DownWaterSpotSize">下水管径</string>
-    <string name="CurtainWallSpacing">幕墙架间距</string>
-    <string name="WindowType">窗户类型</string>
-    <string name="windowsillHight">窗台高</string>
-    <string name="WindowWidth">窗户宽</string>
-    <string name="WindowHight">窗户高</string>
-    <string name="DecBudgetPriceUnit">装修预算（万）</string>
-    <string name="RentalUnit">租金单价（元/平）</string>
-
-    <string name="one_month">一个月内</string>
-    <string name="two_month">1个月内</string>
-    <string name="between_one_two_month">1-2个月</string>
-    <string name="two_month_more">2个月以上</string>
 
     <string name="tenancy_term">租期开始及结束时间</string>
-
-    <string name="roughcast_house">毛坯房</string>
-    <string name="rinsing_house">清水房</string>
-    <string name="remould_old_house">旧房改造</string>
-    <string name="renovate">翻新</string>
-    <string name="deluxe_room">精装房</string>
-
-    <string name="east">东</string>
-    <string name="west">西</string>
-    <string name="south">南</string>
-    <string name="north">北</string>
-    <string name="southeast">东南</string>
-    <string name="northwest">西北</string>
-    <string name="northeast">东北</string>
-    <string name="southwest">西南</string>
-
-    <string name="input_please">请输入</string>
-
-    <string name="cement_blank">水泥毛坯</string>
-    <string name="cement_screed_coat">水泥找平</string>
-    <string name="conductive_floor">防静电地板</string>
-    <string name="carpet">地毯</string>
-    <string name="floor_tile">地砖</string>
-    <string name="wood_floor">木地板</string>
-    <string name="plastic_floor">塑胶地板</string>
-
-    <string name="cement">水泥</string>
-    <string name="craping_the_great_white">刮大白</string>
-    <string name="emulsion_varnish">乳胶漆</string>
-    <string name="wallpaper">墙纸</string>
-
-    <string name="mineral_wool_board">矿棉板吊顶</string>
-    <string name="plasterboard">石膏板吊顶</string>
-    <string name="grating">铝方通/格栅</string>
-    <string name="aluminous_gusset_plate">铝扣板吊顶</string>
-
-    <string name="slab_bottom">板底</string>
-    <string name="slab_top">板顶</string>
-
-    <string name="glass_curtain_wall">玻璃幕墙</string>
-    <string name="bay_window">飘窗</string>
-    <string name="ordinary_window">普通窗</string>
-    <string name="french_sash">落地窗</string>
 
     <!--物业字段-->
     <string name="ca_req_con_time">施工时间：</string>
@@ -277,160 +95,16 @@
     <string name="ca_blueprint">报审蓝图：</string>
 
 
-    <string name="fifteen_mm_board">15mm细木板</string>
-    <string name="eighteen_mm_board">18mm细木板</string>
-    <string name="twelve_mm_plasterboard">12mm石膏板</string>
-    <string name="nine_point_five_mm_plasterboard">9.5mm石膏板</string>
-    <string name="colorized_cloth">彩布条</string>
-    <string name="colorized_steel_plate">彩钢板</string>
-    <string name="air_brush">围挡外围宣传喷绘</string>
-    <string name="blueprint">蓝图</string>
-    <string name="whiteprint">白图</string>
-
-
-    <string name="modern_simple">现代简约</string>
-    <string name="jane_european_style">简欧风格</string>
-    <string name="neo_chinese_style">新中式</string>
-    <string name="individuality_fashion">个性前卫</string>
-    <string name="southeast_asia_style">东南亚风格</string>
-    <string name="classical_european_style">古典欧式</string>
-    <string name="classical_chinese_style">古典中式</string>
-    <string name="mediterranean_style">地中海风格</string>
-    <string name="pastoralism">田园风格</string>
-    <string name="korea_style">韩式风格</string>
-    <string name="japanese_style">日式风格</string>
-    <string name="post_modernity">后现代</string>
-    <string name="americana_american_country">美式乡村</string>
-    <string name="urbanity">都市风格</string>
-    <string name="fashion_mixture">时尚混搭</string>
-    <string name="loft">LOFT</string>
-
-
-    <string name="description_spot">硬装、软装、家具、配饰均到位后，拍摄相应点位照片（照片中不得出现人员），现场实际状态至少三张。</string>
-    <string name="description_customer">竣工现场和客户合影，拍摄到客户满意的状态，至少一张。</string>
-    <string name="description_effect">按照效果图角度拍摄（照片中不得出现人员），每张效果图对应一张照片。</string>
-
-    <string name="freezing_of_fund">冻结款</string>
-
-
-    <string name="capital_sum">资金总额：</string>
-    <string name="accumulated_income">累积收入：</string>
-    <string name="income_and_expenses_detail">收支明细</string>
-
-    <string name="home">首页</string>
-    <string name="more">更多</string>
-
-
-    <string name="business_address">办公地址</string>
-    <string name="measure_address">量房地址</string>
-    <string name="ornament_time">装修时间</string>
-    <string name="measure_time">量房时间</string>
-    <string name="filiale">分公司</string>
-
-    <string name="housing_resource_state">房源状态</string>
-    <string name="room_state">房屋状态</string>
-
-    <string name="identity">身份</string>
-    <string name="decorate_demand">装饰需求</string>
-    <string name="transaction_type">成交类型</string>
-    <string name="lime_light">注意点</string>
-
-    <string name="certain">已定</string>
-    <string name="uncertain">未定</string>
-
-    <string name="administration">行政</string>
-    <string name="deputy_general_manager">副总</string>
-    <string name="functionary">负责人</string>
-    <string name="finance">财务</string>
-    <string name="partner">合伙人</string>
-    <string name="boss">老板</string>
-    <string name="boss_assistant">老板助理</string>
-
-    <string name="simple_decorate">简装</string>
-    <string name="deluxe_decorate">精装修</string>
-    <string name="luxury_decorate">豪装</string>
-
-    <string name="second_modification">二次改造</string>
-    <string name="partial_modification">局部改造</string>
-    <string name="unidentified">无法确定</string>
-
-    <string name="rent">租</string>
-    <string name="buy">买</string>
-    <string name="self_build">自建</string>
-
-    <string name="efficiency">效率</string>
-    <string name="detail">细节</string>
-    <string name="price">价格</string>
-    <string name="design">设计</string>
-    <string name="quality">质量</string>
-    <string name="time_limit_for_a_project">工期</string>
-    <string name="builders">施工人员</string>
-    <string name="scale_of_company">公司规模</string>
-
-    <string name="stylist">设计师</string>
-
-
     <!--项目经理-->
     <string name="prepare">准备</string>
     <string name="routing">自检</string>
-    <string name="disbursement">支款</string>
-    <string name="mat">材料</string>
-
-    <string name="backlog">待办</string>
-    <string name="ewards_and_punishment_record">奖罚记录</string>
-    <string name="project_fund">项目款</string>
-    <string name="about_one_month">近30天</string>
-
-    <string name="craft">工艺</string>
-    <string name="craft_name">工艺名称：</string>
-    <string name="process">工序</string>
-
-    <string name="step_name">步骤名称:</string>
-    <string name="step_desc">验收标准:</string>
 
     <!--支款-->
-    <string name="disbursement_standard_way">支款流程:</string>
-    <string name="disbursement_explain">支款说明:</string>
-    <string name="has_know_disbursement_standard">我已了解入驻标准</string>
-    <string name="disbursement_standard">《支款标准》</string>
-    <string name="disbursement_step">《支款流程》</string>
-    <string name="agree">同意</string>
-
-    <string name="punish">《施工现场管理处罚制度》</string>
-    <string name="manage">《施工现场管理制度》</string>
-    <string name="pm_punish">《项目经理管理处罚制度》</string>
-    <string name="pm_manage">《项目经理管理制度》</string>
-
-    <string name="project_punish_fund">项目罚款</string>
-    <string name="disbursement_num">申请金额</string>
-    <string name="money">金额</string>
-
-    <string name="disbursement_content">请描述现场实际施工进度，以及所施工项内容，如：现场施工进度55%，隐蔽工程结束并已验收合格，油工已进场施工，预计本周五完成油工作业，并且填写今日现场总人数...</string>
-
-    <string name="brand">品牌：</string>
-    <string name="sum">总量</string>
-    <string name="send">已送</string>
-
-    <string name="sub_orders">提交订单</string>
-
-    <string name="delivery_cost">配送费</string>
-    <string name="accessory_cost">辅料费</string>
-    <string name="process_cost">加工费</string>
-
-    <string name="task">任务</string>
-
-    <string name="measure">量房</string>
-    <string name="surroundings">环境</string>
-    <string name="demand">需求</string>
-    <string name="upkeep">物业</string>
 
     <string name="complete">完成</string>
-    <string name="category_hot">测试</string>
     <string name="success">上传成功</string>
-    <string name="nosuccess">上传失败</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string name="number">编号 : </string>
 
@@ -456,7 +130,6 @@
     <string name="xingming">姓   名</string>
     <string name="dianhua">电   话</string>
     <string name="mianji">面   积</string>
-    <string name="hangyeleixing">行业类型</string>
     <string name="xindian">信   电</string>
     <string name="fangyuan">房   源</string>
     <string name="gongsi">公   司</string>

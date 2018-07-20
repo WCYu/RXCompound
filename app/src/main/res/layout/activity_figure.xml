@@ -25,7 +25,6 @@
             android:gravity="center">
 
             <ImageView
-                android:id="@+id/imageView26"
                 android:layout_width="90px"
                 android:layout_height="90px"
                 android:layout_marginTop="25px"

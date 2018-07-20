@@ -125,7 +125,14 @@ public class NewRoutingSubActivity extends BaseActivity<NewRoutingSubPresenter> 
                     showToast("请输入至少一项内容");
                     return;
                 }
-
+//                for (int i = 0; i <proList.size() ; i++) {
+//                    ProblemInfo.Problem problem = proList.get(i);
+//                    List<LocalMedia> photoList = problem.getPhotoList();
+//                    for (int j = 0; j <photoList.size() ; j++) {
+//                           photoList.remove(0);
+//                    }
+//                }
+              Log.e("tag",proList.size()+"");
                 mPresenter.subXJProblem(xjID, proInfo.getOrderNo(), "", 1 + "", xjX, xjY, city, 0, proList);
                 break;
         }

@@ -607,8 +607,7 @@
             </LinearLayout>
 
                 <com.rxjy.rxcompound.widget.CustomGridView
-                android:id="@+id/gv_measure_photo"
-                android:layout_width="match_parent"
+                    android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:columnWidth="290px"
                 android:horizontalSpacing="60px"

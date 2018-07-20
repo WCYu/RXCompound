@@ -44,7 +44,6 @@
             android:textSize="@dimen/text_size_l" />
 
         <TextView
-            android:id="@+id/tv_list_item_process_group_count"
             android:layout_width="24px"
             android:layout_height="24px"
             android:layout_centerVertical="true"

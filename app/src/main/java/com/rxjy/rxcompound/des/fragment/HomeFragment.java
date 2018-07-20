@@ -44,6 +44,7 @@ import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.qrcode.QRCodeWriter;
 import com.rxjy.rxcompound.R;
+import com.rxjy.rxcompound.activity.QrLoginActivity;
 import com.rxjy.rxcompound.commons.App;
 import com.rxjy.rxcompound.commons.Constants;
 import com.rxjy.rxcompound.commons.base.BaseFragment;
@@ -66,10 +67,9 @@ import com.rxjy.rxcompound.des.entity.DesERLoginBean;
 import com.rxjy.rxcompound.des.entity.GetZaishiInfo;
 import com.rxjy.rxcompound.des.mvp.contract.GetALLClientInfoContract;
 import com.rxjy.rxcompound.des.mvp.presenter.GetALLClientInfoPresenter;
-import com.rxjy.rxcompound.entity.ErCodeBean;
-import com.rxjy.rxcompound.entity.ErCodeTBean;
+
 import com.rxjy.rxcompound.entity.FloatedBean;
-import com.rxjy.rxcompound.entity.PersonBean;
+import com.rxjy.rxcompound.entity.QRresultWebBean;
 import com.rxjy.rxcompound.utils.OkhttpUtils;
 import com.rxjy.rxcompound.utils.ToastUtil;
 import com.rxjy.rxcompound.widget.AutoTextView;
@@ -274,14 +274,6 @@ public class HomeFragment extends BaseFragment<GetALLClientInfoPresenter> implem
             }
         });
         smartRefresh.setEnableLoadMore(false);
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // TODO: inflate a fragment view
-        View rootView = super.onCreateView(inflater, container, savedInstanceState);
-        ButterKnife.bind(this, rootView);
-        return rootView;
     }
 
     @Override
@@ -650,14 +642,34 @@ public class HomeFragment extends BaseFragment<GetALLClientInfoPresenter> implem
                         if (data != null) {
 //                            192.168.1.192:8616/bloc/cduan/PhoneLoginController?cardno=&password=
                             Log.e("RESULT_OK=====", data.getStringExtra(CaptureActivity.EXTRA_SCAN_RESULT));
+                            try {
+
+
                             String result = data.getStringExtra(CaptureActivity.EXTRA_SCAN_RESULT);
                             if (!StringUtils.isEmpty(result)) {
-                                DesERLoginBean info = JSONUtils.toObject(result, DesERLoginBean.class);
-                                SharedPreferences sp = getActivity().getSharedPreferences("rxdy_userdatas", Activity.MODE_PRIVATE);
-                                String pwd = sp.getString("rxdy_pwd", null);
-                                mPresenter.DesERLogin(App.cardNo, pwd, info.getUuid());
+                                if (result.contains("event")) {
+                                    QRresultWebBean info = JSONUtils.toObject(result, QRresultWebBean.class);
+                                    String biaoshi = info.getParameter().getLogin_id();
+                                    if (biaoshi != null||info.getParameter().getApp_id()==3) {
+                                        startActivity(new Intent(getActivity(), QrLoginActivity.class).putExtra("appid", biaoshi));
+                                    } else {
+                                        showToast("请扫描正确的二维码！");
+                                    }
+                                } else if (result.contains("uuid")) {
+                                    DesERLoginBean info = JSONUtils.toObject(result, DesERLoginBean.class);
+                                    SharedPreferences sp = getActivity().getSharedPreferences("rxdy_userdatas", Activity.MODE_PRIVATE);
+                                    String pwd = sp.getString("rxdy_pwd", null);
+                                    mPresenter.DesERLogin(App.cardNo, pwd, info.getUuid());
+                                } else {
+                                    showToast("本平台暂不支持其他二维码扫描！");
+                                }
+
                             } else {
                                 showToast("请扫描正确的二维码！");
+                            }
+                            } catch (Exception e) {
+                                showToast("本平台暂不支持其他二维码扫描！");
+                                e.printStackTrace();
                             }
                         }
                         break;

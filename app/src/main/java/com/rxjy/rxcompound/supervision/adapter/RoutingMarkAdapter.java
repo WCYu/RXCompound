@@ -116,7 +116,7 @@ public class RoutingMarkAdapter extends SingleBaseAdapter<ProblemInfo.Problem, R
         stringObjectHashMap .put("path",R.mipmap.camera_sub_icon);
         datas.add(stringObjectHashMap);
         for (int i = 0; i <photoList.size() ; i++) {
-            photoPath(i,photoList.get(i).getPath());
+            photoPath(i,photoList.get(i).getCompressPath());
         }
         mAdapter = new GridViewAddImgesAdpter( datas,context);
         holder.hlv.setAdapter(mAdapter);

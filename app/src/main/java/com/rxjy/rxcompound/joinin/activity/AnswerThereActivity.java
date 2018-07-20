@@ -100,7 +100,7 @@ public class AnswerThereActivity extends BaseActivity<AnswerPresenter> implement
         datatwo.add(new Person("人员管理", 35));
         datatwo.add(new Person("企业发展", 36));
         datatwo.add(new Person("投资收益", 37));
-        datatwo.add(new Person("企业服务", 38));
+        datatwo.add(new Person("客户服务", 38));
         datathere.add(new Person("本地立足", 39));
         datathere.add(new Person("年产值20万", 40));
         datathere.add(new Person("大区总代", 41));
@@ -220,7 +220,7 @@ public class AnswerThereActivity extends BaseActivity<AnswerPresenter> implement
             }
         }
         if (string.toString().equals("123")) {
-            Log.e("tag", stringbuffer.toString());
+            Log.e("tag", stringbuffer.toString() +App.cardNo);
             mPresenter.getAgreeYes(App.cardNo, stringbuffer.toString());
         } else {
             showToast("请答完全部题");

@@ -34,7 +34,6 @@
         android:orientation="vertical">
 
         <EditText
-            android:id="@+id/et_suggest"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorWhite"
@@ -57,7 +56,6 @@
             android:background="@color/colorLine" />
 
         <GridView
-            android:id="@+id/gv_suggest"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:horizontalSpacing="24px"

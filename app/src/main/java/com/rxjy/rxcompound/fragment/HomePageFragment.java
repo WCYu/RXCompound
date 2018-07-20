@@ -38,6 +38,7 @@ import com.rxjy.rxcompound.activity.FigureActivity;
 import com.rxjy.rxcompound.activity.JobTryAnswer;
 import com.rxjy.rxcompound.activity.LoginActivity;
 import com.rxjy.rxcompound.activity.QRLoginSureActivity;
+import com.rxjy.rxcompound.activity.QrLoginActivity;
 import com.rxjy.rxcompound.activity.TaskActivity;
 import com.rxjy.rxcompound.activity.TaskNewActivity;
 import com.rxjy.rxcompound.adapter.TaskAdapter;
@@ -51,11 +52,15 @@ import com.rxjy.rxcompound.entity.BannerBean;
 import com.rxjy.rxcompound.entity.BannerDataBean;
 import com.rxjy.rxcompound.entity.EduDataBean;
 import com.rxjy.rxcompound.entity.QRResultBean;
+import com.rxjy.rxcompound.entity.QRresultWebBean;
 import com.rxjy.rxcompound.entity.TaskListBean;
 import com.rxjy.rxcompound.mvp.contract.HomePageFContract;
 import com.rxjy.rxcompound.mvp.presenter.HomePageFPresenter;
 import com.rxjy.rxcompound.utils.CallWebView;
 import com.rxjy.rxcompound.widget.CircleProgressView;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -100,7 +105,7 @@ public class HomePageFragment extends BaseFragment<HomePageFPresenter> implement
     @Bind(R.id.ll_daythree)
     LinearLayout ll_daythree;
     @Bind(R.id.tv_qrscan)
-    TextView tv_qrscan;
+    ImageView tv_qrscan;
     @Bind(R.id.lv_task)
     ListView lvTask;
     @Bind(R.id.rl_envir)
@@ -485,17 +490,38 @@ public class HomePageFragment extends BaseFragment<HomePageFPresenter> implement
                 switch (resultCode) {
                     case RESULT_OK:
                         if (data != null) {
-                            Log.e("RESULT_OK=====", data.getStringExtra(CaptureActivity.EXTRA_SCAN_RESULT));
-                            String result = data.getStringExtra(CaptureActivity.EXTRA_SCAN_RESULT);
-                            QRResultBean info = JSONUtils.toObject(result, QRResultBean.class);
-                            String biaoshi = info.getParameters();
-                            if (biaoshi != null) {
-                                biaoshi = biaoshi.substring(10, biaoshi.length() - 2);
-                                Log.e("标识：：==", biaoshi);
-                                startActivity(new Intent(getActivity(), QRLoginSureActivity.class).putExtra("sign", biaoshi));
-                            } else {
-                                showToast("请扫描正确的二维码！");
+
+                            try {
+                                String result = data.getStringExtra(CaptureActivity.EXTRA_SCAN_RESULT);
+                                if (!StringUtils.isEmpty(result)) {
+                                    if (result.contains("event")) {
+                                        QRresultWebBean info = JSONUtils.toObject(result, QRresultWebBean.class);
+                                        String biaoshi = info.getParameter().getLogin_id();
+                                        if (biaoshi != null||info.getParameter().getApp_id()==3) {
+                                            startActivity(new Intent(getActivity(), QrLoginActivity.class).putExtra("appid", biaoshi));
+                                        } else if(result.contains("function")) {
+                                            QRResultBean infoto = JSONUtils.toObject(result, QRResultBean.class);
+                                            String biao = infoto.getParameters();
+                                            if (biao != null) {
+                                                biao = biao.substring(10, biaoshi.length() - 2);
+                                                Log.e("标识：：==", biaoshi);
+                                                startActivity(new Intent(getActivity(), QRLoginSureActivity.class).putExtra("sign", biao));
+                                            } else {
+                                                showToast("请扫描正确的二维码！");
+                                            }
+                                        }
+                                    }else {
+                                        showToast("本平台暂不支持其他二维码扫描！");
+                                    }
+
+                                }else {
+                                    showToast("本平台暂不支持其他二维码扫描！");
+                                }
+                            } catch (Exception e) {
+                                showToast("本平台暂不支持其他二维码扫描！");
+                                e.printStackTrace();
                             }
+
                         }
                         break;
                     case RESULT_CANCELED:

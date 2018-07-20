@@ -35,7 +35,6 @@
                     android:layout_weight="1">
 
                     <ImageView
-                        android:id="@+id/img_zaigen"
                         android:layout_width="76px"
                         android:layout_height="76px"
                         android:layout_centerHorizontal="true"
@@ -163,7 +162,6 @@
                 android:paddingTop="10px">
 
                 <ImageView
-                    android:id="@+id/img_zaitan"
                     android:layout_width="76px"
                     android:layout_height="76px"
                     android:layout_gravity="center"

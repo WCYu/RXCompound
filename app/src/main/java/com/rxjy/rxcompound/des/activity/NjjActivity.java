@@ -345,7 +345,7 @@ public class NjjActivity extends BaseActivity<DestoryPresenter> implements Desto
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        mPresenter.getDestoryListener();
+            mPresenter.getDestoryListener();
             Log.e("应用被杀死","应用死亡");
             Map map = new HashMap();
             map.put("cardNo",App.cardNo);

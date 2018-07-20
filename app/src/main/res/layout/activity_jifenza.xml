@@ -172,7 +172,6 @@
                         android:src="@mipmap/biaotiqiandise" />
 
                     <TextView
-                        android:id="@+id/textView26"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
@@ -223,7 +222,6 @@
                     android:src="@mipmap/biaotiqiandise" />
 
                 <TextView
-                    android:id="@+id/textView27"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
@@ -341,7 +339,6 @@
                     android:src="@mipmap/biaotiqiandise" />
 
                 <TextView
-                    android:id="@+id/textView28"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"

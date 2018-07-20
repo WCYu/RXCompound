@@ -169,7 +169,6 @@
                     android:src="@mipmap/prepare_icon" />
 
                 <TextView
-                    android:id="@+id/tv_prepare"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/iv_prepare"
@@ -209,7 +208,6 @@
                     android:src="@mipmap/routing_icon" />
 
                 <TextView
-                    android:id="@+id/tv_routing"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/iv_routing"
@@ -250,7 +248,6 @@
                     android:src="@mipmap/camera_icon" />
 
                 <TextView
-                    android:id="@+id/tv_camera"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/iv_camera"
@@ -290,7 +287,6 @@
                     android:src="@mipmap/visit_icon" />
 
                 <TextView
-                    android:id="@+id/tv_visit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/iv_visit"
@@ -416,7 +412,6 @@
                     android:src="@mipmap/material_upload_icon" />
 
                 <TextView
-                    android:id="@+id/tv_material_upload"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/iv_material_upload"
@@ -457,7 +452,6 @@
                     android:src="@mipmap/mat_list_icon" />
 
                 <TextView
-                    android:id="@+id/tv_mat_list"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/iv_mat_list"
@@ -497,7 +491,6 @@
                     android:src="@mipmap/pro_list_icon" />
 
                 <TextView
-                    android:id="@+id/tv_audit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/iv_audit"
