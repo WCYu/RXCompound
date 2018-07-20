@@ -60,7 +60,8 @@ public class QrLoginActivity extends BaseActivity<QrLoginPresenter> implements Q
         options.centerCrop().transform(new GlideCircleTransform(this));
         options.error(R.mipmap.userimage);
         options.placeholder(R.mipmap.userimage);
-        Glide.with(this).load(App.icon).apply(RequestOptions.circleCropTransform()).into(qrPhoto);
+        options.centerCrop().transform(new GlideCircleTransform(this));
+        Glide.with(this).load(App.icon).apply(options).into(qrPhoto);
         tvTitle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

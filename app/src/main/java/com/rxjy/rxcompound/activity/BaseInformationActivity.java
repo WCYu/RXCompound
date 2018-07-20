@@ -501,12 +501,7 @@ public class BaseInformationActivity extends BaseActivity<BaseInformPresenter> i
         int[] to = {R.id.iv_moreicon, R.id.tv_moretext};
         simpleAdapter = new SimpleAdapter(this, data_list, R.layout.item_moreitem, from, to);
         gv_tryinfor.setAdapter(simpleAdapter);
-//        gv_tryinfor.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//                Toast.makeText(BaseInformationActivity.this, cultureNames[i], Toast.LENGTH_SHORT).show();
-//            }
-//        });
+
     }
 
 
