@@ -163,8 +163,6 @@ public class MainFragment extends BaseFragment<BaseInformPresenter> implements B
                 }
                 tv_paccount.setText("账号 " + App.cardNo);
                 Glide.with(getActivity()).load(info.getBody().getImage()).into(iv_personicon);
-                Log.e("头像1", info.getBody().getImage());
-//                icon=info.getBody().getImage();
             } else {
                 mPresenter.getMessage(cardno, "1");
             }
@@ -283,7 +281,7 @@ public class MainFragment extends BaseFragment<BaseInformPresenter> implements B
                             startActivity(new Intent(getActivity(), BaseInformationActivity.class).putExtra("isback", "1").putExtra("status", status + "").putExtra("ismain", "1"));
                         }
                     } else {
-                            startActivity(new Intent(getActivity(), BaseInformationActivity.class).putExtra("isback", "1").putExtra("status", status + "").putExtra("ismain", "1"));
+                        startActivity(new Intent(getActivity(), BaseInformationActivity.class).putExtra("isback", "1").putExtra("status", status + "").putExtra("ismain", "1"));
                     }
                 }
                 break;
@@ -307,7 +305,7 @@ public class MainFragment extends BaseFragment<BaseInformPresenter> implements B
             case R.id.rl_jifen:
                 switch (App.apptype) {
                     case 3:
-                        startActivity(new Intent(getActivity(), JifenZAActivity.class).putExtra("icon",icon).putExtra("name",name));
+                        startActivity(new Intent(getActivity(), JifenZAActivity.class).putExtra("icon", icon).putExtra("name", name));
 //                        startActivity(new Intent(getActivity(), JiFenActivity.class));
                         break;
                     case 2:
