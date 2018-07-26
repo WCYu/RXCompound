@@ -42,6 +42,7 @@ import com.rxjy.rxcompound.joinin.activity.JoininNjjActivity;
 import com.rxjy.rxcompound.mvp.contract.LoginContract;
 import com.rxjy.rxcompound.mvp.presenter.LoginPresenter;
 import com.rxjy.rxcompound.supervision.activity.SupervisionMainActivity;
+import com.rxjy.rxcompound.utils.MySharedPreferences;
 import com.rxjy.rxcompound.utils.ZJson;
 
 import org.json.JSONException;
@@ -141,7 +142,8 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
                 veritycode = ed_vitifycode.getText().toString();
                 pwdnum = ed_pwd.getText().toString();
                 if (pwdnum.length() < 6) {
-                    tv_prompt.setText("密码不少于6位");
+//                    tv_prompt.setText("密码不少于6位");
+                    showTiShi("密码不少于6位");
                     return;
                 }
                 showLoading();
@@ -152,13 +154,16 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
                             mPresenter.tologin(phonenum, veritycode, pwdnum);
                         } else if (phonenum.isEmpty()) {
 //                            ShowUtils.Toastshort(this, "请输入手机号！");
-                            tv_prompt.setText("请输入手机号！");
+//                            tv_prompt.setText("请输入手机号！");
+                            showTiShi("请输入手机号");
                         } else if (veritycode.isEmpty()) {
 //                            ShowUtils.Toastshort(this, "请输入验证码！");
-                            tv_prompt.setText("请输入验证码！");
+//                            tv_prompt.setText("请输入验证码！");
+                            showTiShi("请输入验证码");
                         } else if (pwdnum.isEmpty()) {
 //                            ShowUtils.Toastshort(this, "请输入密码！");
-                            tv_prompt.setText("请输入密码！");
+//                            tv_prompt.setText("请输入密码！");
+                            showTiShi("请输入密码");
                         }
                         break;
                     case 0:
@@ -167,10 +172,12 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
                             mPresenter.tologin(phonenum, "", pwdnum);
                         } else if (phonenum.isEmpty()) {
 //                            ShowUtils.Toastshort(this, "请输入手机号！");
-                            tv_prompt.setText("请输入手机号！");
+//                            tv_prompt.setText("请输入手机号！");
+                            showTiShi("请输入手机号");
                         } else if (pwdnum.isEmpty()) {
 //                            ShowUtils.Toastshort(this, "请输入密码！");
-                            tv_prompt.setText("请输入密码！");
+//                            tv_prompt.setText("请输入密码！");
+                            showTiShi("请输入密码");
                         }
                         break;
                 }
@@ -208,7 +215,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
     public void responseIsCheck(VPhoneBean data) {
         switch (data.getStatusCode()) {
             case 0://用户存在
-                tv_prompt.setText("");
+//                tv_prompt.setText("");
                 getphone = data.getBody().getPhone();
                 btn_next.setText("登录");
                 logintype = 0;
@@ -219,7 +226,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
                 rl_veritycode.setVisibility(View.GONE);
                 break;
             case 1://用户不存在,获取验证码注册
-                tv_prompt.setText("");
+//                tv_prompt.setText("");
                 logintype = 1;
                 rl_veritycode.setVisibility(View.VISIBLE);
                 btn_next.setVisibility(View.VISIBLE);
@@ -230,7 +237,8 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
             default:
 //                showToast(data.getStatusMsg());
                 Log.e("hahahah", data.getStatusMsg());
-                tv_prompt.setText(data.getStatusMsg());
+//                tv_prompt.setText(data.getStatusMsg());
+                showTiShi(data.getStatusMsg());
                 break;
         }
     }
@@ -288,6 +296,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
         App.name = data.getBody().getName();
         cardno = data.getBody().getCardNo();
         App.cardNo = data.getBody().getCardNo();
+        MySharedPreferences.getInstance().setCardNo(data.getBody().getCardNo());
         App.token = data.getBody().getToken();
         Log.e("-------------登陆--------", data.getBody().getToken());
         App.depart = data.getBody().getDepart() + "";
@@ -358,7 +367,6 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
         map.put("app_version_number", App.getVersionCode());//版本号
         map.put("system_version_number", android.os.Build.VERSION.SDK + ","
                 + android.os.Build.VERSION.RELEASE);//系统版本
-
         String toJSONMap = ZJson.toJSONMap(map);
         OkHttpClient client = new OkHttpClient();
         MediaType MEDIA_TYPE_TEXT = MediaType.parse("application/json");
@@ -556,7 +564,8 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
     @Override
     public void responseLoginError(String msg) {
 //        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
-        tv_prompt.setText(msg);
+//        tv_prompt.setText(msg);
+        showTiShi(msg);
     }
 
     @Override
@@ -569,7 +578,8 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
     @Override
     public void responseIsConsentError(String msg) {//未同意
         if (msg.equals("连接失败")) {
-            tv_prompt.setText(msg);
+//            tv_prompt.setText(msg);
+            showTiShi(msg);
         } else {
             startActivity(new Intent(this, EntryJobProtocolActivity.class).putExtra("from", "1"));
             finish();
@@ -601,7 +611,8 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
     @Override
     public void responseIsPrefectError(String msg) {
 //        showToast(msg);
-        tv_prompt.setText(msg);
+//        tv_prompt.setText(msg);
+        showTiShi(msg);
     }
 
     @Override
@@ -613,6 +624,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
     public void hideDialog() {
 //        tv_prompt.setText("连接失败");
         dismissLoading();
+//        showTiShi("登陆失败");
     }
 
     @Override
@@ -729,12 +741,13 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
                                 }
                             } catch (Exception e) {
 //                                showToast("请输入正确的账号！");
-                                tv_prompt.setText("请输入正确的账号！");
+//                                tv_prompt.setText("请输入正确的账号！");
+                                showTiShi("请输入正确的账号");
                             }
                         }
 
                     } else {
-                        tv_prompt.setText("");
+//                        tv_prompt.setText("");
                     }
                     break;
             }

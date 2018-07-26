@@ -24,6 +24,7 @@ import com.rxjy.rxcompound.joinin.activity.JoininNjjActivity;
 import com.rxjy.rxcompound.mvp.contract.SettingContract;
 import com.rxjy.rxcompound.mvp.presenter.SettingPresenter;
 import com.rxjy.rxcompound.supervision.activity.SupervisionMainActivity;
+import com.rxjy.rxcompound.utils.MySharedPreferences;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -69,7 +70,7 @@ public class SettingActivity extends BaseActivity<SettingPresenter> implements S
         } catch (Exception e) {
             e.printStackTrace();
         }
-        String str="one lady程序员";
+        String str = "one lady程序员";
     }
 
     @Override
@@ -83,7 +84,7 @@ public class SettingActivity extends BaseActivity<SettingPresenter> implements S
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.btn_exitlogin, R.id.iv_back,R.id.rl_pwdfix})
+    @OnClick({R.id.btn_exitlogin, R.id.iv_back, R.id.rl_pwdfix})
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_exitlogin:
@@ -98,6 +99,7 @@ public class SettingActivity extends BaseActivity<SettingPresenter> implements S
                 edit.putString("rxdy_pwd", "");
                 edit.putString("rx_persondata", "");
                 edit.commit();
+                MySharedPreferences.getInstance().empty();
                 jpush_edit.putString(jpushname, null);
                 jpush_edit.commit();
                 startActivity(new Intent(this, LoginActivity.class));

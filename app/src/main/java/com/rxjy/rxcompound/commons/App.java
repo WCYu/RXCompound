@@ -1,29 +1,52 @@
 package com.rxjy.rxcompound.commons;
 
+import android.Manifest;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Application;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
+import android.os.Build;
+import android.os.Bundle;
 import android.os.Handler;
+import android.provider.Settings;
 import android.support.multidex.MultiDex;
 import android.text.TextUtils;
 import android.util.Log;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.rxjy.rxcompound.R;
 import com.rxjy.rxcompound.commons.base.BaseActivity;
 import com.rxjy.rxcompound.commons.utils.StringUtils;
+import com.rxjy.rxcompound.utils.MySharedPreferences;
+import com.rxjy.rxcompound.utils.NetWorkUtils;
+import com.rxjy.rxcompound.utils.OkhttpUtils;
+import com.rxjy.rxcompound.utils.ZJson;
 
+import java.io.IOException;
+import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import cn.jpush.android.api.JPushInterface;
 import cn.jpush.android.api.TagAliasCallback;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 
 /**
  * Created by hjh on 2017/11/3.
@@ -68,6 +91,7 @@ public class App extends Application {
     public static int stage;
     public static SharedPreferences sp;
 
+    public int count = 0;
 
     @Override
     public void onCreate() {
@@ -82,6 +106,143 @@ public class App extends Application {
 //        set.add("andfixdemo");//名字任意，可多添加几个
 //        JPushInterface.setTags(this, set, null);//设置标签
         sp = getSharedPreferences(Constants.IS_SETALIAS, MODE_PRIVATE);
+        appGoOnLine();
+    }
+
+    private void appDownLine(String cardNo) {
+        if (!TextUtils.isEmpty(cardNo)) {
+            Map map = new HashMap();
+            map.put("cardNo", App.cardNo);
+            OkhttpUtils.doPost("https://api.dcwzg.com:9191/actionapi/AppHome/OfflineApp", map, new OkhttpUtils.MyCall() {
+                @Override
+                public void success(String data) {
+                    Log.e("tag_下线", data);
+                }
+
+                @Override
+                public void error(String message) {
+                    Log.e("tag_下线失败", message);
+                }
+            });
+        }
+    }
+
+    private void appGoOnLine() {
+        registerActivityLifecycleCallbacks(new ActivityLifecycleCallbacks() {
+
+            @Override
+            public void onActivityStopped(Activity activity) {
+                Log.e("viclee", activity + "onActivityStopped");
+                count--;
+                String cardNo = MySharedPreferences.getInstance().getCardNo();
+                if (count == 0) {
+                    appDownLine(cardNo);
+                }
+            }
+
+            @Override
+            public void onActivityStarted(Activity activity) {
+                Log.e("viclee", activity + "onActivityStarted");
+                String cardNo = MySharedPreferences.getInstance().getCardNo();
+                if (count == 0) {
+                    if (TextUtils.isEmpty(cardNo)) {
+
+                    } else {
+                        Log.e("lrj", cardNo + "1314");
+                        startLogin(cardNo);
+                    }
+                }
+                count++;
+            }
+
+            @Override
+            public void onActivitySaveInstanceState(Activity activity, Bundle outState) {
+                Log.e("viclee", activity + "onActivitySaveInstanceState");
+            }
+
+            @Override
+            public void onActivityResumed(Activity activity) {
+                Log.e("viclee", activity + "onActivityResumed");
+            }
+
+            @Override
+            public void onActivityPaused(Activity activity) {
+                Log.e("viclee", activity + "onActivityPaused");
+            }
+
+            @Override
+            public void onActivityDestroyed(Activity activity) {
+                Log.e("viclee", activity + "onActivityDestroyed");
+            }
+
+            @Override
+            public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
+                Log.e("viclee", activity + "onActivityCreated");
+            }
+        });
+    }
+
+    private void startLogin(String cardNo) {
+        Map map = new HashMap();
+        map.put("app_id", "");
+        map.put("card_no", cardNo);
+        map.put("landing_date", "");
+        map.put("offline_date", "");
+        map.put("locate_province_now", "");
+        map.put("locate_city_now", "");
+        map.put("a_equipment", android.os.Build.MODEL);//使用设备
+        switch (NetWorkUtils.getAPNType(this)) {
+            case 0:
+                map.put("network_status", "");//网络状态
+                break;
+            case 1:
+                map.put("network_status", "WIFI");//网络状态
+                break;
+            case 2:
+                map.put("network_status", "2G");//网络状态
+                break;
+            case 3:
+                map.put("network_status", "3G");//网络状态
+                break;
+            case 4:
+                map.put("network_status", "4G");//网络状态
+                break;
+            default:
+                break;
+        }
+        map.put("a_ip ", "");//IP地址
+        map.put("id", "");
+        map.put("flag", "");
+        map.put("name", "");
+        map.put("create_date", "");
+        map.put("update_date", "");
+        map.put("app_version_number", App.getVersionName());
+        map.put("system_version_number", android.os.Build.VERSION.SDK + ","
+                + android.os.Build.VERSION.RELEASE);//系统版本
+        String androidID = Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID);
+        String id = androidID + Build.SERIAL;
+        map.put("mac_address", id);
+        String toJSONMap = ZJson.toJSONMap(map);
+        OkHttpClient client = new OkHttpClient();
+        MediaType MEDIA_TYPE_TEXT = MediaType.parse("application/json");
+        Request request = new Request.Builder()
+                .url("https://api.dcwzg.com:9191/actionapi/AppHome/AddlandingMessage")
+                .post(RequestBody.create(MEDIA_TYPE_TEXT, toJSONMap))
+                .build();
+        Log.e("lrj", "136236");
+        Log.e("tag_数据统计", toJSONMap);
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                Log.e("tag_上线失败", e.getMessage().toString());
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                final String string = response.body().string();
+                Log.e("tag_上线", string);
+            }
+        });
 
     }
 

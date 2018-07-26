@@ -1,14 +1,18 @@
 package com.rxjy.rxcompound.commons.utils;
 
+import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
 import android.support.v4.content.FileProvider;
+import android.util.Log;
 
 
+import com.rxjy.rxcompound.commons.App;
 import com.rxjy.rxcompound.entity.VersionInfo;
 
 import java.io.BufferedInputStream;
@@ -34,6 +38,7 @@ public class DownLoadApk {
      * 从服务器中下载APK
 	 */
     public void downLoadApk(final VersionInfo.Version versionInfo) {
+        Log.e("tag_开始下载", "");
         final ProgressDialog pd;    //进度条对话框
         pd = new ProgressDialog(context);
         pd.setCancelable(false);// 设置点击屏幕Dialog不消失
@@ -44,15 +49,18 @@ public class DownLoadApk {
             @Override
             public void run() {
                 try {
+                    Log.e("tag_开始下载", "正常下载");
                     File file = getFileFromServer(versionInfo.getVersionUrl(), pd);
                     //安装APk
                     installApk(file, context);
                     pd.dismiss(); //结束掉进度条对话框
                 } catch (Exception e) {
                     e.printStackTrace();
+                    Log.e("tag_开始下载", "下载失败" + e);
                 }
             }
         }.start();
+        Log.e("tag_开始下载", "下载结束");
     }
 
     /**
@@ -63,6 +71,7 @@ public class DownLoadApk {
      * @return
      * @throws Exception
      */
+
     public File getFileFromServer(String path, ProgressDialog pd)
             throws Exception {
         // 如果相等的话表示当前的sdcard挂载在手机上并且是可用的
