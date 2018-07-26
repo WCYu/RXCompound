@@ -1,18 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="100px">
-        <include layout="@layout/layout_title"/>
+
+        <include layout="@layout/layout_title" />
     </LinearLayout>
+
     <RelativeLayout
         android:id="@+id/rl_pwdfix"
         android:layout_width="fill_parent"
         android:layout_height="88px"
-        android:background="@color/colorwhite">
+        android:background="@color/colorwhite"
+        android:visibility="gone">
 
         <TextView
             android:layout_width="wrap_content"
@@ -23,7 +28,7 @@
             android:layout_marginLeft="20px"
             android:text="修改密码"
             android:textColor="@color/textgreyone"
-            android:textSize="@dimen/text_size_8"/>
+            android:textSize="@dimen/text_size_8" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -34,6 +39,7 @@
             android:layout_marginRight="20px"
             app:srcCompat="@mipmap/arrow_left" />
     </RelativeLayout>
+
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="80px"
@@ -49,7 +55,7 @@
             android:layout_marginLeft="20px"
             android:text="版本号"
             android:textColor="@color/textgreyone"
-            android:textSize="@dimen/text_size_8"/>
+            android:textSize="@dimen/text_size_8" />
 
         <TextView
             android:id="@+id/tv_version"
@@ -59,9 +65,9 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="20px"
+            android:text=""
             android:textColor="@color/textgreyone"
-            android:textSize="@dimen/text_size_8"
-            android:text="" />
+            android:textSize="@dimen/text_size_8" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -76,13 +82,13 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
+            android:layout_marginLeft="100px"
+            android:layout_marginRight="100px"
             android:layout_marginTop="182dp"
+            android:background="@drawable/corner_red"
             android:text="退出登录"
             android:textColor="@color/colorwhite"
-            android:textSize="30px"
-            android:background="@drawable/corner_red"
-            android:layout_marginLeft="100px"
-            android:layout_marginRight="100px"/>
+            android:textSize="30px" />
     </RelativeLayout>
 
 </LinearLayout>

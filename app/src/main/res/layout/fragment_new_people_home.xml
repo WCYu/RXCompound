@@ -5,7 +5,32 @@
     android:orientation="vertical"
     tools:context="com.rxjy.rxcompound.fragment.NewPeopleHomeFragment">
 
-    <include layout="@layout/layout_title" />
+    <RelativeLayout
+        android:id="@+id/rl_background"
+        android:layout_width="fill_parent"
+        android:layout_height="100px"
+        android:background="@color/text_red">
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="首页"
+            android:textColor="@color/colorwhite"
+            android:textSize="@dimen/text_size_l6" />
+
+        <ImageView
+            android:id="@+id/tv_qrscan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:paddingRight="30px"
+            android:src="@mipmap/scan_pc" />
+    </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="fill_parent"

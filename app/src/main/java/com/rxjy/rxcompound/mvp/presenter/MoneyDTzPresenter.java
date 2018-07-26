@@ -18,7 +18,7 @@ import rx.Subscription;
  * Created by hjh on 2018/3/15.
  */
 
-public class MoneyDTzPresenter extends MoneyDTzContract.Presenter{
+public class MoneyDTzPresenter extends MoneyDTzContract.Presenter {
 
     public MoneyDTzPresenter(MoneyDTzContract.View mView) {
         this.mView = mView;

@@ -20,6 +20,7 @@ import com.rxjy.rxcompound.entity.CheckInfo;
 import com.rxjy.rxcompound.mvp.contract.QrLoginContract;
 import com.rxjy.rxcompound.mvp.presenter.QrLoginPresenter;
 import com.rxjy.rxcompound.utils.GlideCircleTransform;
+import com.rxjy.rxcompound.utils.ToastUtil;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -79,6 +80,7 @@ public class QrLoginActivity extends BaseActivity<QrLoginPresenter> implements Q
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.qr_login:
+                Log.e("扫码登陆", "开始");
                 String appid = getIntent().getStringExtra("appid");
                 SharedPreferences msp = getSharedPreferences("rxdy_userdatas", Activity.MODE_PRIVATE);
                 String rxdy_pwd = msp.getString("rxdy_pwd", "");
@@ -106,6 +108,7 @@ public class QrLoginActivity extends BaseActivity<QrLoginPresenter> implements Q
     @Override
     public void getRrLoginData(CheckInfo checkInfo) {
         if (checkInfo.getStatusCode() == 0) {
+            ToastUtil.getInstance().toastCentent("登陆成功");
             finish();
         } else {
             showToast(checkInfo.getStatusMsg());

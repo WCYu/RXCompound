@@ -264,6 +264,5 @@ public class AnswerThereActivity extends BaseActivity<AnswerPresenter> implement
     public void showToast() {
         App.is_exist = 6;
         finish();
-
     }
 }

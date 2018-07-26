@@ -277,7 +277,9 @@ public class SplashActivity extends BaseActivity<LoginPresenter> implements Logi
         map.put("name", "");
         map.put("create_date", "");
         map.put("update_date", "");
-
+        map.put("app_version_number", App.getVersionCode());//版本号
+        map.put("system_version_number", android.os.Build.VERSION.SDK + ","
+                + android.os.Build.VERSION.RELEASE);//系统版本
         String toJSONMap = ZJson.toJSONMap(map);
         OkHttpClient client = new OkHttpClient();
         MediaType MEDIA_TYPE_TEXT = MediaType.parse("application/json");

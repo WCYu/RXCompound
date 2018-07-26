@@ -355,6 +355,9 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
 
 //        map.put("locate_province_now", -1);//当前定位省
 //        map.put("locate_city_now", -1);//当前定位市
+        map.put("app_version_number", App.getVersionCode());//版本号
+        map.put("system_version_number", android.os.Build.VERSION.SDK + ","
+                + android.os.Build.VERSION.RELEASE);//系统版本
 
         String toJSONMap = ZJson.toJSONMap(map);
         OkHttpClient client = new OkHttpClient();

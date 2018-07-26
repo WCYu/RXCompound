@@ -1,11 +1,15 @@
 package com.rxjy.rxcompound.fragment;
 
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
@@ -14,14 +18,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.acker.simplezxing.activity.CaptureActivity;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.google.gson.Gson;
 import com.rxjy.rxcompound.R;
 import com.rxjy.rxcompound.activity.BannerDetailsActivity;
 import com.rxjy.rxcompound.activity.IdentityInfoNewActivity;
+import com.rxjy.rxcompound.activity.QRLoginSureActivity;
+import com.rxjy.rxcompound.activity.QrLoginActivity;
 import com.rxjy.rxcompound.activity.WebViewActivity;
 import com.rxjy.rxcompound.api.ApiEngine;
 import com.rxjy.rxcompound.commons.App;
@@ -29,9 +37,12 @@ import com.rxjy.rxcompound.commons.base.BaseFragment;
 import com.rxjy.rxcompound.commons.base.BasePresenter;
 import com.rxjy.rxcompound.commons.utils.GlideRoundTransform;
 import com.rxjy.rxcompound.commons.utils.JSONUtils;
+import com.rxjy.rxcompound.commons.utils.StringUtils;
 import com.rxjy.rxcompound.entity.BannerBean;
 import com.rxjy.rxcompound.entity.BannerDataBean;
 import com.rxjy.rxcompound.entity.NewUserDataBean;
+import com.rxjy.rxcompound.entity.QRResultBean;
+import com.rxjy.rxcompound.entity.QRresultWebBean;
 import com.rxjy.rxcompound.mvp.model.HomePageFModel;
 import com.rxjy.rxcompound.utils.OkhttpUtils;
 import com.rxjy.rxcompound.utils.ToastUtil;
@@ -50,17 +61,20 @@ import okhttp3.Response;
 import rx.Subscriber;
 import rx.Subscription;
 
+import static android.app.Activity.RESULT_CANCELED;
+import static android.app.Activity.RESULT_OK;
+
 /**
  * 新人首页
  */
 public class NewPeopleHomeFragment extends BaseFragment {
 
-    @Bind(R.id.tv_title)
-    TextView tvTitle;
-    @Bind(R.id.iv_back)
-    ImageView ivBack;
-    @Bind(R.id.tv_right)
-    TextView tvRight;
+    @Bind(R.id.textView4)
+    TextView textView4;
+    @Bind(R.id.tv_qrscan)
+    ImageView tvQrscan;
+    @Bind(R.id.rl_background)
+    RelativeLayout rlBackground;
     @Bind(R.id.vp_banner)
     ViewPager vpBanner;
     @Bind(R.id.tv_ziliao)
@@ -76,10 +90,10 @@ public class NewPeopleHomeFragment extends BaseFragment {
     @Bind(R.id.ly_zhusu)
     LinearLayout lyZhusu;
 
+    private PagerAdapter pagerAdapter;
     int index = 0;
     int size = 0;
     String phonenum, cardno;
-    private PagerAdapter pagerAdapter;
 
     private Handler handler = new Handler() {
         public void handleMessage(Message msg) {
@@ -103,8 +117,7 @@ public class NewPeopleHomeFragment extends BaseFragment {
 
     @Override
     protected void FragmentInitData() {
-        tvTitle.setText("首页");
-        ivBack.setVisibility(View.GONE);
+        textView4.setText("首页");
         getUserData();
         cardno = "00001236";
         HomePageFModel mModel = new HomePageFModel();
@@ -138,6 +151,13 @@ public class NewPeopleHomeFragment extends BaseFragment {
             case "0":
                 lyCheliang.setVisibility(View.GONE);
                 lyZhusu.setVisibility(View.GONE);
+                if (App.depart.equals("2")) {
+                    rlBackground.setBackgroundColor(getResources().getColor(R.color.textorange));
+                } else if (App.depart.equals("3")) {
+                    rlBackground.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDes));
+                } else if (App.depart.equals("4")) {
+                    rlBackground.setBackgroundColor(getResources().getColor(R.color.colorPrimarys));
+                }
                 break;
 
             case "1":
@@ -229,7 +249,7 @@ public class NewPeopleHomeFragment extends BaseFragment {
         ButterKnife.unbind(this);
     }
 
-    @OnClick({R.id.ly_ziliao, R.id.ly_cheliang, R.id.ly_zhusu})
+    @OnClick({R.id.ly_ziliao, R.id.ly_cheliang, R.id.ly_zhusu, R.id.tv_qrscan})
     public void onViewClicked(View view) {
         Intent intent = null;
 
@@ -248,6 +268,9 @@ public class NewPeopleHomeFragment extends BaseFragment {
                 intent.putExtra("url", "http://i.rxjy.com/AppGroup/APPIndex/StayMessage?card=" + App.cardNo);
                 intent.putExtra("name", "住宿信息");
                 intent.putExtra("type", "新人");
+                break;
+            case R.id.tv_qrscan:
+                QRCodeScan();
                 break;
         }
         if (intent != null) {
@@ -313,4 +336,72 @@ public class NewPeopleHomeFragment extends BaseFragment {
             }
         }
     }
+
+    /**
+     * 扫描二维码
+     */
+    private static final int REQ_CODE_PERMISSION = 0x1111;
+
+    private void QRCodeScan() {//6.0以上的手机需要处理权限
+        if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            // Do not have the permission of camera, request it.
+            ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.CAMERA}, REQ_CODE_PERMISSION);
+        } else {
+            // Have gotten the permission
+            startActivityForResult(new Intent(getActivity(), CaptureActivity.class), CaptureActivity.REQ_CODE);
+        }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode) {
+            case CaptureActivity.REQ_CODE:
+                switch (resultCode) {
+                    case RESULT_OK:
+                        if (data != null) {
+
+                            try {
+                                String result = data.getStringExtra(CaptureActivity.EXTRA_SCAN_RESULT);
+                                if (!StringUtils.isEmpty(result)) {
+                                    if (result.contains("event")) {
+                                        QRresultWebBean info = JSONUtils.toObject(result, QRresultWebBean.class);
+                                        String biaoshi = info.getParameter().getLogin_id();
+                                        if (biaoshi != null || info.getParameter().getApp_id() == 3) {
+                                            startActivity(new Intent(getActivity(), QrLoginActivity.class).putExtra("appid", biaoshi));
+                                        } else if (result.contains("function")) {
+                                            QRResultBean infoto = JSONUtils.toObject(result, QRResultBean.class);
+                                            String biao = infoto.getParameters();
+                                            if (biao != null) {
+                                                biao = biao.substring(10, biaoshi.length() - 2);
+                                                Log.e("标识：：==", biaoshi);
+                                                startActivity(new Intent(getActivity(), QRLoginSureActivity.class).putExtra("sign", biao));
+                                            } else {
+                                                showToast("请扫描正确的二维码！");
+                                            }
+                                        }
+                                    } else {
+                                        showToast("本平台暂不支持其他二维码扫描！");
+                                    }
+
+                                } else {
+                                    showToast("本平台暂不支持其他二维码扫描！");
+                                }
+                            } catch (Exception e) {
+                                showToast("本平台暂不支持其他二维码扫描！");
+                                e.printStackTrace();
+                            }
+
+                        }
+                        break;
+                    case RESULT_CANCELED:
+                        if (data != null) {
+                            Log.e("RESULT_CANCELED=====", data.getStringExtra(CaptureActivity.EXTRA_SCAN_RESULT));
+                        }
+                        break;
+                }
+                break;
+        }
+    }
+
 }

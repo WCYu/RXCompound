@@ -189,7 +189,7 @@ public class UserInfoActivity extends BaseActivity {
         token = sp.getString("rxdy_token", null);
         Map map = new HashMap();
         map.put("cardNo", App.cardNo);
-        map.put("token", token);
+        map.put("token", App.token);
         map.put("key", key);
         map.put("value", value);
         Log.e("tag_修改信息", key + "  " + value);
@@ -270,6 +270,7 @@ public class UserInfoActivity extends BaseActivity {
                     if (data != null) {
                         String name = data.getStringExtra("name");
                         Log.e("tag_name", name);
+                        tvName.setText(name);
                         setUserInfo("u_name", name);
                     }
                     break;
@@ -277,6 +278,7 @@ public class UserInfoActivity extends BaseActivity {
                     if (data != null) {
                         String emi = data.getStringExtra("emi");
                         Log.e("tag_emi", emi);
+                        tvMailbox.setText(emi);
                         setUserInfo("email", emi);
                     }
                     break;
@@ -355,7 +357,7 @@ public class UserInfoActivity extends BaseActivity {
         token = sp.getString("rxdy_token", null);
         Map map = new HashMap();
         map.put("cardNo", App.cardNo);
-        map.put("token", token);
+        map.put("token", App.token);
         Log.e("tag_用户信息_App.token", App.cardNo);
         Log.e("tag_用户信息_App.token", token);
         OkhttpUtils.doPost("https://api.dcwzg.com:9191/actionapi/AN_Home/ShowMyInfo", map, new Callback() {

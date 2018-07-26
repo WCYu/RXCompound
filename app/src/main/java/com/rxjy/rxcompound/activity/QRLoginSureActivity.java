@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -49,6 +50,7 @@ public class QRLoginSureActivity extends BaseActivity<QRLoginSurePresenter> impl
 
     @Override
     public void responseQRLoginSure() {
+        Log.e("扫码登陆成功", "成功");
         showToast("扫码登陆成功！");
         finish();
     }
@@ -88,6 +90,7 @@ public class QRLoginSureActivity extends BaseActivity<QRLoginSurePresenter> impl
                 break;
             case R.id.tv_surelogin:
                 //登录啦
+                Log.e("扫码登陆", "开始");
                 mPresenter.getQRLoginSure(cardno, biaoshi);
                 break;
         }
