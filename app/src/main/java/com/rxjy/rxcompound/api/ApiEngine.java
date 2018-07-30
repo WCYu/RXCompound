@@ -30,11 +30,11 @@ public class ApiEngine {
     // private static final String DES_API_LH="http://swb.idc.rx/";//温特斯量房单号获取
     private static final String DES_API_LH = "https://api.niujingji.cn:8183/";//温特斯量房单号获取
 
-     private static final String DES_API_LHSUBMIT = "http://192.168.1.192:8867/";//温特斯量房单号提交 测试
+//     private static final String DES_API_LHSUBMIT = "http://192.168.1.192:8867/";//温特斯量房单号提交 测试
 
    // private static final String DES_API_LHSUBMIT ="http://java.wenes.cs/";
 
-   // private static final String DES_API_LHSUBMIT = "http://app.wenes.cn/";//温特斯量房单号提交 线上
+    private static final String DES_API_LHSUBMIT = "http://app.wenes.cn/";//温特斯量房单号提交 线上
 
     private static final String DES_API_ERLOGIN = "http://app.wenes.cn/";//温特斯二维码登录
 
