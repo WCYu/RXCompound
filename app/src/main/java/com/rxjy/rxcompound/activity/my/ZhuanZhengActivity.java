@@ -301,13 +301,13 @@ public class ZhuanZhengActivity extends BaseActivity<BaseInformPresenter> implem
                 }
 
                 String hege = zhuanZhengBean.getBody().getHege();
-
-//                if(hege.equals("1")){//允许转正
-                commitData();
-//                }else {
-//                    Log.e("tag_申请转正",baoxian + hukou + duty.getText().toString());
-//                    ToastUtil.getInstance().toastCentent(zhuanZhengBean.getBody().getZhuanzhengTimeStr());
-//                }
+                String zhuanzhengTimeStr = zhuanZhengBean.getBody().getZhuanzhengTimeStr();
+                if (hege.equals("1") && zhuanzhengTimeStr.equals("转正时间已到;")) {//允许转正
+                    commitData();
+                } else {
+                    Log.e("tag_申请转正", baoxian + hukou + duty.getText().toString());
+                    ToastUtil.getInstance().toastCentent(zhuanZhengBean.getBody().getZhuanzhengTimeStr());
+                }
 
                 break;
         }
