@@ -95,7 +95,6 @@ public class SplashActivity extends BaseActivity<LoginPresenter> implements Logi
 
     @Override
     public void initData() {
-        getVersionInfo(Integer.parseInt(App.getVersionCode()));
         if (Build.VERSION.SDK_INT >= 23) {
             int REQUEST_CODE_CONTACT = 101;
             String[] permissions = {Manifest.permission.WRITE_EXTERNAL_STORAGE};
@@ -108,6 +107,12 @@ public class SplashActivity extends BaseActivity<LoginPresenter> implements Logi
                 }
             }
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        getVersionInfo(Integer.parseInt(App.getVersionCode()));
     }
 
     private void getVersionInfo(int version) {
@@ -228,7 +233,7 @@ public class SplashActivity extends BaseActivity<LoginPresenter> implements Logi
         }
     };
 
-    private void init() {
+    public void init() {
         Log.e("开始", "开始");
         //读取存储，记录应用启动次数
         SharedPreferences preferences = getSharedPreferences(Constants.IS_FIRST_SPLASH, MODE_PRIVATE);

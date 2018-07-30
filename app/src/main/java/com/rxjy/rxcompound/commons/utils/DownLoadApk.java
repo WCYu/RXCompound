@@ -1,6 +1,7 @@
 package com.rxjy.rxcompound.commons.utils;
 
 import android.Manifest;
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -12,6 +13,7 @@ import android.support.v4.content.FileProvider;
 import android.util.Log;
 
 
+import com.rxjy.rxcompound.activity.SplashActivity;
 import com.rxjy.rxcompound.commons.App;
 import com.rxjy.rxcompound.entity.VersionInfo;
 
@@ -80,7 +82,7 @@ public class DownLoadApk {
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setConnectTimeout(5000);
             // 获取到文件的大小
-            pd.setMax(conn.getContentLength());
+            pd.setMax(conn.getContentLength() / 1024);
             InputStream is = conn.getInputStream();
             File file = new File(Environment.getExternalStorageDirectory(),
                     "gc.apk");
@@ -93,7 +95,7 @@ public class DownLoadApk {
                 fos.write(buffer, 0, len);
                 total += len;
                 // 获取当前下载量
-                pd.setProgress(total);
+                pd.setProgress(total / 1024);
             }
             fos.close();
             bis.close();
